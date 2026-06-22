@@ -13,5 +13,4 @@ Use Claude Code to manage a knowledge wiki
 - Create a command for specifying a new resource (normally by URI) and interactively discussing and filing 
 - Produce a local Markdown version of the resource with YAML front-matter 
 - Create in a way allowing for Obisdian viewing 
-- Use a shallow actionability spine like PARA 
 
