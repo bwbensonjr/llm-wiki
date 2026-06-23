@@ -7,11 +7,13 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 
 - [[formal-methods-and-the-future-of-programming|Formal methods and the future of programming]] — Jane Street reverses course and embraces formal methods as agentic coding shifts the cost/benefit calculus.
 - [[plotnine-a-grammar-of-graphics-for-python|Plotnine: a grammar of graphics for Python]] — a Python plotting library built on the grammar of graphics, modeled on R's ggplot2.
+- [[karpathys-llm-wiki-pattern|Karpathy's LLM-Wiki pattern]] — the design basis for this project: an LLM incrementally builds and maintains a compounding Markdown wiki.
 
 ## Entities
 
 - [[jane-street|Jane Street]] — trading firm known for its OCaml use and language tooling.
 - [[yaron-minsky|Yaron Minsky]] — brought OCaml to Jane Street (2002); author of the formal-methods announcement.
+- [[andrej-karpathy|Andrej Karpathy]] — AI researcher; author of the LLM-Wiki pattern.
 
 ## Concepts
 
@@ -25,7 +27,12 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[ggplot2|ggplot2]] — R's grammar-of-graphics package; the model Plotnine mirrors.
 - [[python|Python]] — general-purpose language widely used for data analysis; host for Plotnine.
 - [[data-visualization|Data Visualization]] — representing data graphically for exploration and communication.
+- [[llm-wiki|LLM Wiki]] — pattern where an LLM builds and maintains a compounding, interlinked Markdown wiki.
+- [[retrieval-augmented-generation|Retrieval-Augmented Generation]] — query-time retrieval over raw documents; the approach the LLM-Wiki pattern contrasts against.
+- [[personal-knowledge-management|Personal Knowledge Management]] — accumulating and connecting one's own knowledge over time.
+- [[obsidian|Obsidian]] — local-first Markdown editor; the human's read-side IDE for the wiki.
+- [[memex|Memex]] — Vannevar Bush's 1945 associative knowledge store; precursor to the LLM-Wiki idea.
 
 ## Analyses
 
-_None yet._
+- [[when-to-create-an-analysis-entry|When to create an analysis entry]] — per Karpathy, file a query answer back when it's a durable synthesis, comparison, or discovered connection worth keeping.
