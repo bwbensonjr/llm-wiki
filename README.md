@@ -2,6 +2,9 @@
 
 Use Claude Code to manage a knowledge wiki
 
+The current state of the knolwedge wiki is available at
+[`https://bwbensonjr.github.io/llm-wiki`](https://bwbensonjr.github.io/llm-wiki).
+
 ## Design References
 
 - Based on Karpathy's llm-wiki: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
