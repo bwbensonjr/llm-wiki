@@ -78,12 +78,19 @@ is a hosted HTTP call. Local files never leave the machine.
 
 - **Jina Reader is hosted, not self-hosted (for now).** Simplicity over
   zero-external-calls. Self-hosting is a documented future option, not in scope.
-- **Jina Reader is used keyless** against `r.jina.ai` to start, accepting its
-  rate limits. If limits become a problem we add an API key later; not in scope
-  now.
+- **Jina Reader authentication.** `r.jina.ai` now rejects keyless requests with
+  `401 Unauthorized`, so a key is required for the web-URL path in practice. The
+  converter reads an optional `JINA_API_KEY` from the environment and sends it
+  as a `Bearer` token; it still attempts the request keyless when no key is set
+  (forward-compatible if the keyless tier returns). The key is supplied via the
+  environment, not stored in the repo.
 - **Routing is by detected content type, not file extension alone.** A URL that
   resolves to a PDF should still go to Docling; detection should consider the
-  fetched content type, falling back to extension.
+  fetched content type, falling back to extension. Two refinements proven during
+  implementation: the content-type probe sends a browser-like `User-Agent` (some
+  sites, e.g. Wikipedia, reject the default and would otherwise be misrouted),
+  and when a URL's content type is indeterminate, a path with no document-like
+  extension is presumed HTML and routed to Jina Reader rather than MarkItDown.
 
 ### Failure handling
 
