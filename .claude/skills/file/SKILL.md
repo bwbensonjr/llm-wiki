@@ -29,25 +29,24 @@ uv run wiki-capture "<uri-or-path>"
 This detects the content type, routes it (web→Jina Reader, PDF→Docling,
 other→MarkItDown), and writes the immutable twin `raw/<date>-<slug>.md`.
 
-**Optional — localize images.** By default the twin keeps the converter's
-original (often expiring) remote image links and downloads nothing. When the
-source is a web page whose **figures carry meaning** (a diagram, a chart, a
-screenshot the argument depends on), add `--images`:
+**Images localize automatically.** For a web page, capture downloads the
+source's **content** images into `raw/assets/<twin-stem>/`, rewrites the twin's
+links to the local copies, and skips avatars/thumbnails/tiny images
+mechanically — no flag needed. A text page yields no content images and
+downloads nothing, so the default is safe. You review what was grabbed in Phase
+2 (see below). Only suppress it with `--no-images` in the rare case a page's
+figures are worthless and you want to skip the download entirely:
 
 ```bash
-uv run wiki-capture "<uri-or-path>" --images
+uv run wiki-capture "<uri-or-path>" --no-images
 ```
 
-This downloads that source's content images into `raw/assets/<twin-stem>/`,
-rewrites the twin's links to the local copies, and skips avatars/thumbnails
-mechanically. Use it sparingly — a text-only source needs no images. The JSON
-output then includes an `"images"` report (`kept` / `skipped`). The web/Jina
-route is the only one this affects; PDFs and other files ignore the flag.
+The web/Jina route is the only one affected; PDFs and other files ignore this.
 
 - **On success** it prints a JSON object to stdout:
   `{"raw_path": ..., "converter": ..., "detected_type": ..., "title": ...,
-  "images": ...}` (`images` only present with `--images`). Parse it and keep
-  `raw_path`.
+  "images": ...}` (`images` — a `kept`/`skipped` report — present whenever
+  localization ran). Parse it and keep `raw_path`.
 - **On failure** it prints a JSON `{"error": ...}` to stderr and exits non-zero,
   having written nothing. **Stop here** and report the failure reason to the
   user. Do not write any `wiki/` files.
@@ -61,12 +60,16 @@ only artifact is the harmless raw twin — which is correct.
 
 ### 1. Read and propose
 
-Read the raw twin at `raw_path`. **If the source was captured with `--images`**
-(the twin has links into `raw/assets/<twin-stem>/`), `Read` those localized
-figures and fold the meaningful ones into your draft `## Summary` as prose —
-describe or transcribe what a figure shows, since the wiki layer is a
-distillation, not a copy. The figure's *knowledge* belongs in the summary text;
-its bytes stay in `raw/assets/`.
+Read the raw twin at `raw_path`. **If images were localized** (the twin has
+links into `raw/assets/<twin-stem>/`, and the capture JSON listed them under
+`images.kept`), this is the review-and-consent step for them: `Read` those
+localized figures, then present them to the user and fold the **meaningful** ones
+into your draft `## Summary` as prose — describe or transcribe what a figure
+shows, since the wiki layer is a distillation, not a copy. Let the user **drop**
+any that are noise; a dropped figure is simply not distilled and not promoted —
+its `raw/assets/` bytes stay in place (immutable), and unreferenced raw assets
+are a future `lint` concern, not this command's. The figure's *knowledge* belongs
+in the summary text; its bytes stay in `raw/assets/`.
 
 Then survey the existing wiki so your proposal fits the corpus:
 

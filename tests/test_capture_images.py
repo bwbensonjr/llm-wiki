@@ -31,20 +31,10 @@ def _capture(tmp_path, session, **kw):
     )
 
 
-def test_default_capture_localizes_nothing(tmp_path, png_bytes):
+def test_default_capture_localizes_content(tmp_path, png_bytes):
+    # No flag: the default localizes content images and skips the avatar.
     session = FakeSession(jina_markdown=MARKDOWN, images={DIAGRAM: png_bytes})
-    result = _capture(tmp_path, session)  # no localize_images
-
-    twin = (tmp_path / "raw" / f"{STEM}.md").read_text()
-    assert DIAGRAM in twin  # original remote link retained
-    assert "assets/" not in twin
-    assert not (tmp_path / "raw" / "assets").exists()
-    assert result.images is None
-
-
-def test_flagged_capture_downloads_into_assets(tmp_path, png_bytes):
-    session = FakeSession(jina_markdown=MARKDOWN, images={DIAGRAM: png_bytes})
-    result = _capture(tmp_path, session, localize_images=True)
+    result = _capture(tmp_path, session)
 
     twin = (tmp_path / "raw" / f"{STEM}.md").read_text()
     assert f"assets/{STEM}/img-2.png" in twin  # diagram rewritten to local path
@@ -57,10 +47,21 @@ def test_flagged_capture_downloads_into_assets(tmp_path, png_bytes):
     assert [s["src"] for s in result.images["skipped"]] == [AVATAR]
 
 
+def test_no_images_suppresses_localization(tmp_path, png_bytes):
+    session = FakeSession(jina_markdown=MARKDOWN, images={DIAGRAM: png_bytes})
+    result = _capture(tmp_path, session, localize_images=False)
+
+    twin = (tmp_path / "raw" / f"{STEM}.md").read_text()
+    assert DIAGRAM in twin  # original remote link retained
+    assert "assets/" not in twin
+    assert not (tmp_path / "raw" / "assets").exists()
+    assert result.images is None
+
+
 def test_core_conversion_failure_writes_nothing(tmp_path):
     session = FakeSession(jina_markdown="")  # empty -> ConversionError
     with pytest.raises(ConversionError):
-        _capture(tmp_path, session, localize_images=True)
+        _capture(tmp_path, session)
 
     assert not (tmp_path / "raw" / f"{STEM}.md").exists()
     assert not (tmp_path / "raw" / "assets").exists()
@@ -73,7 +74,7 @@ def test_assets_stem_tracks_unique_path_suffix(tmp_path, png_bytes):
     (raw_dir / f"{STEM}.md").write_text("pre-existing twin")
 
     session = FakeSession(jina_markdown=MARKDOWN, images={DIAGRAM: png_bytes})
-    result = _capture(tmp_path, session, localize_images=True)
+    result = _capture(tmp_path, session)
 
     assert result.raw_path.name == f"{STEM}-2.md"
     twin = result.raw_path.read_text()

@@ -31,18 +31,20 @@ def main(argv=None):
         help="directory for raw twins (default: raw)",
     )
     parser.add_argument(
-        "--images",
+        "--no-images",
         action="store_true",
         help=(
-            "localize this source's content images into raw/assets/ "
-            "(web/Jina route only; off by default)"
+            "suppress image localization for this source "
+            "(web/Jina content images are localized into raw/assets/ by default)"
         ),
     )
     args = parser.parse_args(argv)
 
     try:
         result = capture(
-            args.source, raw_dir=args.raw_dir, localize_images=args.images
+            args.source,
+            raw_dir=args.raw_dir,
+            localize_images=not args.no_images,
         )
     except (DetectionError, ConversionError) as exc:
         json.dump({"error": str(exc), "source": args.source}, sys.stderr)

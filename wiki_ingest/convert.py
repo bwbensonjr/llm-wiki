@@ -107,14 +107,17 @@ def _unique_path(raw_dir, date, slug):
         n += 1
 
 
-def capture(source, raw_dir="raw", session=None, today=None, localize_images=False):
+def capture(source, raw_dir="raw", session=None, today=None, localize_images=True):
     """Run Phase 1: detect, convert, and write the immutable raw twin.
 
     Returns a CaptureResult. Raises DetectionError or ConversionError before
     writing anything if the source cannot be reached or converted. When
-    ``localize_images`` is set and the source took the Jina route, that source's
-    content images are downloaded into ``raw/assets/<twin-stem>/`` and the twin's
-    links are rewritten to the local copies before the twin is written.
+    ``localize_images`` is set (the default) and the source took the Jina route,
+    that source's content images are downloaded into ``raw/assets/<twin-stem>/``
+    and the twin's links are rewritten to the local copies before the twin is
+    written. The mechanical filter is the selectivity control, so a page with no
+    content images downloads nothing; pass ``localize_images=False`` to suppress
+    localization entirely.
     """
     route, detected_type = detect.detect(source, session=session)
     markdown = convert(source, route, session=session)

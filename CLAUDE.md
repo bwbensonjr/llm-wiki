@@ -144,25 +144,30 @@ Conversion is all-or-nothing: on any failure, write nothing and report why.
 
 ## Image handling
 
-Image localization is **opt-in and scoped to the web/Jina route.** By default a
-twin keeps the converter's original (often expiring) remote image links and
-downloads nothing — correct for a text-dominant source. Passing `--images` to
-`wiki-capture` (use it only when a source's figures carry meaning) makes Phase 1:
+Image localization is **default-on and scoped to the web/Jina route.** For a web
+page, Phase 1 automatically:
 
-- download that source's **content** images into `raw/assets/<twin-stem>/` —
+- downloads that source's **content** images into `raw/assets/<twin-stem>/` —
   immutable raw bytes, the source of truth, keyed to the twin's filename stem;
-- rewrite the twin's image links to those local relative paths (done before the
+- rewrites the twin's image links to those local relative paths (done before the
   single twin write, so the immutable twin is never edited after the fact);
-- skip avatars/thumbnails/undersized images mechanically (no LLM judgment), and
-  tolerate a single image's download failure by leaving its link remote.
+- skips avatars/thumbnails/undersized images mechanically (no LLM judgment), and
+  tolerates a single image's download failure by leaving its link remote.
 
-A figure's *knowledge* reaches `wiki/` as **prose**: during the Phase 2
-interview the LLM views the localized figures and distills the meaningful ones
-into `## Summary`. A figure's *bytes* reach the published site only by **lazy
-promotion** — when a figure must be seen and the user approves, a curated copy
-moves into `wiki/assets/` (created on first use) and is embedded in the summary;
-the `raw/assets/` original stays the source of truth. Both `raw/assets/` and
-`wiki/assets/` are content and are committed — they are not in `.gitignore`.
+The mechanical filter is the selectivity control, so a text-dominant page yields
+no content images and downloads nothing. Pass `--no-images` to `wiki-capture` to
+suppress localization entirely for the rare page whose figures are worthless.
+
+A figure's *knowledge* reaches `wiki/` as **prose**: the Phase 2 interview is the
+review/consent point — the LLM presents the localized figures, distills the
+meaningful ones into `## Summary`, and the user drops any noise (a dropped figure
+is not distilled or promoted; its `raw/assets/` bytes remain, and unreferenced
+raw assets are a future `lint` concern). A figure's *bytes* reach the published
+site only by **lazy promotion** — when a figure must be seen and the user
+approves, a curated copy moves into `wiki/assets/` (created on first use) and is
+embedded in the summary; the `raw/assets/` original stays the source of truth.
+Both `raw/assets/` and `wiki/assets/` are content and are committed — they are not
+in `.gitignore`.
 
 ## Python
 
