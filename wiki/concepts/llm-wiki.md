@@ -25,3 +25,4 @@ precursor.
 ## Sources
 
 - [[karpathys-llm-wiki-pattern|Karpathy's LLM-Wiki pattern]]
+- [[when-to-create-an-analysis-entry|When to create an analysis entry]] (analysis)

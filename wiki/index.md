@@ -35,4 +35,4 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 
 ## Analyses
 
-_None yet._
+- [[when-to-create-an-analysis-entry|When to create an analysis entry]] — per Karpathy, file a query answer back when it's a durable synthesis, comparison, or discovered connection worth keeping.
