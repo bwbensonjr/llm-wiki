@@ -1,0 +1,13 @@
+# Project toolchain, managed by mise. `cd` into the repo and mise activates it.
+# Secrets (e.g. JINA_API_KEY) do NOT belong here — put them in mise.local.toml,
+# which is gitignored. See CLAUDE.md.
+
+[tools]
+python = "3.13"
+uv = "latest"
+node = "latest"
+"npm:@fission-ai/openspec" = "latest"
+
+[env]
+# Non-secret, project-wide environment goes here.
+# JINA_API_KEY = "..."   # NO — secret; set in mise.local.toml instead.

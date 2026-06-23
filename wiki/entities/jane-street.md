@@ -14,9 +14,9 @@ heavy use of [[ocaml|OCaml]] and its investment in language tooling. The author 
 ## Notes
 
 - Long held that full [[formal-methods|formal methods]] were not worth the cost
-  for most software; reversed that stance in 2026 as [[agentic-coding|agentic
-  coding]] changed the cost/benefit calculus, and is now building a formal
-  methods team.
+  for most software; reversed that stance in 2026 as
+  [[agentic-coding|agentic coding]] changed the cost/benefit calculus, and is
+  now building a formal methods team.
 
 ## Sources
 

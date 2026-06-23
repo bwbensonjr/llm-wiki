@@ -99,8 +99,10 @@ templates in `templates/` as the starting shape.)
 
 Validate before finishing: the summary's `type` is one of the allowed values,
 both voices are present, and every `[[wikilink]]` points to a real or
-just-created page filename. If anything is off, fix it rather than committing a
-broken page.
+just-created page filename. Keep each `[[wikilink]]` on a single line —
+Obsidian does not resolve a link split across a line break, so never let line
+wrapping break one. If anything is off, fix it rather than committing a broken
+page.
 
 ---
 
