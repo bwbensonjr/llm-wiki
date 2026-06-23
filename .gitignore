@@ -5,3 +5,9 @@
 __pycache__/
 *.py[cod]
 .venv/
+
+# Obsidian local config (machine-specific)
+.obsidian/
+
+# mise local overrides & secrets (e.g. JINA_API_KEY)
+mise.local.toml
