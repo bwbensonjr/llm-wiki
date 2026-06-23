@@ -4,7 +4,7 @@ title: When to create an analysis entry
 created: 2026-06-23
 question: What does Karpathy's llm-wiki article say about when to create an analysis entry?
 tags: [knowledge-management, llm-agents]
-sources: [[karpathys-llm-wiki-pattern]], [[llm-wiki]]
+sources: ["[[karpathys-llm-wiki-pattern]]", "[[llm-wiki]]"]
 ---
 
 # When to create an analysis entry
