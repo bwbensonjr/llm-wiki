@@ -29,9 +29,25 @@ uv run wiki-capture "<uri-or-path>"
 This detects the content type, routes it (web→Jina Reader, PDF→Docling,
 other→MarkItDown), and writes the immutable twin `raw/<date>-<slug>.md`.
 
+**Optional — localize images.** By default the twin keeps the converter's
+original (often expiring) remote image links and downloads nothing. When the
+source is a web page whose **figures carry meaning** (a diagram, a chart, a
+screenshot the argument depends on), add `--images`:
+
+```bash
+uv run wiki-capture "<uri-or-path>" --images
+```
+
+This downloads that source's content images into `raw/assets/<twin-stem>/`,
+rewrites the twin's links to the local copies, and skips avatars/thumbnails
+mechanically. Use it sparingly — a text-only source needs no images. The JSON
+output then includes an `"images"` report (`kept` / `skipped`). The web/Jina
+route is the only one this affects; PDFs and other files ignore the flag.
+
 - **On success** it prints a JSON object to stdout:
-  `{"raw_path": ..., "converter": ..., "detected_type": ..., "title": ...}`.
-  Parse it and keep `raw_path`.
+  `{"raw_path": ..., "converter": ..., "detected_type": ..., "title": ...,
+  "images": ...}` (`images` only present with `--images`). Parse it and keep
+  `raw_path`.
 - **On failure** it prints a JSON `{"error": ...}` to stderr and exits non-zero,
   having written nothing. **Stop here** and report the failure reason to the
   user. Do not write any `wiki/` files.
@@ -45,8 +61,14 @@ only artifact is the harmless raw twin — which is correct.
 
 ### 1. Read and propose
 
-Read the raw twin at `raw_path`. Then survey the existing wiki so your proposal
-fits the corpus:
+Read the raw twin at `raw_path`. **If the source was captured with `--images`**
+(the twin has links into `raw/assets/<twin-stem>/`), `Read` those localized
+figures and fold the meaningful ones into your draft `## Summary` as prose —
+describe or transcribe what a figure shows, since the wiki layer is a
+distillation, not a copy. The figure's *knowledge* belongs in the summary text;
+its bytes stay in `raw/assets/`.
+
+Then survey the existing wiki so your proposal fits the corpus:
 
 - `wiki/index.md` and existing hub pages under `wiki/entities/` and
   `wiki/concepts/` — to find pages your `[[wikilinks]]` should point to.
@@ -96,6 +118,14 @@ templates in `templates/` as the starting shape.)
 4. **`wiki/log.md`** — append one entry (do not rewrite existing ones):
    `## [<date>] ingest: <title>` followed by a line noting the source and the
    converter used.
+
+**Optional — display a figure on the site.** Prose is the default; only when a
+localized figure *must be seen* (a diagram prose cannot replace) and the user
+approves, promote it: copy that one file from `raw/assets/<twin-stem>/` into
+`wiki/assets/` (create the directory on first use), and embed it in the summary
+with an Obsidian image link (`![[<filename>]]` or `![alt](../assets/<filename>)`).
+Leave the `raw/assets/` original untouched — it remains the source of truth.
+Promote only what needs showing; do not bulk-copy the source's images.
 
 Validate before finishing: the summary's `type` is one of the allowed values,
 both voices are present, and every `[[wikilink]]` points to a real or

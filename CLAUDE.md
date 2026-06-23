@@ -142,6 +142,28 @@ precedence over extension) and routes:
 
 Conversion is all-or-nothing: on any failure, write nothing and report why.
 
+## Image handling
+
+Image localization is **opt-in and scoped to the web/Jina route.** By default a
+twin keeps the converter's original (often expiring) remote image links and
+downloads nothing — correct for a text-dominant source. Passing `--images` to
+`wiki-capture` (use it only when a source's figures carry meaning) makes Phase 1:
+
+- download that source's **content** images into `raw/assets/<twin-stem>/` —
+  immutable raw bytes, the source of truth, keyed to the twin's filename stem;
+- rewrite the twin's image links to those local relative paths (done before the
+  single twin write, so the immutable twin is never edited after the fact);
+- skip avatars/thumbnails/undersized images mechanically (no LLM judgment), and
+  tolerate a single image's download failure by leaving its link remote.
+
+A figure's *knowledge* reaches `wiki/` as **prose**: during the Phase 2
+interview the LLM views the localized figures and distills the meaningful ones
+into `## Summary`. A figure's *bytes* reach the published site only by **lazy
+promotion** — when a figure must be seen and the user approves, a curated copy
+moves into `wiki/assets/` (created on first use) and is embedded in the summary;
+the `raw/assets/` original stays the source of truth. Both `raw/assets/` and
+`wiki/assets/` are content and are committed — they are not in `.gitignore`.
+
 ## Python
 
 This repo's converter is a `uv` project (`pyproject.toml` at root). Use `uv`,

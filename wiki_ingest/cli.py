@@ -30,24 +30,34 @@ def main(argv=None):
         default="raw",
         help="directory for raw twins (default: raw)",
     )
+    parser.add_argument(
+        "--images",
+        action="store_true",
+        help=(
+            "localize this source's content images into raw/assets/ "
+            "(web/Jina route only; off by default)"
+        ),
+    )
     args = parser.parse_args(argv)
 
     try:
-        result = capture(args.source, raw_dir=args.raw_dir)
+        result = capture(
+            args.source, raw_dir=args.raw_dir, localize_images=args.images
+        )
     except (DetectionError, ConversionError) as exc:
         json.dump({"error": str(exc), "source": args.source}, sys.stderr)
         sys.stderr.write("\n")
         return 1
 
-    json.dump(
-        {
-            "raw_path": str(result.raw_path),
-            "converter": result.converter,
-            "detected_type": result.detected_type,
-            "title": result.title,
-        },
-        sys.stdout,
-    )
+    payload: dict = {
+        "raw_path": str(result.raw_path),
+        "converter": result.converter,
+        "detected_type": result.detected_type,
+        "title": result.title,
+    }
+    if result.images is not None:
+        payload["images"] = result.images
+    json.dump(payload, sys.stdout)
     sys.stdout.write("\n")
     return 0
 

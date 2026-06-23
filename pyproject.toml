@@ -13,6 +13,9 @@ dependencies = [
 [project.scripts]
 wiki-capture = "wiki_ingest.cli:main"
 
+[dependency-groups]
+dev = ["pytest>=8"]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

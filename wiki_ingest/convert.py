@@ -8,6 +8,7 @@ is all-or-nothing: any failure raises and leaves no file behind.
 import datetime
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Optional
 
 from . import detect
 from .slug import twin_slug
@@ -25,6 +26,7 @@ class CaptureResult:
     converter: str
     detected_type: str
     title: str
+    images: Optional[dict] = None
 
 
 def _convert_jina(url, session=None):
@@ -105,11 +107,14 @@ def _unique_path(raw_dir, date, slug):
         n += 1
 
 
-def capture(source, raw_dir="raw", session=None, today=None):
+def capture(source, raw_dir="raw", session=None, today=None, localize_images=False):
     """Run Phase 1: detect, convert, and write the immutable raw twin.
 
     Returns a CaptureResult. Raises DetectionError or ConversionError before
-    writing anything if the source cannot be reached or converted.
+    writing anything if the source cannot be reached or converted. When
+    ``localize_images`` is set and the source took the Jina route, that source's
+    content images are downloaded into ``raw/assets/<twin-stem>/`` and the twin's
+    links are rewritten to the local copies before the twin is written.
     """
     route, detected_type = detect.detect(source, session=session)
     markdown = convert(source, route, session=session)
@@ -123,6 +128,21 @@ def capture(source, raw_dir="raw", session=None, today=None):
     raw_dir = Path(raw_dir)
     raw_dir.mkdir(parents=True, exist_ok=True)
     path = _unique_path(raw_dir, date, slug)
+
+    # Localize images only after the twin path (and thus its stem) is known, and
+    # only for the Jina route. The rewrite happens before the single twin write,
+    # so the immutable twin is never edited after the fact; the assets directory
+    # is created lazily by localize() only if an image is actually kept.
+    images = None
+    if localize_images and route == detect.JINA:
+        from .images import localize
+
+        stem = path.stem
+        assets_dir = raw_dir / "assets" / stem
+        markdown, report = localize(
+            markdown, assets_dir, f"assets/{stem}", session=session
+        )
+        images = report.as_dict()
 
     front_matter = (
         "---\n"
@@ -139,4 +159,5 @@ def capture(source, raw_dir="raw", session=None, today=None):
         converter=route,
         detected_type=detected_type,
         title=title,
+        images=images,
     )
