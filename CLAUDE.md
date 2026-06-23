@@ -78,7 +78,28 @@ tags: [<...>]
 ---
 ```
 
-Page templates live in `templates/` (`summary.md`, `entity.md`, `concept.md`).
+Analysis page — `wiki/analyses/<slug>.md`:
+
+```yaml
+---
+type: analysis
+title: <Human-readable title>
+created: <YYYY-MM-DD>
+question: <the original question, verbatim>
+tags: [<tag-a>, <tag-b>]
+sources: [[<cited-page>]], [[<cited-page>]]
+---
+```
+
+An analysis is a filed-back `query` answer. `question:` records the prompt that
+produced it and `sources:` lists the wiki pages it cites. Like a summary, its
+body has exactly two named sections: `## Answer` (the LLM's corpus-grounded
+synthesis, with inline `[[wikilinks]]`) and `## Why this matters` (the curator's
+commentary). Every cited claim must trace to a real page; outside knowledge, if
+included, is marked as not corpus-backed.
+
+Page templates live in `templates/` (`summary.md`, `entity.md`, `concept.md`,
+`analysis.md`).
 
 ## Wikilinks & Obsidian
 
