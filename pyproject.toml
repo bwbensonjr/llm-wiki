@@ -1,0 +1,21 @@
+[project]
+name = "llm-wiki"
+version = "0.1.0"
+description = "Converter tooling for the llm-wiki resource-ingestion pipeline"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "docling>=2.0",
+    "markitdown>=0.0.1",
+]
+
+[project.scripts]
+wiki-capture = "wiki_ingest.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["wiki_ingest"]
