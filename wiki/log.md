@@ -24,3 +24,9 @@ so the log stays greppable by the stable `## [` prefix.
 - source: https://plotnine.org/ (converter: jina)
 - summary: [[plotnine-a-grammar-of-graphics-for-python|Plotnine: a grammar of graphics for Python]]
 - hubs touched: [[plotnine|Plotnine]], [[grammar-of-graphics|Grammar of Graphics]], [[ggplot2|ggplot2]], [[python|Python]], [[data-visualization|Data Visualization]] (all created)
+
+## [2026-06-23] ingest: Karpathy's LLM-Wiki pattern
+
+- source: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f (converter: jina)
+- summary: [[karpathys-llm-wiki-pattern|Karpathy's LLM-Wiki pattern]]
+- hubs touched: [[andrej-karpathy|Andrej Karpathy]], [[llm-wiki|LLM Wiki]], [[retrieval-augmented-generation|Retrieval-Augmented Generation]], [[personal-knowledge-management|Personal Knowledge Management]], [[obsidian|Obsidian]], [[memex|Memex]] (all created)
