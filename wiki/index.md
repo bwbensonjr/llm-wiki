@@ -10,6 +10,9 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[karpathys-llm-wiki-pattern|Karpathy's LLM-Wiki pattern]] — the design basis for this project: an LLM incrementally builds and maintains a compounding Markdown wiki.
 - [[satya-nadella-a-frontier-without-an-ecosystem-is-not-stable|Satya Nadella: A frontier without an ecosystem is not stable]] — firms must compound human capital and token capital via a learning loop, and build a frontier ecosystem rather than ceding value to a few models.
 - [[how-llms-actually-work|How LLMs Actually Work]] — an intuition-first, math-light walkthrough of the transformer architecture behind modern LLMs, one forward pass end to end.
+- [[why-janet|Why Janet?]] — a sales pitch for Janet, a small practical Lisp dialect, spanning simplicity, native binaries, PEGs, macros, and compile-time-to-run-time values.
+- [[the-janet-programming-language|The Janet Programming Language]] — Janet's official homepage: use cases, feature list, C99 embeddability, the jpm build tool, and the library/editor ecosystem.
+- [[bayesian-modeling-for-unknown-coordinates|Bayesian modeling for unknown coordinates]] — a Bayesian Gaussian-process model for spatial data whose point locations are observed with noise, worked in PyMC on the Walker Lake uranium data.
 
 ## Entities
 
@@ -19,6 +22,8 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[satya-nadella|Satya Nadella]] — Microsoft CEO; author of the human-capital/token-capital thread.
 - [[microsoft|Microsoft]] — technology company led by Satya Nadella.
 - [[0xkato|0xkato]] — writer/researcher; author of the "How LLMs Actually Work" explainer.
+- [[ian-henry|Ian Henry]] — programmer/writer; author of *Janet for Mortals* and the "Why Janet?" pitch.
+- [[christopher-krapu|Christopher Krapu]] — data scientist/writer on Bayesian modeling, Gaussian processes, and spatial statistics.
 
 ## Concepts
 
@@ -43,6 +48,11 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[transformer|Transformer]] — the stacked attention + feed-forward architecture most modern LLMs are built from.
 - [[attention-mechanism|Attention Mechanism]] — how each token pulls information from the other tokens it can see, via Query/Key/Value.
 - [[large-language-model|Large Language Model]] — a next-token predictor built on the transformer; base behavior plus post-training.
+- [[janet|Janet]] — a small, practical Lisp dialect: easy to embed, compiles to self-contained native binaries, strong at text parsing.
+- [[lisp|Lisp]] — the family of parenthesized, s-expression languages built on code-as-data and macros.
+- [[bayesian-inference|Bayesian Inference]] — updating prior beliefs to posteriors given data; flexible model-building plus Monte Carlo estimation.
+- [[gaussian-process|Gaussian Process]] — a kernel-defined distribution over functions used as a flexible regression prior.
+- [[pymc|PyMC]] — a Python probabilistic-programming library for Bayesian modeling with MCMC.
 
 ## Analyses
 

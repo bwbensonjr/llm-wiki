@@ -49,3 +49,24 @@ so the log stays greppable by the stable `## [` prefix.
 - summary: [[how-llms-actually-work|How LLMs Actually Work]]
 - hubs touched: [[0xkato|0xkato]], [[transformer|Transformer]], [[attention-mechanism|Attention Mechanism]], [[large-language-model|Large Language Model]] (all created)
 - images: 8 figures localized to raw/assets/2026-06-23-how-llms-actually-work/; 2 promoted to wiki/assets/ (transformer-pipeline.png, transformer-attention-heatmap.png)
+
+## [2026-06-23] ingest: Why Janet?
+
+- source: https://ianthehenry.com/posts/why-janet/ (converter: jina)
+- summary: [[why-janet|Why Janet?]]
+- hubs touched: [[ian-henry|Ian Henry]], [[janet|Janet]], [[lisp|Lisp]] (all created)
+- images: none (text article)
+
+## [2026-06-23] ingest: The Janet Programming Language
+
+- source: https://janet-lang.org/ (converter: jina)
+- summary: [[the-janet-programming-language|The Janet Programming Language]]
+- hubs touched: [[janet|Janet]], [[lisp|Lisp]], [[ian-henry|Ian Henry]] (all existing; appended to Sources)
+- images: none (text page)
+
+## [2026-06-23] ingest: Bayesian modeling for unknown coordinates
+
+- source: https://christopherkrapu.com/blog/2026/dont-know-where-your-data-is-from/ (converter: jina)
+- summary: [[bayesian-modeling-for-unknown-coordinates|Bayesian modeling for unknown coordinates]]
+- hubs touched: [[christopher-krapu|Christopher Krapu]], [[bayesian-inference|Bayesian Inference]], [[gaussian-process|Gaussian Process]], [[pymc|PyMC]] (all created)
+- images: none (figure is code-generated, not in page markup)
