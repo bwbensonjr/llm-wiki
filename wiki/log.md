@@ -42,3 +42,10 @@ so the log stays greppable by the stable `## [` prefix.
 - source: https://x.com/satyanadella/status/2066182223213293753/ (converter: jina)
 - summary: [[satya-nadella-a-frontier-without-an-ecosystem-is-not-stable|Satya Nadella: A frontier without an ecosystem is not stable]]
 - hubs touched: [[satya-nadella|Satya Nadella]], [[microsoft|Microsoft]], [[human-capital|Human Capital]], [[token-capital|Token Capital]], [[learning-loop|Learning Loop]] (all created)
+
+## [2026-06-23] ingest: How LLMs Actually Work
+
+- source: https://www.0xkato.xyz/how-llms-actually-work/ (converter: jina, --images)
+- summary: [[how-llms-actually-work|How LLMs Actually Work]]
+- hubs touched: [[0xkato|0xkato]], [[transformer|Transformer]], [[attention-mechanism|Attention Mechanism]], [[large-language-model|Large Language Model]] (all created)
+- images: 8 figures localized to raw/assets/2026-06-23-how-llms-actually-work/; 2 promoted to wiki/assets/ (transformer-pipeline.png, transformer-attention-heatmap.png)

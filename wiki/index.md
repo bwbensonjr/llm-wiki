@@ -9,6 +9,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[plotnine-a-grammar-of-graphics-for-python|Plotnine: a grammar of graphics for Python]] — a Python plotting library built on the grammar of graphics, modeled on R's ggplot2.
 - [[karpathys-llm-wiki-pattern|Karpathy's LLM-Wiki pattern]] — the design basis for this project: an LLM incrementally builds and maintains a compounding Markdown wiki.
 - [[satya-nadella-a-frontier-without-an-ecosystem-is-not-stable|Satya Nadella: A frontier without an ecosystem is not stable]] — firms must compound human capital and token capital via a learning loop, and build a frontier ecosystem rather than ceding value to a few models.
+- [[how-llms-actually-work|How LLMs Actually Work]] — an intuition-first, math-light walkthrough of the transformer architecture behind modern LLMs, one forward pass end to end.
 
 ## Entities
 
@@ -17,6 +18,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[andrej-karpathy|Andrej Karpathy]] — AI researcher; author of the LLM-Wiki pattern.
 - [[satya-nadella|Satya Nadella]] — Microsoft CEO; author of the human-capital/token-capital thread.
 - [[microsoft|Microsoft]] — technology company led by Satya Nadella.
+- [[0xkato|0xkato]] — writer/researcher; author of the "How LLMs Actually Work" explainer.
 
 ## Concepts
 
@@ -38,6 +40,9 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[human-capital|Human Capital]] — the knowledge, judgment, and ingenuity of a firm's people; grows more valuable as AI capability grows.
 - [[token-capital|Token Capital]] — the AI capability a firm builds and owns; compounds with human capital.
 - [[learning-loop|Learning Loop]] — the compounding human+AI "hill climbing machine" that becomes a firm's new IP.
+- [[transformer|Transformer]] — the stacked attention + feed-forward architecture most modern LLMs are built from.
+- [[attention-mechanism|Attention Mechanism]] — how each token pulls information from the other tokens it can see, via Query/Key/Value.
+- [[large-language-model|Large Language Model]] — a next-token predictor built on the transformer; base behavior plus post-training.
 
 ## Analyses
 
