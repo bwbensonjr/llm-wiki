@@ -17,6 +17,12 @@ Use Claude Code to manage a knowledge wiki
   answer. Optionally files the answer back as an `analysis` page via the same
   propose→coach→commit interview, updating the index and log. Answers in
   conversation by default; writes nothing to the wiki unless you commit.
+- **`lint`** — audit the whole corpus for consistency defects: invalid or
+  incomplete front-matter, `type`/folder mismatches, broken wikilinks, orphan
+  pages, index/log drift, missing body sections, and near-duplicate tags. Reports
+  read-only by default; optionally repairs via the same propose→coach→commit
+  interview, separating safe mechanical fixes from judgment calls (like tag
+  merges) and previewing changes before writing. Never touches `raw/`.
 
 ## Ideas
 
