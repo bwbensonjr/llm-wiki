@@ -8,12 +8,15 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[formal-methods-and-the-future-of-programming|Formal methods and the future of programming]] — Jane Street reverses course and embraces formal methods as agentic coding shifts the cost/benefit calculus.
 - [[plotnine-a-grammar-of-graphics-for-python|Plotnine: a grammar of graphics for Python]] — a Python plotting library built on the grammar of graphics, modeled on R's ggplot2.
 - [[karpathys-llm-wiki-pattern|Karpathy's LLM-Wiki pattern]] — the design basis for this project: an LLM incrementally builds and maintains a compounding Markdown wiki.
+- [[satya-nadella-a-frontier-without-an-ecosystem-is-not-stable|Satya Nadella: A frontier without an ecosystem is not stable]] — firms must compound human capital and token capital via a learning loop, and build a frontier ecosystem rather than ceding value to a few models.
 
 ## Entities
 
 - [[jane-street|Jane Street]] — trading firm known for its OCaml use and language tooling.
 - [[yaron-minsky|Yaron Minsky]] — brought OCaml to Jane Street (2002); author of the formal-methods announcement.
 - [[andrej-karpathy|Andrej Karpathy]] — AI researcher; author of the LLM-Wiki pattern.
+- [[satya-nadella|Satya Nadella]] — Microsoft CEO; author of the human-capital/token-capital thread.
+- [[microsoft|Microsoft]] — technology company led by Satya Nadella.
 
 ## Concepts
 
@@ -32,6 +35,9 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[personal-knowledge-management|Personal Knowledge Management]] — accumulating and connecting one's own knowledge over time.
 - [[obsidian|Obsidian]] — local-first Markdown editor; the human's read-side IDE for the wiki.
 - [[memex|Memex]] — Vannevar Bush's 1945 associative knowledge store; precursor to the LLM-Wiki idea.
+- [[human-capital|Human Capital]] — the knowledge, judgment, and ingenuity of a firm's people; grows more valuable as AI capability grows.
+- [[token-capital|Token Capital]] — the AI capability a firm builds and owns; compounds with human capital.
+- [[learning-loop|Learning Loop]] — the compounding human+AI "hill climbing machine" that becomes a firm's new IP.
 
 ## Analyses
 

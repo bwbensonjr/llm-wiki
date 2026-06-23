@@ -36,3 +36,9 @@ so the log stays greppable by the stable `## [` prefix.
 - question: What does Karpathy's llm-wiki article say about when to create an analysis entry?
 - analysis: [[when-to-create-an-analysis-entry|When to create an analysis entry]]
 - sources cited: [[karpathys-llm-wiki-pattern|Karpathy's LLM-Wiki pattern]], [[llm-wiki|LLM Wiki]]
+
+## [2026-06-23] ingest: Satya Nadella: A frontier without an ecosystem is not stable
+
+- source: https://x.com/satyanadella/status/2066182223213293753/ (converter: jina)
+- summary: [[satya-nadella-a-frontier-without-an-ecosystem-is-not-stable|Satya Nadella: A frontier without an ecosystem is not stable]]
+- hubs touched: [[satya-nadella|Satya Nadella]], [[microsoft|Microsoft]], [[human-capital|Human Capital]], [[token-capital|Token Capital]], [[learning-loop|Learning Loop]] (all created)
