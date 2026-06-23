@@ -23,6 +23,10 @@
   `r.jina.ai`), PDF → Docling, other → MarkItDown
 - [x] 2.4 Write the immutable `raw/<date>-<slug>.md` twin with front-matter
   (`source`, `fetched-at`, `converter`); never overwrite an existing twin
+- [x] 2.4a Derive the twin slug from the source's extracted title per the
+  design's slug rule: read Jina Reader's `Title:` header line and the first
+  Markdown `# H1`, falling back to the URL path segment / filename only when no
+  title is extractable
 - [x] 2.5 Expose the router as a CLI command the `file` skill can invoke,
   returning the raw twin path and detected type
 - [x] 2.6 On conversion failure (unreachable source, unparseable content,
@@ -58,5 +62,7 @@
     (arXiv 1706.03762), non-PDF→markitdown (local .md). Full Phase 2 authoring
     (dual-voice summary, hub creation, index/log updates) exercised end-to-end
     via the Jane Street web ingest.
-- [ ] 4.3 Confirm the result opens correctly in Obsidian with working
+- [x] 4.3 Confirm the result opens correctly in Obsidian with working
   `[[wikilinks]]`
+  - Verified in Obsidian by the user; a wikilink split across a line break was
+    found and fixed, and a skill guardrail added to prevent recurrence.

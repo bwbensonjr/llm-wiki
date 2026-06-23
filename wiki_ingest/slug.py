@@ -19,8 +19,24 @@ def slugify(text):
 
 
 def extract_title(markdown):
-    """Return the text of the first Markdown H1 (`# ...`), or None."""
-    for line in markdown.splitlines():
+    """Return a human-readable title from converted Markdown, or None.
+
+    Jina Reader emits a structured header whose `Title:` line carries the
+    page title, terminated by a `Markdown Content:` marker; its body uses
+    lower-level headings, so there is often no `# H1` to find. Read that
+    header first (only when the marker is present, so a stray `Title:` in
+    ordinary prose is not mistaken for one), then fall back to the first
+    Markdown H1 (`# ...`) for Docling/MarkItDown output.
+    """
+    lines = markdown.splitlines()
+    if "Markdown Content:" in markdown:
+        for line in lines:
+            if line.strip() == "Markdown Content:":
+                break
+            match = re.match(r"Title:\s+(.+?)\s*$", line)
+            if match and match.group(1).strip():
+                return match.group(1).strip()
+    for line in lines:
         match = re.match(r"#\s+(.+?)\s*$", line)
         if match:
             return match.group(1).strip()
