@@ -4,7 +4,7 @@ title: <Human-readable title>
 created: <YYYY-MM-DD>
 question: <The original question, verbatim>
 tags: [<tag-a>, <tag-b>]
-sources: [[<cited-page>]], [[<cited-page>]]
+sources: ["[[<cited-page>]]", "[[<cited-page>]]"]
 ---
 
 # <Human-readable title>
