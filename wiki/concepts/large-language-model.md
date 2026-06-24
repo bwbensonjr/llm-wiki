@@ -28,3 +28,4 @@ post-training.
 ## Sources
 
 - [[how-llms-actually-work|How LLMs Actually Work]]
+- [[mcp-is-dead|MCP is dead]]

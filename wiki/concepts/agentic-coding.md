@@ -24,3 +24,4 @@ codebase invariants — which shifts effort onto verifying their output.
 ## Sources
 
 - [[formal-methods-and-the-future-of-programming|Formal methods and the future of programming]]
+- [[mcp-is-dead|MCP is dead]]

@@ -13,6 +13,9 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[why-janet|Why Janet?]] — a sales pitch for Janet, a small practical Lisp dialect, spanning simplicity, native binaries, PEGs, macros, and compile-time-to-run-time values.
 - [[the-janet-programming-language|The Janet Programming Language]] — Janet's official homepage: use cases, feature list, C99 embeddability, the jpm build tool, and the library/editor ecosystem.
 - [[bayesian-modeling-for-unknown-coordinates|Bayesian modeling for unknown coordinates]] — a Bayesian Gaussian-process model for spatial data whose point locations are observed with noise, worked in PyMC on the Walker Lake uranium data.
+- [[the-smallest-brain-you-can-build|The Smallest Brain You Can Build]] — a from-scratch, math-light Python build of a perceptron, showing weights, bias, the decision boundary, and the learning rule.
+- [[mcp-is-dead|MCP is dead]] — Quandri argues MCP is over-engineered vs CLIs/Skills for connecting LLMs to tools, with token and reliability measurements.
+- [[choosing-to-stay-human|Choosing to Stay Human]] — Ethan Mollick on intentional AI use and the risk of cognitive surrender, with evidence from AI-in-education and consulting studies.
 
 ## Entities
 
@@ -24,6 +27,9 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[0xkato|0xkato]] — writer/researcher; author of the "How LLMs Actually Work" explainer.
 - [[ian-henry|Ian Henry]] — programmer/writer; author of *Janet for Mortals* and the "Why Janet?" pitch.
 - [[christopher-krapu|Christopher Krapu]] — data scientist/writer on Bayesian modeling, Gaussian processes, and spatial statistics.
+- [[chloe-kim|Chloe Kim]] — backend engineer at Quandri; author of "MCP is dead."
+- [[quandri|Quandri]] — software company; its engineering blog published "MCP is dead."
+- [[ethan-mollick|Ethan Mollick]] — Wharton professor; author of *One Useful Thing* and *Co-Intelligence*, writing on practical AI use.
 
 ## Concepts
 
@@ -53,6 +59,10 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[bayesian-inference|Bayesian Inference]] — updating prior beliefs to posteriors given data; flexible model-building plus Monte Carlo estimation.
 - [[gaussian-process|Gaussian Process]] — a kernel-defined distribution over functions used as a flexible regression prior.
 - [[pymc|PyMC]] — a Python probabilistic-programming library for Bayesian modeling with MCMC.
+- [[perceptron|Perceptron]] — the simplest neural unit: weighted sum plus bias through a threshold, trained by the perceptron rule.
+- [[neural-network|Neural Network]] — layered composition of neuron-like units; the perceptron is its smallest building block.
+- [[model-context-protocol|Model Context Protocol]] — protocol connecting LLMs to external tools; critiqued for context bloat vs CLIs/Skills.
+- [[cognitive-surrender|Cognitive Surrender]] — deferring one's thinking to an AI and accepting its output even when wrong; the antidote is intentional use.
 
 ## Analyses
 

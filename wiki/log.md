@@ -70,3 +70,24 @@ so the log stays greppable by the stable `## [` prefix.
 - summary: [[bayesian-modeling-for-unknown-coordinates|Bayesian modeling for unknown coordinates]]
 - hubs touched: [[christopher-krapu|Christopher Krapu]], [[bayesian-inference|Bayesian Inference]], [[gaussian-process|Gaussian Process]], [[pymc|PyMC]] (all created)
 - images: none (figure is code-generated, not in page markup)
+
+## [2026-06-23] ingest: The Smallest Brain You Can Build
+
+- source: https://ranpara.net/posts/perceptron-explained-from-scratch/ (converter: jina)
+- summary: [[the-smallest-brain-you-can-build|The Smallest Brain You Can Build]]
+- hubs touched: [[perceptron|Perceptron]], [[neural-network|Neural Network]] (both created)
+- images: none (post uses interactive JS demos, no static figures)
+
+## [2026-06-23] ingest: MCP is dead
+
+- source: https://www.quandri.io/engineering-blog/mcp-is-dead (converter: jina)
+- summary: [[mcp-is-dead|MCP is dead]]
+- hubs touched: [[model-context-protocol|Model Context Protocol]], [[chloe-kim|Chloe Kim]], [[quandri|Quandri]] (created); [[large-language-model|Large Language Model]], [[agentic-coding|Agentic Coding]] (existing; appended to Sources)
+- images: none (text post)
+
+## [2026-06-23] ingest: Choosing to Stay Human
+
+- source: https://www.oneusefulthing.org/p/choosing-to-stay-human (converter: jina)
+- summary: [[choosing-to-stay-human|Choosing to Stay Human]]
+- hubs touched: [[ethan-mollick|Ethan Mollick]], [[cognitive-surrender|Cognitive Surrender]] (both created)
+- images: 4 localized to raw/assets/2026-06-23-choosing-to-stay-human/; img-1 (AI-writing parody) and img-2 (learning-mode screenshots) distilled to prose, img-3/img-4 (meta-joke) dropped; none promoted to wiki/assets/
