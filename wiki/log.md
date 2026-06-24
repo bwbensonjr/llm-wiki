@@ -91,3 +91,11 @@ so the log stays greppable by the stable `## [` prefix.
 - summary: [[choosing-to-stay-human|Choosing to Stay Human]]
 - hubs touched: [[ethan-mollick|Ethan Mollick]], [[cognitive-surrender|Cognitive Surrender]] (both created)
 - images: 4 localized to raw/assets/2026-06-23-choosing-to-stay-human/; img-1 (AI-writing parody) and img-2 (learning-mode screenshots) distilled to prose, img-3/img-4 (meta-joke) dropped; none promoted to wiki/assets/
+
+## [2026-06-24] ingest: A Programmable Programming Language
+
+- source: https://dl.acm.org/doi/10.1145/3127323 (converter: docling, from local PDF)
+- summary: [[a-programmable-programming-language|A Programmable Programming Language]]
+- hubs touched: [[racket|Racket]], [[language-oriented-programming|Language-Oriented Programming]], [[domain-specific-language|Domain-Specific Language]], [[matthias-felleisen|Matthias Felleisen]] (created); [[lisp|Lisp]], [[type-systems|Type Systems]] (existing; appended to Sources)
+- images: none (PDF route; figures are code/diagrams, not localized)
+- note: initial Jina capture of the ACM URL hit a Cloudflare bot wall; re-captured from a locally downloaded PDF via Docling. New tags: racket, language-oriented-programming, domain-specific-languages.

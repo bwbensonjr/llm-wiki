@@ -16,6 +16,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[the-smallest-brain-you-can-build|The Smallest Brain You Can Build]] — a from-scratch, math-light Python build of a perceptron, showing weights, bias, the decision boundary, and the learning rule.
 - [[mcp-is-dead|MCP is dead]] — Quandri argues MCP is over-engineered vs CLIs/Skills for connecting LLMs to tools, with token and reliability measurements.
 - [[choosing-to-stay-human|Choosing to Stay Human]] — Ethan Mollick on intentional AI use and the risk of cognitive surrender, with evidence from AI-in-education and consulting studies.
+- [[a-programmable-programming-language|A Programmable Programming Language]] — the Racket Manifesto (CACM 2018): the case for language-oriented programming, building and soundly composing domain-specific languages.
 
 ## Entities
 
@@ -30,6 +31,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[chloe-kim|Chloe Kim]] — backend engineer at Quandri; author of "MCP is dead."
 - [[quandri|Quandri]] — software company; its engineering blog published "MCP is dead."
 - [[ethan-mollick|Ethan Mollick]] — Wharton professor; author of *One Useful Thing* and *Co-Intelligence*, writing on practical AI use.
+- [[matthias-felleisen|Matthias Felleisen]] — Northeastern professor; principal architect of Racket and lead author of the Racket Manifesto.
 
 ## Concepts
 
@@ -63,6 +65,9 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[neural-network|Neural Network]] — layered composition of neuron-like units; the perceptron is its smallest building block.
 - [[model-context-protocol|Model Context Protocol]] — protocol connecting LLMs to external tools; critiqued for context bloat vs CLIs/Skills.
 - [[cognitive-surrender|Cognitive Surrender]] — deferring one's thinking to an AI and accepting its output even when wrong; the antidote is intentional use.
+- [[racket|Racket]] — a Lisp/Scheme-family language and 20-year research project built as a platform for language-oriented programming.
+- [[language-oriented-programming|Language-Oriented Programming]] — paradigm of solving each problem aspect in a domain-specific language and composing the components into one system.
+- [[domain-specific-language|Domain-Specific Language]] — a language specialized to a problem domain; the building block that language-oriented programming composes.
 
 ## Analyses
 
