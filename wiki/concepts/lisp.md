@@ -32,3 +32,4 @@ code at compile time.
 - [[the-janet-programming-language|The Janet Programming Language]]
 - [[a-programmable-programming-language|A Programmable Programming Language]]
 - [[libscheme-scheme-as-a-c-library|libscheme: Scheme as a C Library]]
+- [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]]

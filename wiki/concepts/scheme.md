@@ -32,6 +32,10 @@ Scheme is the trunk of a lineage already present in this wiki:
 - [[janet|Janet]] is a modern, Scheme-influenced Lisp that, like libscheme, is
   designed to embed cleanly into C — a parallel solution to the same
   extension-language problem two decades later.
+- [[chez-scheme|Chez Scheme]] is a high-performance, R6RS Scheme implementation
+  whose optimizing compiler and continuation support made it a good target VM —
+  [[racket|Racket]] now runs on it (see
+  [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]]).
 
 The defining Scheme features are lexical scope, first-class procedures that
 close over their free variables, and a macro/syntax system more powerful than
@@ -41,3 +45,4 @@ Algorithmic Language Scheme.
 ## Sources
 
 - [[libscheme-scheme-as-a-c-library|libscheme: Scheme as a C Library]]
+- [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]]

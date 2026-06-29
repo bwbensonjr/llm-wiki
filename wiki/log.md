@@ -107,3 +107,11 @@ so the log stays greppable by the stable `## [` prefix.
 - hubs touched: [[scheme|Scheme]], [[brent-benson|Brent W. Benson Jr.]] (created); [[lisp|Lisp]] (existing; appended to Sources)
 - images: none (Markdown source; figures are inline code listings)
 - note: source was already Markdown; the GitHub blob URL serves text/html (would route to Jina), so the raw.githubusercontent.com URL was used to get text/plain → MarkItDown passthrough. New tag: scheme.
+
+## [2026-06-29] ingest: Porting Racket to Chez Scheme
+
+- source: https://users.cs.utah.edu/~mflatt/tmp/rkt-on-chez.pdf (converter: docling, from PDF)
+- summary: [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]]
+- hubs touched: [[chez-scheme|Chez Scheme]], [[matthew-flatt|Matthew Flatt]] (created); [[racket|Racket]], [[scheme|Scheme]], [[lisp|Lisp]], [[brent-benson|Brent W. Benson Jr.]] (existing; appended to Sources, strengthened Racket lineage note)
+- images: none (PDF route; figures are diagrams/plots, not localized)
+- note: source PDF is anonymized for review; attributed to Matthew Flatt et al. (ICFP 2019) per the user. This paper cites [[libscheme-scheme-as-a-c-library|libscheme]] (Benson 1994) as Racket's 1995 starting point. New tags: language-implementation, chez-scheme.
