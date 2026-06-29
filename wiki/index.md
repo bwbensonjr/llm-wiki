@@ -17,6 +17,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[mcp-is-dead|MCP is dead]] — Quandri argues MCP is over-engineered vs CLIs/Skills for connecting LLMs to tools, with token and reliability measurements.
 - [[choosing-to-stay-human|Choosing to Stay Human]] — Ethan Mollick on intentional AI use and the risk of cognitive surrender, with evidence from AI-in-education and consulting studies.
 - [[a-programmable-programming-language|A Programmable Programming Language]] — the Racket Manifesto (CACM 2018): the case for language-oriented programming, building and soundly composing domain-specific languages.
+- [[libscheme-scheme-as-a-c-library|libscheme: Scheme as a C Library]] — USENIX 1994 VHLL paper: making Scheme an embeddable C library in the mold of Tcl, easily extended with new primitives, types, and syntax.
 
 ## Entities
 
@@ -32,6 +33,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[quandri|Quandri]] — software company; its engineering blog published "MCP is dead."
 - [[ethan-mollick|Ethan Mollick]] — Wharton professor; author of *One Useful Thing* and *Co-Intelligence*, writing on practical AI use.
 - [[matthias-felleisen|Matthias Felleisen]] — Northeastern professor; principal architect of Racket and lead author of the Racket Manifesto.
+- [[brent-benson|Brent W. Benson Jr.]] — software engineer and curator of this wiki; author of libscheme.
 
 ## Concepts
 
@@ -68,6 +70,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[racket|Racket]] — a Lisp/Scheme-family language and 20-year research project built as a platform for language-oriented programming.
 - [[language-oriented-programming|Language-Oriented Programming]] — paradigm of solving each problem aspect in a domain-specific language and composing the components into one system.
 - [[domain-specific-language|Domain-Specific Language]] — a language specialized to a problem domain; the building block that language-oriented programming composes.
+- [[scheme|Scheme]] — a small, lexically-scoped dialect of Lisp; the trunk from which Racket descends and the language libscheme embeds into C.
 
 ## Analyses
 

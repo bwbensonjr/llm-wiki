@@ -15,11 +15,12 @@ s-expressions (code as data) and powerful macro systems.
 [[janet|Janet]] is a modern, practically-minded dialect that deliberately breaks
 with older Lisp conventions (`first` over `CAR`, `do` over `PROGN`, `fn` over
 `LAMBDA`, real Booleans, and `nil` as its own type rather than the empty list).
-[[racket|Racket]] is another dialect now covered here: an heir of Scheme that
-eliminates the boundary between library and language to support
-[[language-oriented-programming]]. Other notable dialects — Common Lisp and
-Clojure — are not yet covered in this wiki; when a source on one is filed, give
-it its own concept page and link it back here.
+[[scheme|Scheme]] is the small, lexically-scoped dialect now covered on its own
+page — the trunk from which [[racket|Racket]] descends. [[racket|Racket]] is an
+heir of Scheme that eliminates the boundary between library and language to
+support [[language-oriented-programming]]. Other notable dialects — Common Lisp
+and Clojure — are not yet covered in this wiki; when a source on one is filed,
+give it its own concept page and link it back here.
 
 The shared throughline across the family is the macro system: because code is
 represented as ordinary data structures, programs can manipulate and generate
@@ -30,3 +31,4 @@ code at compile time.
 - [[why-janet|Why Janet?]]
 - [[the-janet-programming-language|The Janet Programming Language]]
 - [[a-programmable-programming-language|A Programmable Programming Language]]
+- [[libscheme-scheme-as-a-c-library|libscheme: Scheme as a C Library]]

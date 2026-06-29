@@ -99,3 +99,11 @@ so the log stays greppable by the stable `## [` prefix.
 - hubs touched: [[racket|Racket]], [[language-oriented-programming|Language-Oriented Programming]], [[domain-specific-language|Domain-Specific Language]], [[matthias-felleisen|Matthias Felleisen]] (created); [[lisp|Lisp]], [[type-systems|Type Systems]] (existing; appended to Sources)
 - images: none (PDF route; figures are code/diagrams, not localized)
 - note: initial Jina capture of the ACM URL hit a Cloudflare bot wall; re-captured from a locally downloaded PDF via Docling. New tags: racket, language-oriented-programming, domain-specific-languages.
+
+## [2026-06-29] ingest: libscheme: Scheme as a C Library
+
+- source: https://github.com/bwbensonjr/libscheme/blob/main/src/doc/libscheme.md (raw URL fed to converter: https://raw.githubusercontent.com/bwbensonjr/libscheme/main/src/doc/libscheme.md; converter: markitdown, from text/plain Markdown)
+- summary: [[libscheme-scheme-as-a-c-library|libscheme: Scheme as a C Library]]
+- hubs touched: [[scheme|Scheme]], [[brent-benson|Brent W. Benson Jr.]] (created); [[lisp|Lisp]] (existing; appended to Sources)
+- images: none (Markdown source; figures are inline code listings)
+- note: source was already Markdown; the GitHub blob URL serves text/html (would route to Jina), so the raw.githubusercontent.com URL was used to get text/plain → MarkItDown passthrough. New tag: scheme.
