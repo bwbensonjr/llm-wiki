@@ -123,3 +123,11 @@ so the log stays greppable by the stable `## [` prefix.
 - hubs touched: [[llvm|LLVM]], [[continuation-passing-style|Continuation-Passing Style]], [[standard-ml|Standard ML]], [[john-reppy|John Reppy]] (created); [[scheme|Scheme]] (existing; appended to Sources)
 - images: none (PDF route; figures are code listings/diagrams, not localized)
 - note: New tags: llvm, continuations, standard-ml. First author Kavon Farvardin named in prose (no entity page).
+
+## [2026-07-08] ingest: The LLVM Compiler Infrastructure
+
+- source: https://cacm.acm.org/federal-funding-of-academic-research/the-llvm-compiler-infrastructure/ (converter: jina)
+- summary: [[the-llvm-compiler-infrastructure|The LLVM Compiler Infrastructure]]
+- hubs touched: [[chris-lattner|Chris Lattner]], [[vikram-adve|Vikram Adve]], [[static-single-assignment|Static Single Assignment]] (created); [[llvm|LLVM]] (existing; enriched with origin/design/impact and appended to Sources)
+- images: 1 localized to raw/assets/2026-07-08-the-llvm-compiler-infrastructure/; img-1 (LLVM architecture schematic) distilled to prose AND promoted to wiki/assets/llvm-compiler-architecture.jpg, embedded in the summary
+- note: No new tags (reused llvm, language-implementation, programming-languages). Authors: Vikram Adve (1st), Chris Lattner (2nd).

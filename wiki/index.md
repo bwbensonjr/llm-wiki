@@ -20,6 +20,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[libscheme-scheme-as-a-c-library|libscheme: Scheme as a C Library]] — USENIX 1994 VHLL paper: making Scheme an embeddable C library in the mold of Tcl, easily extended with new primitives, types, and syntax.
 - [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]] — ICFP 2019 experience report on Racket CS: rebuilding Racket atop Chez Scheme via linklets and schemify, with ~30 mismatches to reconcile.
 - [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]] — ML Workshop 2018: an LLVM backend supporting heap-allocated first-class continuations via a new JWA calling convention, in the Manticore/PML compiler.
+- [[the-llvm-compiler-infrastructure|The LLVM Compiler Infrastructure]] — CACM 2026: the origin, five-capability design, and vast industry/research impact of LLVM, framed as a case for federal research funding.
 
 ## Entities
 
@@ -38,6 +39,8 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[brent-benson|Brent W. Benson Jr.]] — software engineer and curator of this wiki; author of libscheme.
 - [[matthew-flatt|Matthew Flatt]] — University of Utah; principal architect of Racket; led the Racket-on-Chez-Scheme rebuild.
 - [[john-reppy|John Reppy]] — University of Chicago; Concurrent ML, SML/NJ, and the Manticore project; co-author of the continuations-and-LLVM paper.
+- [[chris-lattner|Chris Lattner]] — creator of LLVM's core (as a UIUC Ph.D. student); later built Clang, Swift, and MLIR at Apple.
+- [[vikram-adve|Vikram Adve]] — UIUC professor and LLVM's faculty originator; his NSF CAREER grant funded the early work.
 
 ## Concepts
 
@@ -79,6 +82,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[llvm|LLVM]] — an SSA-based compiler backend infrastructure; a popular but C-biased target that functional-language compilers must work around.
 - [[continuation-passing-style|Continuation-Passing Style]] — making control flow explicit so every call is a tail call; basis of the heap-allocated first-class continuation runtime model.
 - [[standard-ml|Standard ML]] — a statically-typed ML-family functional language with a long line of compiler-implementation research (SML/NJ, MLton, Manticore).
+- [[static-single-assignment|Static Single Assignment]] — an IR form where each variable is assigned once, with ϕ-operations at control-flow merges; the basis of LLVM IR.
 
 ## Analyses
 
