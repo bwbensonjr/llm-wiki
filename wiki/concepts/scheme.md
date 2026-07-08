@@ -42,7 +42,13 @@ close over their free variables, and a macro/syntax system more powerful than
 C-style token substitution. Standardized in the Revised^n Reports on the
 Algorithmic Language Scheme.
 
+Scheme's heap-allocated first-class continuations (`call/cc`) connect it to the
+[[continuation-passing-style]] compilation techniques in
+[[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]] —
+a candidate approach for compiling a Scheme to [[llvm]] IR.
+
 ## Sources
 
 - [[libscheme-scheme-as-a-c-library|libscheme: Scheme as a C Library]]
 - [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]]
+- [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]]

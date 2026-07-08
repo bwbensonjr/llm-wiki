@@ -115,3 +115,11 @@ so the log stays greppable by the stable `## [` prefix.
 - hubs touched: [[chez-scheme|Chez Scheme]], [[matthew-flatt|Matthew Flatt]] (created); [[racket|Racket]], [[scheme|Scheme]], [[lisp|Lisp]], [[brent-benson|Brent W. Benson Jr.]] (existing; appended to Sources, strengthened Racket lineage note)
 - images: none (PDF route; figures are diagrams/plots, not localized)
 - note: source PDF is anonymized for review; attributed to Matthew Flatt et al. (ICFP 2019) per the user. This paper cites [[libscheme-scheme-as-a-c-library|libscheme]] (Benson 1994) as Racket's 1995 starting point. New tags: language-implementation, chez-scheme.
+
+## [2026-07-08] ingest: Compiling with Continuations and LLVM
+
+- source: https://arxiv.org/pdf/1805.08842 (converter: docling, arXiv PDF)
+- summary: [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]]
+- hubs touched: [[llvm|LLVM]], [[continuation-passing-style|Continuation-Passing Style]], [[standard-ml|Standard ML]], [[john-reppy|John Reppy]] (created); [[scheme|Scheme]] (existing; appended to Sources)
+- images: none (PDF route; figures are code listings/diagrams, not localized)
+- note: New tags: llvm, continuations, standard-ml. First author Kavon Farvardin named in prose (no entity page).
