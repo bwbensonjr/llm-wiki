@@ -47,7 +47,12 @@ are explicit about the tangle. What Twobit calls
 [[lambda-lifting]] is what SML/NJ's compiler calls closure conversion — the same
 transformation, differing in how global the flow equation is. Meanwhile Wand and
 Steckler use "closure conversion" for a source-level transformation that replaces a
-procedure with a representation of it, which is orthogonal to lifting. Twobit also
+procedure with a representation of it, orthogonal to lifting in purpose:
+[[lightweight-closure-conversion|their paper]] omits a captured variable when the call
+sites can supply it, and its contribution is a deductive system whose constraint
+solutions *justify* the omission — including the proof that a variable merely in scope at
+a call site can still be bound to the wrong value there, because the procedure may escape
+that binding and flow back. Twobit also
 supplies a cheap version of the analysis: *single assignment analysis*, a first-order
 closure analysis that identifies parameters assigned once to a `lambda` and called as
 often as referenced, which are therefore known local procedures needing no closure.
@@ -60,3 +65,4 @@ often as referenced, which are therefore known local procedures needing no closu
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
 - [[the-development-of-chez-scheme|The Development of Chez Scheme]]
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]
+- [[lightweight-closure-conversion|Lightweight Closure Conversion]]

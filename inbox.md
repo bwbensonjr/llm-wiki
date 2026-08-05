@@ -56,3 +56,4 @@ is a no-op.
 - [ ] https://www.cs.princeton.edu/~appel/papers/cpcps.pdf - SML/NJ's own account of closure-passing style; the design Twobit contrasts its local lambda lifting against
 - [ ] https://andykeep.com/pubs/scheme-12a.pdf - The flat-closure optimization mechanism the nanopass paper alludes to but doesn't describe
 - [ ] https://www.cs.princeton.edu/~appel/papers/safe-closure.pdf - The safe-for-space closure conversion rule, proved
+- [x] https://www.ccs.neu.edu/home/wand/papers/steckler-wand-97.ps - The third sense of "closure conversion" that the hub pages flag as a terminological hazard without describing

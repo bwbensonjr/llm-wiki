@@ -31,6 +31,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]] — Keep & Dybvig (ICFP 2013): Chez's back end rebuilt as ~50 nanopasses; faster code, 1.75x worst-case compile time.
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]] — Clinger, Hartheimer & Ost (HOSC 1999): ten strategies compared by direct and indirect cost across three usage scenarios.
 - [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]] — Hieb, Dybvig & Bruggeman (PLDI 1990): the segmented stack model; constant-time capture, bounded reinstatement, overflow as implicit capture.
+- [[lightweight-closure-conversion|Lightweight Closure Conversion]] — Steckler & Wand (TOPLAS 1997): omit a captured variable when call sites can supply it, with a deductive system that proves the transformation sound.
 
 ## Entities
 
@@ -59,6 +60,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[mitchell-wand|Mitchell Wand]] — Northeastern PL researcher; co-author of the HOPL hygienic-macro history, and half of "Wand and Steckler".
 - [[r-kent-dybvig|R. Kent Dybvig]] — creator of Chez Scheme; the Indiana lineage behind syntax-case, nanopass, and much of this corpus's implementation technology.
 - [[robert-hieb|Robert Hieb]] — Indiana implementer; first author of the segmented stack model behind Chez Scheme's continuations.
+- [[paul-steckler|Paul A. Steckler]] — first author of Lightweight Closure Conversion; supplied the correctness proof rather than the optimization.
 
 ## Concepts
 
