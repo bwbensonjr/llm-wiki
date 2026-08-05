@@ -112,15 +112,15 @@
 
 - [x] 5.1 Verify idempotence: run against a fully drained inbox and confirm no
       files under `raw/` or `wiki/` are created or modified
-- [ ] 5.2 Verify failure isolation with a deliberately broken link alongside two
+- [x] 5.2 Verify failure isolation with a deliberately broken link alongside two
       good ones: both good entries land, the broken one is parked with a reason
 - [x] 5.3 Verify duplicate skip using a URL already present as an existing
       summary's `source:`
-- [ ] 5.4 Exercise the full path manually on a small inbox of 2–3 real links,
+- [x] 5.4 Exercise the full path manually on a small inbox of 2–3 real links,
       inspecting the resulting diff before allowing the push
-- [ ] 5.5 Run `curate` against the resulting provisional queue and exercise each
+- [x] 5.5 Run `curate` against the resulting provisional queue and exercise each
       verb at least once, including a reject, confirming the `raw/` twin survives
-- [ ] 5.6 Run `lint` over the corpus with provisional pages present and confirm it
+- [x] 5.6 Run `lint` over the corpus with provisional pages present and confirm it
       reports clean — provisional is not a defect
 - [x] 5.6a Confirm `CLAUDE.md` contains no surviving statement that contradicts the
       unattended path: reread it end to end against the change, since it is binding
