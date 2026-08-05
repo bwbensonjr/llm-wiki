@@ -21,6 +21,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]] — ICFP 2019 experience report on Racket CS: rebuilding Racket atop Chez Scheme via linklets and schemify, with ~30 mismatches to reconcile.
 - [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]] — ML Workshop 2018: an LLVM backend supporting heap-allocated first-class continuations via a new JWA calling convention, in the Manticore/PML compiler.
 - [[the-llvm-compiler-infrastructure|The LLVM Compiler Infrastructure]] — CACM 2026: the origin, five-capability design, and vast industry/research impact of LLVM, framed as a case for federal research funding.
+- [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]] — Steele's 1977 MIT dissertation: LAMBDA as rename plus GOTO, a tiny basis set extended by macros, and CPS as a compiler IR.
 
 ## Entities
 
@@ -41,6 +42,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[john-reppy|John Reppy]] — University of Chicago; Concurrent ML, SML/NJ, and the Manticore project; co-author of the continuations-and-LLVM paper.
 - [[chris-lattner|Chris Lattner]] — creator of LLVM's core (as a UIUC Ph.D. student); later built Clang, Swift, and MLIR at Apple.
 - [[vikram-adve|Vikram Adve]] — UIUC professor and LLVM's faculty originator; his NSF CAREER grant funded the early work.
+- [[guy-steele|Guy L. Steele Jr.]] — co-inventor of Scheme with Gerald Jay Sussman; author of RABBIT and the Lambda Papers.
 
 ## Concepts
 
@@ -83,6 +85,10 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[continuation-passing-style|Continuation-Passing Style]] — making control flow explicit so every call is a tail call; basis of the heap-allocated first-class continuation runtime model.
 - [[standard-ml|Standard ML]] — a statically-typed ML-family functional language with a long line of compiler-implementation research (SML/NJ, MLton, Manticore).
 - [[static-single-assignment|Static Single Assignment]] — an IR form where each variable is assigned once, with ϕ-operations at control-flow merges; the basis of LLVM IR.
+- [[lambda-papers|Lambda Papers]] — the 1975–1980 MIT memos by Steele and Sussman in which Scheme was invented and its compilation worked out.
+- [[lambda-calculus|Lambda Calculus]] — Church's formal system of function abstraction and application; alpha- and beta-conversion are the compiler's substitution rules.
+- [[tail-recursion|Tail Recursion]] — a tail call consumes no control stack, so a call compiles to a GOTO that passes arguments; a defining requirement of Scheme.
+- [[closure-conversion|Closure Conversion]] — turning nested lexical functions into code plus captured environment, and deciding which need a run-time closure at all.
 
 ## Analyses
 

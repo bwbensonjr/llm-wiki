@@ -1,0 +1,35 @@
+---
+type: concept
+status: provisional
+title: Closure Conversion
+created: 2026-08-05
+tags: [programming-languages, language-implementation, continuations]
+---
+
+# Closure Conversion
+
+The compiler pass that turns a nested, lexically-scoped function into an explicit
+pair of code and captured environment — together with the *closure analysis* that
+decides which functions need a run-time closure at all, and what may live in
+registers instead of the heap.
+
+## Notes
+
+Closure analysis is where the payoff of lexical scoping is collected. Because the
+compiler sees every reference to a variable, it can choose any representation for
+an environment. RABBIT sorts each `LAMBDA`-expression into three cases: **fully
+closed**, when the function escapes as data and needs a standard closure;
+**partially closed**, when it is only ever called by name but from inside other
+closures, so its environment must be built without a code pointer; and **not
+closed**, when the environment is always recoverable at the point of call.
+
+The pass is naturally entangled with the rest of compilation — determining which
+functions to close requires knowing which variables are referenced from within
+closed functions below each node, so both are computed in a single pass — and it
+typically runs after conversion to [[continuation-passing-style]]. Aggressive
+analysis can eliminate closures entirely for programs that never treat functions
+as data.
+
+## Sources
+
+- [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]

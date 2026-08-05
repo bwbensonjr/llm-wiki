@@ -25,7 +25,10 @@ give it its own concept page and link it back here.
 
 The shared throughline across the family is the macro system: because code is
 represented as ordinary data structures, programs can manipulate and generate
-code at compile time.
+code at compile time. [[rabbit-a-compiler-for-scheme|RABBIT]] makes the strongest
+version of this argument: if the primitive basis set is small enough, nearly
+every "language feature" is a macro over it, and a handful of source-to-source
+transformations compile the result as well as a conventional compiler would.
 
 ## Sources
 
@@ -34,3 +37,4 @@ code at compile time.
 - [[a-programmable-programming-language|A Programmable Programming Language]]
 - [[libscheme-scheme-as-a-c-library|libscheme: Scheme as a C Library]]
 - [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]]
+- [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]

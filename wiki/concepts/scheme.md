@@ -48,8 +48,16 @@ Scheme's heap-allocated first-class continuations (`call/cc`) connect it to the
 [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]] —
 a candidate approach for compiling a Scheme to [[llvm]] IR.
 
+Scheme was invented by [[guy-steele|Guy L. Steele Jr.]] and Gerald Jay Sussman at
+MIT in 1975, and its design and compilation were worked out across the
+[[lambda-papers|Lambda Papers]]. The "minimal framework" philosophy above is that
+series' central claim: a small [[lambda-calculus]]-shaped basis set plus macros,
+with [[tail-recursion]] guaranteed so that iteration can be expressed
+applicatively.
+
 ## Sources
 
 - [[libscheme-scheme-as-a-c-library|libscheme: Scheme as a C Library]]
 - [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]]
 - [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]]
+- [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]

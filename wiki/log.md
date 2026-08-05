@@ -131,3 +131,13 @@ so the log stays greppable by the stable `## [` prefix.
 - hubs touched: [[chris-lattner|Chris Lattner]], [[vikram-adve|Vikram Adve]], [[static-single-assignment|Static Single Assignment]] (created); [[llvm|LLVM]] (existing; enriched with origin/design/impact and appended to Sources)
 - images: 1 localized to raw/assets/2026-07-08-the-llvm-compiler-infrastructure/; img-1 (LLVM architecture schematic) distilled to prose AND promoted to wiki/assets/llvm-compiler-architecture.jpg, embedded in the summary
 - note: No new tags (reused llvm, language-implementation, programming-languages). Authors: Vikram Adve (1st), Chris Lattner (2nd).
+
+## [2026-08-05] ingest: RABBIT: A Compiler for Scheme
+
+- source: https://research.scheme.org/lambda-papers/lambda-papers-compiler-optimization.html (converter: jina)
+- run: **unattended** (`ingest-inbox`, queue entry with curator note "Seminal Scheme compiler paper by co-inventor of Scheme")
+- summary: [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
+- hubs touched: [[guy-steele|Guy L. Steele Jr.]], [[lambda-papers|Lambda Papers]], [[lambda-calculus|Lambda Calculus]], [[tail-recursion|Tail Recursion]], [[closure-conversion|Closure Conversion]] (created, all `status: provisional`); [[scheme|Scheme]], [[lisp|Lisp]], [[continuation-passing-style|Continuation-Passing Style]] (existing, left `status: reviewed`; appended to Sources and given an origin note)
+- images: none (Jina route localized no content images; the source is a text transcription)
+- tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, continuations
+- note: source is Roger Turner's abridged CC BY-NC transcription of Steele 1978 (MIT AI-TR-474), covering the chapter "Compiler Optimization Based on Viewing LAMBDA as RENAME plus GOTO". Gerald Jay Sussman named in prose (no entity page). Titled by the dissertation's name rather than the transcription's page title.

@@ -30,6 +30,15 @@ convention in [[compiling-with-continuations-and-llvm|Farvardin and Reppy]]. The
 Manticore/PML and [[standard-ml|SML/NJ]] compilers both use this model; GHC
 instead makes the stack explicit via a whole-program CPS transformation.
 
+CPS as a *compiler intermediate representation* originates with
+[[rabbit-a-compiler-for-scheme|Steele's RABBIT compiler]], where its defining
+property is that the IR is itself a subset of the source language — so the same
+optimizer runs at both levels — and where its imperative reading (no control
+stack, no function ever returns) is what makes transcription to machine code
+straightforward. [[closure-conversion|Closure analysis]] conventionally follows
+CPS conversion.
+
 ## Sources
 
 - [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]]
+- [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
