@@ -339,3 +339,15 @@ so the log stays greppable by the stable `## [` prefix.
 - images: none — PDF route, no localization; the twin carries a handful of undecoded `/ru` and `/br` rule-and-break artifacts from the 1988 ditroff source, which were ignored as noise rather than distilled.
 - **hub deliberately not minted:** Trevor Jim, the second author, has one appearance here and no separate line of work in view, so he is named in plain prose on the summary instead. Revisit if another of his papers lands.
 - **gap noticed while authoring, recorded here rather than on a page:** the paper credits the Categorical Abstract Machine for the extra-arguments treatment of known functions and cites Appel's own garbage-collection work for the cheap-collection premise; no ingested source covers either, so both are named without links.
+
+## [2026-08-05] ingest: Optimizing Closures in O(0) Time
+
+- run: **unattended** (`ingest-inbox`), entry 2 of 3 in this drain.
+- source: `https://andykeep.com/pubs/scheme-12a.pdf` (Keep, Hearn & Dybvig, Scheme Workshop 2012), converter **docling**. 28,061 bytes.
+- pages: [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]] (`status: provisional`). No hub created.
+- hubs given a Sources backlink: [[closure-conversion]], [[lambda-lifting]], [[chez-scheme]], [[escape-analysis]], [[r-kent-dybvig]], [[nanopass]], [[andrew-appel]].
+- tags minted: **none** — reused programming-languages, language-implementation, scheme, chez-scheme.
+- images: none promoted. The twin carries three `<!-- image -->` placeholders for the closure-layout diagrams (a self-reference in `f`'s closure; mutual references for `even?`/`odd?`; the same with `z` free in `even?`). Their captions carry the point and the surrounding prose states it, so all three were distilled to prose and none promoted to `wiki/assets/`.
+- **twin artifacts, distinct from the ligature case:** this preprint's PDF was built with unresolved LaTeX references, so citations appear as `[ ? ]`, cross-references as `Section ??`, and several bibliography entries leak raw BibTeX keys (`steckler:lightweight`, `kranz:orbit`, `Shao:2000`, `appelCompilingWithContinuationsCh10`). The keys are informative rather than damaging — they name the works — and the prose is fully intact, so this was authored from normally. The source also contains its own typos (`ful R6RS`, `starndard`, `optimziation`), which are the preprint's, not the converter's.
+- **hubs deliberately not minted:** Andrew W. Keep and Alex Hearn. Keep is now second-authored across two ingested sources (this and the nanopass framework paper) and is a plausible hub on the next mention; Hearn has one appearance. Both are named in plain prose for now.
+- **gap noticed while authoring, recorded here rather than on a page:** the related-work section leans on Serrano's control-flow-analysis closure optimization, Shao & Appel's nested closure representation, Fradet and Le Métayer on lazy-language closures, and a Scala closure-elimination paper. No ingested source covers any of them; Shao & Appel is the nearest miss, since its safe-for-space successor is the next entry in this same run.

@@ -35,3 +35,4 @@ procedures becomes the intrinsic penalty it was long assumed to be.
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
 - [[lightweight-closure-conversion|Lightweight Closure Conversion]]
+- [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]

@@ -62,3 +62,4 @@ the Chez work adds is not the principle but the scale and the price tag.
 
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
+- [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]

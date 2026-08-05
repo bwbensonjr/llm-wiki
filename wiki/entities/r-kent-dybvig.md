@@ -42,3 +42,4 @@ most associated with his group.
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]
 - [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]]
+- [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]

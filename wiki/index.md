@@ -33,6 +33,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]] — Hieb, Dybvig & Bruggeman (PLDI 1990): the segmented stack model; constant-time capture, bounded reinstatement, overflow as implicit capture.
 - [[lightweight-closure-conversion|Lightweight Closure Conversion]] — Steckler & Wand (TOPLAS 1997): omit a captured variable when call sites can supply it, with a deductive system that proves the transformation sound.
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]] — Appel & Jim (POPL 1989): SML/NJ's CPS back end in many small phases; closure-passing style, stackless, spilling as a CPS rewrite.
+- [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]] — Keep, Hearn & Dybvig (Scheme Workshop 2012): Chez's flat-closure optimizations, never-do-harm and safe-for-space; >50% of closure overhead removed.
 
 ## Entities
 

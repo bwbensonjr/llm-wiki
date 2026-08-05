@@ -58,3 +58,4 @@ heap-allocated in a closure regardless.
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
 - [[lightweight-closure-conversion|Lightweight Closure Conversion]]
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
+- [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]
