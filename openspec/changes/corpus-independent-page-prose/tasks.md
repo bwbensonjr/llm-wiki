@@ -70,7 +70,7 @@
       broken or line-split wikilinks introduced, sections intact.
 - [x] 5.3 Confirm `wiki/log.md` was not edited by the sweep, and that its existing
       "no ingested source covered it" entry is intact.
-- [ ] 5.4 Exercise the rule on a real ingest: run `ingest-inbox` on at least one source
+- [x] 5.4 Exercise the rule on a real ingest: run `ingest-inbox` on at least one source
       and confirm the drafted page carries no corpus-membership claim, and that any gap
       noticed during authoring appears in the log entry instead.
 - [x] 5.5 Reread `CLAUDE.md` end to end for statements the new passage contradicts,
