@@ -91,6 +91,6 @@
 - [x] 5.4 Queue in `inbox.md` and run the unattended path end to end, confirming a
       PostScript source ingests without a manual pre-conversion step — the whole point of
       the change. Scoped to Steckler & Wand, since Shao & Appel is refused by 5.3.
-- [ ] 5.5 Temporarily shadow `gs` off `PATH` and confirm a queued PostScript entry parks
+- [x] 5.5 Temporarily shadow `gs` off `PATH` and confirm a queued PostScript entry parks
       with the actionable message rather than a traceback, and that no twin is left behind.
-- [ ] 5.6 Run `lint` and confirm the corpus is clean after the two ingests.
+- [x] 5.6 Run `lint` and confirm the corpus is clean after the two ingests.
