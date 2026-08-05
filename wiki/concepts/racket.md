@@ -53,3 +53,4 @@ maintainability and a stronger functional-language substrate — see
 
 - [[a-programmable-programming-language|A Programmable Programming Language]]
 - [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]]
+- [[hygienic-macro-technology|Hygienic Macro Technology]]

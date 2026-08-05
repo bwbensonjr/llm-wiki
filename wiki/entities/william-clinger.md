@@ -34,11 +34,24 @@ performance of this class of language is decided: procedure call cost, storage
 allocation, and garbage collection matter more, and most standard Scheme benchmarks
 measure the collector rather than the compiler.
 
-Beyond the work covered here, the paper's citations show him as co-editor with
-Jonathan Rees of the Revised^4 Report on Scheme and co-author of "Macros that
-Work," and as the author of the Scheme 311 compiler and of earlier work on
-continuation implementation strategies — none of which is itself an ingested source.
+His other major line of work is macros. With [[mitchell-wand|Mitchell Wand]] he wrote
+the HOPL IV history of [[hygienic-macros|hygienic macro technology]], and he is a
+participant in the story it tells: "Macros That Work" (with Jonathan Rees, 1991)
+introduced the Strong Hygiene Condition, and the `syntax-rules` appendix to R4RS is
+his. That history is also notably self-critical — he records that the strong-hygiene
+claim was made without proof and was later broken by Petrofsky extraction and
+Kiselyov defilement.
+
+The two sides of him sit oddly together and are worth holding in view at once: the
+Twobit paper argues an optimizing compiler need not be complex, while the macro
+history is an account of a problem that took twenty years to solve reliably and ten
+more to solve well.
+
+He was also co-editor with Rees of the Revised^4 Report on Scheme, and wrote the
+Scheme 311 compiler and earlier work on continuation implementation strategies —
+none of which is itself an ingested source.
 
 ## Sources
 
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
+- [[hygienic-macro-technology|Hygienic Macro Technology]]

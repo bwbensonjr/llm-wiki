@@ -26,6 +26,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]] — Ghuloum (Scheme Workshop 2006): a Scheme-to-x86 compiler in 24 steps, each one a fully working compiler for a larger subset.
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]] — Clinger & Hansen (LFP '94): heap-allocate everything, then lambda-lift it back into registers; a lifted lambda is an assembly label.
 - [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]] — Gasbichler, Kelsey & Sperber: add native code to a byte-code VM by reusing an existing CPS optimizer and a translator that does no analysis.
+- [[hygienic-macro-technology|Hygienic Macro Technology]] — Clinger & Wand (HOPL IV): twenty years to make macro expansion capture-safe, and ten more to make it good.
 
 ## Entities
 
@@ -51,6 +52,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[abdulaziz-ghuloum|Abdulaziz Ghuloum]] — Scheme implementer (Ikarus); author of the incremental compiler-construction tutorial.
 - [[william-clinger|William D. Clinger]] — designer of Twobit and Larceny; argues an optimizing Scheme compiler can be simple.
 - [[richard-kelsey|Richard Kelsey]] — ORBIT's front end at Yale, later a Scheme 48 author; links the T and Scheme 48 lineages.
+- [[mitchell-wand|Mitchell Wand]] — Northeastern PL researcher; co-author of the HOPL hygienic-macro history, and half of "Wand and Steckler".
 
 ## Concepts
 
@@ -102,6 +104,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[lambda-lifting|Lambda Lifting]] — turning a nested function's non-local variables into extra parameters so it can be hoisted to a top-level label.
 - [[larceny|Larceny]] — Scheme implementation built on the Twobit compiler; a research vehicle for how programming style affects GC performance.
 - [[scheme-48|Scheme 48]] — byte-code Scheme implementation whose VM is written in Pre-Scheme; a single CPS IR reused across three compilers.
+- [[hygienic-macros|Hygienic Macros]] — macro expansion that cannot accidentally capture identifiers; the substitution problem from logic, applied to programs.
 
 ## Analyses
 

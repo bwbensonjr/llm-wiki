@@ -239,3 +239,15 @@ so the log stays greppable by the stable `## [` prefix.
 - tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, and continuations
 - hub not minted: no pages for Martin Gasbichler (first author) or Michael Sperber, following the precedent set for Lars Thomas Hansen — a co-author with no separately ingested source gets prose, not a hub. [[richard-kelsey|Kelsey]] is the exception because ORBIT is already in the corpus, so his hub aggregates two sources on creation.
 - flagged for `curate`: this paper **contradicts** [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Clinger's]] preference for direct style over CPS. Both arguments come from working compilers and the summary presents them as an open disagreement rather than resolving it; confirm that framing.
+
+## [2026-08-05] ingest: Hygienic Macro Technology
+
+- source: https://dl.acm.org/doi/pdf/10.1145/3386330 — Clinger & Wand, HOPL IV; shepherd Guy L. Steele Jr.
+- run: **unattended** (`ingest-inbox`); converter: docling (this ACM URL served a real PDF, unlike the two `dl.acm.org` links parked earlier in this run)
+- page: [[hygienic-macro-technology|Hygienic Macro Technology]] (`status: provisional`)
+- hubs created: [[hygienic-macros|Hygienic Macros]], [[mitchell-wand|Mitchell Wand]] (both `status: provisional`)
+- hub **corrected**, left `status: reviewed`: [[william-clinger|William D. Clinger]] — his page asserted that his macro work was "not itself an ingested source," which this paper falsifies. Replaced with his role in the hygiene story (Macros That Work, the R4RS `syntax-rules` appendix, and his own record of the strong-hygiene claim being broken). This is a factual correction to a `reviewed` page, not a routine backlink; flagged for `curate` to confirm.
+- hubs given a Sources backlink only, left `status: reviewed`: [[scheme]], [[lisp]], [[racket]], [[language-oriented-programming]], [[lambda-calculus]], [[guy-steele]]
+- images: none kept — PDF route, no localization. The twin carries `<!-- formula-not-decoded -->` for the universal-elimination rule and several OCR-mangled code samples (`/quotedblVar` for quote characters). Nothing promoted to `wiki/assets/`.
+- tags minted: **`macros`** — one new tag, flagged for deferred approval. Sixteen existing pages discuss macros with no tag for it; the nearest existing vocabulary (`language-oriented-programming`, `domain-specific-languages`) names things macros *enable* rather than the mechanism. If approved, it likely wants back-applying to the Janet, Racket, and Lisp pages — a corpus-wide retag that is `lint`'s job, not this ingest's.
+- hub not minted: no page for Eugene Kohlbecker, whose algorithm and dissertation carry section 4 — one source, no prior corpus presence, same rule applied to Gasbichler and Sperber earlier in this run. Reconsider if a second source covers him.
