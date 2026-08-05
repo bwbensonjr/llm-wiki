@@ -32,6 +32,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]] — Clinger, Hartheimer & Ost (HOSC 1999): ten strategies compared by direct and indirect cost across three usage scenarios.
 - [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]] — Hieb, Dybvig & Bruggeman (PLDI 1990): the segmented stack model; constant-time capture, bounded reinstatement, overflow as implicit capture.
 - [[lightweight-closure-conversion|Lightweight Closure Conversion]] — Steckler & Wand (TOPLAS 1997): omit a captured variable when call sites can supply it, with a deductive system that proves the transformation sound.
+- [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]] — Appel & Jim (POPL 1989): SML/NJ's CPS back end in many small phases; closure-passing style, stackless, spilling as a CPS rewrite.
 
 ## Entities
 
@@ -61,6 +62,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[r-kent-dybvig|R. Kent Dybvig]] — creator of Chez Scheme; the Indiana lineage behind syntax-case, nanopass, and much of this corpus's implementation technology.
 - [[robert-hieb|Robert Hieb]] — Indiana implementer; first author of the segmented stack model behind Chez Scheme's continuations.
 - [[paul-steckler|Paul A. Steckler]] — first author of Lightweight Closure Conversion; supplied the correctness proof rather than the optimization.
+- [[andrew-appel|Andrew W. Appel]] — Princeton; architect of SML/NJ's CPS back end and the case for a stackless compiler.
 
 ## Concepts
 

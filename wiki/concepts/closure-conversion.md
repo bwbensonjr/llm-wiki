@@ -66,3 +66,4 @@ often as referenced, which are therefore known local procedures needing no closu
 - [[the-development-of-chez-scheme|The Development of Chez Scheme]]
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]
 - [[lightweight-closure-conversion|Lightweight Closure Conversion]]
+- [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]

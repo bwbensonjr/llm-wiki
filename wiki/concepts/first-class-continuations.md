@@ -74,3 +74,4 @@ good substrate for other languages, per
 
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]
 - [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]]
+- [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]

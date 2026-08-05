@@ -50,6 +50,15 @@ The idea sits alongside other decomposition arguments in this wiki —
 Ghuloum's staged subsets — and the Chez rewrite measured and published what the
 decomposition cost.
 
+The argument itself is older than the name. Appel and Jim made it in 1988 for
+[[standard-ml|SML/NJ]]'s back end
+([[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]),
+aimed squarely at [[orbit-an-optimizing-compiler-for-scheme|ORBIT]]: where ORBIT
+had "one black box covering phases 6 through 9," they had "four smaller black boxes" with
+semantically well-defined interfaces, so an individual analysis could be isolated. What
+the Chez work adds is not the principle but the scale and the price tag.
+
 ## Sources
 
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]
+- [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
