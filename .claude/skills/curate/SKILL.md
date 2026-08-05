@@ -177,6 +177,11 @@ canonical), what was **rejected** and **why**, and any tag redirects. For a
 rejected page this log entry is the only surviving record in `wiki/`, so name the
 source URL in it.
 
+Name a **removed** page in plain text, not as a `[[wikilink]]` — the rejected page,
+and the folded-away variant of a merge. Its slug in backticks. Per `CLAUDE.md`, the
+log is append-only, so a link to a page you are deleting in the same entry is born
+broken and can never be repaired. Pages that survive the run link normally.
+
 After writing, re-check every page you touched: `status` is valid, `type` matches
 its folder, required sections are present, and every `[[wikilink]]` you rewrote
 resolves. Fix a regression rather than leaving a half-applied decision.

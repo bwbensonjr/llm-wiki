@@ -59,6 +59,11 @@ filenames. Flag links that resolve to no page. Watch for links broken by line
 wrapping — a `[[wikilink]]` split across a newline does not resolve in Obsidian;
 report it as broken.
 
+**Skip `wiki/log.md` in this check**, per `CLAUDE.md`. The log is append-only, so a
+link it contains can be un-made by a later `curate` rejection or merge that no
+operation is permitted to go back and repair. Reporting it would be reporting a
+defect nothing can fix. Note in passing if you like; never count it as a defect.
+
 ### 3. Orphans
 
 Flag knowledge pages with **no inbound** `[[wikilink]]` from any other page. Keep

@@ -56,6 +56,21 @@ Two bookkeeping files live at `wiki/` root:
   filed-back analysis), `lint` (a repair run), and `curate` (a review run: what
   was endorsed, merged, and rejected, with rejection reasons).
 
+**Wikilinks in `log.md`.** Because the log is append-only and the corpus is not, a
+`[[wikilink]]` in a log entry can be un-made by a later operation that the log is
+forbidden to go back and repair. Two rules follow:
+
+- **Name a page in plain text when the entry is recording its removal** — the page
+  rejected by a `curate` run, or the variant folded away by a merge. Its slug in
+  backticks, plus the source URL for a rejection. A link written to a page you are
+  deleting in the same breath is born broken, and it is the one case the writer can
+  always see coming. Elsewhere in the log, link normally: most pages persist, and
+  clickable history is worth having.
+- **An unresolvable wikilink in `log.md` is not a `lint` defect.** The log records
+  what was true when the entry was written. `lint` must skip `log.md` in its
+  broken-link check rather than report a defect that no operation is permitted to
+  fix — the same reasoning that keeps `status: provisional` off the defect list.
+
 Folders mirror `type`. They exist for legibility and to give an unambiguous
 "write here" rule — Obsidian resolves links by filename regardless of folder.
 
