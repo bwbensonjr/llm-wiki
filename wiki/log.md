@@ -298,3 +298,12 @@ so the log stays greppable by the stable `## [` prefix.
 - hubs given a Sources backlink only, left `status: reviewed` (or provisional where created earlier in this run): [[continuation-passing-style]], [[scheme]], [[lisp]], [[chez-scheme]], [[larceny]], [[scheme-48]], [[tail-recursion]], [[r-kent-dybvig]]
 - images: none — PDF route; the twin opens with one undecoded `<!-- image -->`. Nothing promoted to `wiki/assets/`.
 - tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, and continuations. Considered and rejected `smalltalk`: the paper covers Smalltalk-80 contexts substantially, but a tag used by one page for a secondary topic is not worth the vocabulary.
+
+## [2026-08-05] ingest: inbox run summary (3 local-file recoveries)
+
+- run: **unattended** (`ingest-inbox`), 3 queue entries — 3 ingested, 0 parked. All three are the papers whose URL captures were parked earlier today; the curator downloaded the PDFs and queued them as local paths in a gitignored `inbox-files/` directory.
+- ingested: [[the-development-of-chez-scheme|The Development of Chez Scheme]]; [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]; [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]
+- **`source:` convention used here.** Each summary's `source:` is the canonical DOI, not the local file path, because the DOI is the paper's durable identity and a path under a gitignored directory means nothing to anyone else. The immutable twins record the local paths, which is what conversion actually read. The earlier `- [!]` entries for the three URLs were left untouched and not retried, so the inbox now shows both the failed URL attempt and the successful local one for each paper — the intended record.
+- hubs created across the run: [[r-kent-dybvig|R. Kent Dybvig]], [[nanopass|Nanopass]], [[first-class-continuations|First-Class Continuations]] (all `status: provisional`)
+- tags minted: **none** across all three
+- two follow-ups for `curate`, both already noted in the per-entry log entries: the [[william-clinger|Clinger]] hub needed a second factual correction of the same kind in one day (an "is not an ingested source" claim invalidated by a later ingest), and [[an-incremental-approach-to-compiler-construction|Ghuloum's summary]] was deliberately left unedited despite now having a [[nanopass]] hub it could cite.
