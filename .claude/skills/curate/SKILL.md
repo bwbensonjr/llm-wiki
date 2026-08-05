@@ -111,6 +111,40 @@ A page the curator does not decide on **stays `provisional`** and reappears in
 the next run's queue. Never endorse by default, never batch-endorse the queue
 because it is long, and never treat silence as approval.
 
+### Correcting a stale corpus claim
+
+A **corpus-membership claim** — prose asserting what the wiki does or does not
+contain, or a corpus-scoped superlative or count (see *Corpus independence* in
+`CLAUDE.md`) — is correctable here, under **edit-then-endorse**. Propose the
+correction whenever you find one on a page you are reviewing: name the offending
+clause, and propose the repair shape, which is to state what is true of the subject
+and drop the claim about the corpus. Leave sibling orientation alone — situating a
+subject among related pages is conformant and is not a violation to fix.
+
+**This applies to a page already carrying `status: reviewed`, and the page stays
+`reviewed`.** That is a deliberate exception to `curate` acting on the provisional
+queue, and the reason is the shape of the bug: this kind of claim is *true when
+written and goes false later*, when some later ingest overturns it. So the page most
+in need of correcting is frequently one the curator already endorsed in good faith —
+the endorsement was sound, the corpus moved. Correcting it therefore does **not**
+return the page to the queue: flipping it back to `provisional` would claim the
+curator's judgment was wrong, and would swell a queue this command exists to drain.
+Fix the clause, leave `status: reviewed`, and record it in the log entry.
+
+Such a page is **not** a queue member — the queue stays exactly the set of
+`status: provisional` pages derived in Phase 1. A reviewed page enters this run only
+because reviewing a queued page surfaced the claim on a neighbor you read for context.
+Do not go hunting the corpus for violations; that is a sweep, not a review.
+
+**The narrow summary exception.** `CLAUDE.md` says a `summary` is written once at
+ingest. Correcting one of these claims in a summary is permitted despite that, because
+otherwise the write-once rule would preserve a known-false sentence indefinitely. The
+permission is narrow: it extends to **removing or rephrasing the offending clause and
+nothing else**. Do not revise the distillation, re-word the surrounding prose, or
+refresh the summary against the source while you are in there. If the correction cannot
+be made without rewriting the distillation, say so and leave the page alone rather than
+stretching the exception.
+
 ### 2. Coach
 
 Let the curator accept, adjust, or reverse any proposal, and revise prose
@@ -130,7 +164,9 @@ On commit, apply each decision:
 **Endorse / edit-then-endorse / retag** — edit the page in place. Endorsement of
 an unmodified page is a **single front-matter change**: `status: provisional` →
 `status: reviewed`. There is no body disclaimer to strip; if you find one, that
-is a bug in the ingest path, not a thing to work around silently.
+is a bug in the ingest path, not a thing to work around silently. A stale
+corpus-claim correction on an already-`reviewed` page is the mirror image: a body edit
+with **no** front-matter change — `status` stays `reviewed`.
 
 **Reclassify** — rewrite `type:`, move the file into the matching folder
 (`wiki/summaries/`, `wiki/entities/`, `wiki/concepts/`, `wiki/analyses/`), and
@@ -173,8 +209,10 @@ entries:
 ```
 
 followed by lines recording what was **endorsed**, what was **merged** (variant →
-canonical), what was **rejected** and **why**, and any tag redirects. For a
-rejected page this log entry is the only surviving record in `wiki/`, so name the
+canonical), what was **rejected** and **why**, any tag redirects, and any **stale
+corpus claim corrected** — naming the page, since a correction on an already-`reviewed`
+page changes no front-matter and would otherwise leave no trace outside git history.
+For a rejected page this log entry is the only surviving record in `wiki/`, so name the
 source URL in it.
 
 Name a **removed** page in plain text, not as a `[[wikilink]]` — the rejected page,
@@ -196,7 +234,12 @@ resolves. Fix a regression rather than leaving a half-applied decision.
   the twin of a page you just rejected.
 - **Do not repair structural defects.** A broken wikilink, a missing index entry,
   a `type`/folder mismatch on a page you are not reclassifying — all of that is
-  `lint`'s job. Report it in passing if you like; do not fix it here.
+  `lint`'s job. Report it in passing if you like; do not fix it here. A
+  corpus-membership claim is **not** in that category: reading prose for meaning is
+  judgment, `lint` deliberately does not check it, and correcting it is this command's
+  job.
+- A corpus-claim correction on a `reviewed` page **leaves it `reviewed`**, and in a
+  `summary` touches only the offending clause — never the distillation.
 - Never merge hubs, redirect a tag, or reject a page without explicit approval.
 - An undecided page stays `provisional`. Leaving the queue partly drained is a
   correct outcome.

@@ -34,8 +34,7 @@ His influence reaches this corpus well beyond his own paper.
 [[matthew-flatt|Flatt]]'s Racket-on-Chez port was done with him and the Chez team;
 the nanopass framework is Sarkar, Waddell, and Dybvig; and Chez's
 [[hygienic-macros|hygienic macro]] support arrived through `syntax-case`, the design
-most associated with his group. That density is why several pages here mentioned him
-before he had a page of his own.
+most associated with his group.
 
 ## Sources
 

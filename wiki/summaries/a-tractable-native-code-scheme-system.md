@@ -103,9 +103,9 @@ It also sharpens the CPS thread running through
 [[orbit-an-optimizing-compiler-for-scheme|ORBIT]], and
 [[compiling-with-continuations-and-llvm|LLVM-targeted CPS]]. Scheme 48
 uses one CPS IR for Pre-Scheme compilation, for ordinary Scheme compilation, and for
-byte-code optimization — three consumers of one representation. That is the
-strongest corpus evidence yet for CPS as *reusable infrastructure* rather than one
-compiler's internal choice, and it stands against
+byte-code optimization — three consumers of one representation. That is strong evidence
+for CPS as *reusable infrastructure* rather than one compiler's internal choice, and it
+stands against
 [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Clinger's]]
 preference for direct style, which rejects CPS on the grounds that it complicates
 register allocation and targeting. Both are arguing from working compilers.

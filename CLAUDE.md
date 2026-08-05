@@ -25,7 +25,8 @@ operation. All judgment lives in `wiki/`.
 Every knowledge page carries a `type` front-matter field, one of:
 
 - `summary` — **source-anchored.** Exactly one per ingested source, written
-  once at ingest. The "leaves." Stored in `wiki/summaries/`.
+  once at ingest (see *Corpus independence* for the one authorized later edit).
+  The "leaves." Stored in `wiki/summaries/`.
 - `entity` — a person, organization, or place. A "hub." `wiki/entities/`.
 - `concept` — an abstract idea or topic. A "hub." `wiki/concepts/`.
 - `analysis` — a filed-back query answer or comparison. `wiki/analyses/`.
@@ -54,7 +55,7 @@ Two bookkeeping files live at `wiki/` root:
   per operation; never rewrite existing entries. The `<op>` vocabulary is
   `ingest` (a filed source — an unattended one says so in its body), `query` (a
   filed-back analysis), `lint` (a repair run), and `curate` (a review run: what
-  was endorsed, merged, and rejected, with rejection reasons).
+  was endorsed, merged, corrected, and rejected, with rejection reasons).
 
 **Wikilinks in `log.md`.** Because the log is append-only and the corpus is not, a
 `[[wikilink]]` in a log entry can be un-made by a later operation that the log is
@@ -165,6 +166,71 @@ corpus-backed.
 Page templates live in `templates/` (`summary.md`, `entity.md`, `concept.md`,
 `analysis.md`).
 
+## Corpus independence
+
+A knowledge page describes **its subject**. It never asserts what the wiki does or
+does not contain. A page's prose is written once; the corpus grows continuously and
+unattended, so any sentence whose truth depends on corpus membership is a latent
+defect with a delayed trigger — and nothing detects it, because a stale claim is
+grammatically fine, its front-matter is valid, and its wikilinks still resolve.
+
+The test, applied to every sentence at the moment of writing, is **falsifiability by
+ingest**:
+
+> Would ingesting some plausible future source make this sentence false?
+
+If yes, do not write it. Two classes of claim fail this test:
+
+- **Presence or absence** — that a work is or is not an ingested source, that no page
+  covers some topic, that this is the corpus's first page on a subject. *"His Scheme
+  311 compiler is not itself an ingested source"* was true when written and false the
+  next morning.
+- **Corpus-scoped superlatives and counts** — *"the corpus's only measurement of that
+  trade-off"*, *"the wiki's clearest source on closure conversion"*, *"several pages
+  here mentioned him before he had a page of his own"*. Less obvious grammar, identical
+  bug: the next ingest overturns it.
+
+**The repair is to say what is true of the subject and stop.** Name the work, drop the
+clause about the corpus. An absence claim adds nothing a reader wants — they can see
+which pages exist. So *"his Scheme 311 compiler, an early Scheme-to-C compiler, is not
+itself an ingested source"* becomes *"his Scheme 311 compiler, an early
+Scheme-to-C compiler"*.
+
+Two things are **explicitly permitted**, and over-applying the rule to them is itself a
+violation — a wiki that never orients a page among its neighbors has worse hubs than one
+that does:
+
+- **Sibling orientation.** *"Sits in this wiki's collection of Scheme implementations
+  alongside Chez Scheme and Racket"* is fine. A future ingest *adds* to that
+  collection without falsifying the sentence. The rule is not "avoid mentioning the
+  wiki"; it is "do not assert something a later ingest can overturn." Ranking or
+  claiming completeness over such a grouping is what crosses the line.
+- **Superlatives scoped to a source.** *"The only strategy in the paper that is
+  zero-overhead"* and *"the paper's only measurement of compile-time cost"* are claims
+  about the source, not the corpus, and no ingest can touch them. Remediation must read
+  each site rather than rewriting by pattern, because these look superficially alike.
+
+**`wiki/log.md` is exempt.** Its entries are dated, append-only records of what was true
+at a moment, so *"no ingested source covered it"* is **correct** there and is never
+rewritten — the same reasoning that makes an unresolvable wikilink in the log not a
+`lint` defect (see *Wikilinks in `log.md`* above). This is where a noticed gap belongs:
+when an operation observes that the corpus does not yet cover something — a work it
+cannot link, a hub it declines to mint — that observation goes in the run's log entry
+and never into a knowledge page.
+
+This constraint is **not** a `lint` concern. Telling a banned claim from permitted
+orientation requires reading prose for meaning, which is judgment, not structure; a
+phrase matcher would fire on exactly the sibling-orientation sentences the rule protects.
+It binds instead at authoring time on both paths, and `curate` may correct a violation it
+encounters — including on a page already `reviewed`, since these claims go false after
+endorsement. Such a correction leaves `status: reviewed` in place: the endorsement was
+sound when made and the corpus moved underneath it.
+
+Correcting one of these claims is the **one authorized exception** to a `summary` being
+written once at ingest, and it is narrow: it extends to removing or rephrasing the
+offending clause and never to revising the distillation. Without the exception, the
+write-once rule would preserve a known-false sentence indefinitely.
+
 ## The inbox queue (`inbox.md`)
 
 `inbox.md` at the **repo root** is the queue of sources awaiting unattended
@@ -203,7 +269,9 @@ other:
   *endorses, retags, reclassifies, merges, and rejects*. Rejection deletes a page;
   that is not a repair. `curate` reuses `lint`'s shape (read-only survey,
   propose → coach → commit, one appended log entry) without inheriting its
-  contract, and never repairs a structural defect it happens to notice.
+  contract, and never repairs a structural defect it happens to notice. Correcting a
+  corpus-membership claim is the one thing it does outside the queue — see *Corpus
+  independence*; that is judgment, not structure, so no orthogonality is lost.
 
 ## Wikilinks & Obsidian
 

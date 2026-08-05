@@ -127,6 +127,18 @@ Then decide, on your own judgment:
   (`chris-lattner`, not a second `christopher-lattner`).
 - **`## Summary`** — your neutral distillation, with inline `[[wikilinks]]`.
 
+**Corpus independence is binding on every sentence you write here** (see *Corpus
+independence* in `CLAUDE.md`). You have just surveyed the corpus, which is exactly
+what makes the violation tempting: what you learned about *what is missing* must not
+reach the page. Before writing a sentence that mentions the wiki, ask **"would
+ingesting another source make this false?"** — if yes, say what is true of the subject
+and stop. No "X is not an ingested source", no "no page here covers Y", no "the
+corpus's only/first/clearest Z", no counting the pages that mention something.
+Situating the subject among siblings the wiki already holds is *permitted* and worth
+doing — a later ingest adds to such a grouping without falsifying it. There is no
+reviewer on this path, so apply the test now; a stale claim written here publishes
+immediately and reads as fact.
+
 ### 2e. Figures (Jina route only)
 
 If capture localized images (`images.kept` non-empty), that judgment is yours —
@@ -160,6 +172,15 @@ Write it as ordinary prose. **No inline authorship disclaimer** — `status:` is
 sole marker, so endorsement stays a one-field edit and no stale disclaimer can
 survive review.
 
+This section is the likeliest place to break corpus independence, because "why this
+matters" invites reaching for what the corpus lacked until now. Reason about what the
+source *extends, corroborates, or contradicts* — relating ideas to pages that exist is
+the point of the section and is fine. What is banned is the claim about membership:
+that this is the corpus's first or only page on something, that nothing here covered
+it before, or a count of how many pages mention it. Significance stated in terms of the
+source and its subject survives the next ingest; significance stated as a corpus ranking
+does not.
+
 ### 2g. Write the pages
 
 1. **`wiki/summaries/<slug>.md`** — front-matter per `CLAUDE.md`:
@@ -189,6 +210,15 @@ survive review.
    unattended**, **every tag this ingest newly minted** (this is the deferred tag
    approval `curate` acts on — if it is not logged, the new vocabulary is
    invisible), any hubs created, and any figure promoted to `wiki/assets/`.
+
+   **The log is also where a noticed gap goes.** If authoring surfaced something the
+   corpus does not yet cover — a work the source leans on that you could not link, a
+   hub you judged the source did not warrant minting — record it here, in plain text,
+   and **never in a knowledge page**. `wiki/log.md` is exempt from corpus independence
+   because its entries are dated records of what was true when written, so "no ingested
+   source covers X" is correct here and a defect on a page. This is the whole outlet for
+   that observation; the existing requirements above already accommodate it, since a
+   `curate` reader of this entry is the person who can act on the gap.
 
 Validate before committing: `type` and `status` are valid values, both body
 sections are non-empty, and every `[[wikilink]]` resolves to a real or
@@ -255,6 +285,9 @@ succeeded, was skipped, or aborted on conflict.
   `reviewed` hub gaining only a backlink stays `reviewed`.
 - **Raw twins are immutable** — never edit or rename anything under `raw/`,
   including the twin of an entry you refused to author from.
+- **No corpus-membership claim in a page.** No presence/absence claim, no
+  corpus-scoped superlative or count; a noticed gap goes in the log entry. Sibling
+  orientation stays.
 - **Failure isolation** — one entry's failure never aborts the run or discards
   another entry's committed work.
 - **Never delete an inbox entry**; the checkbox carries the state.

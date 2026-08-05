@@ -14,7 +14,7 @@ A programming-languages researcher at Northeastern University, co-author with
 
 ## Notes
 
-His name reaches this wiki from two directions. He co-wrote
+His name reaches this wiki from more than one direction. He co-wrote
 [[hygienic-macro-technology|Hygienic Macro Technology]], and he appears in the
 compiler pages as half of "Wand and Steckler," whose *selective and lightweight
 closure conversion* uses the term [[closure-conversion|closure conversion]] for a

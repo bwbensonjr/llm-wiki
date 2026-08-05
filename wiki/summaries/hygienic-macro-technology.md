@@ -80,14 +80,12 @@ The inbox note asked for a broad overview of hygienic macro technology, and this
 the authoritative one — a HOPL paper by two of the people who built the thing,
 shepherded by a third.
 
-Its value to this corpus is that macros are everywhere in the existing pages and
-nowhere as a subject. Sixteen pages mention them —
-[[rabbit-a-compiler-for-scheme|RABBIT]] extends a tiny basis set by macros,
-[[a-programmable-programming-language|Racket's]] whole thesis is
-language-oriented programming built on them, [[janet]] and [[lisp]] treat them as
-the defining feature of the family — but until now nothing explained what makes them
-hard. This page and [[hygienic-macros]] give that scattered discussion somewhere to
-land.
+Its value here is that it takes macros as its subject, where much of the surrounding
+material leans on them in passing: [[rabbit-a-compiler-for-scheme|RABBIT]] extends a
+tiny basis set by macros, [[a-programmable-programming-language|Racket's]] whole thesis
+is language-oriented programming built on them, and [[janet]] and [[lisp]] treat them
+as the defining feature of the family. This page and [[hygienic-macros]] give that
+scattered discussion somewhere to land, and an account of what makes macros hard.
 
 It also complicates a figure the corpus just added. [[william-clinger|Clinger]]
 entered this wiki hours ago as the Twobit author arguing that compilers can be simple;

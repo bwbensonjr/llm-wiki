@@ -88,6 +88,17 @@ Present a proposal to the user containing:
   any **new** hub pages you propose to create.
 - **Draft `## Summary`** — your neutral distillation of the source.
 
+**Corpus independence applies to everything you draft** (see *Corpus independence* in
+`CLAUDE.md`) — a page's conformance must not depend on which path wrote it. You have
+just surveyed the corpus, so what you learned about *what is missing* is fresh and
+tempting to write down; keep it out of the page. Ask of any sentence mentioning the
+wiki: **"would ingesting another source make this false?"** If yes, say what is true of
+the subject and stop. So no "X is not an ingested source", no "no page here covers Y",
+no "the corpus's only/first/clearest Z", no counting the pages that mention something.
+Sibling orientation — situating the subject among related pages the wiki already holds —
+is permitted and worth doing. A superlative about *the source* ("the paper's only
+measurement of compile-time cost") is also fine; only corpus-scoped ones are banned.
+
 ### 2. Coach
 
 Let the user revise anything: re-title, re-tag, re-link, fold one proposed
@@ -97,6 +108,13 @@ entity into another, drop a hub, etc. Iterate until they are satisfied.
 why this resource is interesting, ask them — in their own words. This becomes
 the `## Why this matters` section and must be the user's voice, not yours. Do
 not commit a summary without it.
+
+If what the user says frames significance as a corpus-membership claim ("nothing else
+here covers this", "this is the first page on it"), say so and offer the
+corpus-independent rephrasing — the claim goes false on the next ingest, and this
+section is where that habit is most natural. Their voice, their call; you raise it
+once. If they want the observation kept, it belongs in the `wiki/log.md` entry for this
+ingest, which is exempt, not in the page.
 
 ### 3. Commit
 
@@ -145,4 +163,6 @@ page.
 - A `type` outside `summary|entity|concept|analysis` is invalid — halt and
   report instead of writing.
 - Raw twins are immutable: never edit or rename a file under `raw/`.
+- No corpus-membership claim in a page: no presence/absence claim, no corpus-scoped
+  superlative or count. Sibling orientation stays; a noticed gap goes in the log entry.
 - If conversion fails, write nothing and tell the user why.

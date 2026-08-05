@@ -77,8 +77,8 @@ This closes a loop the wiki opened and explicitly deferred.
 [[an-incremental-approach-to-compiler-construction|Ghuloum's tutorial]]
 arrived with a curator note calling it the origin of "the nanopass idea"; the
 ingest flagged that as wrong, and the first `curate` run confirmed the correction and
-recorded that nanopass proper is Sarkar, Waddell, and Dybvig — while declining to mint
-a [[nanopass]] hub because no ingested source covered it. That source is now here, so
+recorded that nanopass proper is Sarkar, Waddell, and Dybvig — while deferring the
+[[nanopass]] hub. This paper is a primary source for nanopass proper, so
 the hub is minted on evidence rather than inference, and the distinction the corpus
 drew from the outside can now be checked from the inside:
 [[an-incremental-approach-to-compiler-construction|Ghuloum's]] incrementality is 24
@@ -91,13 +91,11 @@ It is also the natural sequel to
 it. That paper ends at Version 7 in 2005 with ten multipurpose passes and Dybvig's
 stated method of picking low-hanging fruit; this one is the same system seven years
 later being taken apart and rebuilt on a different organizing principle. Reading them
-together gives something rare in this corpus — a design argument and its own later
-revision by the same person.
+together is unusual: a design argument and its own later revision by the same person.
 
-The engineering claim worth keeping is the one about cost. Every source here that
-advocates decomposition — nanopass, Ghuloum's incremental subsets,
-[[a-tractable-native-code-scheme-system|Scheme 48's]] separate byte-code optimizer —
-faces the objection that clean structure is bought with performance. This paper is the
-corpus's only measurement of that trade on a commercial compiler, and the answer is
-concrete rather than rhetorical: 10× the passes, faster generated code, 1.75× worst-case
-compile time.
+The engineering claim worth keeping is the one about cost. Arguments for decomposition —
+nanopass, Ghuloum's incremental subsets,
+[[a-tractable-native-code-scheme-system|Scheme 48's]] separate byte-code optimizer — all
+face the objection that clean structure is bought with performance. This paper measures
+that trade on a commercial compiler, and the answer is concrete rather than rhetorical:
+10× the passes, faster generated code, 1.75× worst-case compile time.

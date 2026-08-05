@@ -45,8 +45,9 @@ and a naming of the earliest implementation known to use it: garbage-collection,
 spaghetti, heap, stack, chunked-stack, stack/heap, **incremental stack/heap**, the
 **Hieb-Dybvig-Bruggeman** variation, one-shot continuations, and Mateu's coroutines.
 
-Two matter most to this corpus. The **incremental stack/heap** strategy keeps frames
-in a stack cache with a permanent frame at the bottom whose return address points to
+Two recur across the implementations this wiki covers. The **incremental stack/heap**
+strategy keeps frames in a stack cache with a permanent frame at the bottom whose
+return address points to
 system code; returning through a frame not in the cache traps and copies it back in.
 It is zero-overhead, shares the stack strategy's calling sequence, and in the
 recapture scenario — where capturing a previously captured frame is more common than
@@ -79,7 +80,7 @@ stack/heap and incremental stack/heap strategies.
 ## Why this matters
 
 The inbox note asked for compilation approaches to Scheme continuations, and this is
-the paper the rest of the corpus has been citing without containing. Its reference
+the paper the rest of the corpus has been citing. Its reference
 number [5] is what
 [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Twobit]] points at
 when it claims the incremental stack/heap strategy has zero overhead — a claim the

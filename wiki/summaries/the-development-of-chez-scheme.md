@@ -84,11 +84,10 @@ and uniformly good efficiency.
 ## Why this matters
 
 The inbox note wanted an in-depth history of an important Scheme compiler, and this
-supplies something the corpus did not have: a *longitudinal* view. Every other
-compiler source here is a snapshot arguing for a design —
-[[rabbit-a-compiler-for-scheme|RABBIT]],
-[[orbit-an-optimizing-compiler-for-scheme|ORBIT]], Twobit,
-[[a-tractable-native-code-scheme-system|Scheme 48]] each make their case and stop.
+supplies a *longitudinal* view. [[rabbit-a-compiler-for-scheme|RABBIT]],
+[[orbit-an-optimizing-compiler-for-scheme|ORBIT]], Twobit, and
+[[a-tractable-native-code-scheme-system|Scheme 48]] are each a snapshot that makes its
+case for a design and stops.
 This one shows twenty years of consequences, including which early decisions kept
 paying (BiBOP and segmented memory made the 64-bit and thread ports tractable) and
 which were deferred indefinitely.

@@ -109,13 +109,13 @@ makes the naive version wrong, and the group-lifting flow analysis that fixes it
 Placed against what the wiki already holds, it completes an arc. RABBIT established
 that a call is a `goto` and left closure strategy open; ORBIT supplied the analyses
 and showed a higher-order language can match Pascal; Ghuloum showed the pipeline at
-its smallest. Twobit is the entry that argues the *simplicity* case directly — that
+its smallest. Twobit argues the *simplicity* case directly — that
 you can get most of the way with a heap-everything default plus one strong
 transformation, and that the residual performance question belongs to the garbage
 collector rather than the compiler. That last claim is the sharpest thing here, and
 it cuts against the implicit premise of the rest of the compiler-lineage batch.
 
-It also supplies the corpus's most explicit statement of the relationship between
-[[lambda-lifting]] and [[closure-conversion]] — the same transformation under two
+It also states the relationship between [[lambda-lifting]] and
+[[closure-conversion]] unusually explicitly — the same transformation under two
 names, differing in how global the flow equation is — which is the kind of
 terminological knot the hub pages exist to untie.

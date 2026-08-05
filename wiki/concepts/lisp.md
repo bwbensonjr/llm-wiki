@@ -19,9 +19,8 @@ with older Lisp conventions (`first` over `CAR`, `do` over `PROGN`, `fn` over
 [[scheme|Scheme]] is the small, lexically-scoped dialect now covered on its own
 page — the trunk from which [[racket|Racket]] descends. [[racket|Racket]] is an
 heir of Scheme that eliminates the boundary between library and language to
-support [[language-oriented-programming]]. Other notable dialects — Common Lisp
-and Clojure — are not yet covered in this wiki; when a source on one is filed,
-give it its own concept page and link it back here.
+support [[language-oriented-programming]]. Other notable dialects include Common Lisp
+and Clojure.
 
 The shared throughline across the family is the macro system: because code is
 represented as ordinary data structures, programs can manipulate and generate

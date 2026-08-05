@@ -43,7 +43,7 @@ top — a code label in the closure's first cell, captured values in the rest.
 
 The name is contested, and Clinger and Hansen
 ([[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Twobit]])
-are the corpus's clearest source on the tangle. What Twobit calls
+are explicit about the tangle. What Twobit calls
 [[lambda-lifting]] is what SML/NJ's compiler calls closure conversion — the same
 transformation, differing in how global the flow equation is. Meanwhile Wand and
 Steckler use "closure conversion" for a source-level transformation that replaces a

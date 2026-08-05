@@ -59,7 +59,7 @@ before comparing, and distrust a benchmark that does not say which scenario it
 represents.
 
 He was also co-editor with Rees of the Revised^4 Report on Scheme and wrote the
-Scheme 311 compiler — neither of which is itself an ingested source.
+Scheme 311 compiler.
 
 ## Sources
 

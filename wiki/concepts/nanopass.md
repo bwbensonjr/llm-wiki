@@ -41,14 +41,14 @@ workable but was only ever used for half of a student compiler. Keep and
 [[r-kent-dybvig|Dybvig]] then rebuilt it for production use and rewrote
 [[chez-scheme|Chez Scheme]]'s back end with it —
 [[a-nanopass-framework-for-commercial-compiler-development|the paper]] reporting that
-work is the corpus's evidence that the approach survives contact with a commercial
+work shows the approach surviving contact with a commercial
 compiler. Roughly 50 passes over 35 intermediate languages replaced five large ones,
 generated code got 15–27% faster, and worst-case compile time rose to 1.75×.
 
 The idea sits alongside other decomposition arguments in this wiki —
 [[a-tractable-native-code-scheme-system|Scheme 48's]] separate byte-code optimizer,
-Ghuloum's staged subsets — and is the only one here with published numbers on what the
-decomposition costs.
+Ghuloum's staged subsets — and the Chez rewrite measured and published what the
+decomposition cost.
 
 ## Sources
 
