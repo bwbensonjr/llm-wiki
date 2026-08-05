@@ -1,6 +1,6 @@
 ---
 type: concept
-status: provisional
+status: reviewed
 title: Tail Recursion
 created: 2026-08-05
 tags: [programming-languages, language-implementation, continuations]

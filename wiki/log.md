@@ -166,3 +166,16 @@ so the log stays greppable by the stable `## [` prefix.
 
 - run: **unattended** (`ingest-inbox`), 4 queue entries — 3 ingested, 1 parked
 - parked: http://foo.bar.baz/bad-link — 2026-08-05: capture failed, DNS could not resolve host `foo.bar.baz`. No `raw/` twin and no `wiki/` page were written; the entry is marked `- [!]` in `inbox.md` so later runs skip it. Failure isolation held: the three preceding entries were already committed and were unaffected.
+
+## [2026-08-05] curate: first review of the unattended compiler-lineage batch
+
+- queue drained: 12 provisional pages (3 summaries, 6 concepts, 3 entities), all from today's `ingest-inbox` run — 0 days of review debt
+- **endorsed as written** (status flip only): [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]], [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]], [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]], [[closure-conversion|Closure Conversion]], [[escape-analysis|Escape Analysis]], [[lambda-papers|Lambda Papers]], [[t-programming-language|T (Programming Language)]], [[tail-recursion|Tail Recursion]], [[david-kranz|David A. Kranz]]
+- **retagged**: [[lambda-calculus|Lambda Calculus]] — dropped `formal-methods` for `language-implementation`. `formal-methods` binds the verification cluster ([[type-systems]], [[oxcaml]], [[jane-street]]); lambda calculus belongs with the compiler lineage.
+- **edited then endorsed**: [[guy-steele|Guy L. Steele Jr.]] and [[abdulaziz-ghuloum|Abdulaziz Ghuloum]] — removed claims no ingested source supports (Steele's later Common Lisp/Java/Fortress work; Ghuloum's Ikarus Scheme; the characterization of Dybvig's group as "behind the nanopass framework"). Retained what the Ghuloum paper does support: its acknowledgment of R. Kent Dybvig and its citation of [[chez-scheme|Chez Scheme]]'s storage management.
+- **merged**: none. [[escape-analysis|Escape Analysis]] was considered for folding into [[closure-conversion|Closure Conversion]] and kept separate — distinct named concepts in the literature, accurate cross-references.
+- **rejected**: none. No page in the queue warranted deletion.
+- tags minted by the ingest run: **none** — independently verified; every tag on every queued page already appeared on a reviewed page, so no deferred tag approval was outstanding.
+- hub clustering: the 9 new hubs were checked against all 52 existing hubs for casing, punctuation, name-form, abbreviation, and plural variants — no near-duplicates. Sequential ingest meant ORBIT and Ghuloum linked the hubs RABBIT created rather than minting variants.
+- curator decision on [[an-incremental-approach-to-compiler-construction|Ghuloum]]: the drafted commentary's correction of the inbox note (which had attributed nanopass to the paper) was confirmed and stands.
+- noted, not repaired (structural — `lint`'s domain): wikilinks broken across line wraps in [[chez-scheme]], [[racket]], [[matthew-flatt]], [[chloe-kim]], and [[ethan-mollick]].

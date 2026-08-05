@@ -1,6 +1,6 @@
 ---
 type: entity
-status: provisional
+status: reviewed
 title: Guy L. Steele Jr.
 created: 2026-08-05
 tags: [programming-languages, language-implementation, scheme, lisp]
@@ -10,8 +10,7 @@ tags: [programming-languages, language-implementation, scheme, lisp]
 
 A computer scientist who, with Gerald Jay Sussman, invented [[scheme]] at MIT in
 1975. Author of the RABBIT compiler and, with Sussman, of the
-[[lambda-papers|Lambda Papers]]; later a central figure in Common Lisp, Java, and
-Fortress.
+[[lambda-papers|Lambda Papers]].
 
 ## Notes
 

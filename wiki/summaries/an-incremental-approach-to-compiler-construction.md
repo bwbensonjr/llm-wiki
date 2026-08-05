@@ -1,6 +1,6 @@
 ---
 type: summary
-status: provisional
+status: reviewed
 title: An Incremental Approach to Compiler Construction
 created: 2026-08-05
 source: http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf
