@@ -47,5 +47,5 @@ is a no-op.
 - [x] https://www.deinprogramm.de/sperber/papers/tractable-native-code-scheme-system.pdf - Looks at going from virtual machine to native code
 - [!] https://dl.acm.org/doi/epdf/10.1145/1159803.1159805 - An in-depth history of an important Scheme compiler — 2026-08-05: Cloudflare bot check, no article content (twin: raw/2026-08-05-just-a-moment.md)
 - [!] https://dl.acm.org/doi/epdf/10.1145/2544174.2500618 - A particular framework for multi-pass compilers — 2026-08-05: ACM JS reader shell, only a loading stub, no article content. Title resolves to Keep & Dybvig, "A nanopass framework for commercial compiler development" (ICFP 2013); retry via a direct PDF host.
-- [ ] https://link.springer.com/content/pdf/10.1023/A:1010016816429.pdf - Compilation approaches for Scheme continuations
+- [!] https://link.springer.com/content/pdf/10.1023/A:1010016816429.pdf - Compilation approaches for Scheme continuations — 2026-08-05: Springer served only the bibliography (47 references, no abstract or body). Paper is Clinger, Hartheimer & Ost, "Implementation Strategies for First-Class Continuations" (HOSC 1999); retry via a direct PDF host.
 - [ ] https://dl.acm.org/doi/pdf/10.1145/3386330 - A broad overview of hygenic macro technologies like those available in Scheme
