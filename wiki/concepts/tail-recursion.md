@@ -33,7 +33,13 @@ continuation is a variable rather than a lambda expression. Proper tail recursio
 also constrains storage: a stack-allocated closure must be reclaimed as soon as it
 is inaccessible, or a tail-recursive loop would grow the stack.
 
+The simplest implementation, spelled out in
+[[an-incremental-approach-to-compiler-construction|Ghuloum's tutorial]], is frame
+collapsing: evaluate the arguments, copy them down over the current frame, and issue
+an indirect `jmp` instead of a `call`.
+
 ## Sources
 
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
+- [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]]

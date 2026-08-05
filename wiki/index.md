@@ -23,6 +23,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[the-llvm-compiler-infrastructure|The LLVM Compiler Infrastructure]] — CACM 2026: the origin, five-capability design, and vast industry/research impact of LLVM, framed as a case for federal research funding.
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]] — Steele's 1977 MIT dissertation: LAMBDA as rename plus GOTO, a tiny basis set extended by macros, and CPS as a compiler IR.
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]] — Kranz's 1988 Yale dissertation: closure and escape analysis make Scheme match Pascal, and beat it wherever calls dominate.
+- [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]] — Ghuloum (Scheme Workshop 2006): a Scheme-to-x86 compiler in 24 steps, each one a fully working compiler for a larger subset.
 
 ## Entities
 
@@ -45,6 +46,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[vikram-adve|Vikram Adve]] — UIUC professor and LLVM's faculty originator; his NSF CAREER grant funded the early work.
 - [[guy-steele|Guy L. Steele Jr.]] — co-inventor of Scheme with Gerald Jay Sussman; author of RABBIT and the Lambda Papers.
 - [[david-kranz|David A. Kranz]] — Yale T project; built the ORBIT compiler and its closure-analysis algorithms.
+- [[abdulaziz-ghuloum|Abdulaziz Ghuloum]] — Scheme implementer (Ikarus); author of the incremental compiler-construction tutorial.
 
 ## Concepts
 

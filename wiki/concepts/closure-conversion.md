@@ -36,7 +36,13 @@ and *representation analysis* (the closure's actual run-time structure), and add
 closure hoisting and packing so several procedures can share one environment
 without indirection. [[escape-analysis]] is what decides the strategy.
 
+[[an-incremental-approach-to-compiler-construction|Ghuloum]] shows the pass at its
+smallest: free-variable analysis annotates each `lambda` with what it references but
+does not bind, then `lambda` forms become `closure` forms with the code lifted to the
+top — a code label in the closure's first cell, captured values in the rest.
+
 ## Sources
 
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
+- [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]]

@@ -67,3 +67,4 @@ optimizing Pascal compiler wherever procedure calls dominate.
 - [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]]
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
+- [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]]
