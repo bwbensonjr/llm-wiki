@@ -20,7 +20,8 @@ x86 assembly, developed as 24 incremental steps, each producing a fully working
 compiler for a progressively larger language — so the learner has something that
 runs from the first day.
 
-He worked in R. Kent Dybvig's orbit at Indiana; the paper thanks Dybvig and draws
+He worked in [[r-kent-dybvig|R. Kent Dybvig]]'s orbit at Indiana; the paper thanks
+Dybvig and draws
 on his group's work, including the storage-management techniques used in
 [[chez-scheme|Chez Scheme]].
 

@@ -261,3 +261,15 @@ so the log stays greppable by the stable `## [` prefix.
   - `https://dl.acm.org/doi/epdf/10.1145/2544174.2500618` — ACM JavaScript reader shell, only a "Loading publication (376.9 KB)" stub. Title resolves to Keep & Dybvig's nanopass framework paper (ICFP 2013).
   - `https://link.springer.com/content/pdf/10.1023/A:1010016816429.pdf` — Springer returned only the bibliography, 47 references with no abstract or body. Paper is Clinger, Hartheimer & Ost, "Implementation Strategies for First-Class Continuations" (HOSC 1999).
 - **pattern worth acting on:** `dl.acm.org/doi/epdf/...` is a viewer URL and does not yield content, while `dl.acm.org/doi/pdf/...` served a real PDF and ingested cleanly. Prefer the `/doi/pdf/` form, or a direct author-hosted copy, when queueing ACM links. All three parked papers are cited by sources already in the corpus and are worth retrying from another host.
+
+## [2026-08-05] ingest: The Development of Chez Scheme
+
+- source: https://doi.org/10.1145/1159803.1159805 — Dybvig, ICFP 2006
+- run: **unattended** (`ingest-inbox`); converter: docling
+- **captured from a local file, not the network.** The curator downloaded the PDF after the URL route was parked earlier today; the queue entry was `inbox-files/1159803.1159805.pdf` (gitignored, not committed). The immutable twin records `source: inbox-files/1159803.1159805.pdf` because that is where conversion actually read from; the summary's `source:` is set to the canonical DOI, which is the paper's durable identity. Originally parked as `https://dl.acm.org/doi/epdf/10.1145/1159803.1159805` (Cloudflare bot check); that entry stays `- [!]` and was not retried.
+- page: [[the-development-of-chez-scheme|The Development of Chez Scheme]] (`status: provisional`)
+- hubs created: [[r-kent-dybvig|R. Kent Dybvig]] (`status: provisional`) — overdue: four existing pages named him in plain prose before he had one
+- hubs enriched, left `status: reviewed`: [[matthew-flatt|Matthew Flatt]] and [[abdulaziz-ghuloum|Abdulaziz Ghuloum]] — their existing plain-text mentions of Dybvig are now links
+- hubs given a Sources backlink only, left `status: reviewed`: [[chez-scheme]], [[scheme]], [[lisp]], [[continuation-passing-style]], [[tail-recursion]], [[closure-conversion]], [[hygienic-macros]]
+- images: none — PDF route. The twin's version-highlight tables carry OCR-mangled glyph runs where the original used a code font (`/CT/DC/D8/CT/D2/CS/B9/D7/DD/D2/D8/CP/DC` for `extend-syntax`); identifiers were recovered from context and prose, not transcribed from those runs. Nothing promoted to `wiki/assets/`.
+- tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, chez-scheme, and continuations

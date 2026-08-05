@@ -27,6 +27,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]] — Clinger & Hansen (LFP '94): heap-allocate everything, then lambda-lift it back into registers; a lifted lambda is an assembly label.
 - [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]] — Gasbichler, Kelsey & Sperber: add native code to a byte-code VM by reusing an existing CPS optimizer and a translator that does no analysis.
 - [[hygienic-macro-technology|Hygienic Macro Technology]] — Clinger & Wand (HOPL IV): twenty years to make macro expansion capture-safe, and ten more to make it good.
+- [[the-development-of-chez-scheme|The Development of Chez Scheme]] — Dybvig (ICFP 2006): twenty years of Chez, version by version; stack continuations, flat closures, boxed assignments, and low-hanging fruit first.
 
 ## Entities
 
@@ -53,6 +54,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[william-clinger|William D. Clinger]] — designer of Twobit and Larceny; argues an optimizing Scheme compiler can be simple.
 - [[richard-kelsey|Richard Kelsey]] — ORBIT's front end at Yale, later a Scheme 48 author; links the T and Scheme 48 lineages.
 - [[mitchell-wand|Mitchell Wand]] — Northeastern PL researcher; co-author of the HOPL hygienic-macro history, and half of "Wand and Steckler".
+- [[r-kent-dybvig|R. Kent Dybvig]] — creator of Chez Scheme; the Indiana lineage behind syntax-case, nanopass, and much of this corpus's implementation technology.
 
 ## Concepts
 

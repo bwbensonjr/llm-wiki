@@ -32,3 +32,4 @@ and [[racket|Racket]] (which now runs on Chez Scheme).
 
 - [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]]
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
+- [[the-development-of-chez-scheme|The Development of Chez Scheme]]

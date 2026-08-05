@@ -54,3 +54,4 @@ closure.
 - [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]]
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
 - [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]]
+- [[the-development-of-chez-scheme|The Development of Chez Scheme]]

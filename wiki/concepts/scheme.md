@@ -71,3 +71,4 @@ optimizing Pascal compiler wherever procedure calls dominate.
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
 - [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]]
 - [[hygienic-macro-technology|Hygienic Macro Technology]]
+- [[the-development-of-chez-scheme|The Development of Chez Scheme]]
