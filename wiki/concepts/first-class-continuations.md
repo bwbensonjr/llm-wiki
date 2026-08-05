@@ -47,7 +47,12 @@ program does.
   and [[larceny]]. Its price: mutable variables cannot live in a continuation frame.
 - The **Hieb-Dybvig-Bruggeman** variation, used by [[chez-scheme|Chez Scheme]], swaps
   the single cache for multiple heap-allocated stack segments, the current segment
-  acting as the cache. [[the-development-of-chez-scheme|Chez]] arrived here by
+  acting as the cache. Its own paper,
+  [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]],
+  gives the mechanism: capture seals the occupied part of the current segment and copies
+  nothing, reinstatement copies one segment after splitting it to stay under a copy
+  bound, and stack overflow and underflow are handled as an implicit capture and an
+  implicit reinstatement. [[the-development-of-chez-scheme|Chez]] arrived here by
   stages — Versions 1 and 2 copied the entire stack on capture, which made the cost
   proportional to stack depth, and Versions 3 and 4 moved to segments and
   constant-time operations.
@@ -68,3 +73,4 @@ good substrate for other languages, per
 ## Sources
 
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]
+- [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]]

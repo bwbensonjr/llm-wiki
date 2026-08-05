@@ -66,3 +66,4 @@ Scheme 311 compiler.
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
 - [[hygienic-macro-technology|Hygienic Macro Technology]]
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]
+- [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]]

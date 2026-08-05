@@ -52,3 +52,4 @@ is a no-op.
 - [x] inbox-files/1159803.1159805.pdf - Local version of failed to download Chez Scheme paper - An in-depth history of an important Scheme compiler
 - [x] inbox-files/2544174.2500618.pdf - Local version of failed to download nanopass paper - A particular framework for multi-pass compilers
 - [x] inbox-files/A_1010016816429.pdf - Local version of failed to download continuation paper - Compilation approaches for Scheme continuations
+- [x] inbox-files/93548.93554.pdf - Representing control in the presence of first class continuations 

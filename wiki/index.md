@@ -30,6 +30,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[the-development-of-chez-scheme|The Development of Chez Scheme]] — Dybvig (ICFP 2006): twenty years of Chez, version by version; stack continuations, flat closures, boxed assignments, and low-hanging fruit first.
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]] — Keep & Dybvig (ICFP 2013): Chez's back end rebuilt as ~50 nanopasses; faster code, 1.75x worst-case compile time.
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]] — Clinger, Hartheimer & Ost (HOSC 1999): ten strategies compared by direct and indirect cost across three usage scenarios.
+- [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]] — Hieb, Dybvig & Bruggeman (PLDI 1990): the segmented stack model; constant-time capture, bounded reinstatement, overflow as implicit capture.
 
 ## Entities
 
@@ -57,6 +58,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[richard-kelsey|Richard Kelsey]] — ORBIT's front end at Yale, later a Scheme 48 author; links the T and Scheme 48 lineages.
 - [[mitchell-wand|Mitchell Wand]] — Northeastern PL researcher; co-author of the HOPL hygienic-macro history, and half of "Wand and Steckler".
 - [[r-kent-dybvig|R. Kent Dybvig]] — creator of Chez Scheme; the Indiana lineage behind syntax-case, nanopass, and much of this corpus's implementation technology.
+- [[robert-hieb|Robert Hieb]] — Indiana implementer; first author of the segmented stack model behind Chez Scheme's continuations.
 
 ## Concepts
 

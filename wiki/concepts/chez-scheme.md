@@ -35,3 +35,4 @@ and [[racket|Racket]] (which now runs on Chez Scheme).
 - [[the-development-of-chez-scheme|The Development of Chez Scheme]]
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]
+- [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]]
