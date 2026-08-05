@@ -1,6 +1,6 @@
 ---
 type: entity
-status: provisional
+status: reviewed
 title: Andrew W. Appel
 created: 2026-08-05
 tags: [programming-languages, language-implementation, standard-ml, continuations]

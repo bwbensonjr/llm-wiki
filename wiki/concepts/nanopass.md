@@ -1,6 +1,6 @@
 ---
 type: concept
-status: provisional
+status: reviewed
 title: Nanopass
 created: 2026-08-05
 tags: [programming-languages, language-implementation, scheme, domain-specific-languages]
@@ -33,8 +33,7 @@ progressively larger *source-language subsets*, each yielding a complete working
 compiler; nanopass decomposes *one* compiler into many small passes over many
 intermediate languages. Both react against the monolithic-pass tradition and both come
 out of the same Indiana lineage, which is likely why they get conflated, but they
-answer different questions. This wiki initially recorded the distinction from the
-outside, before any nanopass source was ingested.
+answer different questions.
 
 **Lineage.** The prototype framework is Sarkar, Waddell, and Dybvig; it proved the idea
 workable but was only ever used for half of a student compiler. Keep and

@@ -1,6 +1,6 @@
 ---
 type: entity
-status: provisional
+status: reviewed
 title: Zoe Paraskevopoulou
 created: 2026-08-05
 tags: [programming-languages, formal-methods, program-verification]

@@ -1,6 +1,6 @@
 ---
 type: entity
-status: provisional
+status: reviewed
 title: R. Kent Dybvig
 created: 2026-08-05
 tags: [programming-languages, language-implementation, scheme, lisp, chez-scheme]
@@ -29,7 +29,7 @@ one area while others lag. The second is a bias toward low-level leverage — Ve
 of Chez had almost no high-level optimization but careful data representation and
 instruction selection, on the reasoning that low-level details affect all code.
 
-His influence reaches this corpus well beyond his own paper.
+His influence reaches this corpus well beyond the papers he wrote himself.
 [[abdulaziz-ghuloum|Ghuloum]] worked in his orbit at Indiana and thanks him;
 [[matthew-flatt|Flatt]]'s Racket-on-Chez port was done with him and the Chez team;
 the nanopass framework is Sarkar, Waddell, and Dybvig; and Chez's

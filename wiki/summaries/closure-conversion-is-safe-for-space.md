@@ -1,6 +1,6 @@
 ---
 type: summary
-status: provisional
+status: reviewed
 title: Closure Conversion Is Safe for Space
 created: 2026-08-05
 source: https://www.cs.princeton.edu/~appel/papers/safe-closure.pdf

@@ -1,6 +1,6 @@
 ---
 type: summary
-status: provisional
+status: reviewed
 title: Representing Control in the Presence of First-Class Continuations
 created: 2026-08-05
 source: https://doi.org/10.1145/93548.93554

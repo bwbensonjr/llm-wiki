@@ -1,6 +1,6 @@
 ---
 type: summary
-status: provisional
+status: reviewed
 title: Implementation Strategies for First-Class Continuations
 created: 2026-08-05
 source: https://doi.org/10.1023/A:1010016816429

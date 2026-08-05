@@ -1,6 +1,6 @@
 ---
 type: summary
-status: provisional
+status: reviewed
 title: Hygienic Macro Technology
 created: 2026-08-05
 source: https://dl.acm.org/doi/pdf/10.1145/3386330
@@ -87,8 +87,8 @@ is language-oriented programming built on them, and [[janet]] and [[lisp]] treat
 as the defining feature of the family. This page and [[hygienic-macros]] give that
 scattered discussion somewhere to land, and an account of what makes macros hard.
 
-It also complicates a figure the corpus just added. [[william-clinger|Clinger]]
-entered this wiki hours ago as the Twobit author arguing that compilers can be simple;
+It also complicates the picture of [[william-clinger|Clinger]]. He appears elsewhere as
+the Twobit author arguing that compilers can be simple;
 here he is across twenty years of a problem that stubbornly refused to be, publishing
 a strong-hygiene claim "without proof" that was later broken and saying so plainly in
 his own history. The two papers together are a better picture of him than either

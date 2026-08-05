@@ -1,6 +1,6 @@
 ---
 type: summary
-status: provisional
+status: reviewed
 title: The Development of Chez Scheme
 created: 2026-08-05
 source: https://doi.org/10.1145/1159803.1159805

@@ -1,6 +1,6 @@
 ---
 type: entity
-status: provisional
+status: reviewed
 title: Richard Kelsey
 created: 2026-08-05
 tags: [programming-languages, language-implementation, scheme, lisp]
@@ -8,8 +8,8 @@ tags: [programming-languages, language-implementation, scheme, lisp]
 
 # Richard Kelsey
 
-A Scheme implementer whose work spans two of this wiki's compiler clusters: he wrote
-the front end of [[orbit-an-optimizing-compiler-for-scheme|ORBIT]] on Yale's
+A Scheme implementer whose work reaches across compiler lineages this wiki covers: he
+wrote the front end of [[orbit-an-optimizing-compiler-for-scheme|ORBIT]] on Yale's
 [[t-programming-language|T]] project, and is a co-author of
 [[scheme-48|Scheme 48]] and its native-code compiler.
 
