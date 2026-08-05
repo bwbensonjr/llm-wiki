@@ -43,4 +43,4 @@ is a no-op.
 - [x] http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf - Introduces the nanopass idea of incremental compiler transformations
 - [!] http://foo.bar.baz/bad-link - Introduced for testing bad link handling — 2026-08-05: capture failed, DNS could not resolve host foo.bar.baz
 - [x] https://3e8.org/pub/scheme/doc/lisp-pointers/v7i3/p128-clinger.pdf - Describes an approach to code transformation and lambda lifting
-- [ ] https://en.wikipedia.org/wiki/Western_Sahara - A link to test reject because it doesn't match the subject matter of this wiki 
+- [x] https://en.wikipedia.org/wiki/Western_Sahara - A link to test reject because it doesn't match the subject matter of this wiki 

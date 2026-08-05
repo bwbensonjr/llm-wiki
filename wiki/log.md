@@ -193,3 +193,16 @@ so the log stays greppable by the stable `## [` prefix.
 - hub not minted: no page for Lars Thomas Hansen (co-author). [[david-kranz]] has a hub because his dissertation is itself an ingested source; Hansen's M.S. thesis is only cited. Flagged for `curate` if the asymmetry looks wrong.
 - judgment call flagged for `curate`: **`larceny` was minted as a `concept`, not an `entity`.** It is a software implementation, and the corpus files those as concepts ([[chez-scheme]], [[racket]], [[janet]]), so this follows precedent — but the taxonomy has no clean slot for "a piece of software," and this is the third page to land on that seam.
 - deliberately not linked: [[static-single-assignment]]. Twobit's *single assignment analysis* is a first-order closure analysis, not SSA form; the names collide but the techniques do not.
+
+## [2026-08-05] ingest: Western Sahara
+
+- source: https://en.wikipedia.org/wiki/Western_Sahara
+- run: **unattended** (`ingest-inbox`); converter: jina (web route)
+- page: [[western-sahara|Western Sahara]] (`status: provisional`)
+- hubs created: **none** — deliberate. The source is topically disjoint from the corpus, so any hub it warranted (Morocco, Polisario Front, the UN) would be a single-source island, and rejecting the page would then strand them. The page is an intentional disconnected leaf; that isolation is the honest record of its relationship to the corpus.
+- hubs touched: none
+- images: 25 candidates, **0 kept** — every Wikimedia URL returned 403 to the downloader, so all image links remain remote in the twin per the tolerate-failure rule. Nothing distilled from figures, nothing promoted to `wiki/assets/`.
+- tags minted: **`geopolitics`** — one new tag, flagged here for deferred approval. Nothing in the existing vocabulary (which is entirely programming-languages, ML, data, and knowledge-management) fits this source even loosely. If the page is rejected, this tag should go with it; `curate` should not let it survive as orphan vocabulary.
+- curator note: "A link to test reject because it doesn't match the subject matter of this wiki." The note states the entry is a review-path test, and the drafted `## Why this matters` preserves that reason rather than inventing a topical justification.
+- **not refused at capture, deliberately.** The twin is a complete 564-line article across 28 sections — plausible by every 2c criterion (not thin, not a paywall or error stub). Subject-matter fit is not a capture-refusal criterion; it is a curation judgment, so the page was written and left provisional for `curate` to reject.
+- expected `lint` interaction: this page has no outbound wikilinks and no hub links to it, so it will surface as an orphan. That is a genuine structural observation, not a false positive from `status: provisional`.
