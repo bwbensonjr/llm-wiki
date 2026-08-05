@@ -96,6 +96,10 @@ For pages whose `type` defines a fixed body shape, flag a missing or extra named
 section: a `summary` must have exactly `## Summary` and `## Why this matters`; an
 `analysis` must have exactly `## Answer` and `## Why this matters`.
 
+**Hubs have no fixed body shape**, per `CLAUDE.md`. `## Notes` is optional on an
+`entity` or `concept` page — do not flag its absence, and do not flag a hub that
+carries its substance in a longer lead paragraph instead.
+
 ### 7. Raw asset integrity (reported, never repaired)
 
 Check that the twin↔assets correspondence holds under `raw/`, per `CLAUDE.md`:

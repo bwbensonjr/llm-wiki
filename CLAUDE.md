@@ -127,6 +127,14 @@ tags: [<...>]
 ---
 ```
 
+Unlike a summary or an analysis, a hub has **no fixed body shape.** It opens with a
+lead paragraph defining the thing and ends with `## Sources`; `## Notes` in between
+is **optional** and is not a `lint` defect either way. The section exists to hold
+understanding *aggregated across sources*, so it earns its place once a hub has more
+than one — a single-source hub whose lead already says the thing has nothing to put
+there, and an empty `## Notes` heading is worse than none. Put the substance
+wherever it reads best; a longer lead is a fine answer.
+
 Analysis page — `wiki/analyses/<slug>.md`:
 
 ```yaml

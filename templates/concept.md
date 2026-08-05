@@ -12,8 +12,10 @@ tags: [<tag-a>, <tag-b>]
 
 ## Notes
 
-<Aggregated understanding of this concept, growing as new summaries link in.
-Use inline [[wikilinks]] to related concepts and entities.>
+<Optional — delete the heading if there is nothing to aggregate yet; a
+single-source hub may say everything in its lead. Otherwise: aggregated
+understanding of this concept, growing as new summaries link in. Use inline
+[[wikilinks]] to related concepts and entities.>
 
 ## Sources
 
