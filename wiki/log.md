@@ -161,3 +161,8 @@ so the log stays greppable by the stable `## [` prefix.
 - images: none (PDF route; the twin carries `<!-- image -->` placeholders for the tail-call frame diagram and one undecoded formula)
 - tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, and education (previously used only by [[choosing-to-stay-human|Choosing to Stay Human]]; applied here for the paper's explicit CS-education framing)
 - note: **the curator note does not match the source.** The note calls this the origin of "the nanopass idea," but the paper never mentions nanopass and is not about it: Ghuloum's incrementality is 24 *progressively larger source-language subsets*, each yielding a working compiler, whereas nanopass (Sarkar, Waddell, Dybvig) decomposes a single compiler into many tiny passes. The two share the Indiana/Dybvig lineage — Ghuloum thanks Dybvig and cites Waddell/Sarkar/Dybvig's "Fixing letrec" — which likely explains the association. The drafted `## Why this matters` honors the curator's interest while drawing the distinction explicitly rather than repeating the claim. **Flagged for `curate`:** confirm the framing, and consider whether nanopass warrants its own concept hub (deliberately not minted here, since no ingested source covers it).
+
+## [2026-08-05] ingest: inbox run summary (1 entry parked)
+
+- run: **unattended** (`ingest-inbox`), 4 queue entries — 3 ingested, 1 parked
+- parked: http://foo.bar.baz/bad-link — 2026-08-05: capture failed, DNS could not resolve host `foo.bar.baz`. No `raw/` twin and no `wiki/` page were written; the entry is marked `- [!]` in `inbox.md` so later runs skip it. Failure isolation held: the three preceding entries were already committed and were unaffected.
