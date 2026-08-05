@@ -271,7 +271,10 @@ unreferenced raw assets are a `lint` concern. A figure's *bytes* reach the
 published site only by **lazy promotion** — when a figure must be seen (prose
 cannot carry it) and either the user approves or, unattended, the LLM so judges, a
 curated copy moves into `wiki/assets/` (created on first use) and is embedded in
-the summary; the `raw/assets/` original stays the source of truth. Unattended
+the summary as `![[<filename>]]`; the `raw/assets/` original stays the source of
+truth. That leading `!` makes it a distinct link class: an **embed resolves against
+`wiki/assets/`**, not against page slugs, so it is checked against the files there
+and never against the page set. Unattended
 figure decisions — which figures were distilled, which were promoted — are recorded
 in that ingest's `wiki/log.md` entry, so they are visible at review and reversible:
 `curate` deletes a promoted copy from `wiki/assets/` when the page is rejected or

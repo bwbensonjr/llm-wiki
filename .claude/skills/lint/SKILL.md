@@ -64,6 +64,12 @@ link it contains can be un-made by a later `curate` rejection or merge that no
 operation is permitted to go back and repair. Reporting it would be reporting a
 defect nothing can fix. Note in passing if you like; never count it as a defect.
 
+**An `![[asset]]` embed is not a page link**, per `CLAUDE.md`. The leading `!` makes
+it resolve against `wiki/assets/`, so resolve embeds against the files in that
+directory and flag one only when the file is genuinely absent. Matching embeds
+against the page set instead is a false positive, and a predictable one: today
+every promoted figure in the corpus would be reported broken.
+
 ### 3. Orphans
 
 Flag knowledge pages with **no inbound** `[[wikilink]]` from any other page. Keep
