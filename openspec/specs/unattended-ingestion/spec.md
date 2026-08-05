@@ -59,6 +59,13 @@ invariants SHALL be preserved: the `raw/` twin remains immutable, converter
 routing is unchanged, and a page whose `type` falls outside the defined set is not
 written.
 
+Because this path drafts prose with no reviewer present, it SHALL apply the
+corpus-independence constraint at the point of writing rather than relying on review
+to catch a violation. In particular, when the unattended path observes that the corpus
+does not yet cover something — a work it cannot link, a hub it declines to mint — it
+SHALL record that observation in the run's `wiki/log.md` entry, which is exempt from
+the constraint, and SHALL NOT write it into the page.
+
 #### Scenario: Pages are authored with no prompt
 
 - **WHEN** an unattended ingest processes a queue entry
@@ -75,6 +82,19 @@ written.
 
 - **WHEN** unattended authoring writes wiki pages for a captured source
 - **THEN** no file under `raw/` is edited or renamed
+
+#### Scenario: Drafted prose carries no corpus-membership claim
+
+- **WHEN** the unattended path drafts a summary body or hub prose
+- **THEN** the committed page contains no claim about what the wiki does or does not
+  contain, and no corpus-scoped superlative or count
+
+#### Scenario: A noticed gap goes to the log, not the page
+
+- **WHEN** the unattended path determines that no existing page covers something the
+  source references
+- **THEN** that observation appears in the ingest's `wiki/log.md` entry and does not
+  appear in any knowledge page
 
 ### Requirement: Unattended writes are provisional
 

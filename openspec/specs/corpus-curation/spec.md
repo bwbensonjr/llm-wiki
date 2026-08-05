@@ -96,6 +96,18 @@ page into the folder mirroring the new type), **merge hub** (fold a provisional 
 into an existing one), and **reject** (remove the page). Endorsing a page SHALL set
 its `status` to `reviewed`. A page left undecided SHALL remain `provisional`.
 
+A claim that violates the corpus-independence constraint SHALL be correctable under
+**edit-then-endorse**, and SHALL be correctable on a page already carrying
+`status: reviewed`. This is a deliberate exception to the ordinary rule that `curate`
+acts on the provisional queue: such a claim is true when written and becomes false
+later, so the page that needs correcting is frequently one the curator has already
+endorsed. Correcting it SHALL leave `status: reviewed` unchanged rather than returning
+the page to the queue.
+
+Correcting a summary in this way SHALL also be permitted despite summaries being
+written once at ingest. That permission is narrow: it extends only to removing or
+rephrasing the offending claim, and SHALL NOT be used to revise the distillation.
+
 #### Scenario: Endorsement flips status
 
 - **WHEN** the curator endorses a provisional page and commits
@@ -119,6 +131,18 @@ its `status` to `reviewed`. A page left undecided SHALL remain `provisional`.
 - **WHEN** the curator makes no decision about a queued page
 - **THEN** that page retains `status: provisional` and appears in the next run's
   queue
+
+#### Scenario: Stale corpus claim is corrected on a reviewed page
+
+- **WHEN** the curator finds a corpus-membership claim on a page carrying
+  `status: reviewed`
+- **THEN** the claim is removed or rephrased and the page remains `status: reviewed`
+
+#### Scenario: Summary correction is limited to the offending claim
+
+- **WHEN** the curator corrects a corpus-membership claim in a `summary` page
+- **THEN** only that claim is removed or rephrased and the surrounding distillation is
+  left as written
 
 ### Requirement: Duplicate hub clustering
 
