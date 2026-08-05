@@ -15,9 +15,10 @@ maintainer of [[racket|Racket]]. A long-time collaborator of
 ## Notes
 
 He led the effort to rebuild Racket on top of [[chez-scheme|Chez Scheme]]
-("Racket CS"), reported in [[porting-racket-to-chez-scheme|Porting Racket to
-Chez Scheme]] (ICFP 2019, with colleagues including R. Kent Dybvig and the Chez
-Scheme team). That paper's source PDF is anonymized for review, but it is hosted
+("Racket CS"), reported in
+[[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]] (ICFP 2019, with
+colleagues including R. Kent Dybvig and the Chez Scheme team). That paper's
+source PDF is anonymized for review, but it is hosted
 on Flatt's site and is unmistakably his group's work. His broader work spans
 Racket's macro/module system, delimited continuations, and the migration of
 Racket subsystems from C to Racket.

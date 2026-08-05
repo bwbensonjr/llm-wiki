@@ -19,9 +19,10 @@ provides the things mainstream VMs handle poorly: proper tail calls, first-class
 continuations bounded only by the heap (with a long research lineage in
 delimited control), the full numeric tower, and compilation to high-quality
 machine code. This is why it was chosen as the new target for
-[[racket|Racket]] — see [[porting-racket-to-chez-scheme|Porting Racket to Chez
-Scheme]], which details the roughly 30 changes and patches Racket CS needed from
-Chez and notes that several were merged upstream.
+[[racket|Racket]] — see
+[[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]], which details
+the roughly 30 changes and patches Racket CS needed from Chez and notes that
+several were merged upstream.
 
 It sits in this wiki's collection of [[scheme|Scheme]] implementations alongside
 [[libscheme-scheme-as-a-c-library|libscheme]] (Scheme embedded as a C library)

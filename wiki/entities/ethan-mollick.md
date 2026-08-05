@@ -13,9 +13,10 @@ newsletter *One Useful Thing* and the book *Co-Intelligence*.
 
 ## Notes
 
-Argues for intentional AI use and warns against [[cognitive-surrender|cognitive
-surrender]]. His research includes the Boston Consulting Group "jagged frontier"
-consultants experiment and work on AI in education and the workplace.
+Argues for intentional AI use and warns against
+[[cognitive-surrender|cognitive surrender]]. His research includes the Boston
+Consulting Group "jagged frontier" consultants experiment and work on AI in
+education and the workplace.
 
 ## Sources
 

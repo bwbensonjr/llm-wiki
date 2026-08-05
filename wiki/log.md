@@ -206,3 +206,13 @@ so the log stays greppable by the stable `## [` prefix.
 - curator note: "A link to test reject because it doesn't match the subject matter of this wiki." The note states the entry is a review-path test, and the drafted `## Why this matters` preserves that reason rather than inventing a topical justification.
 - **not refused at capture, deliberately.** The twin is a complete 564-line article across 28 sections — plausible by every 2c criterion (not thin, not a paywall or error stub). Subject-matter fit is not a capture-refusal criterion; it is a curation judgment, so the page was written and left provisional for `curate` to reject.
 - expected `lint` interaction: this page has no outbound wikilinks and no hub links to it, so it will surface as an orphan. That is a genuine structural observation, not a false positive from `status: provisional`.
+
+## [2026-08-05] lint: repair five line-wrapped wikilinks
+
+- scope: whole corpus (90 knowledge pages: 21 summary, 21 entity, 47 concept, 1 analysis)
+- fixed (mechanical, unambiguous targets): five `[[wikilinks]]` broken by line wrapping, rewrapped so each sits on one line — [[chez-scheme]] and [[racket]] and [[matthew-flatt]] (all → [[porting-racket-to-chez-scheme]]), [[chloe-kim]] (→ [[model-context-protocol]]), [[ethan-mollick]] (→ [[cognitive-surrender]]). These were noted but deliberately not repaired by the 2026-08-05 `curate` run, which correctly treated them as lint's domain.
+- clean on every other check: front-matter and required fields, type/folder mapping, `raw:` pointers (21/21 resolve), summary and analysis body sections, index completeness/staleness/grouping, log entry format.
+- **provisional pages produced zero defects.** The five `status: provisional` pages from today's two ingest runs are not treated as defects, per `CLAUDE.md`.
+- no tag merges: the one cluster surfaced (`llm` ×2 vs `llm-agents` ×11) was judged a real distinction, not a duplicate, and left alone. `geopolitics` ×1 is newly minted and belongs to `curate`, not lint.
+- advisory, not repaired: [[western-sahara]] is an orphan (no inbound links) — the intended consequence of an ingest decision to mint no hubs for an off-topic source; it resolves when `curate` rejects the page.
+- coverage gaps noted for a future `CLAUDE.md` edit, not acted on: (1) hub body shape is conventional but unenforced — 63 of 68 hubs use `## Notes` + `## Sources`, five use `## Sources` alone; (2) `CLAUDE.md` calls unreferenced `raw/assets/` a lint concern but no check implements it (13 files across three twin directories today); (3) `![[asset]]` embeds resolve against `wiki/assets/` rather than page slugs, an unmodeled link class that makes a naive checker report three false positives.

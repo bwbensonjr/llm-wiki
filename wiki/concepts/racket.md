@@ -15,8 +15,9 @@ designed as a platform for [[language-oriented-programming]]. Available at
 
 Its 1995 starting point was a fusion of two off-the-shelf C/C++ libraries — a
 Scheme interpreter ([[libscheme-scheme-as-a-c-library|Benson 1994]]) and a
-cross-platform GUI toolkit — per [[porting-racket-to-chez-scheme|Porting Racket
-to Chez Scheme]], which is the source for that lineage.
+cross-platform GUI toolkit — per
+[[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]], which is the
+source for that lineage.
 
 ## Notes
 

@@ -14,9 +14,9 @@ post.
 ## Notes
 
 Argues for a CLI-first and Skills-based approach to connecting
-[[large-language-model|LLMs]] to tools over the [[model-context-protocol|Model
-Context Protocol]], backed by token and reliability measurements on Quandri's
-stack.
+[[large-language-model|LLMs]] to tools over the
+[[model-context-protocol|Model Context Protocol]], backed by token and
+reliability measurements on Quandri's stack.
 
 ## Sources
 
