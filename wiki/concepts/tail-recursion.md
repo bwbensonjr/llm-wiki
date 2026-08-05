@@ -28,6 +28,12 @@ The property becomes a hard constraint downstream: because
 guaranteed tail-call optimization is what makes CPS backends viable, and its
 absence is precisely what compilers targeting [[llvm]] have to work around.
 
+After CPS conversion a tail call is syntactically evident — it is a call whose
+continuation is a variable rather than a lambda expression. Proper tail recursion
+also constrains storage: a stack-allocated closure must be reclaimed as soon as it
+is inaccessible, or a tail-recursive loop would grow the stack.
+
 ## Sources
 
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
+- [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]

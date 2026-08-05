@@ -38,3 +38,4 @@ transformations compile the result as well as a conventional compiler would.
 - [[libscheme-scheme-as-a-c-library|libscheme: Scheme as a C Library]]
 - [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]]
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
+- [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]

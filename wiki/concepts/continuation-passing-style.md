@@ -38,7 +38,15 @@ stack, no function ever returns) is what makes transcription to machine code
 straightforward. [[closure-conversion|Closure analysis]] conventionally follows
 CPS conversion.
 
+[[orbit-an-optimizing-compiler-for-scheme|ORBIT]] carries the model into a
+production compiler and names the payoffs precisely: continuation-bound variables
+are the compiler's temporaries with no special status, the single-return-value
+restriction disappears, and tail calls become syntactically evident. Its CPS output
+is valid Scheme over a node tree of just four node kinds — lambda, call, reference,
+constant.
+
 ## Sources
 
 - [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]]
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
+- [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]

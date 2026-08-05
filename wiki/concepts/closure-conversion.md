@@ -30,6 +30,13 @@ typically runs after conversion to [[continuation-passing-style]]. Aggressive
 analysis can eliminate closures entirely for programs that never treat functions
 as data.
 
+[[orbit-an-optimizing-compiler-for-scheme|ORBIT]] supplies the algorithms RABBIT
+left open, splitting the work into *strategy analysis* (heap, stack, or registers)
+and *representation analysis* (the closure's actual run-time structure), and adding
+closure hoisting and packing so several procedures can share one environment
+without indirection. [[escape-analysis]] is what decides the strategy.
+
 ## Sources
 
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
+- [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]

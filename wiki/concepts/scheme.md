@@ -55,9 +55,15 @@ series' central claim: a small [[lambda-calculus]]-shaped basis set plus macros,
 with [[tail-recursion]] guaranteed so that iteration can be expressed
 applicatively.
 
+That Scheme can be compiled as efficiently as Pascal — rather than being an
+inherently slow language — was established by
+[[orbit-an-optimizing-compiler-for-scheme|ORBIT]], whose benchmarks beat an
+optimizing Pascal compiler wherever procedure calls dominate.
+
 ## Sources
 
 - [[libscheme-scheme-as-a-c-library|libscheme: Scheme as a C Library]]
 - [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]]
 - [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]]
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
+- [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]

@@ -141,3 +141,13 @@ so the log stays greppable by the stable `## [` prefix.
 - images: none (Jina route localized no content images; the source is a text transcription)
 - tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, continuations
 - note: source is Roger Turner's abridged CC BY-NC transcription of Steele 1978 (MIT AI-TR-474), covering the chapter "Compiler Optimization Based on Viewing LAMBDA as RENAME plus GOTO". Gerald Jay Sussman named in prose (no entity page). Titled by the dissertation's name rather than the transcription's page title.
+
+## [2026-08-05] ingest: ORBIT: An Optimizing Compiler for Scheme
+
+- source: https://www.ccs.neu.edu/home/shivers/cs6983/papers/kranz-diss-tr632.pdf (converter: docling)
+- run: **unattended** (`ingest-inbox`, queue entry with curator note "Motivation and details of closure analysis and CPS transformation")
+- summary: [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
+- hubs touched: [[david-kranz|David A. Kranz]], [[escape-analysis|Escape Analysis]], [[t-programming-language|T (Programming Language)]] (created, all `status: provisional`); [[closure-conversion|Closure Conversion]], [[tail-recursion|Tail Recursion]] (existing but `provisional` from this run's earlier RABBIT ingest; enriched and appended to Sources); [[continuation-passing-style|Continuation-Passing Style]], [[scheme|Scheme]], [[lisp|Lisp]] (existing, left `status: reviewed`; appended to Sources)
+- images: none (PDF route — image localization is scoped to the web/Jina route; the twin carries one `<!-- image -->` placeholder for a closure-layout diagram that was not extracted)
+- tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, continuations
+- note: **conversion artifacts** — docling rendered this 1988 PDF's ligatures and digits as escape sequences (`/#0C`→fi, `/#0E`→ffi, `/#2F`→/, digits prefixed by `/`). The text is systematically decodable and the summary reads through it, but the raw twin is noisy; worth a spot-check at review. Kranz builds directly on [[rabbit-a-compiler-for-scheme|RABBIT]], ingested earlier in this same run — the RABBIT ingest's new hubs were available to link, which is the sequential-processing rule working as intended.

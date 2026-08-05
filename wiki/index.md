@@ -22,6 +22,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]] — ML Workshop 2018: an LLVM backend supporting heap-allocated first-class continuations via a new JWA calling convention, in the Manticore/PML compiler.
 - [[the-llvm-compiler-infrastructure|The LLVM Compiler Infrastructure]] — CACM 2026: the origin, five-capability design, and vast industry/research impact of LLVM, framed as a case for federal research funding.
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]] — Steele's 1977 MIT dissertation: LAMBDA as rename plus GOTO, a tiny basis set extended by macros, and CPS as a compiler IR.
+- [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]] — Kranz's 1988 Yale dissertation: closure and escape analysis make Scheme match Pascal, and beat it wherever calls dominate.
 
 ## Entities
 
@@ -43,6 +44,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[chris-lattner|Chris Lattner]] — creator of LLVM's core (as a UIUC Ph.D. student); later built Clang, Swift, and MLIR at Apple.
 - [[vikram-adve|Vikram Adve]] — UIUC professor and LLVM's faculty originator; his NSF CAREER grant funded the early work.
 - [[guy-steele|Guy L. Steele Jr.]] — co-inventor of Scheme with Gerald Jay Sussman; author of RABBIT and the Lambda Papers.
+- [[david-kranz|David A. Kranz]] — Yale T project; built the ORBIT compiler and its closure-analysis algorithms.
 
 ## Concepts
 
@@ -89,6 +91,8 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[lambda-calculus|Lambda Calculus]] — Church's formal system of function abstraction and application; alpha- and beta-conversion are the compiler's substitution rules.
 - [[tail-recursion|Tail Recursion]] — a tail call consumes no control stack, so a call compiles to a GOTO that passes arguments; a defining requirement of Scheme.
 - [[closure-conversion|Closure Conversion]] — turning nested lexical functions into code plus captured environment, and deciding which need a run-time closure at all.
+- [[escape-analysis|Escape Analysis]] — deciding whether a closure outlives its creating context, and so whether it must go on the heap rather than the stack or registers.
+- [[t-programming-language|T (Programming Language)]] — Yale's 1980s Scheme dialect, both the source and the implementation language of the ORBIT compiler.
 
 ## Analyses
 
