@@ -286,3 +286,15 @@ so the log stays greppable by the stable `## [` prefix.
 - images: none — PDF route; the paper's tables were captured as Markdown tables and their numbers distilled into prose. Nothing promoted to `wiki/assets/`.
 - tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, chez-scheme, and domain-specific-languages
 - hub not minted: no page for Andrew Keep (first author) — one source, no prior corpus presence, same rule applied to Hansen, Gasbichler, Sperber, and Kohlbecker.
+
+## [2026-08-05] ingest: Implementation Strategies for First-Class Continuations
+
+- source: https://doi.org/10.1023/A:1010016816429 — Clinger, Hartheimer & Ost, HOSC 1999
+- run: **unattended** (`ingest-inbox`); converter: docling
+- **captured from a local file.** Queue entry was `inbox-files/A_1010016816429.pdf` (gitignored). The twin records that local path; the summary's `source:` is the canonical DOI. Originally parked as the Springer PDF URL, which returned only the 47-item bibliography; that entry stays `- [!]`. The full text is 824 lines, so the local copy is genuinely a different capture, not a retry of the same bytes.
+- page: [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]] (`status: provisional`)
+- hubs created: [[first-class-continuations|First-Class Continuations]] (`status: provisional`) — distinct from the existing [[continuation-passing-style]] hub: CPS is a compilation technique, first-class continuations are a language feature, and a compiler can have either without the other. The new hub says so explicitly to keep them from collapsing.
+- hub **corrected**, left `status: reviewed`: [[william-clinger|William D. Clinger]] — for the second time today his page asserted that a body of his work was "not itself an ingested source," this time the continuation-strategies work, and this paper falsifies it. Replaced with his actual role. **Pattern worth noting at review:** writing "not an ingested source" onto an entity hub bakes in a claim about the corpus that later ingests keep invalidating; better phrasing would name the work without asserting its absence.
+- hubs given a Sources backlink only, left `status: reviewed` (or provisional where created earlier in this run): [[continuation-passing-style]], [[scheme]], [[lisp]], [[chez-scheme]], [[larceny]], [[scheme-48]], [[tail-recursion]], [[r-kent-dybvig]]
+- images: none — PDF route; the twin opens with one undecoded `<!-- image -->`. Nothing promoted to `wiki/assets/`.
+- tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, and continuations. Considered and rejected `smalltalk`: the paper covers Smalltalk-80 contexts substantially, but a tag used by one page for a secondary topic is not worth the vocabulary.

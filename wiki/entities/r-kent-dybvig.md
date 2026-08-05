@@ -41,3 +41,4 @@ before he had a page of his own.
 
 - [[the-development-of-chez-scheme|The Development of Chez Scheme]]
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]
+- [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]

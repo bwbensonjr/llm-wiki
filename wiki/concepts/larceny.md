@@ -41,3 +41,4 @@ and collection dominate compiler optimization for this class of language.
 ## Sources
 
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
+- [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]

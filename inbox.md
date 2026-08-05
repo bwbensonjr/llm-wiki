@@ -51,4 +51,4 @@ is a no-op.
 - [x] https://dl.acm.org/doi/pdf/10.1145/3386330 - A broad overview of hygenic macro technologies like those available in Scheme
 - [x] inbox-files/1159803.1159805.pdf - Local version of failed to download Chez Scheme paper - An in-depth history of an important Scheme compiler
 - [x] inbox-files/2544174.2500618.pdf - Local version of failed to download nanopass paper - A particular framework for multi-pass compilers
-- [ ] inbox-files/A_1010016816429.pdf - Local version of failed to download continuation paper - Compilation approaches for Scheme continuations
+- [x] inbox-files/A_1010016816429.pdf - Local version of failed to download continuation paper - Compilation approaches for Scheme continuations

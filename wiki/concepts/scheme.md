@@ -73,3 +73,4 @@ optimizing Pascal compiler wherever procedure calls dominate.
 - [[hygienic-macro-technology|Hygienic Macro Technology]]
 - [[the-development-of-chez-scheme|The Development of Chez Scheme]]
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]
+- [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]

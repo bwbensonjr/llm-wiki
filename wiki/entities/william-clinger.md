@@ -47,11 +47,22 @@ Twobit paper argues an optimizing compiler need not be complex, while the macro
 history is an account of a problem that took twenty years to solve reliably and ten
 more to solve well.
 
-He was also co-editor with Rees of the Revised^4 Report on Scheme, and wrote the
-Scheme 311 compiler and earlier work on continuation implementation strategies —
-none of which is itself an ingested source.
+A third line of work is control. With Anne Hartheimer and Eric Ost he surveyed and
+measured the ways to implement
+[[first-class-continuations|first-class continuations]], producing the direct-cost /
+indirect-cost framing and the three-scenario method that this wiki now uses to compare
+[[larceny]], [[scheme-48|Scheme 48]], and [[chez-scheme|Chez Scheme]]. The
+zero-overhead claim Twobit makes for Larceny's stack cache cites that paper.
+
+Across all three lines his method is recognizably the same: define the cost model
+before comparing, and distrust a benchmark that does not say which scenario it
+represents.
+
+He was also co-editor with Rees of the Revised^4 Report on Scheme and wrote the
+Scheme 311 compiler — neither of which is itself an ingested source.
 
 ## Sources
 
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
 - [[hygienic-macro-technology|Hygienic Macro Technology]]
+- [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]

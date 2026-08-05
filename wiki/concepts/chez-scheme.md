@@ -34,3 +34,4 @@ and [[racket|Racket]] (which now runs on Chez Scheme).
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
 - [[the-development-of-chez-scheme|The Development of Chez Scheme]]
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]
+- [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]

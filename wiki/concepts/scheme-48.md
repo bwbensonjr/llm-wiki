@@ -46,3 +46,4 @@ It sits in this wiki's collection of Scheme implementations alongside
 ## Sources
 
 - [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]]
+- [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]
