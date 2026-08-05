@@ -226,3 +226,16 @@ so the log stays greppable by the stable `## [` prefix.
 - **tag redirect**: `geopolitics` — minted by that ingest for deferred approval — was not approved and left the corpus with the page. Zero pages now carry it.
 - classification noted, not changed: `larceny` is filed as a `concept` rather than an `entity`, following `chez-scheme` / `racket` / `janet`. The taxonomy has no slot for "a piece of software"; this is the third page on that seam and is a `CLAUDE.md` question, not a per-page one.
 - known consequence of rejection: the two earlier `wiki/log.md` entries that cite the rejected page now contain unresolvable `[[western-sahara]]` links. Log entries are append-only and are never rewritten, so these are left as-is; they are historical record, not live citations.
+
+## [2026-08-05] ingest: A Tractable Native-Code Scheme System
+
+- source: https://www.deinprogramm.de/sperber/papers/tractable-native-code-scheme-system.pdf — Gasbichler, Kelsey & Sperber
+- run: **unattended** (`ingest-inbox`); converter: docling (PDF route)
+- page: [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]] (`status: provisional`)
+- hubs created: [[richard-kelsey|Richard Kelsey]], [[scheme-48|Scheme 48]] (both `status: provisional`)
+- hubs enriched, left `status: reviewed`: [[david-kranz|David A. Kranz]] and [[t-programming-language|T (Programming Language)]] — both already named Kelsey in plain prose; the mentions are now links, so the new entity hub is reachable from the existing T/ORBIT cluster rather than hanging off this one summary
+- hubs given a Sources backlink only, left `status: reviewed`: [[scheme]], [[lisp]], [[continuation-passing-style]], [[tail-recursion]]
+- images: none — PDF route. The twin carries `<!-- image -->` placeholders for Figures 1–3 (the architecture diagram and both benchmark charts); the benchmark numbers are distilled into prose from the surrounding text, and nothing was promoted to `wiki/assets/`.
+- tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, and continuations
+- hub not minted: no pages for Martin Gasbichler (first author) or Michael Sperber, following the precedent set for Lars Thomas Hansen — a co-author with no separately ingested source gets prose, not a hub. [[richard-kelsey|Kelsey]] is the exception because ORBIT is already in the corpus, so his hub aggregates two sources on creation.
+- flagged for `curate`: this paper **contradicts** [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Clinger's]] preference for direct style over CPS. Both arguments come from working compilers and the summary presents them as an open disagreement rather than resolving it; confirm that framing.

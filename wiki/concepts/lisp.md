@@ -41,3 +41,4 @@ transformations compile the result as well as a conventional compiler would.
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
 - [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]]
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
+- [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]]

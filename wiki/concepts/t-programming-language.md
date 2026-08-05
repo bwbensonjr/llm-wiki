@@ -9,8 +9,9 @@ tags: [scheme, lisp, programming-languages, language-implementation]
 # T (Programming Language)
 
 A dialect of [[scheme]] developed at Yale in the 1980s by the T project — Norman
-Adams, Richard Kelsey, David Kranz, Jim Philbin, and Jonathan Rees — notable for
-the ORBIT compiler that made it competitive with Pascal.
+Adams, [[richard-kelsey|Richard Kelsey]], [[david-kranz|David Kranz]], Jim Philbin,
+and Jonathan Rees — notable for the ORBIT compiler that made it competitive with
+Pascal.
 
 ## Notes
 
@@ -29,3 +30,4 @@ fundamental instead.
 ## Sources
 
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
+- [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]]

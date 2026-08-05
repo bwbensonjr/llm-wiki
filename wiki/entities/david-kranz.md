@@ -14,11 +14,11 @@ and showed that a higher-order language can be compiled as efficiently as Pascal
 
 ## Notes
 
-Kranz was a member of Yale's T project alongside Norman Adams, Richard Kelsey,
-Jim Philbin, and Jonathan Rees, advised by Paul Hudak. Within ORBIT he was
-responsible for [[closure-conversion|closure analysis]], register allocation, and
-code generation; Kelsey wrote the front end through early binding and Adams the
-assembler.
+Kranz was a member of Yale's T project alongside Norman Adams,
+[[richard-kelsey|Richard Kelsey]], Jim Philbin, and Jonathan Rees, advised by Paul
+Hudak. Within ORBIT he was responsible for [[closure-conversion|closure analysis]],
+register allocation, and code generation; Kelsey wrote the front end through early
+binding and Adams the assembler.
 
 His central claim is that the performance penalty long attributed to first-class
 procedures is an artifact of conventional compiler technology rather than a
