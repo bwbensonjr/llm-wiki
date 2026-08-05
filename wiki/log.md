@@ -273,3 +273,16 @@ so the log stays greppable by the stable `## [` prefix.
 - hubs given a Sources backlink only, left `status: reviewed`: [[chez-scheme]], [[scheme]], [[lisp]], [[continuation-passing-style]], [[tail-recursion]], [[closure-conversion]], [[hygienic-macros]]
 - images: none — PDF route. The twin's version-highlight tables carry OCR-mangled glyph runs where the original used a code font (`/CT/DC/D8/CT/D2/CS/B9/D7/DD/D2/D8/CP/DC` for `extend-syntax`); identifiers were recovered from context and prose, not transcribed from those runs. Nothing promoted to `wiki/assets/`.
 - tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, chez-scheme, and continuations
+
+## [2026-08-05] ingest: A Nanopass Framework for Commercial Compiler Development
+
+- source: https://doi.org/10.1145/2544174.2500618 — Keep & Dybvig, ICFP 2013
+- run: **unattended** (`ingest-inbox`); converter: docling
+- **captured from a local file.** Queue entry was `inbox-files/2544174.2500618.pdf` (gitignored). The twin records that local path; the summary's `source:` is the canonical DOI. Originally parked as `https://dl.acm.org/doi/epdf/10.1145/2544174.2500618` (ACM JS reader shell); that entry stays `- [!]`.
+- page: [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]] (`status: provisional`)
+- hubs created: [[nanopass|Nanopass]] (`status: provisional`) — **this resolves a decision the 2026-08-05 `curate` run deferred.** That run declined to mint a nanopass hub because no ingested source covered it, only inference from Ghuloum's citations. A source now does, so the hub is minted on evidence, and it states the Ghuloum-vs-nanopass distinction from the inside.
+- hubs given a Sources backlink only, left `status: reviewed`: [[chez-scheme]], [[scheme]], [[lisp]], [[domain-specific-language]], [[closure-conversion]], and [[r-kent-dybvig]] (provisional, created earlier in this run)
+- **deliberately not edited:** [[an-incremental-approach-to-compiler-construction|Ghuloum's summary]] discusses nanopass in prose and now has a hub it could link to, but `CLAUDE.md` says a summary is written once at ingest. The connection is made from the [[nanopass]] hub instead, which links out to Ghuloum. Flagged for `curate` in case the reverse link is wanted.
+- images: none — PDF route; the paper's tables were captured as Markdown tables and their numbers distilled into prose. Nothing promoted to `wiki/assets/`.
+- tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, chez-scheme, and domain-specific-languages
+- hub not minted: no page for Andrew Keep (first author) — one source, no prior corpus presence, same rule applied to Hansen, Gasbichler, Sperber, and Kohlbecker.

@@ -44,3 +44,4 @@ transformations compile the result as well as a conventional compiler would.
 - [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]]
 - [[hygienic-macro-technology|Hygienic Macro Technology]]
 - [[the-development-of-chez-scheme|The Development of Chez Scheme]]
+- [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]

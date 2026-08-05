@@ -59,3 +59,4 @@ often as referenced, which are therefore known local procedures needing no closu
 - [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]]
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
 - [[the-development-of-chez-scheme|The Development of Chez Scheme]]
+- [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]

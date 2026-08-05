@@ -30,3 +30,4 @@ foreign-function bindings), and `shill` (a secure scripting language).
 ## Sources
 
 - [[a-programmable-programming-language|A Programmable Programming Language]]
+- [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]

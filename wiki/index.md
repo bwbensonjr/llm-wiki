@@ -28,6 +28,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]] — Gasbichler, Kelsey & Sperber: add native code to a byte-code VM by reusing an existing CPS optimizer and a translator that does no analysis.
 - [[hygienic-macro-technology|Hygienic Macro Technology]] — Clinger & Wand (HOPL IV): twenty years to make macro expansion capture-safe, and ten more to make it good.
 - [[the-development-of-chez-scheme|The Development of Chez Scheme]] — Dybvig (ICFP 2006): twenty years of Chez, version by version; stack continuations, flat closures, boxed assignments, and low-hanging fruit first.
+- [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]] — Keep & Dybvig (ICFP 2013): Chez's back end rebuilt as ~50 nanopasses; faster code, 1.75x worst-case compile time.
 
 ## Entities
 
@@ -107,6 +108,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[larceny|Larceny]] — Scheme implementation built on the Twobit compiler; a research vehicle for how programming style affects GC performance.
 - [[scheme-48|Scheme 48]] — byte-code Scheme implementation whose VM is written in Pre-Scheme; a single CPS IR reused across three compilers.
 - [[hygienic-macros|Hygienic Macros]] — macro expansion that cannot accidentally capture identifiers; the substitution problem from logic, applied to programs.
+- [[nanopass|Nanopass]] — structuring a compiler as many one-job passes over formally-defined intermediate languages, with the traversal boilerplate generated.
 
 ## Analyses
 

@@ -50,5 +50,5 @@ is a no-op.
 - [!] https://link.springer.com/content/pdf/10.1023/A:1010016816429.pdf - Compilation approaches for Scheme continuations — 2026-08-05: Springer served only the bibliography (47 references, no abstract or body). Paper is Clinger, Hartheimer & Ost, "Implementation Strategies for First-Class Continuations" (HOSC 1999); retry via a direct PDF host.
 - [x] https://dl.acm.org/doi/pdf/10.1145/3386330 - A broad overview of hygenic macro technologies like those available in Scheme
 - [x] inbox-files/1159803.1159805.pdf - Local version of failed to download Chez Scheme paper - An in-depth history of an important Scheme compiler
-- [ ] inbox-files/2544174.2500618.pdf - Local version of failed to download nanopass paper - A particular framework for multi-pass compilers
+- [x] inbox-files/2544174.2500618.pdf - Local version of failed to download nanopass paper - A particular framework for multi-pass compilers
 - [ ] inbox-files/A_1010016816429.pdf - Local version of failed to download continuation paper - Compilation approaches for Scheme continuations
