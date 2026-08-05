@@ -179,3 +179,17 @@ so the log stays greppable by the stable `## [` prefix.
 - hub clustering: the 9 new hubs were checked against all 52 existing hubs for casing, punctuation, name-form, abbreviation, and plural variants — no near-duplicates. Sequential ingest meant ORBIT and Ghuloum linked the hubs RABBIT created rather than minting variants.
 - curator decision on [[an-incremental-approach-to-compiler-construction|Ghuloum]]: the drafted commentary's correction of the inbox note (which had attributed nanopass to the paper) was confirmed and stands.
 - noted, not repaired (structural — `lint`'s domain): wikilinks broken across line wraps in [[chez-scheme]], [[racket]], [[matthew-flatt]], [[chloe-kim]], and [[ethan-mollick]].
+
+## [2026-08-05] ingest: Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme
+
+- source: https://3e8.org/pub/scheme/doc/lisp-pointers/v7i3/p128-clinger.pdf — Clinger & Hansen, LISP Pointers VII(3), LFP '94
+- run: **unattended** (`ingest-inbox`); converter: docling (PDF route)
+- page: [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]] (`status: provisional`)
+- hubs created: [[william-clinger|William D. Clinger]], [[lambda-lifting|Lambda Lifting]], [[larceny|Larceny]] (all `status: provisional`)
+- hubs enriched, left `status: reviewed`: [[closure-conversion|Closure Conversion]] (added the lifting/conversion terminological tangle and single assignment analysis), [[tail-recursion|Tail Recursion]] (added the stack-allocation obstruction that lifting dissolves)
+- hubs given a Sources backlink only, left `status: reviewed`: [[scheme]], [[lisp]], [[lambda-papers]], [[continuation-passing-style]], [[standard-ml]], [[chez-scheme]], [[escape-analysis]], [[guy-steele]]
+- images: none — PDF route, so no localization. The twin carries one `<!-- formula-not-decoded -->` (the lambda-lifting flow equation) and several OCR-garbled code figures; nothing distilled from figures, nothing promoted to `wiki/assets/`
+- tags minted: **none** — reused programming-languages, language-implementation, scheme, lisp, and continuations
+- hub not minted: no page for Lars Thomas Hansen (co-author). [[david-kranz]] has a hub because his dissertation is itself an ingested source; Hansen's M.S. thesis is only cited. Flagged for `curate` if the asymmetry looks wrong.
+- judgment call flagged for `curate`: **`larceny` was minted as a `concept`, not an `entity`.** It is a software implementation, and the corpus files those as concepts ([[chez-scheme]], [[racket]], [[janet]]), so this follows precedent — but the taxonomy has no clean slot for "a piece of software," and this is the third page to land on that seam.
+- deliberately not linked: [[static-single-assignment]]. Twobit's *single assignment analysis* is a first-order closure analysis, not SSA form; the names collide but the techniques do not.

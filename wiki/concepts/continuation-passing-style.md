@@ -50,3 +50,4 @@ constant.
 - [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]]
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
+- [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]

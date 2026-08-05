@@ -33,3 +33,4 @@ procedures becomes the intrinsic penalty it was long assumed to be.
 ## Sources
 
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
+- [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]

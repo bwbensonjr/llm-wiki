@@ -68,3 +68,4 @@ optimizing Pascal compiler wherever procedure calls dominate.
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
 - [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]]
+- [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]

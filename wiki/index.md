@@ -24,6 +24,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]] — Steele's 1977 MIT dissertation: LAMBDA as rename plus GOTO, a tiny basis set extended by macros, and CPS as a compiler IR.
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]] — Kranz's 1988 Yale dissertation: closure and escape analysis make Scheme match Pascal, and beat it wherever calls dominate.
 - [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]] — Ghuloum (Scheme Workshop 2006): a Scheme-to-x86 compiler in 24 steps, each one a fully working compiler for a larger subset.
+- [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]] — Clinger & Hansen (LFP '94): heap-allocate everything, then lambda-lift it back into registers; a lifted lambda is an assembly label.
 
 ## Entities
 
@@ -47,6 +48,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[guy-steele|Guy L. Steele Jr.]] — co-inventor of Scheme with Gerald Jay Sussman; author of RABBIT and the Lambda Papers.
 - [[david-kranz|David A. Kranz]] — Yale T project; built the ORBIT compiler and its closure-analysis algorithms.
 - [[abdulaziz-ghuloum|Abdulaziz Ghuloum]] — Scheme implementer (Ikarus); author of the incremental compiler-construction tutorial.
+- [[william-clinger|William D. Clinger]] — designer of Twobit and Larceny; argues an optimizing Scheme compiler can be simple.
 
 ## Concepts
 
@@ -95,6 +97,8 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[closure-conversion|Closure Conversion]] — turning nested lexical functions into code plus captured environment, and deciding which need a run-time closure at all.
 - [[escape-analysis|Escape Analysis]] — deciding whether a closure outlives its creating context, and so whether it must go on the heap rather than the stack or registers.
 - [[t-programming-language|T (Programming Language)]] — Yale's 1980s Scheme dialect, both the source and the implementation language of the ORBIT compiler.
+- [[lambda-lifting|Lambda Lifting]] — turning a nested function's non-local variables into extra parameters so it can be hoisted to a top-level label.
+- [[larceny|Larceny]] — Scheme implementation built on the Twobit compiler; a research vehicle for how programming style affects GC performance.
 
 ## Analyses
 

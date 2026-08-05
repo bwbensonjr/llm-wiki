@@ -38,8 +38,18 @@ The simplest implementation, spelled out in
 collapsing: evaluate the arguments, copy them down over the current frame, and issue
 an indirect `jmp` instead of a `call`.
 
+Storage strategy can obstruct it in a subtler way. If non-local variables are
+stack-allocated, a tail call cannot deallocate its frame when that frame holds
+non-locals the callee still needs — so a return may have to deallocate frames
+belonging to neither the returning procedure nor its caller.
+[[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Twobit]]
+sidesteps this rather than solving it: [[lambda-lifting]] removes non-local
+variables outright, leaving only those already destined for the heap as part of a
+closure.
+
 ## Sources
 
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
 - [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]]
+- [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]

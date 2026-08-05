@@ -41,8 +41,20 @@ smallest: free-variable analysis annotates each `lambda` with what it references
 does not bind, then `lambda` forms become `closure` forms with the code lifted to the
 top — a code label in the closure's first cell, captured values in the rest.
 
+The name is contested, and Clinger and Hansen
+([[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Twobit]])
+are the corpus's clearest source on the tangle. What Twobit calls
+[[lambda-lifting]] is what SML/NJ's compiler calls closure conversion — the same
+transformation, differing in how global the flow equation is. Meanwhile Wand and
+Steckler use "closure conversion" for a source-level transformation that replaces a
+procedure with a representation of it, which is orthogonal to lifting. Twobit also
+supplies a cheap version of the analysis: *single assignment analysis*, a first-order
+closure analysis that identifies parameters assigned once to a `lambda` and called as
+often as referenced, which are therefore known local procedures needing no closure.
+
 ## Sources
 
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
 - [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]]
+- [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
