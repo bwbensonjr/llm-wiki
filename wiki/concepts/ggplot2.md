@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: ggplot2
 created: 2026-06-23
 tags: [data-visualization, grammar-of-graphics]

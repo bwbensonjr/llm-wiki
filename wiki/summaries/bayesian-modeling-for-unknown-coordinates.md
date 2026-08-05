@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: Bayesian modeling for unknown coordinates
 created: 2026-06-23
 source: https://christopherkrapu.com/blog/2026/dont-know-where-your-data-is-from/

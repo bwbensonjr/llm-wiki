@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Bayesian Inference
 created: 2026-06-23
 tags: [bayesian-statistics]

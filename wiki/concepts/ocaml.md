@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: OCaml
 created: 2026-06-22
 tags: [ocaml, type-systems]

@@ -1,5 +1,6 @@
 ---
 type: entity
+status: reviewed
 title: 0xkato
 created: 2026-06-23
 tags: [machine-learning]

@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: LLM Wiki
 created: 2026-06-23
 tags: [knowledge-management, llm-agents]

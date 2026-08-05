@@ -1,5 +1,6 @@
 ---
 type: entity
+status: <provisional | reviewed>
 title: <Person, organization, or place>
 created: <YYYY-MM-DD>
 tags: [<tag-a>, <tag-b>]

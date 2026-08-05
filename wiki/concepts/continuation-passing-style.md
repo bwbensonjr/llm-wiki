@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Continuation-Passing Style
 created: 2026-07-08
 tags: [continuations, language-implementation, programming-languages]

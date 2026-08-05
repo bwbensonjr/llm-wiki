@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Gaussian Process
 created: 2026-06-23
 tags: [gaussian-processes, bayesian-statistics]

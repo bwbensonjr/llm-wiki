@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: The Janet Programming Language
 created: 2026-06-23
 source: https://janet-lang.org/

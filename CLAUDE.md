@@ -2,8 +2,13 @@
 
 An LLM-managed knowledge wiki: a local-first git repo of Markdown files. The
 human curates sources and asks questions; the LLM summarizes, cross-references,
-files, and keeps the books. These conventions are binding for any operation
-that reads or writes wiki content.
+files, and keeps the books — and on the unattended path also exercises the
+judgment calls (classification, tags, figure selection, drafted significance)
+that the curator would otherwise make live. Human judgment is not removed, it is
+**moved after the write**: machine-authored pages land as `status: provisional`
+and the curator endorses, corrects, or rejects them later via `curate`. Capture
+cadence and review cadence are deliberately decoupled. These conventions are
+binding for any operation that reads or writes wiki content.
 
 ## Two-layer storage
 
@@ -24,16 +29,32 @@ Every knowledge page carries a `type` front-matter field, one of:
 - `entity` — a person, organization, or place. A "hub." `wiki/entities/`.
 - `concept` — an abstract idea or topic. A "hub." `wiki/concepts/`.
 - `analysis` — a filed-back query answer or comparison. `wiki/analyses/`.
-  (Defined now; produced by the future `query` command.)
+  Produced by the `query` command.
 
 A `type` outside this set is invalid: halt and report rather than write.
+
+Every knowledge page also carries a `status` front-matter field, one of:
+
+- `provisional` — machine-authored: written without curator review, by the
+  unattended ingest path. Its classification, tags, figure decisions, and
+  `## Why this matters` prose are the LLM's judgment, not yet endorsed.
+- `reviewed` — curator-endorsed: the curator stands behind the page as written,
+  whoever first drafted the prose. Interactive `file` and `query` commits write
+  `reviewed` directly, since the curator approved the page at commit time.
+
+A `status` outside this set is invalid: halt and report rather than write. The
+review queue is *derived* — the set of pages carrying `status: provisional` —
+never a separate maintained list, so it cannot drift from the corpus.
 
 Two bookkeeping files live at `wiki/` root:
 
 - `wiki/index.md` — catalog of every page, grouped by type, each a `[[wikilink]]`
   plus a one-line summary. Updated on every ingest.
 - `wiki/log.md` — append-only timeline. One `## [<date>] <op>: <subject>` entry
-  per operation; never rewrite existing entries.
+  per operation; never rewrite existing entries. The `<op>` vocabulary is
+  `ingest` (a filed source — an unattended one says so in its body), `query` (a
+  filed-back analysis), `lint` (a repair run), and `curate` (a review run: what
+  was endorsed, merged, and rejected, with rejection reasons).
 
 Folders mirror `type`. They exist for legibility and to give an unambiguous
 "write here" rule — Obsidian resolves links by filename regardless of folder.
@@ -55,6 +76,7 @@ Summary page — `wiki/summaries/<slug>.md`:
 ```yaml
 ---
 type: summary
+status: provisional | reviewed
 title: <Human-readable title>
 created: <YYYY-MM-DD>
 source: <original URL or local path>
@@ -65,13 +87,25 @@ tags: [<tag-a>, <tag-b>]
 
 A summary points both ways: `source:` to the live URL/path, `raw:` to the local
 twin. Its body has exactly two named sections: `## Summary` (LLM's neutral
-distillation) and `## Why this matters` (the curator's commentary).
+distillation) and `## Why this matters` (the resource's significance to the
+curator).
+
+`## Why this matters` is **endorsement-gated, not authorship-gated.** On the
+interactive path the curator supplies it in their own words and the page commits
+as `reviewed`. On the unattended path the LLM drafts it — seeded by the
+`inbox.md` curator note when one was given — and the page commits as
+`provisional`. `status: reviewed` means the curator stands behind the stated
+significance regardless of who first drafted the prose. The `status` field is the
+**sole** marker of that distinction: the body carries no inline authorship
+disclaimer, so endorsement is a one-field edit and no stale disclaimer can
+survive review.
 
 Hub page — `wiki/entities/<slug>.md`, `wiki/concepts/<slug>.md`:
 
 ```yaml
 ---
 type: entity | concept
+status: provisional | reviewed
 title: <...>
 created: <YYYY-MM-DD>
 tags: [<...>]
@@ -83,6 +117,7 @@ Analysis page — `wiki/analyses/<slug>.md`:
 ```yaml
 ---
 type: analysis
+status: provisional | reviewed
 title: <Human-readable title>
 created: <YYYY-MM-DD>
 question: <the original question, verbatim>
@@ -100,11 +135,52 @@ An analysis is a filed-back `query` answer. `question:` records the prompt that
 produced it and `sources:` lists the wiki pages it cites. Like a summary, its
 body has exactly two named sections: `## Answer` (the LLM's corpus-grounded
 synthesis, with inline `[[wikilinks]]`) and `## Why this matters` (the curator's
-commentary). Every cited claim must trace to a real page; outside knowledge, if
-included, is marked as not corpus-backed.
+commentary, under the same endorsement rule as a summary's). Every cited claim
+must trace to a real page; outside knowledge, if included, is marked as not
+corpus-backed.
 
 Page templates live in `templates/` (`summary.md`, `entity.md`, `concept.md`,
 `analysis.md`).
+
+## The inbox queue (`inbox.md`)
+
+`inbox.md` at the **repo root** is the queue of sources awaiting unattended
+ingest. Each entry is one Markdown checklist line — a URL or local path, plus an
+optional separator and free-text curator note. The checkbox carries the state:
+`- [ ]` unprocessed, `- [x]` ingested, `- [!]` parked after a failure with a
+dated reason. The unattended path updates checkboxes in place and **never deletes
+an entry**, which is what makes re-runs idempotent and keeps the file a legible
+record of what was queued.
+
+The curator note is the only genuine curator voice available at unattended ingest
+time; when present it seeds that page's drafted `## Why this matters`.
+
+It lives at the root, **not** under `wiki/`, on purpose: it is not a knowledge
+page, so Quartz must not publish it and `lint` must not read it as a page missing
+a `type`. It is committed rather than gitignored so the curator can append to it
+from another machine.
+
+**There is no per-run batch cap** — deliberately. The queue's length is the
+curator's throttle, and a cap would only hide review debt that `curate`'s
+queue-size report is meant to make visible. Revisit only if unbounded runs prove
+to be a problem in practice.
+
+## `lint` vs `curate`
+
+Two housekeeping commands, deliberately orthogonal — do not fold either into the
+other:
+
+- **`lint` audits structure.** Invalid front-matter, `type`/folder mismatches,
+  broken wikilinks, orphans, index/log drift, missing sections, near-duplicate
+  tags. It *repairs*. A clean corpus reports no defects — which is why a
+  `status: provisional` page is **not** a lint defect: treating it as one would
+  make an auto-ingesting wiki permanently "dirty" and destroy the clean/dirty
+  signal that makes `lint` worth running.
+- **`curate` exercises judgment.** It reviews the provisional queue and
+  *endorses, retags, reclassifies, merges, and rejects*. Rejection deletes a page;
+  that is not a repair. `curate` reuses `lint`'s shape (read-only survey,
+  propose → coach → commit, one appended log entry) without inheriting its
+  contract, and never repairs a structural defect it happens to notice.
 
 ## Wikilinks & Obsidian
 
@@ -121,19 +197,31 @@ to single hyphens. Collisions get a numeric suffix (`-2`, `-3`, …).
 - Raw twin (Phase 1): slug from the **source's extracted title** (converter H1 /
   document title), falling back to the URL path segment or local filename. Keeps
   a `<date>-` prefix for chronology and collision resistance.
-- Wiki summary (Phase 2): slug from the **final human-readable `title`** settled
-  during the interview, no date prefix. This is the canonical slug for links.
+- Wiki summary (Phase 2): slug from the **final human-readable `title`** — settled
+  during the interview on the interactive path, chosen by the LLM on the
+  unattended one — with no date prefix. This is the canonical slug for links.
 
 ## Tags
 
-Prefer tags already in use in the wiki over minting near-duplicates. Surface any
-genuinely new tag explicitly for the user to approve. Corpus-wide tag cleanup is
-the future `lint` command's job, not ingest's.
+Prefer tags already in use in the wiki over minting near-duplicates. A genuinely
+new tag is never minted silently — but *when* it is approved depends on the path:
+
+- **Interactive** (`file`, `query`): surface every new tag explicitly for the
+  user to approve or redirect **before commit**.
+- **Unattended** (`ingest-inbox`): there is no approver present, so approval is
+  **deferred, not skipped**. The tag may be committed, but the page carries
+  `status: provisional` and that ingest's `wiki/log.md` entry names every tag the
+  run minted, so the new vocabulary is visible at review and `curate` can approve
+  it or redirect it via the retag verb.
+
+Corpus-wide tag cleanup (near-duplicate and orphan tags across the whole corpus)
+is the `lint` command's job, not ingest's.
 
 ## Converter routing (Phase 1)
 
-`file <uri-or-path>` detects content type (fetched content type takes
-precedence over extension) and routes:
+Capture is identical on both paths — `file <uri-or-path>` and `ingest-inbox` both
+shell out to the same `wiki-capture` CLI, which detects content type (fetched
+content type takes precedence over extension) and routes:
 
 - web URL (HTML) → Jina Reader (`https://r.jina.ai/<url>`). `r.jina.ai` now
   requires auth; set `JINA_API_KEY` in the environment (sent as a Bearer token).
@@ -158,14 +246,21 @@ The mechanical filter is the selectivity control, so a text-dominant page yields
 no content images and downloads nothing. Pass `--no-images` to `wiki-capture` to
 suppress localization entirely for the rare page whose figures are worthless.
 
-A figure's *knowledge* reaches `wiki/` as **prose**: the Phase 2 interview is the
-review/consent point — the LLM presents the localized figures, distills the
-meaningful ones into `## Summary`, and the user drops any noise (a dropped figure
-is not distilled or promoted; its `raw/assets/` bytes remain, and unreferenced
-raw assets are a future `lint` concern). A figure's *bytes* reach the published
-site only by **lazy promotion** — when a figure must be seen and the user
-approves, a curated copy moves into `wiki/assets/` (created on first use) and is
-embedded in the summary; the `raw/assets/` original stays the source of truth.
+A figure's *knowledge* reaches `wiki/` as **prose**. On the **interactive** path
+the Phase 2 interview is the review/consent point — the LLM presents the localized
+figures, distills the meaningful ones into `## Summary`, and the user drops any
+noise. On the **unattended** path there is no interview, so that judgment is the
+LLM's: it decides which figures carry meaning, distills those, and drops the rest.
+A dropped figure is not distilled or promoted; its `raw/assets/` bytes remain, and
+unreferenced raw assets are a `lint` concern. A figure's *bytes* reach the
+published site only by **lazy promotion** — when a figure must be seen (prose
+cannot carry it) and either the user approves or, unattended, the LLM so judges, a
+curated copy moves into `wiki/assets/` (created on first use) and is embedded in
+the summary; the `raw/assets/` original stays the source of truth. Unattended
+figure decisions — which figures were distilled, which were promoted — are recorded
+in that ingest's `wiki/log.md` entry, so they are visible at review and reversible:
+`curate` deletes a promoted copy from `wiki/assets/` when the page is rejected or
+the figure revised away, leaving the `raw/assets/` original in place.
 Both `raw/assets/` and `wiki/assets/` are content and are committed — they are not
 in `.gitignore`.
 
@@ -243,3 +338,12 @@ read-only over `wiki/`; it never reads or alters `raw/`.
   `[[wikilinks]]` in front-matter values (e.g. the analysis `sources:` field)
   break it even though Obsidian tolerates them; quote them as a YAML list:
   `sources: ["[[a]]", "[[b]]"]`.
+- **Provisional pages publish, unfiltered.** This is an information source, not
+  an operational system needing staged release, so nothing gates a
+  `status: provisional` page from going live. **Open follow-up:** `status` is
+  therefore currently visible only in the repo — Quartz v4 does not render
+  arbitrary front-matter, so a site reader cannot yet distinguish a
+  machine-judged page from an endorsed one. Options considered: a small Quartz
+  component, or a `provisional` tag riding along in `tags:` (visible and
+  filterable, but duplicates state that already lives in `status`). Deferred; it
+  does not block the queue mechanics.

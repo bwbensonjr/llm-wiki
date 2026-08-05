@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: "libscheme: Scheme as a C Library"
 created: 2026-06-29
 source: https://github.com/bwbensonjr/libscheme/blob/main/src/doc/libscheme.md

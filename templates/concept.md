@@ -1,5 +1,6 @@
 ---
 type: concept
+status: <provisional | reviewed>
 title: <Abstract idea or topic>
 created: <YYYY-MM-DD>
 tags: [<tag-a>, <tag-b>]

@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Token Capital
 created: 2026-06-23
 tags: [ai-economy, token-capital]

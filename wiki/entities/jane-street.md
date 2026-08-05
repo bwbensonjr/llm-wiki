@@ -1,5 +1,6 @@
 ---
 type: entity
+status: reviewed
 title: Jane Street
 created: 2026-06-22
 tags: [ocaml, formal-methods]

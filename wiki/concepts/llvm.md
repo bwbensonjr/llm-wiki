@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: LLVM
 created: 2026-07-08
 tags: [llvm, language-implementation, programming-languages]

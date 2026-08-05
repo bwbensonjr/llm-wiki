@@ -1,5 +1,6 @@
 ---
 type: summary
+status: <provisional | reviewed>
 title: <Human-readable title>
 created: <YYYY-MM-DD>
 source: <original URL or local path>
@@ -16,5 +17,8 @@ entity and concept hub pages this source touches.>
 
 ## Why this matters
 
-<The curator's own commentary, in their voice, on why this resource is
-interesting or important. Collected during the Phase 2 interview.>
+<Why this resource is interesting or important. Collected in the curator's own
+voice during the Phase 2 interview (page commits `reviewed`), or drafted by the
+LLM on the unattended path — seeded by the inbox note when one was given — and
+left `provisional` until the curator endorses it. No inline authorship
+disclaimer: `status` is the sole marker.>

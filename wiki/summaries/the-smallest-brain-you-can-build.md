@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: The Smallest Brain You Can Build
 created: 2026-06-23
 source: https://ranpara.net/posts/perceptron-explained-from-scratch/

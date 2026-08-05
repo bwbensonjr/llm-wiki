@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: A Programmable Programming Language
 created: 2026-06-24
 source: https://dl.acm.org/doi/10.1145/3127323

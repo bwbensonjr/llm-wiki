@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Racket
 created: 2026-06-24
 tags: [racket, lisp, programming-languages]

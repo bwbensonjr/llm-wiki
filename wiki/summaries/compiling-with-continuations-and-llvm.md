@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: Compiling with Continuations and LLVM
 created: 2026-07-08
 source: https://arxiv.org/pdf/1805.08842

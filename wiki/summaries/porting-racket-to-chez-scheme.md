@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: Porting Racket to Chez Scheme
 created: 2026-06-29
 source: https://users.cs.utah.edu/~mflatt/tmp/rkt-on-chez.pdf

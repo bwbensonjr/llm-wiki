@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: Formal methods and the future of programming
 created: 2026-06-22
 source: https://blog.janestreet.com/formal-methods-at-jane-street-index/

@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Python
 created: 2026-06-23
 tags: [python]

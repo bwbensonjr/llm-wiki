@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: MCP is dead
 created: 2026-06-23
 source: https://www.quandri.io/engineering-blog/mcp-is-dead

@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: Choosing to Stay Human
 created: 2026-06-23
 source: https://www.oneusefulthing.org/p/choosing-to-stay-human

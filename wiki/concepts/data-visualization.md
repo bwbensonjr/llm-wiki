@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Data Visualization
 created: 2026-06-23
 tags: [data-visualization]

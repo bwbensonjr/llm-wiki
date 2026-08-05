@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Plotnine
 created: 2026-06-23
 tags: [data-visualization, python, grammar-of-graphics]

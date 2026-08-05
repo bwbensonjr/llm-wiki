@@ -1,5 +1,6 @@
 ---
 type: analysis
+status: <provisional | reviewed>
 title: <Human-readable title>
 created: <YYYY-MM-DD>
 question: <The original question, verbatim>
@@ -19,4 +20,5 @@ supplement explicitly as not corpus-backed.>
 ## Why this matters
 
 <The curator's own commentary, in their voice, on why this question or its
-answer is interesting or important. Collected during the file-back interview.>
+answer is interesting or important. Collected during the file-back interview;
+the page commits `status: reviewed`.>

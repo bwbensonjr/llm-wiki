@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: OxCaml
 created: 2026-06-22
 tags: [ocaml, type-systems]

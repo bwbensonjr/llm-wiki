@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: Why Janet?
 created: 2026-06-23
 source: https://ianthehenry.com/posts/why-janet/

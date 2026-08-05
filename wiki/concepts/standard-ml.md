@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Standard ML
 created: 2026-07-08
 tags: [standard-ml, language-implementation, programming-languages]

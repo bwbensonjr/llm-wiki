@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Scheme
 created: 2026-06-29
 tags: [scheme, lisp, programming-languages]

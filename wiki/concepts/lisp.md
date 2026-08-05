@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Lisp
 created: 2026-06-23
 tags: [lisp, programming-languages]

@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Personal Knowledge Management
 created: 2026-06-23
 tags: [knowledge-management]

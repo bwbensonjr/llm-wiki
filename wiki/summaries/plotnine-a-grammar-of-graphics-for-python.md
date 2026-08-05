@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: "Plotnine: a grammar of graphics for Python"
 created: 2026-06-23
 source: https://plotnine.org/

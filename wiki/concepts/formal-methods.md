@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Formal Methods
 created: 2026-06-22
 tags: [formal-methods, program-verification]

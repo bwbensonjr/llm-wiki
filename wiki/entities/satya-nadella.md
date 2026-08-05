@@ -1,5 +1,6 @@
 ---
 type: entity
+status: reviewed
 title: Satya Nadella
 created: 2026-06-23
 tags: [ai-economy]

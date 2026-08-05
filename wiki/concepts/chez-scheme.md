@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Chez Scheme
 created: 2026-06-29
 tags: [chez-scheme, scheme, lisp, programming-languages, language-implementation]

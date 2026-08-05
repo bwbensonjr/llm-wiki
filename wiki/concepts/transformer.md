@@ -1,5 +1,6 @@
 ---
 type: concept
+status: reviewed
 title: Transformer
 created: 2026-06-23
 tags: [transformers, machine-learning]

@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: "Satya Nadella: A frontier without an ecosystem is not stable"
 created: 2026-06-23
 source: https://x.com/satyanadella/status/2066182223213293753/

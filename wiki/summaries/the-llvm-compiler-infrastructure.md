@@ -1,5 +1,6 @@
 ---
 type: summary
+status: reviewed
 title: The LLVM Compiler Infrastructure
 created: 2026-07-08
 source: https://cacm.acm.org/federal-funding-of-academic-research/the-llvm-compiler-infrastructure/
