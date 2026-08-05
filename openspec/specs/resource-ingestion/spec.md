@@ -68,9 +68,35 @@ later operations. Each `summary` page SHALL link to both its original source
 ### Requirement: Content-type converter router
 
 The `file` command SHALL detect the content type of the resource and route
-conversion accordingly: web URLs to Jina Reader, PDFs to Docling, and all other
-file types to MarkItDown. Detection SHALL consider the fetched content type, not
-the file extension alone, so that a URL resolving to a PDF is routed to Docling.
+conversion accordingly: web URLs to Jina Reader, PDFs to Docling, **PostScript to
+ghostscript-then-Docling**, and all other file types to MarkItDown. Detection SHALL
+consider the fetched content type, not the file extension alone, so that a URL
+resolving to a PDF is routed to Docling.
+
+A source SHALL be recognized as PostScript when its fetched content type is
+`application/postscript`, or when its path carries a PostScript extension (`.ps`,
+`.eps`). A **gzipped** PostScript source SHALL also be recognized, by its `.ps.gz` path
+even though the trailing extension is `.gz` and even though its served content type
+(commonly `application/x-gzip`) does not identify the payload; it SHALL be decompressed
+before conversion.
+
+PostScript conversion is **two-stage**: ghostscript renders the source to PDF and the
+existing Docling route converts that PDF to Markdown. The raw twin's `converter:` field
+SHALL record that both stages ran rather than naming Docling alone, so the twin does not
+misreport how it was produced.
+
+Because ghostscript is an external system binary rather than a Python dependency, its
+absence SHALL produce a failure that names the missing binary, distinguishable from a
+source the converter could not parse.
+
+A PostScript source built on **bitmap fonts** yields a PDF with no recoverable text
+encoding, from which extraction produces unresolved glyph codes (`/65/98/115`) rather
+than characters. Because such output parses as Markdown yet carries no readable prose,
+and because `raw/` is immutable, capture SHALL refuse it rather than write it: when the
+converted text is dominated by glyph-code tokens, conversion fails with a reason that
+says the source has no recoverable text layer. Prose that merely carries **ligature
+artifacts** — an `fl` rendered as `/`, so "flow" reads as "/ow" — SHALL NOT be refused,
+because it remains legible.
 
 #### Scenario: Web URL routes to Jina Reader
 
@@ -83,10 +109,44 @@ the file extension alone, so that a URL resolving to a PDF is routed to Docling.
   content
 - **THEN** the resource is converted with Docling
 
+#### Scenario: PostScript routes to ghostscript then Docling
+
+- **WHEN** the user files a PostScript source, whether a local `.ps` path or a URL
+  served as `application/postscript`
+- **THEN** ghostscript converts it to PDF, Docling converts that PDF to Markdown, and
+  the twin records the two-stage route
+
+#### Scenario: Gzipped PostScript is recognized and decompressed
+
+- **WHEN** the user files a `.ps.gz` source, whose trailing extension is `.gz` and whose
+  served content type does not identify the payload
+- **THEN** it is recognized as PostScript, decompressed, and converted by the same
+  two-stage route
+
+#### Scenario: Missing ghostscript is reported as such
+
+- **WHEN** a PostScript source is filed on a machine where the ghostscript binary is not
+  on `PATH`
+- **THEN** conversion fails naming the missing binary, no twin is written, and the
+  failure is distinguishable from unparseable content
+
+#### Scenario: Unrecoverable glyph-code output is refused
+
+- **WHEN** a PostScript source's fonts are bitmap fonts, so the converted text is
+  dominated by unresolved glyph codes such as `/65/98/115` instead of characters
+- **THEN** conversion fails saying the source has no recoverable text layer, and no twin
+  is written
+
+#### Scenario: Ligature artifacts are not refused
+
+- **WHEN** a PostScript source converts to legible prose that carries ligature artifacts,
+  such as `fl` rendered as `/` so that "flow analysis" reads as "/ow analysis"
+- **THEN** the conversion succeeds and the twin is written, because the text is readable
+
 #### Scenario: Other file types route to MarkItDown
 
-- **WHEN** the user files a non-PDF document such as `.docx`, `.pptx`, `.xlsx`,
-  or an image
+- **WHEN** the user files a non-PDF, non-PostScript document such as `.docx`, `.pptx`,
+  `.xlsx`, or an image
 - **THEN** the resource is converted with MarkItDown
 
 ### Requirement: Two-phase file command
