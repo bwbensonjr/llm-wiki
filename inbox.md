@@ -45,7 +45,7 @@ is a no-op.
 - [x] https://3e8.org/pub/scheme/doc/lisp-pointers/v7i3/p128-clinger.pdf - Describes an approach to code transformation and lambda lifting
 - [x] https://en.wikipedia.org/wiki/Western_Sahara - A link to test reject because it doesn't match the subject matter of this wiki 
 - [x] https://www.deinprogramm.de/sperber/papers/tractable-native-code-scheme-system.pdf - Looks at going from virtual machine to native code
-- [ ] https://dl.acm.org/doi/epdf/10.1145/1159803.1159805 - An in-depth history of an important Scheme compiler
+- [!] https://dl.acm.org/doi/epdf/10.1145/1159803.1159805 - An in-depth history of an important Scheme compiler — 2026-08-05: Cloudflare bot check, no article content (twin: raw/2026-08-05-just-a-moment.md)
 - [ ] https://dl.acm.org/doi/epdf/10.1145/2544174.2500618 - A particular framework for multi-pass compilers
 - [ ] https://link.springer.com/content/pdf/10.1023/A:1010016816429.pdf - Compilation approaches for Scheme continuations
 - [ ] https://dl.acm.org/doi/pdf/10.1145/3386330 - A broad overview of hygenic macro technologies like those available in Scheme
