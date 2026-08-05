@@ -109,6 +109,36 @@ the unattended path will write the message into an `inbox.md` park annotation wh
 curator reads it — so the message has to be actionable on its own ("ghostscript (`gs`) not
 found on PATH"), not a wrapped subprocess traceback.
 
+**7. Refuse a conversion that yields glyph codes instead of text; defer recovery.**
+
+*Added during implementation, after the second verification source failed.* Shao & Appel's
+`.ps.gz` converts to a structurally valid twin containing no prose: 95.6% of its tokens are
+unresolved glyph codes (`/65/98/115/116/114/97/99/116` where "Abstract" belongs). The cause
+is bitmap (PK) fonts — the ghostscript-produced PDF carries no `ToUnicode` map, so *no* PDF
+text extractor can recover characters and Docling falls back to emitting glyph names.
+
+Capture refuses such output rather than writing it. A twin that parses but says nothing is
+worse than no twin, because `raw/` is immutable and the authoring step would then write a
+confident summary of nothing — the exact failure the unattended path's plausibility check
+exists to prevent, arriving in a form that check would not catch.
+
+The test is the ratio of bare `/NNN` tokens to all tokens. Measured on the two real papers
+this separates cleanly — **0.021** for the good twin, **0.956** for the unusable one — so
+the threshold sits at **0.25**, an order of magnitude clear of the good case and well below
+the bad one. The good twin's 2.1% comes from genuine symbol runs, which is why the check
+counts a ratio rather than any occurrence.
+
+*Recovery is deliberately deferred.* The text is mechanically recoverable: decoding those
+codes through the TeX OT1 encoding (with slots 11–15 as the ff/fi/fl/ffi/ffl ligatures)
+reproduces the text exactly — verified on the abstract. But a TeX-encoding decoder is a
+distinct capability, assumes OT1 where T1/Cork sources differ, and would make the twin
+something other than a mechanical transcript. It belongs in its own change, and this
+check is the trigger such a change would need anyway.
+
+*Alternative considered:* force Docling to OCR the rendered pages, since RapidOCR is
+already installed. Rejected for now on the same scope grounds, and because it needs this
+same detection to know when to fire.
+
 ## Risks / Trade-offs
 
 - **A new external system dependency.** ghostscript is the first non-Python tool the
@@ -123,7 +153,15 @@ found on PATH"), not a wrapped subprocess traceback.
   so it persists in the twin. Accepted: the text is entirely legible to the LLM authoring
   the summary (the abstract above reads fine), and the `wiki/` layer is a distillation
   rather than a transcript. Worth a note in the ingest log entry when it is conspicuous,
-  so a later reader does not mistake it for a broken converter.
+  so a later reader does not mistake it for a broken converter. **This is a different case
+  from the glyph-code failure in decision 7, and the distinction matters**: legible-with-
+  artifacts is authored from normally, while no-recoverable-text is refused. Both skills
+  say so explicitly, so the tolerance for one is not read as tolerance for the other.
+- **Bitmap-font sources remain un-ingestable.** The check in decision 7 keeps them out of
+  the corpus but does not convert them, so Shao & Appel still needs the manual route
+  (`ps2pdf` by hand is not enough either — the font problem is upstream of the container).
+  The gap this change was partly meant to close stays open for that paper until a decoder
+  or OCR change lands.
 - **Ghostscript is a large attack surface for untrusted input.** PostScript is a
   programming language and `gs` has a history of sandbox-escape CVEs. Mitigation: run with
   `-dSAFER` (the default in modern releases, but set it explicitly), and note that inputs

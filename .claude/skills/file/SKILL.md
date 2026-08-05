@@ -27,7 +27,14 @@ uv run wiki-capture "<uri-or-path>"
 ```
 
 This detects the content type, routes it (web→Jina Reader, PDF→Docling,
-other→MarkItDown), and writes the immutable twin `raw/<date>-<slug>.md`.
+PostScript→ghostscript-then-Docling, other→MarkItDown), and writes the immutable
+twin `raw/<date>-<slug>.md`.
+
+**PostScript** (`.ps`, `.eps`, `.ps.gz`) is a two-stage route: `gs` renders it to a
+temporary PDF, Docling converts that, and the twin records
+`converter: ghostscript+docling`. ghostscript is an external binary outside the pinned
+toolchain, so if it is missing the capture fails saying so — tell the user to
+`brew install ghostscript` rather than treating it as an unconvertible source.
 
 **Images localize automatically.** For a web page, capture downloads the
 source's **content** images into `raw/assets/<twin-stem>/`, rewrites the twin's

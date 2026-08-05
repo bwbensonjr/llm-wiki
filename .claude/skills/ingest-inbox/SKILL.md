@@ -87,6 +87,13 @@ uv run wiki-capture "<source>"
 - **On failure** it prints `{"error": ...}` to stderr, exits non-zero, and has
   written nothing. Park the entry with the error and go to the next one.
 
+**PostScript sources** (`.ps`, `.eps`, `.ps.gz`) route through ghostscript to PDF and
+then Docling, and report `converter: ghostscript+docling`. ghostscript is an external
+binary outside the pinned toolchain, so on a machine without it the error says
+`ghostscript (gs) not found on PATH`. Park that entry with the message verbatim — it
+names the fix, and it is a machine-setup problem rather than a bad source, so the entry
+is worth retrying by hand after installing it.
+
 ### 2c. Refuse an implausible capture
 
 Read the twin at `raw_path` and judge whether it is actually the source. Refuse
@@ -106,6 +113,14 @@ evidence for why the entry was parked.
 This check is the difference between a bad fetch and a confidently-written
 published summary of nothing. When genuinely uncertain, park it: a parked entry
 is visible and retryable by hand, a bogus summary is corpus damage.
+
+**Ligature artifacts are not a refusal reason.** Old `dvips`-produced PostScript
+extracts with `fl` rendered as `/` — "flow analysis" arrives as `/ow analysis`,
+"protocols" as `pro/tocols`, an author as `PAUL A/. STECKLER`. That is a font-encoding
+artifact of the source, not a failed capture: the twin is complete and legible, and
+`raw/` is immutable so it cannot be cleaned. Author from it normally, read through the
+artifacts when distilling, and say so in the log entry when they are conspicuous, so a
+later reader does not mistake them for a broken converter.
 
 ### 2d. Author the wiki layer — no interview
 

@@ -317,9 +317,37 @@ content type takes precedence over extension) and routes:
 - web URL (HTML) → Jina Reader (`https://r.jina.ai/<url>`). `r.jina.ai` now
   requires auth; set `JINA_API_KEY` in the environment (sent as a Bearer token).
 - PDF (local or URL resolving to PDF) → Docling
+- **PostScript** (`.ps`, `.eps`, or served as `application/postscript`) →
+  **ghostscript, then Docling**
 - any other file type → MarkItDown
 
 Conversion is all-or-nothing: on any failure, write nothing and report why.
+
+**The PostScript route is two-stage**, because PostScript is a page-description
+language with no extractable structure: `gs` renders it to a temporary PDF and the
+ordinary Docling route converts that, so PostScript inherits the same layout handling
+as every other PDF. The twin records `converter: ghostscript+docling` — naming both
+stages, since a twin is the audit record of how its own content was produced and
+`raw/` cannot be corrected later.
+
+Two details worth knowing:
+
+- **Gzipped PostScript is recognized.** `.ps.gz` is how tech-report servers publish,
+  and it defeats both ordinary detection mechanisms — `os.path.splitext` sees only
+  `.gz`, and the served content type (`application/x-gzip`) describes the envelope
+  rather than the payload. So the path is matched past its compression suffix, a gzip
+  content type is treated as uninformative, and decompression keys off the gzip magic
+  bytes rather than the name.
+- **ghostscript is an external system binary**, not a Python dependency, so it can be
+  missing where the rest of the pipeline works. Its absence fails with a message that
+  names it (`ghostscript (gs) not found on PATH`) rather than looking like unparseable
+  content — see the toolchain section.
+
+Old `dvips`-produced PostScript often extracts with **ligature artifacts**: `fl`
+renders as `/`, so "flow analysis" arrives as `/ow analysis`. That is a font-encoding
+artifact of the source, not a broken capture, and since `raw/` is immutable it stays in
+the twin. The text remains legible and `wiki/` is a distillation rather than a
+transcript, so this is tolerated, not repaired.
 
 ## Image handling
 
@@ -375,6 +403,14 @@ what the project needs — `python`, `uv`, `node`, and the **openspec** CLI
 (`npm:@fission-ai/openspec`). mise auto-activates per directory, so once it's
 installed, `cd`-ing into the repo puts the right tools on `PATH`. Run mise-only
 tools explicitly when needed, e.g. `mise exec -- openspec validate <change>`.
+
+**One tool sits outside the pinned toolchain: ghostscript**, used by the PostScript
+capture route. mise has no registry entry or aqua backend for it, so it cannot be
+pinned in `mise.toml`; install it from the system package manager
+(`brew install ghostscript`). This is the only non-Python, non-mise dependency, and it
+is needed *only* for PostScript sources — every other route works without it, and a
+PostScript capture attempted without it fails naming the missing binary rather than
+looking like a conversion error.
 
 **Secrets never go in `mise.toml`.** `JINA_API_KEY` (used by the Jina Reader
 route) belongs in `mise.local.toml`, which is gitignored:

@@ -24,6 +24,15 @@ Because ghostscript is an external system binary rather than a Python dependency
 absence SHALL produce a failure that names the missing binary, distinguishable from a
 source the converter could not parse.
 
+A PostScript source built on **bitmap fonts** yields a PDF with no recoverable text
+encoding, from which extraction produces unresolved glyph codes (`/65/98/115`) rather
+than characters. Because such output parses as Markdown yet carries no readable prose,
+and because `raw/` is immutable, capture SHALL refuse it rather than write it: when the
+converted text is dominated by glyph-code tokens, conversion fails with a reason that
+says the source has no recoverable text layer. Prose that merely carries **ligature
+artifacts** — an `fl` rendered as `/`, so "flow" reads as "/ow" — SHALL NOT be refused,
+because it remains legible.
+
 #### Scenario: Web URL routes to Jina Reader
 
 - **WHEN** the user files an `http(s)` URL that resolves to an HTML page
@@ -55,6 +64,19 @@ source the converter could not parse.
   on `PATH`
 - **THEN** conversion fails naming the missing binary, no twin is written, and the
   failure is distinguishable from unparseable content
+
+#### Scenario: Unrecoverable glyph-code output is refused
+
+- **WHEN** a PostScript source's fonts are bitmap fonts, so the converted text is
+  dominated by unresolved glyph codes such as `/65/98/115` instead of characters
+- **THEN** conversion fails saying the source has no recoverable text layer, and no twin
+  is written
+
+#### Scenario: Ligature artifacts are not refused
+
+- **WHEN** a PostScript source converts to legible prose that carries ligature artifacts,
+  such as `fl` rendered as `/` so that "flow analysis" reads as "/ow analysis"
+- **THEN** the conversion succeeds and the twin is written, because the text is readable
 
 #### Scenario: Other file types route to MarkItDown
 

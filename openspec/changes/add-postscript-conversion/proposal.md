@@ -85,6 +85,10 @@ requirements that belong with the router they govern.
   describe converter routing in prose ("web URL → Jina, PDF → Docling, any other file
   type → MarkItDown") and need the PostScript arm added. `CLAUDE.md`'s *Converter
   routing (Phase 1)* section is the binding statement and needs the same.
-- **Corpus**: unblocks the two queued-but-unqueueable papers above. No existing `raw/`
-  twin or `wiki/` page changes; nothing is re-captured.
+- **Corpus**: unblocks Steckler & Wand (verified end to end). **Shao & Appel turns out
+  not to be unblocked**: its 1994 PostScript uses bitmap fonts, so the resulting PDF has
+  no recoverable text layer and extraction yields glyph codes rather than characters.
+  Capture refuses that rather than writing an unusable twin (see design decision 7), so
+  the paper still needs a manual route until a decoder or OCR change lands. No existing
+  `raw/` twin or `wiki/` page changes; nothing is re-captured.
 - **No change** to `wiki/`, to the two-layer storage model, or to any curation command.
