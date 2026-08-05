@@ -53,3 +53,6 @@ is a no-op.
 - [x] inbox-files/2544174.2500618.pdf - Local version of failed to download nanopass paper - A particular framework for multi-pass compilers
 - [x] inbox-files/A_1010016816429.pdf - Local version of failed to download continuation paper - Compilation approaches for Scheme continuations
 - [x] inbox-files/93548.93554.pdf - Representing control in the presence of first class continuations 
+- [ ] https://www.cs.princeton.edu/~appel/papers/cpcps.pdf - SML/NJ's own account of closure-passing style; the design Twobit contrasts its local lambda lifting against
+- [ ] https://andykeep.com/pubs/scheme-12a.pdf - The flat-closure optimization mechanism the nanopass paper alludes to but doesn't describe
+- [ ] https://www.cs.princeton.edu/~appel/papers/safe-closure.pdf - The safe-for-space closure conversion rule, proved
