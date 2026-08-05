@@ -251,3 +251,13 @@ so the log stays greppable by the stable `## [` prefix.
 - images: none kept — PDF route, no localization. The twin carries `<!-- formula-not-decoded -->` for the universal-elimination rule and several OCR-mangled code samples (`/quotedblVar` for quote characters). Nothing promoted to `wiki/assets/`.
 - tags minted: **`macros`** — one new tag, flagged for deferred approval. Sixteen existing pages discuss macros with no tag for it; the nearest existing vocabulary (`language-oriented-programming`, `domain-specific-languages`) names things macros *enable* rather than the mechanism. If approved, it likely wants back-applying to the Janet, Racket, and Lisp pages — a corpus-wide retag that is `lint`'s job, not this ingest's.
 - hub not minted: no page for Eugene Kohlbecker, whose algorithm and dissertation carry section 4 — one source, no prior corpus presence, same rule applied to Gasbichler and Sperber earlier in this run. Reconsider if a second source covers him.
+
+## [2026-08-05] ingest: inbox run summary (3 entries parked)
+
+- run: **unattended** (`ingest-inbox`), 5 queue entries — 2 ingested, 3 parked. Failure isolation held: the parked entries sat between the two successes and neither aborted the run nor affected committed work.
+- ingested: [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]]; [[hygienic-macro-technology|Hygienic Macro Technology]]
+- parked, all three for **capture** reasons rather than content judgment — no `wiki/` page was written for any of them, and each twin is retained under `raw/` as the evidence:
+  - `https://dl.acm.org/doi/epdf/10.1145/1159803.1159805` — Cloudflare bot check ("Performing security verification"), no article content.
+  - `https://dl.acm.org/doi/epdf/10.1145/2544174.2500618` — ACM JavaScript reader shell, only a "Loading publication (376.9 KB)" stub. Title resolves to Keep & Dybvig's nanopass framework paper (ICFP 2013).
+  - `https://link.springer.com/content/pdf/10.1023/A:1010016816429.pdf` — Springer returned only the bibliography, 47 references with no abstract or body. Paper is Clinger, Hartheimer & Ost, "Implementation Strategies for First-Class Continuations" (HOSC 1999).
+- **pattern worth acting on:** `dl.acm.org/doi/epdf/...` is a viewer URL and does not yield content, while `dl.acm.org/doi/pdf/...` served a real PDF and ingested cleanly. Prefer the `/doi/pdf/` form, or a direct author-hosted copy, when queueing ACM links. All three parked papers are cited by sources already in the corpus and are worth retrying from another host.
