@@ -25,7 +25,6 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]] — Kranz's 1988 Yale dissertation: closure and escape analysis make Scheme match Pascal, and beat it wherever calls dominate.
 - [[an-incremental-approach-to-compiler-construction|An Incremental Approach to Compiler Construction]] — Ghuloum (Scheme Workshop 2006): a Scheme-to-x86 compiler in 24 steps, each one a fully working compiler for a larger subset.
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]] — Clinger & Hansen (LFP '94): heap-allocate everything, then lambda-lift it back into registers; a lifted lambda is an assembly label.
-- [[western-sahara|Western Sahara]] — Wikipedia on the UN non-self-governing territory: the unresolved sovereignty dispute, the Berm, the stalled referendum. Off-topic for this corpus; queued as a review test.
 
 ## Entities
 

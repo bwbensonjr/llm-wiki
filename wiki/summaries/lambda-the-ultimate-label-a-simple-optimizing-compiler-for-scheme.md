@@ -1,6 +1,6 @@
 ---
 type: summary
-status: provisional
+status: reviewed
 title: "Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme"
 created: 2026-08-05
 source: https://3e8.org/pub/scheme/doc/lisp-pointers/v7i3/p128-clinger.pdf
