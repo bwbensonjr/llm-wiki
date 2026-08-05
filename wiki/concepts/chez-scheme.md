@@ -38,3 +38,4 @@ and [[racket|Racket]] (which now runs on Chez Scheme).
 - [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]]
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
 - [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]
+- [[safe-for-space|Safe for Space]]

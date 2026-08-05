@@ -56,3 +56,4 @@ constant.
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]
 - [[lightweight-closure-conversion|Lightweight Closure Conversion]]
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
+- [[closure-conversion-is-safe-for-space|Closure Conversion Is Safe for Space]]

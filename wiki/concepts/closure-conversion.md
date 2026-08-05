@@ -68,3 +68,5 @@ often as referenced, which are therefore known local procedures needing no closu
 - [[lightweight-closure-conversion|Lightweight Closure Conversion]]
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
 - [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]
+- [[closure-conversion-is-safe-for-space|Closure Conversion Is Safe for Space]]
+- [[safe-for-space|Safe for Space]]

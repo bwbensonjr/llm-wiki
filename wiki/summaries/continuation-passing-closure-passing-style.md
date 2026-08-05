@@ -117,7 +117,7 @@ That is a genuine argument between working compilers about a cost model, with bo
 now readable from their own papers.
 
 Finally, the remark that linked closures can retain garbage flat ones would release is the
-seed of the safe-for-space work that follows it, and it explains why
+seed of the [[safe-for-space|safe-for-space]] work that follows it, and it explains why
 [[chez-scheme|Chez Scheme]]'s choice of flat closures
 ([[the-development-of-chez-scheme|per Dybvig]]) is a space decision as much as an access-cost
 one.

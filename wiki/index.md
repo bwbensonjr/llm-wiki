@@ -34,6 +34,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[lightweight-closure-conversion|Lightweight Closure Conversion]] — Steckler & Wand (TOPLAS 1997): omit a captured variable when call sites can supply it, with a deductive system that proves the transformation sound.
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]] — Appel & Jim (POPL 1989): SML/NJ's CPS back end in many small phases; closure-passing style, stackless, spilling as a CPS rewrite.
 - [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]] — Keep, Hearn & Dybvig (Scheme Workshop 2012): Chez's flat-closure optimizations, never-do-harm and safe-for-space; >50% of closure overhead removed.
+- [[closure-conversion-is-safe-for-space|Closure Conversion Is Safe for Space]] — Paraskevopoulou & Appel (ICFP 2019): the first mechanized proof that flat closure conversion preserves time and space, GC included.
 
 ## Entities
 
@@ -64,6 +65,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[robert-hieb|Robert Hieb]] — Indiana implementer; first author of the segmented stack model behind Chez Scheme's continuations.
 - [[paul-steckler|Paul A. Steckler]] — first author of Lightweight Closure Conversion; supplied the correctness proof rather than the optimization.
 - [[andrew-appel|Andrew W. Appel]] — Princeton; architect of SML/NJ's CPS back end and the case for a stackless compiler.
+- [[zoe-paraskevopoulou|Zoe Paraskevopoulou]] — verified compilation; the logical-relation technique behind CertiCoq's space-safety proof.
 
 ## Concepts
 
@@ -105,6 +107,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[llvm|LLVM]] — an SSA-based compiler backend infrastructure; a popular but C-biased target that functional-language compilers must work around.
 - [[continuation-passing-style|Continuation-Passing Style]] — making control flow explicit so every call is a tail call; basis of the heap-allocated first-class continuation runtime model.
 - [[standard-ml|Standard ML]] — a statically-typed ML-family functional language with a long line of compiler-implementation research (SML/NJ, MLton, Manticore).
+- [[safe-for-space|Safe for Space]] — the property that a transformation does not inflate a garbage-collected program's memory beyond a constant factor.
 - [[static-single-assignment|Static Single Assignment]] — an IR form where each variable is assigned once, with ϕ-operations at control-flow merges; the basis of LLVM IR.
 - [[lambda-papers|Lambda Papers]] — the 1975–1980 MIT memos by Steele and Sussman in which Scheme was invented and its compilation worked out.
 - [[lambda-calculus|Lambda Calculus]] — Church's formal system of function abstraction and application; alpha- and beta-conversion are the compiler's substitution rules.

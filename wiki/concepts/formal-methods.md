@@ -24,3 +24,4 @@ expensive — seL4 famously took ~25 person-years to verify 8,700 lines of C.
 ## Sources
 
 - [[formal-methods-and-the-future-of-programming|Formal methods and the future of programming]]
+- [[closure-conversion-is-safe-for-space|Closure Conversion Is Safe for Space]]

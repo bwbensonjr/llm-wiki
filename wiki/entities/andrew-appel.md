@@ -37,10 +37,11 @@ interfaces** rather than one analysis. He states it as a criticism of
 same case [[nanopass]] makes later with measurements.
 
 His [[closure-conversion|closure-conversion]] work also raises the space question that
-became the safe-for-space rule: linked closures can retain data that flat closures would
+became the [[safe-for-space|safe-for-space]] rule: linked closures can retain data that flat closures would
 let the collector reclaim.
 
 ## Sources
 
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
 - [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]
+- [[closure-conversion-is-safe-for-space|Closure Conversion Is Safe for Space]]

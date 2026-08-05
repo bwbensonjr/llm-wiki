@@ -23,8 +23,8 @@ boxing the locations of *assigned* variables only (Dybvig, 1987) so values are n
 duplicated. Its virtues are stated plainly: every free variable is reachable in a single
 indirect, with no nested environment to traverse; creation cost is proportional to the
 free-variable count, which is usually small and is repaid whenever a variable is
-referenced more than once; and it is **safe for space**, holding nothing the procedure
-might not need, so the collector can reclaim values that are merely visible in the
+referenced more than once; and it is **[[safe-for-space|safe for space]]**, holding nothing
+the procedure might not need, so the collector can reclaim values that are merely visible in the
 environment. The paper's constraint is that its optimizations must *never do harm* —
 never add allocation or memory operations relative to naive flat closures, and never lose
 space safety — so a programmer can rely on flat-closure performance as a floor.
@@ -63,8 +63,7 @@ and **44.89%** of free variables, and dynamically **58.25%** of closure allocati
 **On lambda lifting, the paper takes a position.** Replacing a well-known one-free-variable
 closure with that variable is called "a degenerate form of
 [[lambda-lifting|lambda lifting]]," and the authors say why they stop there: converting
-free variables into
-separate arguments increases stack traffic for non-tail-recursive routines and raises
+free variables into separate arguments increases stack traffic for non-tail-recursive routines and raises
 register pressure whenever two or more variables become live in place of one package.
 Restricting the move to the single-variable case is what keeps the never-do-harm
 guarantee, "as we are replacing a single package of values with just one value." They
