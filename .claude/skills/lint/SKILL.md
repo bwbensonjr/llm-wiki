@@ -96,7 +96,24 @@ For pages whose `type` defines a fixed body shape, flag a missing or extra named
 section: a `summary` must have exactly `## Summary` and `## Why this matters`; an
 `analysis` must have exactly `## Answer` and `## Why this matters`.
 
-### 7. Tag vocabulary
+### 7. Raw asset integrity (reported, never repaired)
+
+Check that the twin↔assets correspondence holds under `raw/`, per `CLAUDE.md`:
+
+- a `raw/assets/<stem>/` directory whose twin `raw/<stem>.md` does not exist;
+- a file under `raw/assets/<stem>/` that its own twin never links to — dead bytes
+  from a rewrite that missed;
+- a local asset link in a twin pointing at a file that is not there.
+
+**A raw asset that was never promoted to `wiki/assets/` is not a finding.** Dropping
+a figure after distilling it to prose is the common, intended outcome; treating the
+surviving bytes as drift would flag most of the corpus and destroy the signal.
+
+These findings are **advisories, never repairs.** `raw/` is immutable, so `lint`
+reports the correspondence break and stops — it never adds, deletes, or rewrites
+anything under `raw/`, including a dangling asset directory.
+
+### 8. Tag vocabulary
 
 Collect the tag set used across the whole corpus. Cluster tags that are casing,
 pluralization, or hyphenation variants of one another (e.g. `LLM` / `llm`,
@@ -104,7 +121,7 @@ pluralization, or hyphenation variants of one another (e.g. `LLM` / `llm`,
 existing tag. For each cluster, **propose** a canonical form — but never decide
 it. The canonical choice and every fold-in is a curator decision (Phase 3).
 
-### 8. Coverage advisory (read-only, never acts)
+### 9. Coverage advisory (read-only, never acts)
 
 After the fixed checks, surface recurring patterns the corpus exhibits that **no
 current check governs** — e.g. a front-matter field used on several pages that
@@ -123,9 +140,10 @@ page (and line where useful) so the curator can locate it. Keep three things
 visibly separate:
 
 - **Defects** — the checks in §1–§6 above, grouped by category.
-- **Advisories** — orphans (§3) and the coverage advisory (§8): real but softer,
-  not necessarily wrong.
-- **Tag clusters** — the §7 proposals, each with its candidate canonical form.
+- **Advisories** — orphans (§3), raw asset findings (§7), and the coverage advisory
+  (§9): real but softer, not necessarily wrong. The §7 findings are unrepairable by
+  construction; say so rather than offering a fix.
+- **Tag clusters** — the §8 proposals, each with its candidate canonical form.
 
 If the corpus has no detectable defects, report a clean result and offer no
 repairs (a coverage advisory may still be worth noting). Stop here unless the
@@ -151,8 +169,9 @@ independently:
   is canonical and which variants fold into it, which of several plausible pages
   a broken link meant, whether an orphan should gain a link.
 
-The coverage advisory (§8) is never a repair — it only ever informs a future
-`CLAUDE.md` edit by the curator.
+The coverage advisory (§9) is never a repair — it only ever informs a future
+`CLAUDE.md` edit by the curator. Neither is a §7 raw asset finding: `raw/` is
+immutable, so those are reported and left alone.
 
 ### 2. Coach
 
@@ -185,7 +204,9 @@ present. Fix any regression rather than leaving a half-applied repair.
 
 - The audit (Phases 1–2) writes nothing; never touch `wiki/` until the user
   commits in Phase 3.
-- Raw twins are immutable: never edit or rename a file under `raw/`.
+- Raw twins are immutable: never edit, rename, or delete anything under `raw/` —
+  files and `raw/assets/` directories alike, including a dangling asset directory
+  the §7 check reports. Report it and move on.
 - `CLAUDE.md` is the source of truth for validity rules — enforce its
   conventions, do not invent your own defects.
 - Tag merges and ambiguous link repairs require explicit approval; never merge

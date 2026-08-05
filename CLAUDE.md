@@ -266,8 +266,13 @@ the Phase 2 interview is the review/consent point — the LLM presents the local
 figures, distills the meaningful ones into `## Summary`, and the user drops any
 noise. On the **unattended** path there is no interview, so that judgment is the
 LLM's: it decides which figures carry meaning, distills those, and drops the rest.
-A dropped figure is not distilled or promoted; its `raw/assets/` bytes remain, and
-unreferenced raw assets are a `lint` concern. A figure's *bytes* reach the
+A dropped figure is not distilled or promoted; its `raw/assets/` bytes remain. Those
+surviving bytes are **not** a defect — dropping is the common case, so a raw asset
+that never reached `wiki/` is the design working, not drift. What `lint` checks is
+that the twin↔assets correspondence holds: no `raw/assets/<stem>/` without its
+`raw/<stem>.md`, no asset file its own twin does not link to, no twin link pointing
+at an asset that is not there. Because `raw/` is immutable, those findings are
+**reported and never repaired**. A figure's *bytes* reach the
 published site only by **lazy promotion** — when a figure must be seen (prose
 cannot carry it) and either the user approves or, unattended, the LLM so judges, a
 curated copy moves into `wiki/assets/` (created on first use) and is embedded in
