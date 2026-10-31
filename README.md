@@ -21,6 +21,21 @@ The current state of the knolwedge wiki is available at
 - A `/lint` command/skill for housekeeping and refining in specified ways 
 - Viewable with Obsidian or on the web through a Quartz-generated wiki.
 
+## Sources
+
+`wiki-capture` routes by source: web pages through Jina Reader, PDFs through
+Docling, PostScript through ghostscript then Docling, other documents through
+MarkItDown, and **YouTube videos through their transcript**. A YouTube link (any share
+form) becomes a twin of the video's metadata, description, and timestamped
+transcript. Authored captions are preferred, auto-generated ones are accepted and
+labeled as such, and a video with no captions is refused rather than filed from its
+description. YouTube often blocks transcript requests from cloud IPs, so run YouTube
+ingests from a local machine. When the libraries break after a YouTube change:
+
+```bash
+uv lock --upgrade-package yt-dlp --upgrade-package youtube-transcript-api && uv sync
+```
+
 ## Commands
 
 - **`file <uri-or-path>`** — ingest a source. Converts a URL or local file into

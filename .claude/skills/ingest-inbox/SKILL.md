@@ -57,11 +57,18 @@ discard or roll back work already committed for earlier entries.
 
 ### 2a. Skip duplicates
 
-Before capturing, grep existing summary front-matter for the entry's source:
+Before capturing, resolve the entry to the form it would be recorded under, then
+grep existing summary front-matter for that:
 
 ```bash
-grep -rl "^source: <the-url-or-path>" wiki/summaries/
+uv run wiki-capture --canonical "<the-url-or-path>"   # prints {"source": ...}
+grep -rlF "source: <the returned source>" wiki/summaries/
 ```
+
+`--canonical` does no network work and writes nothing. It returns every source
+unchanged except a YouTube video URL, which collapses to
+`https://www.youtube.com/watch?v=<id>`, so `youtu.be/<id>?si=...` and a
+playlist-context watch link both match the summary already filed for that video.
 
 If it matches an existing summary's `source:`, this link is already in the wiki.
 Write **no** `raw/` twin and **no** `wiki/` page. Mark the entry `- [x]` with an
@@ -71,7 +78,8 @@ to the next entry.
 Match on the URL/path string. Identity is only recorded there, so the same
 document under two URLs (arXiv `abs` vs `pdf`, a syndicated repost) will not be
 caught here — that is accepted, and `curate` catches it as a near-duplicate
-summary at review. Do **not** try to canonicalize URLs.
+summary at review. Do **not** try to canonicalize URLs yourself. The only
+canonicalization is the mechanical YouTube rule inside `--canonical`.
 
 ### 2b. Capture (mechanical, unchanged)
 
@@ -82,8 +90,10 @@ routing, same automatic image localization:
 uv run wiki-capture "<source>"
 ```
 
-- **On success** it prints JSON: `{"raw_path", "converter", "detected_type",
-  "title", "images"}`. Parse it; keep `raw_path` and the `images.kept` list.
+- **On success** it prints JSON: `{"raw_path", "source", "converter",
+  "detected_type", "title", "images"}`. Parse it. Keep `raw_path`, `source`, and the
+  `images.kept` list. The summary's `source:` is the returned `source`, not the
+  inbox string. They differ for a YouTube link.
 - **On failure** it prints `{"error": ...}` to stderr, exits non-zero, and has
   written nothing. Park the entry with the error and go to the next one.
 
@@ -93,6 +103,16 @@ binary outside the pinned toolchain, so on a machine without it the error says
 `ghostscript (gs) not found on PATH`. Park that entry with the message verbatim — it
 names the fix, and it is a machine-setup problem rather than a bad source, so the entry
 is worth retrying by hand after installing it.
+
+**YouTube sources** route by host to the transcript route and report
+`converter: youtube`. A video with no transcript, an unavailable or still-live video,
+or a playlist/channel URL fails capture. Park it with the message verbatim. One
+message deserves attention: **"YouTube refused the request"** means IP blocking or
+rate limiting, not a missing transcript. It is common when this runs from a cloud
+host, and the entry is worth re-queuing from a local machine. When the twin's metadata
+says the transcript is **auto-generated**, treat proper nouns in it as unreliable
+while authoring: check names against the title and description, and do not mint an
+entity hub from a name that appears only in garbled caption text.
 
 ### 2c. Refuse an implausible capture
 

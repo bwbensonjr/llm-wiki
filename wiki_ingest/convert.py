@@ -1,6 +1,7 @@
 """Converter router and raw-twin writer (Phase 1 — capture).
 
-Routes a source to Jina Reader, Docling, MarkItDown, or ghostscript-then-Docling,
+Routes a source to Jina Reader, Docling, MarkItDown, ghostscript-then-Docling,
+or the YouTube transcript route,
 produces a Markdown twin in memory, and only then writes it to
 `raw/<date>-<slug>.md`. Conversion is all-or-nothing: any failure raises and
 leaves no file behind.
@@ -49,6 +50,9 @@ class CaptureResult:
     detected_type: str
     title: str
     images: Optional[dict] = None
+    # What the twin records as `source:` - the filed string, except for routes
+    # that canonicalize it (YouTube collapses every share-link form to one URL).
+    source: Optional[str] = None
 
 
 def _convert_jina(url, session=None):
@@ -218,8 +222,19 @@ def _reject_unrecoverable_glyph_codes(markdown):
         )
 
 
+def convert_with_source(source, route, session=None):
+    """Convert a source; return (markdown, recorded_source)."""
+    if route == detect.YOUTUBE:
+        from .youtube import convert_youtube
+
+        return convert_youtube(source)
+    return convert(source, route, session=session), source
+
+
 def convert(source, route, session=None):
     """Convert a source to Markdown using the chosen route."""
+    if route == detect.YOUTUBE:
+        return convert_with_source(source, route, session=session)[0]
     if route == detect.JINA:
         return _convert_jina(source, session=session)
     if route == detect.DOCLING:
@@ -257,7 +272,7 @@ def capture(source, raw_dir="raw", session=None, today=None, localize_images=Tru
     localization entirely.
     """
     route, detected_type = detect.detect(source, session=session)
-    markdown = convert(source, route, session=session)
+    markdown, recorded_source = convert_with_source(source, route, session=session)
 
     from .slug import extract_title
 
@@ -286,7 +301,7 @@ def capture(source, raw_dir="raw", session=None, today=None, localize_images=Tru
 
     front_matter = (
         "---\n"
-        f"source: {source}\n"
+        f"source: {recorded_source}\n"
         f"fetched-at: {date}\n"
         f"converter: {route}\n"
         "---\n\n"
@@ -300,4 +315,5 @@ def capture(source, raw_dir="raw", session=None, today=None, localize_images=Tru
         detected_type=detected_type,
         title=title,
         images=images,
+        source=recorded_source,
     )

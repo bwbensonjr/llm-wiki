@@ -1,6 +1,7 @@
 """Content-type detection and routing.
 
-Classifies a source as one of four routes. Fetched content type takes
+Classifies a source as one of five routes. A YouTube URL is recognized by host
+before any network request. Fetched content type takes
 precedence over the file extension, so a URL that resolves to a PDF is routed
 to Docling even if its path does not end in `.pdf` — except for a compression
 envelope, whose content type describes the wrapper rather than the payload and
@@ -17,6 +18,9 @@ JINA = "jina"
 DOCLING = "docling"
 MARKITDOWN = "markitdown"
 POSTSCRIPT = "ghostscript+docling"
+# Recognized by host before any content-type probe: a watch page is served as
+# `text/html`, which cannot tell a video from an article.
+YOUTUBE = "youtube"
 
 PDF_EXTENSIONS = {".pdf"}
 HTML_EXTENSIONS = {".html", ".htm"}
@@ -126,6 +130,12 @@ def detect(source, session=None):
     URL's extension, falling back to the extension when the type is absent.
     """
     if is_url(source):
+        from .youtube import is_youtube_url
+
+        if is_youtube_url(source):
+            # No probe: the route itself refuses YouTube URLs that name no
+            # video, rather than letting them fall through to Jina.
+            return YOUTUBE, "youtube"
         content_type = _fetch_content_type(source, session=session)
         route = _route_from_content_type(content_type)
         if route is None:

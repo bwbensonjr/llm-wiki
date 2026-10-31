@@ -83,7 +83,7 @@ Raw twin — `raw/<date>-<slug>.md`:
 ---
 source: <original URL or local path>
 fetched-at: <YYYY-MM-DD>
-converter: jina | docling | markitdown
+converter: jina | docling | markitdown | ghostscript+docling | youtube
 ---
 ```
 
@@ -314,6 +314,8 @@ Capture is identical on both paths — `file <uri-or-path>` and `ingest-inbox` b
 shell out to the same `wiki-capture` CLI, which detects content type (fetched
 content type takes precedence over extension) and routes:
 
+- **YouTube video URL** (`youtube.com`, `www.`/`m.`/`music.` subdomains, `youtu.be`)
+  → **YouTube transcript route**, recognized by host *before* any content-type probe
 - web URL (HTML) → Jina Reader (`https://r.jina.ai/<url>`). `r.jina.ai` now
   requires auth; set `JINA_API_KEY` in the environment (sent as a Bearer token).
 - PDF (local or URL resolving to PDF) → Docling
@@ -348,6 +350,36 @@ renders as `/`, so "flow analysis" arrives as `/ow analysis`. That is a font-enc
 artifact of the source, not a broken capture, and since `raw/` is immutable it stays in
 the twin. The text remains legible and `wiki/` is a distillation rather than a
 transcript, so this is tolerated, not repaired.
+
+**The YouTube route reads the transcript, not the page.** A watch page is served as
+`text/html`, so the content-type router would hand it to Jina and file the video's
+description instead of what is said in it. YouTube hosts are therefore matched by
+host first, with no probe. The twin's body is the video title (H1), a metadata list
+(channel, published date, duration, and transcript language and kind: *authored* or
+*auto-generated*), `## Description`, and `## Transcript` in timestamped paragraphs of
+about 60 seconds, under one `###` heading per chapter when the video has chapters.
+Metadata comes from `yt-dlp` and captions from `youtube-transcript-api`. Neither
+needs a key or downloads any media. Details:
+
+- **Transcript choice** is authored English, then auto-generated English, then
+  authored and then auto-generated in the video's original language. Never translated.
+- **No transcript, no twin.** Captions disabled, video private/removed/members-only/
+  age-gated, a stream still live, or YouTube refusing the request each fail capture
+  with a reason naming the cause. A metadata-only twin is never written. A YouTube URL
+  that names no single video (playlist, channel) is refused, not handed to Jina.
+- **One video, one `source:`.** The twin records
+  `https://www.youtube.com/watch?v=<id>` whatever share link was filed (`si=`, `t=`,
+  `list=` dropped), and the CLI's JSON returns it as `source`. The summary's
+  `source:` must use that value. `wiki-capture --canonical <url>` prints the same form
+  with no network access, which is what the unattended duplicate check compares.
+- **Auto-generated captions mis-hear proper nouns.** Like ligature artifacts, that
+  stays in the immutable twin and is tolerated. The twin's metadata says which kind
+  of transcript it is, so authoring can treat names in an auto-generated one with
+  suspicion.
+- **YouTube blocks datacenter IPs.** A cloud run may park every YouTube entry with
+  "YouTube refused the request" while the same run on a laptop works. Both libraries
+  scrape unofficial endpoints and break without notice. The usual fix is
+  `uv lock --upgrade-package yt-dlp --upgrade-package youtube-transcript-api`.
 
 ## Image handling
 

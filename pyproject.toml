@@ -8,6 +8,8 @@ dependencies = [
     "requests>=2.31",
     "docling>=2.0",
     "markitdown>=0.0.1",
+    "youtube-transcript-api>=1.2.4",
+    "yt-dlp>=2026.10.21",
 ]
 
 [project.scripts]

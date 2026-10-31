@@ -26,9 +26,18 @@ Run the converter CLI from the repo root:
 uv run wiki-capture "<uri-or-path>"
 ```
 
-This detects the content type, routes it (web→Jina Reader, PDF→Docling,
-PostScript→ghostscript-then-Docling, other→MarkItDown), and writes the immutable
-twin `raw/<date>-<slug>.md`.
+This detects the content type, routes it (YouTube video→transcript route,
+web→Jina Reader, PDF→Docling, PostScript→ghostscript-then-Docling,
+other→MarkItDown), and writes the immutable twin `raw/<date>-<slug>.md`.
+
+**YouTube** links (`youtube.com`, `youtu.be`, shorts, embed, live) are matched by host
+and produce a twin of title, channel, date, duration, transcript language and kind
+(authored or auto-generated), description, and the timestamped transcript, divided by
+chapter when the video has chapters. The twin records `converter: youtube` and the
+canonical `source: https://www.youtube.com/watch?v=<id>`. When there is no
+transcript, or the video is unavailable or still live, capture fails naming the cause
+and writes nothing. Report that reason to the user; do not offer to file the
+description instead.
 
 **PostScript** (`.ps`, `.eps`, `.ps.gz`) is a two-stage route: `gs` renders it to a
 temporary PDF, Docling converts that, and the twin records
@@ -51,9 +60,11 @@ uv run wiki-capture "<uri-or-path>" --no-images
 The web/Jina route is the only one affected; PDFs and other files ignore this.
 
 - **On success** it prints a JSON object to stdout:
-  `{"raw_path": ..., "converter": ..., "detected_type": ..., "title": ...,
-  "images": ...}` (`images` — a `kept`/`skipped` report — present whenever
-  localization ran). Parse it and keep `raw_path`.
+  `{"raw_path": ..., "source": ..., "converter": ..., "detected_type": ...,
+  "title": ..., "images": ...}` (`images` — a `kept`/`skipped` report — present
+  whenever localization ran). Parse it and keep `raw_path` and `source`. Use the
+  returned `source`, not the string you were given, as the summary's `source:`.
+  They differ for a YouTube link, which is canonicalized.
 - **On failure** it prints a JSON `{"error": ...}` to stderr and exits non-zero,
   having written nothing. **Stop here** and report the failure reason to the
   user. Do not write any `wiki/` files.

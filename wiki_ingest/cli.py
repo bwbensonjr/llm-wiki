@@ -4,9 +4,14 @@ Detects the content type of a source, routes it to the right converter, writes
 the immutable raw twin, and prints a JSON object describing the result:
 
     {"raw_path": "raw/2026-06-22-foo.md",
+     "source": "https://example.com/foo",
      "converter": "jina",
      "detected_type": "text/html; charset=utf-8",
      "title": "Foo"}
+
+`source` is what the twin recorded, which for a YouTube video is the canonical
+watch URL; use it, not the filed string, for the summary's `source:`.
+`--canonical` prints just that form without capturing.
 
 On any failure it writes nothing, prints a JSON error to stderr, and exits 1.
 """
@@ -26,6 +31,14 @@ def main(argv=None):
     )
     parser.add_argument("source", help="URL or local path to ingest")
     parser.add_argument(
+        "--canonical",
+        action="store_true",
+        help=(
+            "print the form this source would be recorded under in `source:` "
+            "and exit, with no network access and no writes"
+        ),
+    )
+    parser.add_argument(
         "--raw-dir",
         default="raw",
         help="directory for raw twins (default: raw)",
@@ -40,6 +53,13 @@ def main(argv=None):
     )
     args = parser.parse_args(argv)
 
+    if args.canonical:
+        from .youtube import canonical_source
+
+        json.dump({"source": canonical_source(args.source)}, sys.stdout)
+        sys.stdout.write("\n")
+        return 0
+
     try:
         result = capture(
             args.source,
@@ -53,6 +73,7 @@ def main(argv=None):
 
     payload: dict = {
         "raw_path": str(result.raw_path),
+        "source": result.source,
         "converter": result.converter,
         "detected_type": result.detected_type,
         "title": result.title,
