@@ -412,3 +412,9 @@ so the log stays greppable by the stable `## [` prefix.
 - tags minted: none (reused `macros`, `scheme`, `racket`, `language-implementation`, `programming-languages`).
 - images: none promoted; one `<!-- image -->` placeholder (Figure 1, module diagram) is described in prose by the paper itself.
 - **gap noticed:** the paper's related work leans on Queinnec's language-tower protocol, Curtis and Rauen's Scheme module system, and Waddell and Dybvig's Chez modules. The last was queued in this same run but could not be fetched (see below).
+
+## [2026-10-31] ingest: Implicit Phasing for R6RS Libraries (parked)
+
+- run: **unattended** (`ingest-inbox`), entry 2 of 14. **Parked**, nothing written.
+- source: `https://legacy.cs.indiana.edu/~dyb/pubs/implicit-phasing.pdf` (Ghuloum & Dybvig, ICFP 2007).
+- reason: capture failed before conversion: DNS resolution of `legacy.cs.indiana.edu` failed, while every other host in the run resolved. Likely environmental rather than a dead link; worth retrying by hand or with `/file`.

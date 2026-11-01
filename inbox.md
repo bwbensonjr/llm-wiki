@@ -58,7 +58,7 @@ is a no-op.
 - [x] https://www.cs.princeton.edu/~appel/papers/safe-closure.pdf - The safe-for-space closure conversion rule, proved
 - [x] https://www.ccs.neu.edu/home/wand/papers/steckler-wand-97.ps - The third sense of "closure conversion" that the hub pages flag as a terminological hazard without describing
 - [x] https://users.cs.utah.edu/plt/publications/macromod.pdf - Separating compile-time from run-time code so macro-using modules can be compiled separately; core source for why separate compilation is hard in Lisps with macros, and for how Emit Scheme might handle library phases
-- [ ] https://legacy.cs.indiana.edu/~dyb/pubs/implicit-phasing.pdf - The opposing design to explicit phases: infer when imported bindings are needed at compile time vs run time; bears on separate compilation of macro-using libraries
+- [!] https://legacy.cs.indiana.edu/~dyb/pubs/implicit-phasing.pdf - 2026-10-31: could not reach source: DNS lookup for legacy.cs.indiana.edu failed (nodename nor servname provided); other hosts resolved in the same run, so likely a local network or sandbox restriction - retry by hand
 - [ ] https://legacy.cs.indiana.edu/~dyb/pubs/popl99.ps.gz - Modules and lexically scoped macros with separate compilation, fully static; the Chez lineage of the library/macro separate-compilation problem
 - [ ] https://arxiv.org/pdf/2010.07516 - How eval and run-time redefinition block inlining, and Julia's world-age fix; the redefinition-versus-optimization tension behind separate compilation in dynamic languages
 - [ ] https://opendylan.org/books/drm/Sealing - A Lisp-heritage language's answer to optimizing across libraries despite dynamism: sealing declares what cannot change
