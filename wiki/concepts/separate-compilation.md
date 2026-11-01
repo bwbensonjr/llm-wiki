@@ -38,4 +38,5 @@ Compiling a program's modules or libraries independently, so each can be built o
 - [[implicit-phasing-for-r6rs-libraries|Implicit Phasing for R6RS Libraries]]
 - [[extending-the-scope-of-syntactic-abstraction|Extending the Scope of Syntactic Abstraction]]
 - [[sealing-dylan-reference-manual|Sealing (Dylan Reference Manual)]]
+- [[another-module-system-for-scheme|Another Module System for Scheme]]
 - [[standalone-rhombus-programs|Standalone Rhombus Programs]]
