@@ -39,3 +39,4 @@ and [[racket|Racket]] (which now runs on Chez Scheme).
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
 - [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]
 - [[safe-for-space|Safe for Space]]
+- [[chez-scheme-system-operations|Chez Scheme User's Guide: System Operations]]

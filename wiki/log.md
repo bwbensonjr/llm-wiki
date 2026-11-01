@@ -455,3 +455,11 @@ so the log stays greppable by the stable `## [` prefix.
 - pages: [[clhs-semantic-constraints]] (`status: provisional`); note added to [[separate-compilation]], backlink to [[lisp]].
 - verified while authoring: the official LispWorks text *does* include the same-file call clause ("A call within a file to a named function that is defined in the same file refers to that function, unless that function has been declared notinline"). This had been flagged as unconfirmed when the source was chosen.
 - tags minted: none.
+
+## [2026-10-31] ingest: Chez Scheme User's Guide: System Operations
+
+- run: **unattended** (`ingest-inbox`), entry 8 of 14.
+- source: `https://cisco.github.io/ChezScheme/csug9.5/system.html`, converter **jina**. About 23,000 words for the whole chapter; the summary distills section 12.4 (compilation, evaluation, loading), which is what the source was queued for, and leaves the rest of the chapter (exceptions, timing, profiling) undistilled.
+- pages: [[chez-scheme-system-operations]] (`status: provisional`); note added to [[separate-compilation]], backlink to [[chez-scheme]].
+- tags minted: none.
+- images: capture localized two (`img-39.png`, `img-40.png`), screenshots of Chez's HTML profiler output. **Dropped**: they illustrate profiling, not compilation. Nothing promoted; the raw bytes stay in `raw/assets/`.

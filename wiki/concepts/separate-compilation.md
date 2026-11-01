@@ -18,9 +18,12 @@ Compiling a program's modules or libraries independently, so each can be built o
 
 **Declaring what may not change.** Languages give the compiler a boundary to optimize within. Common Lisp makes the file that unit: [[clhs-semantic-constraints|CLHS 3.2.2.3]] lets a file compiler assume same-file calls reach the same-file definition, while across files the run-time definition prevails unless `inline` or `ftype` declarations say otherwise. Dylan instead lets a library seal parts of its generic functions and class graph; [[define-sealed-domain|`define sealed domain`]] lets the compiler drop methods other libraries are barred from adding, at the cost that some violations appear only when independently compiled libraries are combined.
 
+**Whole-program compilation and standalone delivery.** [[chez-scheme-system-operations|Chez Scheme]] offers both modes: per-library object files that by default carry inlining information into dependents, and `compile-whole-program`, which folds libraries into one object file, discards unused code, and optimizes across boundaries. The limits are explicit: incorporated libraries stay reachable from `eval` only if requested, initialization that depends on `eval` may not survive linearization, and macro *visit code* can be stripped because it is needed only to compile.
+
 ## Sources
 
 - [[composable-and-compilable-macros|Composable and Compilable Macros: You Want It When?]]
 - [[world-age-in-julia|World Age in Julia: Optimizing Method Dispatch in the Presence of Eval]]
 - [[define-sealed-domain|Define Sealed Domain (Dylan Reference Manual)]]
 - [[clhs-semantic-constraints|CLHS 3.2.2.3: Semantic Constraints]]
+- [[chez-scheme-system-operations|Chez Scheme User's Guide: System Operations]]
