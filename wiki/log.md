@@ -525,3 +525,11 @@ so the log stays greppable by the stable `## [` prefix.
 - pages: [[extending-the-scope-of-syntactic-abstraction]] (`status: provisional`); note added to [[separate-compilation]]; backlinks to [[r-kent-dybvig]], [[chez-scheme]], [[hygienic-macros]].
 - tags minted: none.
 - **hub deliberately not minted:** Oscar Waddell. One source; revisit if his thesis or other work lands.
+
+## [2026-11-01] ingest: Sealing (Dylan Reference Manual)
+
+- run: **unattended** (`ingest-inbox`), local-file recovery of parked inbox line 64 (`https://opendylan.org/books/drm/Sealing`, whose chapter page holds only the table of contents).
+- source: `inbox-files/drm-sealing-chapter.md`, assembled on 2026-11-01 at the curator's request by fetching the four content subpages (Sealing_Overview, Explicitly_Known_Objects, Declaring_Characteristics_of_Classes, Declaring_Characteristics_of_Generic_Functions) through Jina Reader and concatenating them in chapter order, each under a heading with its URL. The chapter and subpage URLs are recorded in the twin's header, since `source:` is the local path. Converter **markitdown**; about 960 words. Define_Sealed_Domain was not re-included; it was ingested separately as [[define-sealed-domain]].
+- pages: [[sealing-dylan-reference-manual]] (`status: provisional`); hub [[dylan]] created (`status: provisional`), now that two Dylan sources exist; note in [[separate-compilation]] extended with sealing-by-default.
+- tags minted: none.
+- inbox line 64 left parked as the record of the failed chapter-page capture.

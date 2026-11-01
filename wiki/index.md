@@ -49,6 +49,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[sbcl-a-sanely-bootstrappable-common-lisp|SBCL: A Sanely-Bootstrappable Common Lisp]] — Rhodes (S3 2008): SBCL builds from any Common Lisp via a cross-compiler, a pseudo-loaded cold core and cold init, instead of mutating an earlier image of itself.
 - [[implicit-phasing-for-r6rs-libraries|Implicit Phasing for R6RS Libraries]] — Ghuloum & Dybvig (ICFP 2007): portable R6RS libraries that infer import phases, expand each library exactly once, and separate strippable visit code from invoke code.
 - [[extending-the-scope-of-syntactic-abstraction|Extending the Scope of Syntactic Abstraction]] — Waddell & Dybvig (POPL 1999): Chez's modules as pure scope over syntax-case, with separate compilation, and why exported macros force conservative analysis of private variables.
+- [[sealing-dylan-reference-manual|Sealing (Dylan Reference Manual)]] — DRM chapter 9: sealed/open, primary/free and abstract/concrete adjectives; the library as sealing boundary via explicitly known objects; sealed is the default for explicit definitions.
 
 ## Entities
 
@@ -138,6 +139,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[first-class-continuations|First-Class Continuations]] — continuations as values with unlimited extent; the zero-overhead goal and the strategies that meet it.
 - [[clasp|Clasp]] — a Common Lisp compiled through LLVM that interoperates directly with C++; its compiler is written in Lisp against LLVM's C++ API.
 - [[separate-compilation|Separate Compilation]] — compiling libraries independently instead of as a whole program; in dynamic Lisps it collides with compile-time macros and run-time redefinition.
+- [[dylan|Dylan]] — dynamic object-oriented language with multiple dispatch whose sealing declarations let a compiler treat a library's classes and generic functions as closed.
 
 ## Analyses
 
