@@ -12,7 +12,7 @@ Compiling a program's modules or libraries independently, so each can be built o
 
 ## Notes
 
-**Macros and phases.** When a library exports macros, importing it means running its code at compile time. [[composable-and-compilable-macros|Flatt's MzScheme module system]] makes that sound by separating compile-time from run-time imports and instantiating a module afresh for each phase and each compilation, so compiled code never depends on what else happened to be loaded, and all compile-time code can be stripped from the finished program.
+**Macros and phases.** When a library exports macros, importing it means running its code at compile time. [[composable-and-compilable-macros|Flatt's MzScheme module system]] makes that sound by separating compile-time from run-time imports and instantiating a module afresh for each phase and each compilation, so compiled code never depends on what else happened to be loaded, and all compile-time code can be stripped from the finished program. [[implicit-phasing-for-r6rs-libraries|Ghuloum and Dybvig's R6RS library system]] takes the opposite view: it infers each import's phase from use, shares one library instance across phases, and requires each library to be expanded exactly once, because two separate expansions of one library can export inconsistent bindings and fail to link. Its visit code, needed only to compile importers, is omitted from an application that does no run-time compilation.
 
 **Redefinition and `eval`.** If any function may be redefined at run time, a compiler cannot inline or resolve a call it does not control. [[world-age-in-julia|Julia's world age]] confines the effect: new definitions become visible only when control returns to the top level, so code compiled for a call can treat the method table as fixed, and programmers opt into fresh definitions explicitly.
 
@@ -35,3 +35,4 @@ Compiling a program's modules or libraries independently, so each can be built o
 - [[raco-exe-creating-stand-alone-executables|raco exe: Creating Stand-Alone Executables]]
 - [[common-lisp-cookbook-scripting-and-executables|Common Lisp Cookbook: Scripting, Command-Line Arguments, Executables]]
 - [[sbcl-a-sanely-bootstrappable-common-lisp|SBCL: A Sanely-Bootstrappable Common Lisp]]
+- [[implicit-phasing-for-r6rs-libraries|Implicit Phasing for R6RS Libraries]]

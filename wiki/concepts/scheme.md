@@ -76,3 +76,4 @@ optimizing Pascal compiler wherever procedure calls dominate.
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]
 - [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]]
 - [[flow-directed-lightweight-closure-conversion|Flow-Directed Lightweight Closure Conversion]]
+- [[implicit-phasing-for-r6rs-libraries|Implicit Phasing for R6RS Libraries]]

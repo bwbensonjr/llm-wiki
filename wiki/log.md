@@ -509,3 +509,11 @@ so the log stays greppable by the stable `## [` prefix.
 - run: **unattended** (`ingest-inbox`), entry 14 of 14. **Refused** after capture; no `wiki/` pages.
 - source: `https://mfleck.cs.illinois.edu/envision/scheme48/module/module.html` (Rees, "Another Module System for Scheme", 1993/1994), converter **jina**. The twin (`raw/2026-10-31-no-title.md`) holds only the abstract and the contents list of a LaTeX2HTML split document; it stays in `raw/` as evidence. Three navigation GIFs failed to download (404) and were left remote.
 - the abstract is on point ("unique in the extent to which it supports both static linking and rapid turnaround during program development"), so the memo is worth retrying from its section pages.
+
+## [2026-10-31] ingest: Implicit Phasing for R6RS Libraries
+
+- run: **unattended** (`ingest-inbox`), local-file retry of the parked `implicit-phasing.pdf` entry.
+- source: `inbox-files/1291151.1291197.pdf`, a local copy supplied by the curator after the URL's host failed to resolve. Converter **docling**; about 10,200 words, clean. The `inbox-files/` directory is gitignored, so the twin is the committed record.
+- pages: [[implicit-phasing-for-r6rs-libraries]] (`status: provisional`); note on the opposing phase model added to [[separate-compilation]]; backlinks to [[abdulaziz-ghuloum]], [[r-kent-dybvig]], [[hygienic-macros]], [[scheme]].
+- tags minted: none.
+- the twin's capture title is the file name (`1291151-1291197`); the page uses the paper's real title.
