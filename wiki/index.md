@@ -51,6 +51,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[extending-the-scope-of-syntactic-abstraction|Extending the Scope of Syntactic Abstraction]] — Waddell & Dybvig (POPL 1999): Chez's modules as pure scope over syntax-case, with separate compilation, and why exported macros force conservative analysis of private variables.
 - [[sealing-dylan-reference-manual|Sealing (Dylan Reference Manual)]] — DRM chapter 9: sealed/open, primary/free and abstract/concrete adjectives; the library as sealing boundary via explicitly known objects; sealed is the default for explicit definitions.
 - [[another-module-system-for-scheme|Another Module System for Scheme]] — Rees (1993/94): Scheme 48's module system, its static linker that builds standalone heap images, and why exported macros' auxiliary bindings complicate separate compilation.
+- [[standalone-rhombus-programs|Standalone Rhombus Programs]] — Rhombus Guide 10.5: raco exe, raco dist, and raco demod pruning for programs that give up eval.
 
 ## Entities
 

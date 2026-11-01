@@ -542,3 +542,13 @@ so the log stays greppable by the stable `## [` prefix.
 - pages: [[another-module-system-for-scheme]] (`status: provisional`); hub [[jonathan-rees]] created (`status: provisional`); notes added to [[separate-compilation]] on macro auxiliary bindings, the ban on assigning imported variables, and the static linker; backlinks to [[scheme-48]], [[richard-kelsey]], [[hygienic-macros]].
 - tags minted: none.
 - inbox line 73 left parked as the record of the failed front-page capture.
+
+## [2026-11-01] ingest: Standalone Rhombus Programs
+
+- run: **unattended** (`ingest-inbox`), retry of parked inbox line 70 (`https://docs.racket-lang.org/rhombus/standalone.html`, HTTP 403) at the section's current location in the Rhombus Guide.
+- source: https://docs.racket-lang.org/rhombus-guide/standalone.html. Converter **jina**; about 230 words, which is the whole section.
+- figures: one image localized (the Racket logo from the page header); dropped, not distilled, not promoted.
+- pages: [[standalone-rhombus-programs]] (`status: provisional`); note added to [[separate-compilation]] on `raco dist` and `raco demod`; backlink to [[racket]].
+- tags minted: none.
+- **hub deliberately not minted:** Rhombus. One short source; revisit if more Rhombus material lands.
+- inbox line 70 left parked as the record of the failed capture at the old path.
