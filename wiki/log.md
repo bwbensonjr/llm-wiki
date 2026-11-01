@@ -503,3 +503,9 @@ so the log stays greppable by the stable `## [` prefix.
 - pages: [[sbcl-a-sanely-bootstrappable-common-lisp]] (`status: provisional`); note added to [[separate-compilation]], backlink to [[lisp]].
 - tags minted: none.
 - **hubs deliberately not minted:** SBCL, CMUCL, Christophe Rhodes. SBCL now appears in several summaries by name (Clasp, the Cookbook, this paper); an SBCL hub is a reasonable next step at curation.
+
+## [2026-10-31] ingest: Another Module System for Scheme (parked)
+
+- run: **unattended** (`ingest-inbox`), entry 14 of 14. **Refused** after capture; no `wiki/` pages.
+- source: `https://mfleck.cs.illinois.edu/envision/scheme48/module/module.html` (Rees, "Another Module System for Scheme", 1993/1994), converter **jina**. The twin (`raw/2026-10-31-no-title.md`) holds only the abstract and the contents list of a LaTeX2HTML split document; it stays in `raw/` as evidence. Three navigation GIFs failed to download (404) and were left remote.
+- the abstract is on point ("unique in the extent to which it supports both static linking and rapid turnaround during program development"), so the memo is worth retrying from its section pages.
