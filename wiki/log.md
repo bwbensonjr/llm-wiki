@@ -424,3 +424,12 @@ so the log stays greppable by the stable `## [` prefix.
 - run: **unattended** (`ingest-inbox`), entry 3 of 14. **Parked**, nothing written.
 - source: `https://legacy.cs.indiana.edu/~dyb/pubs/popl99.ps.gz` (Waddell & Dybvig, POPL 1999).
 - reason: same DNS failure for `legacy.cs.indiana.edu` as the previous entry. When retried, it will take the ghostscript+docling PostScript route.
+
+## [2026-10-31] ingest: World Age in Julia: Optimizing Method Dispatch in the Presence of Eval
+
+- run: **unattended** (`ingest-inbox`), entry 4 of 14.
+- source: `https://arxiv.org/pdf/2010.07516` (Belyakova, Chung, Gelinas, Nash, Tate & Vitek, OOPSLA 2020, extended version), converter **docling**. About 19,000 words including proofs appendix; clean capture.
+- pages: [[world-age-in-julia]] (`status: provisional`). Note added to [[separate-compilation]]; backlink added to [[lisp]].
+- tags minted: none (reused `language-implementation`, `programming-languages`, `formal-methods`).
+- images: none localized (PDF route); figure placeholders are code listings the summary describes.
+- **hub deliberately not minted:** Julia. The paper is about one mechanism, not the language; worth revisiting if a source on Julia itself lands.
