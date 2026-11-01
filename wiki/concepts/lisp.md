@@ -20,7 +20,7 @@ with older Lisp conventions (`first` over `CAR`, `do` over `PROGN`, `fn` over
 page — the trunk from which [[racket|Racket]] descends. [[racket|Racket]] is an
 heir of Scheme that eliminates the boundary between library and language to
 support [[language-oriented-programming]]. Other notable dialects include Common Lisp
-and Clojure.
+and Clojure. [[clasp|Clasp]] is a Common Lisp implementation compiled through [[llvm|LLVM]] and built to interoperate with C++.
 
 The shared throughline across the family is the macro system: because code is
 represented as ordinary data structures, programs can manipulate and generate
@@ -45,3 +45,6 @@ transformations compile the result as well as a conventional compiler would.
 - [[the-development-of-chez-scheme|The Development of Chez Scheme]]
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]
+- [[clasp-common-lisp-using-llvm-and-c-for-molecular-metaprogramming|Clasp: Common Lisp Using LLVM and C++ for Molecular Metaprogramming]]
+- [[improving-the-clasp-programming-experience|Improving the Clasp Programming Experience]]
+- [[lessons-learned-implementing-common-lisp-with-llvm|Lessons Learned Implementing Common Lisp with LLVM]]

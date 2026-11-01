@@ -36,3 +36,4 @@ procedures becomes the intrinsic penalty it was long assumed to be.
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
 - [[lightweight-closure-conversion|Lightweight Closure Conversion]]
 - [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]
+- [[clasp-common-lisp-using-llvm-and-c-for-molecular-metaprogramming|Clasp: Common Lisp Using LLVM and C++ for Molecular Metaprogramming]]

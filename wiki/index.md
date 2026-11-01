@@ -35,6 +35,9 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]] — Appel & Jim (POPL 1989): SML/NJ's CPS back end in many small phases; closure-passing style, stackless, spilling as a CPS rewrite.
 - [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]] — Keep, Hearn & Dybvig (Scheme Workshop 2012): Chez's flat-closure optimizations, never-do-harm and safe-for-space; >50% of closure overhead removed.
 - [[closure-conversion-is-safe-for-space|Closure Conversion Is Safe for Space]] — Paraskevopoulou & Appel (ICFP 2019): the first mechanized proof that flat closure conversion preserves time and space, GC included.
+- [[clasp-common-lisp-using-llvm-and-c-for-molecular-metaprogramming|Clasp: Common Lisp Using LLVM and C++ for Molecular Metaprogramming]] — Schafmeister's 2015 Google Tech Talk: molecular Lego, why Common Lisp, and a C++-interoperating Lisp on LLVM with Cleavir and a moving GC.
+- [[improving-the-clasp-programming-experience|Improving the Clasp Programming Experience]] — 2016 blog post: a Lisp-written scraper turns C++ source tags into Clasp's Common Lisp bindings, with lambda lists, docstrings, and jump-to-source.
+- [[lessons-learned-implementing-common-lisp-with-llvm|Lessons Learned Implementing Common Lisp with LLVM]] — 2018 LLVM Dev Meeting talk: six years of Clasp, from exposing LLVM's C++ API to Lisp to Cleavir, debug info, LTO, and mixed-language unwinding.
 
 ## Entities
 
@@ -66,6 +69,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[paul-steckler|Paul A. Steckler]] — first author of Lightweight Closure Conversion; supplied the correctness proof rather than the optimization.
 - [[andrew-appel|Andrew W. Appel]] — Princeton; architect of SML/NJ's CPS back end and the case for a stackless compiler.
 - [[zoe-paraskevopoulou|Zoe Paraskevopoulou]] — verified compilation; the logical-relation technique behind CertiCoq's space-safety proof.
+- [[christian-schafmeister|Christian Schafmeister]] — Temple University chemist; creator of the Clasp Common Lisp and the CANDO molecular-design system.
 
 ## Concepts
 
@@ -121,6 +125,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[hygienic-macros|Hygienic Macros]] — macro expansion that cannot accidentally capture identifiers; the substitution problem from logic, applied to programs.
 - [[nanopass|Nanopass]] — structuring a compiler as many one-job passes over formally-defined intermediate languages, with the traversal boilerplate generated.
 - [[first-class-continuations|First-Class Continuations]] — continuations as values with unlimited extent; the zero-overhead goal and the strategies that meet it.
+- [[clasp|Clasp]] — a Common Lisp compiled through LLVM that interoperates directly with C++; its compiler is written in Lisp against LLVM's C++ API.
 
 ## Analyses
 

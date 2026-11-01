@@ -43,7 +43,10 @@ manufacture first-class labels. Other functional-language LLVM backends include
 those for [[standard-ml|Standard ML]] (SML/NJ, MLton, SML#), Haskell (GHC), and
 Erlang (ErLLVM), each with its own strategy for tail calls.
 
+[[clasp|Clasp]] takes a different route to a dynamic language on LLVM: a Common Lisp whose compiler, written in Lisp, drives LLVM's C++ API directly, and which shares LLVM IR, DWARF, exception unwinding and LTO with C++ so the two languages mix on one stack. See [[clasp-common-lisp-using-llvm-and-c-for-molecular-metaprogramming|the 2015 Clasp talk]] and [[lessons-learned-implementing-common-lisp-with-llvm|Lessons Learned Implementing Common Lisp with LLVM]].
+
 ## Sources
 
 - [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]]
 - [[the-llvm-compiler-infrastructure|The LLVM Compiler Infrastructure]]
+- [[clasp-common-lisp-using-llvm-and-c-for-molecular-metaprogramming|Clasp: Common Lisp Using LLVM and C++ for Molecular Metaprogramming]]

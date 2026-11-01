@@ -380,3 +380,26 @@ so the log stays greppable by the stable `## [` prefix.
 - **figures:** none to review — nothing was promoted to `wiki/assets/` by any of the day's runs.
 - **kept deliberately, flagged at review:** the three single-source person hubs `paul-steckler`, `robert-hieb`, and `zoe-paraskevopoulou`, each with one source and one inbound link. Endorsed on the grounds that a single-source hub is permitted, each lead carries a second line of work, and adjacent papers are likely to cite them.
 - **noted for the curator, not acted on:** on four of the endorsed summaries — [[continuation-passing-closure-passing-style]], [[optimizing-closures-in-o-0-time]], [[closure-conversion-is-safe-for-space]], [[lightweight-closure-conversion]] — the `## Why this matters` prose is machine-drafted from a machine-drafted inbox note, so endorsement here means the curator accepted the LLM's framing of significance rather than supplying their own. Their assertive readings (Chez "rejecting the enthusiasm" for lambda lifting; Appel & Jim reframing the nanopass chronology) are the places to look first if any of these pages later reads wrong.
+
+## [2026-10-31] ingest: Lessons Learned Implementing Common Lisp with LLVM
+
+- source: `https://www.youtube.com/watch?v=mbdXeRBbgDM` (Christian Schafmeister, 2018 LLVM Developers' Meeting), converter **youtube**. First ingest through the YouTube transcript route.
+- transcript: **auto-generated** English, 9 chapters, about 4,700 words. Proper nouns were garbled and corrected while authoring: "Christian Shah fly sir" to Schafmeister (from the title), "sequel"/"can do" to Clasp/CANDO (description, chapter heading), and "Robert strand", "cleaver", "b-class", "steel bank", "mehdi meanie" to Robert Strandh, Cleavir, bclasp, SBCL, Mehdi Amini. The Strandh/Cleavir/SBCL readings are confirmed by the authored captions of the 2015 Clasp talk ingested in the same session.
+- left out on purpose: the speaker credits the energy-efficiency-of-programming-languages paper to Google; that attribution was not repeated.
+- pages: [[lessons-learned-implementing-common-lisp-with-llvm]] (`status: reviewed`); hubs created: [[clasp]] (concept), [[christian-schafmeister]] (entity). Sources backlinks added to [[llvm]], [[lisp]], [[python]].
+- tags minted: none.
+- interactive: filed by the curator with the other two Clasp sources below.
+
+## [2026-10-31] ingest: Improving the Clasp Programming Experience
+
+- source: `https://drmeister.wordpress.com/2016/01/29/improving-the-clasp-programming-experience/`, converter **jina**. No images.
+- the twin does not name its author; attributed to Christian Schafmeister as the `drmeister` blog, consistent with the two talks.
+- pages: [[improving-the-clasp-programming-experience]] (`status: reviewed`); linked from [[clasp]], [[christian-schafmeister]], [[lisp]], [[python]].
+- tags minted: none.
+
+## [2026-10-31] ingest: Clasp: Common Lisp Using LLVM and C++ for Molecular Metaprogramming
+
+- source: `https://www.youtube.com/watch?v=8X69_42Mj-g` (Christian Schafmeister, Google Tech Talk, 2015-06-09), converter **youtube**. Transcript **authored** English, 20 chapters, about 9,600 words.
+- pages: [[clasp-common-lisp-using-llvm-and-c-for-molecular-metaprogramming]] (`status: reviewed`); linked from [[clasp]], [[christian-schafmeister]], [[llvm]], [[lisp]], [[python]], [[escape-analysis]].
+- tags minted: none.
+- **hubs deliberately not minted:** Common Lisp (kept inside [[lisp]]), Robert Strandh, Cleavir/SICL, ECL, and the Memory Pool System. Each is named in prose only; worth revisiting if a source centered on one of them lands.
