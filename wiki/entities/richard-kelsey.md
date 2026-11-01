@@ -37,3 +37,4 @@ connection worth holding onto when reading either.
 
 - [[orbit-an-optimizing-compiler-for-scheme|ORBIT: An Optimizing Compiler for Scheme]]
 - [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]]
+- [[another-module-system-for-scheme|Another Module System for Scheme]]

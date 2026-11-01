@@ -533,3 +533,12 @@ so the log stays greppable by the stable `## [` prefix.
 - pages: [[sealing-dylan-reference-manual]] (`status: provisional`); hub [[dylan]] created (`status: provisional`), now that two Dylan sources exist; note in [[separate-compilation]] extended with sealing-by-default.
 - tags minted: none.
 - inbox line 64 left parked as the record of the failed chapter-page capture.
+
+## [2026-11-01] ingest: Another Module System for Scheme
+
+- run: **unattended** (`ingest-inbox`), local-file recovery of parked inbox line 73 (`https://mfleck.cs.illinois.edu/envision/scheme48/module/module.html`, a LaTeX2HTML front page holding only the table of contents).
+- source: `inbox-files/rees-another-module-system-for-scheme.md`, assembled on 2026-11-01 at the curator's request. Jina Reader timed out on the host (HTTP 422, navigation timeout), so node1.html through node10.html were fetched directly, converted with MarkItDown, stripped of LaTeX2HTML navigation bars and page footers, and concatenated in order with each page's URL. The references page (node11) was omitted. The memo and page URLs are recorded in the twin's header, since `source:` is the local path. Converter **markitdown**; about 3,900 words.
+- figures: LaTeX2HTML rendered the configuration-language grammar (Figure 1), the `structure-ref` and `define-module` syntax, and some symbols as GIFs. They were not fetched and appear in the twin as broken relative image links; the prose around them is intact. A complete single-file LaTeX source exists at `https://gitea.scheme.org/scsh-conservatory/scsh-0.5/raw/commit/2302efe24e2909da58fc344810db96e89c3bc42a/doc/module.tex`.
+- pages: [[another-module-system-for-scheme]] (`status: provisional`); hub [[jonathan-rees]] created (`status: provisional`); notes added to [[separate-compilation]] on macro auxiliary bindings, the ban on assigning imported variables, and the static linker; backlinks to [[scheme-48]], [[richard-kelsey]], [[hygienic-macros]].
+- tags minted: none.
+- inbox line 73 left parked as the record of the failed front-page capture.

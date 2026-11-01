@@ -50,6 +50,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[implicit-phasing-for-r6rs-libraries|Implicit Phasing for R6RS Libraries]] — Ghuloum & Dybvig (ICFP 2007): portable R6RS libraries that infer import phases, expand each library exactly once, and separate strippable visit code from invoke code.
 - [[extending-the-scope-of-syntactic-abstraction|Extending the Scope of Syntactic Abstraction]] — Waddell & Dybvig (POPL 1999): Chez's modules as pure scope over syntax-case, with separate compilation, and why exported macros force conservative analysis of private variables.
 - [[sealing-dylan-reference-manual|Sealing (Dylan Reference Manual)]] — DRM chapter 9: sealed/open, primary/free and abstract/concrete adjectives; the library as sealing boundary via explicitly known objects; sealed is the default for explicit definitions.
+- [[another-module-system-for-scheme|Another Module System for Scheme]] — Rees (1993/94): Scheme 48's module system, its static linker that builds standalone heap images, and why exported macros' auxiliary bindings complicate separate compilation.
 
 ## Entities
 
@@ -82,6 +83,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[andrew-appel|Andrew W. Appel]] — Princeton; architect of SML/NJ's CPS back end and the case for a stackless compiler.
 - [[zoe-paraskevopoulou|Zoe Paraskevopoulou]] — verified compilation; the logical-relation technique behind CertiCoq's space-safety proof.
 - [[christian-schafmeister|Christian Schafmeister]] — Temple University chemist; creator of the Clasp Common Lisp and the CANDO molecular-design system.
+- [[jonathan-rees|Jonathan Rees]] — Scheme designer and implementer: T, Scheme 48 and its module system, Macros That Work, co-editor of R4RS.
 
 ## Concepts
 
