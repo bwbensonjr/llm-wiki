@@ -62,3 +62,4 @@ this feature.
 
 - [[hygienic-macro-technology|Hygienic Macro Technology]]
 - [[the-development-of-chez-scheme|The Development of Chez Scheme]]
+- [[composable-and-compilable-macros|Composable and Compilable Macros: You Want It When?]]

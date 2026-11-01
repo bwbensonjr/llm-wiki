@@ -57,3 +57,17 @@ is a no-op.
 - [x] https://andykeep.com/pubs/scheme-12a.pdf - The flat-closure optimization mechanism the nanopass paper alludes to but doesn't describe
 - [x] https://www.cs.princeton.edu/~appel/papers/safe-closure.pdf - The safe-for-space closure conversion rule, proved
 - [x] https://www.ccs.neu.edu/home/wand/papers/steckler-wand-97.ps - The third sense of "closure conversion" that the hub pages flag as a terminological hazard without describing
+- [x] https://users.cs.utah.edu/plt/publications/macromod.pdf - Separating compile-time from run-time code so macro-using modules can be compiled separately; core source for why separate compilation is hard in Lisps with macros, and for how Emit Scheme might handle library phases
+- [ ] https://legacy.cs.indiana.edu/~dyb/pubs/implicit-phasing.pdf - The opposing design to explicit phases: infer when imported bindings are needed at compile time vs run time; bears on separate compilation of macro-using libraries
+- [ ] https://legacy.cs.indiana.edu/~dyb/pubs/popl99.ps.gz - Modules and lexically scoped macros with separate compilation, fully static; the Chez lineage of the library/macro separate-compilation problem
+- [ ] https://arxiv.org/pdf/2010.07516 - How eval and run-time redefinition block inlining, and Julia's world-age fix; the redefinition-versus-optimization tension behind separate compilation in dynamic languages
+- [ ] https://opendylan.org/books/drm/Sealing - A Lisp-heritage language's answer to optimizing across libraries despite dynamism: sealing declares what cannot change
+- [ ] https://opendylan.org/books/drm/Define_Sealed_Domain - Partial sealing of generic functions across library boundaries; companion to the DRM sealing chapter for the separate-compilation analysis
+- [ ] https://lispworks.com/documentation/HyperSpec/Body/03_bbc.htm - What Common Lisp's compile-file may assume about definitions, redefinition, and calls when compiling a file; the standard's stance on separate compilation
+- [ ] https://cisco.github.io/ChezScheme/csug9.5/system.html - Chez's compile-whole-program and compile-whole-library: cross-library optimization, dead-code removal, and the libs-visible? trade-off with eval; a model for producing standalone executables
+- [ ] https://engineering.purdue.edu/~qobi/papers/fdlcc.pdf - Stalin's whole-program closure conversion: the performance a closed-world Scheme compiler gains by giving up separate compilation
+- [ ] https://docs.racket-lang.org/raco/exe.html - How Racket builds standalone executables by embedding modules in the runtime, and its limits around dynamically required modules
+- [ ] https://docs.racket-lang.org/rhombus/standalone.html - Demodularizing and pruning a program for a small standalone executable, which works only when the program avoids eval
+- [ ] https://lispcookbook.github.io/cl-cookbook/scripting.html - Building Common Lisp executables by dumping an image with save-lisp-and-die; the image-based route to standalone executables
+- [ ] https://eprints-gro.gold.ac.uk/2336/1/sbcl.pdf - How a Common Lisp's build is entangled with its own image, and how SBCL bootstraps from other implementations; context for image-based delivery
+- [ ] https://mfleck.cs.illinois.edu/envision/scheme48/module/module.html - Scheme 48's module system designed for both static linking and rapid development turnaround; a direct design answer to separate compilation plus standalone images

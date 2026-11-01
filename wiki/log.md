@@ -403,3 +403,12 @@ so the log stays greppable by the stable `## [` prefix.
 - pages: [[clasp-common-lisp-using-llvm-and-c-for-molecular-metaprogramming]] (`status: reviewed`); linked from [[clasp]], [[christian-schafmeister]], [[llvm]], [[lisp]], [[python]], [[escape-analysis]].
 - tags minted: none.
 - **hubs deliberately not minted:** Common Lisp (kept inside [[lisp]]), Robert Strandh, Cleavir/SICL, ECL, and the Memory Pool System. Each is named in prose only; worth revisiting if a source centered on one of them lands.
+
+## [2026-10-31] ingest: Composable and Compilable Macros: You Want It When?
+
+- run: **unattended** (`ingest-inbox`), entry 1 of 14 queued for the separate-compilation and standalone-executables analysis.
+- source: `https://users.cs.utah.edu/plt/publications/macromod.pdf` (Flatt, ICFP 2002), converter **docling**. About 10,500 words, clean capture.
+- pages: [[composable-and-compilable-macros]] (`status: provisional`); hub created: [[separate-compilation]] (concept, `status: provisional`), minted as the shared hub for this batch. Backlinks added to [[matthew-flatt]], [[racket]], [[hygienic-macros]], [[scheme-48]].
+- tags minted: none (reused `macros`, `scheme`, `racket`, `language-implementation`, `programming-languages`).
+- images: none promoted; one `<!-- image -->` placeholder (Figure 1, module diagram) is described in prose by the paper itself.
+- **gap noticed:** the paper's related work leans on Queinnec's language-tower protocol, Curtis and Rauen's Scheme module system, and Waddell and Dybvig's Chez modules. The last was queued in this same run but could not be fetched (see below).

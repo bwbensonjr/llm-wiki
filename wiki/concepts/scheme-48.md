@@ -47,3 +47,4 @@ It sits in this wiki's collection of Scheme implementations alongside
 
 - [[a-tractable-native-code-scheme-system|A Tractable Native-Code Scheme System]]
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]
+- [[composable-and-compilable-macros|Composable and Compilable Macros: You Want It When?]]

@@ -38,6 +38,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[clasp-common-lisp-using-llvm-and-c-for-molecular-metaprogramming|Clasp: Common Lisp Using LLVM and C++ for Molecular Metaprogramming]] — Schafmeister's 2015 Google Tech Talk: molecular Lego, why Common Lisp, and a C++-interoperating Lisp on LLVM with Cleavir and a moving GC.
 - [[improving-the-clasp-programming-experience|Improving the Clasp Programming Experience]] — 2016 blog post: a Lisp-written scraper turns C++ source tags into Clasp's Common Lisp bindings, with lambda lists, docstrings, and jump-to-source.
 - [[lessons-learned-implementing-common-lisp-with-llvm|Lessons Learned Implementing Common Lisp with LLVM]] — 2018 LLVM Dev Meeting talk: six years of Clasp, from exposing LLVM's C++ API to Lisp to Cleavir, debug info, LTO, and mixed-language unwinding.
+- [[composable-and-compilable-macros|Composable and Compilable Macros: You Want It When?]] — Flatt (ICFP 2002): MzScheme's phase-separated modules make macro-using code compile separately and let all compile-time code be stripped from the deliverable.
 
 ## Entities
 
@@ -126,6 +127,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[nanopass|Nanopass]] — structuring a compiler as many one-job passes over formally-defined intermediate languages, with the traversal boilerplate generated.
 - [[first-class-continuations|First-Class Continuations]] — continuations as values with unlimited extent; the zero-overhead goal and the strategies that meet it.
 - [[clasp|Clasp]] — a Common Lisp compiled through LLVM that interoperates directly with C++; its compiler is written in Lisp against LLVM's C++ API.
+- [[separate-compilation|Separate Compilation]] — compiling libraries independently instead of as a whole program; in dynamic Lisps it collides with compile-time macros and run-time redefinition.
 
 ## Analyses
 
