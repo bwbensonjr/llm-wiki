@@ -418,3 +418,9 @@ so the log stays greppable by the stable `## [` prefix.
 - run: **unattended** (`ingest-inbox`), entry 2 of 14. **Parked**, nothing written.
 - source: `https://legacy.cs.indiana.edu/~dyb/pubs/implicit-phasing.pdf` (Ghuloum & Dybvig, ICFP 2007).
 - reason: capture failed before conversion: DNS resolution of `legacy.cs.indiana.edu` failed, while every other host in the run resolved. Likely environmental rather than a dead link; worth retrying by hand or with `/file`.
+
+## [2026-10-31] ingest: Extending the Scope of Syntactic Abstraction (parked)
+
+- run: **unattended** (`ingest-inbox`), entry 3 of 14. **Parked**, nothing written.
+- source: `https://legacy.cs.indiana.edu/~dyb/pubs/popl99.ps.gz` (Waddell & Dybvig, POPL 1999).
+- reason: same DNS failure for `legacy.cs.indiana.edu` as the previous entry. When retried, it will take the ghostscript+docling PostScript route.
