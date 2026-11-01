@@ -433,3 +433,9 @@ so the log stays greppable by the stable `## [` prefix.
 - tags minted: none (reused `language-implementation`, `programming-languages`, `formal-methods`).
 - images: none localized (PDF route); figure placeholders are code listings the summary describes.
 - **hub deliberately not minted:** Julia. The paper is about one mechanism, not the language; worth revisiting if a source on Julia itself lands.
+
+## [2026-10-31] ingest: DRM Sealing chapter (parked)
+
+- run: **unattended** (`ingest-inbox`), entry 5 of 14. **Refused** after capture; no `wiki/` pages.
+- source: `https://opendylan.org/books/drm/Sealing`, converter **jina**. The twin (`raw/2026-10-31-9-sealing-the-drm.md`, 107 words) is the book's navigation tree only; it stays in `raw/` as the evidence.
+- retry suggestion: queue `https://opendylan.org/books/drm/Sealing_Overview` and `https://opendylan.org/books/drm/Declaring_Characteristics_of_Generic_Functions`, which carry the chapter's substance.
