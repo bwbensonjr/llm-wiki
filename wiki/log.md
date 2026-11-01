@@ -517,3 +517,11 @@ so the log stays greppable by the stable `## [` prefix.
 - pages: [[implicit-phasing-for-r6rs-libraries]] (`status: provisional`); note on the opposing phase model added to [[separate-compilation]]; backlinks to [[abdulaziz-ghuloum]], [[r-kent-dybvig]], [[hygienic-macros]], [[scheme]].
 - tags minted: none.
 - the twin's capture title is the file name (`1291151-1291197`); the page uses the paper's real title.
+
+## [2026-10-31] ingest: Extending the Scope of Syntactic Abstraction
+
+- run: **unattended** (`ingest-inbox`), local-file retry of the parked `popl99.ps.gz` entry.
+- source: `inbox-files/292540.292559.pdf`, a local copy supplied by the curator after the URL's host failed to resolve. Converter **docling**; about 8,300 words. The scanned original extracts with OCR noise in code examples (`)` read as `>`, `l` as `1`); the prose is legible and the summary reads through it.
+- pages: [[extending-the-scope-of-syntactic-abstraction]] (`status: provisional`); note added to [[separate-compilation]]; backlinks to [[r-kent-dybvig]], [[chez-scheme]], [[hygienic-macros]].
+- tags minted: none.
+- **hub deliberately not minted:** Oscar Waddell. One source; revisit if his thesis or other work lands.

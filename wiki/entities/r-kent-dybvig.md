@@ -44,3 +44,4 @@ most associated with his group.
 - [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]]
 - [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]
 - [[implicit-phasing-for-r6rs-libraries|Implicit Phasing for R6RS Libraries]]
+- [[extending-the-scope-of-syntactic-abstraction|Extending the Scope of Syntactic Abstraction]]

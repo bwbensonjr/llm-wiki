@@ -48,6 +48,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[common-lisp-cookbook-scripting-and-executables|Common Lisp Cookbook: Scripting, Command-Line Arguments, Executables]] — Cookbook chapter: Common Lisp executables by dumping the heap (save-lisp-and-die, uiop:dump-image); fast startup, large binaries carrying the compiler, tree shaking and compression to shrink them.
 - [[sbcl-a-sanely-bootstrappable-common-lisp|SBCL: A Sanely-Bootstrappable Common Lisp]] — Rhodes (S3 2008): SBCL builds from any Common Lisp via a cross-compiler, a pseudo-loaded cold core and cold init, instead of mutating an earlier image of itself.
 - [[implicit-phasing-for-r6rs-libraries|Implicit Phasing for R6RS Libraries]] — Ghuloum & Dybvig (ICFP 2007): portable R6RS libraries that infer import phases, expand each library exactly once, and separate strippable visit code from invoke code.
+- [[extending-the-scope-of-syntactic-abstraction|Extending the Scope of Syntactic Abstraction]] — Waddell & Dybvig (POPL 1999): Chez's modules as pure scope over syntax-case, with separate compilation, and why exported macros force conservative analysis of private variables.
 
 ## Entities
 
