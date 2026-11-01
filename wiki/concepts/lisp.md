@@ -51,3 +51,4 @@ transformations compile the result as well as a conventional compiler would.
 - [[world-age-in-julia|World Age in Julia: Optimizing Method Dispatch in the Presence of Eval]]
 - [[clhs-semantic-constraints|CLHS 3.2.2.3: Semantic Constraints]]
 - [[common-lisp-cookbook-scripting-and-executables|Common Lisp Cookbook: Scripting, Command-Line Arguments, Executables]]
+- [[sbcl-a-sanely-bootstrappable-common-lisp|SBCL: A Sanely-Bootstrappable Common Lisp]]

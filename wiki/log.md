@@ -495,3 +495,11 @@ so the log stays greppable by the stable `## [` prefix.
 - tags minted: none.
 - left undistilled: the chapter's second half on command-line parsing with the Clingon library and on catching `C-c`, which bears on scripting but not on the separate-compilation question.
 - caution: the size and startup table comes from a Reddit benchmark the Cookbook cites; the summary reports it as the Cookbook presents it.
+
+## [2026-10-31] ingest: SBCL: A Sanely-Bootstrappable Common Lisp
+
+- run: **unattended** (`ingest-inbox`), entry 13 of 14.
+- source: `https://eprints-gro.gold.ac.uk/2336/1/sbcl.pdf` (Rhodes, Self-Sustaining Systems / S3 2008, accepted version), converter **docling**. About 5,300 words; five build-stage figures are placeholders, and the paper's prose describes each stage, which the summary follows.
+- pages: [[sbcl-a-sanely-bootstrappable-common-lisp]] (`status: provisional`); note added to [[separate-compilation]], backlink to [[lisp]].
+- tags minted: none.
+- **hubs deliberately not minted:** SBCL, CMUCL, Christophe Rhodes. SBCL now appears in several summaries by name (Clasp, the Cookbook, this paper); an SBCL hub is a reasonable next step at curation.

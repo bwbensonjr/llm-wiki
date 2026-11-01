@@ -69,5 +69,5 @@ is a no-op.
 - [x] https://docs.racket-lang.org/raco/exe.html - How Racket builds standalone executables by embedding modules in the runtime, and its limits around dynamically required modules
 - [!] https://docs.racket-lang.org/rhombus/standalone.html - 2026-10-31: implausible capture: Jina received HTTP 403 and the twin is the Racket 'Page Not-Found' page (30 words); retry by hand or try https://docs.racket-lang.org/raco/demod.html
 - [x] https://lispcookbook.github.io/cl-cookbook/scripting.html - Building Common Lisp executables by dumping an image with save-lisp-and-die; the image-based route to standalone executables
-- [ ] https://eprints-gro.gold.ac.uk/2336/1/sbcl.pdf - How a Common Lisp's build is entangled with its own image, and how SBCL bootstraps from other implementations; context for image-based delivery
+- [x] https://eprints-gro.gold.ac.uk/2336/1/sbcl.pdf - How a Common Lisp's build is entangled with its own image, and how SBCL bootstraps from other implementations; context for image-based delivery
 - [ ] https://mfleck.cs.illinois.edu/envision/scheme48/module/module.html - Scheme 48's module system designed for both static linking and rapid development turnaround; a direct design answer to separate compilation plus standalone images
