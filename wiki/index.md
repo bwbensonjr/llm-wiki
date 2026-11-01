@@ -147,3 +147,4 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 ## Analyses
 
 - [[when-to-create-an-analysis-entry|When to create an analysis entry]] — per Karpathy, file a query answer back when it's a durable synthesis, comparison, or discovered connection worth keeping.
+- [[separate-compilation-and-standalone-executables-in-dynamic-lisps|Separate Compilation and Standalone Executables in Dynamic Lisps]] — why macros, redefinition/eval and the image resist separate compilation and small binaries in Lisps; phase separation, sealing, whole-program, bundling and image-dump approaches; open decisions for an LLVM-backed Scheme.

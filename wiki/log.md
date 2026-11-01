@@ -552,3 +552,11 @@ so the log stays greppable by the stable `## [` prefix.
 - tags minted: none.
 - **hub deliberately not minted:** Rhombus. One short source; revisit if more Rhombus material lands.
 - inbox line 70 left parked as the record of the failed capture at the old path.
+
+## [2026-11-01] query: Separate Compilation and Standalone Executables in Dynamic Lisps
+
+- question: why separate compilation and small standalone executables are hard in dynamic Lisp-family languages, and the approaches taken; groundwork for a later write-up on how the curator's Emit Scheme addresses them with LLVM.
+- filed as [[separate-compilation-and-standalone-executables-in-dynamic-lisps]] (`status: reviewed`); backlink added to [[separate-compilation]].
+- cited: [[composable-and-compilable-macros]], [[implicit-phasing-for-r6rs-libraries]], [[extending-the-scope-of-syntactic-abstraction]], [[another-module-system-for-scheme]], [[clhs-semantic-constraints]], [[world-age-in-julia]], [[dylan]], [[sealing-dylan-reference-manual]], [[define-sealed-domain]], [[chez-scheme-system-operations]], [[porting-racket-to-chez-scheme]], [[flow-directed-lightweight-closure-conversion]], [[raco-exe-creating-stand-alone-executables]], [[standalone-rhombus-programs]], [[common-lisp-cookbook-scripting-and-executables]], [[sbcl-a-sanely-bootstrappable-common-lisp]], [[why-janet]], [[clasp]], [[lessons-learned-implementing-common-lisp-with-llvm]], [[separate-compilation]].
+- coverage gaps noted at query time: no ingested source treats LLVM-specific module linkage or symbol naming for a Lisp, no dedicated tree-shaker paper, and ECL's compile-to-C design appears only via the Cookbook. The answer's LLVM linkage/LTO remarks are marked as not corpus-backed.
+- tags minted: none.

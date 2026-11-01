@@ -40,3 +40,4 @@ Compiling a program's modules or libraries independently, so each can be built o
 - [[sealing-dylan-reference-manual|Sealing (Dylan Reference Manual)]]
 - [[another-module-system-for-scheme|Another Module System for Scheme]]
 - [[standalone-rhombus-programs|Standalone Rhombus Programs]]
+- [[separate-compilation-and-standalone-executables-in-dynamic-lisps|Separate Compilation and Standalone Executables in Dynamic Lisps]]
