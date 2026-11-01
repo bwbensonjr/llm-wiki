@@ -439,3 +439,11 @@ so the log stays greppable by the stable `## [` prefix.
 - run: **unattended** (`ingest-inbox`), entry 5 of 14. **Refused** after capture; no `wiki/` pages.
 - source: `https://opendylan.org/books/drm/Sealing`, converter **jina**. The twin (`raw/2026-10-31-9-sealing-the-drm.md`, 107 words) is the book's navigation tree only; it stays in `raw/` as the evidence.
 - retry suggestion: queue `https://opendylan.org/books/drm/Sealing_Overview` and `https://opendylan.org/books/drm/Declaring_Characteristics_of_Generic_Functions`, which carry the chapter's substance.
+
+## [2026-10-31] ingest: Define Sealed Domain (Dylan Reference Manual)
+
+- run: **unattended** (`ingest-inbox`), entry 6 of 14.
+- source: `https://opendylan.org/books/drm/Define_Sealed_Domain`, converter **jina**. About 1,650 words; the twin opens with the DRM navigation tree, then the full section. No images.
+- pages: [[define-sealed-domain]] (`status: provisional`); note on sealing added to [[separate-compilation]].
+- tags minted: none (reused `language-implementation`, `programming-languages`, `type-systems`).
+- **hub deliberately not minted:** Dylan. One reference-manual section is thin ground for a language hub; the parked Sealing chapter entry above would add more if retried.
