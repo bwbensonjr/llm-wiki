@@ -75,3 +75,4 @@ optimizing Pascal compiler wherever procedure calls dominate.
 - [[a-nanopass-framework-for-commercial-compiler-development|A Nanopass Framework for Commercial Compiler Development]]
 - [[implementation-strategies-for-first-class-continuations|Implementation Strategies for First-Class Continuations]]
 - [[representing-control-in-the-presence-of-first-class-continuations|Representing Control in the Presence of First-Class Continuations]]
+- [[flow-directed-lightweight-closure-conversion|Flow-Directed Lightweight Closure Conversion]]

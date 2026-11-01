@@ -65,7 +65,7 @@ is a no-op.
 - [x] https://opendylan.org/books/drm/Define_Sealed_Domain - Partial sealing of generic functions across library boundaries; companion to the DRM sealing chapter for the separate-compilation analysis
 - [x] https://lispworks.com/documentation/HyperSpec/Body/03_bbc.htm - What Common Lisp's compile-file may assume about definitions, redefinition, and calls when compiling a file; the standard's stance on separate compilation
 - [x] https://cisco.github.io/ChezScheme/csug9.5/system.html - Chez's compile-whole-program and compile-whole-library: cross-library optimization, dead-code removal, and the libs-visible? trade-off with eval; a model for producing standalone executables
-- [ ] https://engineering.purdue.edu/~qobi/papers/fdlcc.pdf - Stalin's whole-program closure conversion: the performance a closed-world Scheme compiler gains by giving up separate compilation
+- [x] https://engineering.purdue.edu/~qobi/papers/fdlcc.pdf - Stalin's whole-program closure conversion: the performance a closed-world Scheme compiler gains by giving up separate compilation
 - [ ] https://docs.racket-lang.org/raco/exe.html - How Racket builds standalone executables by embedding modules in the runtime, and its limits around dynamically required modules
 - [ ] https://docs.racket-lang.org/rhombus/standalone.html - Demodularizing and pruning a program for a small standalone executable, which works only when the program avoids eval
 - [ ] https://lispcookbook.github.io/cl-cookbook/scripting.html - Building Common Lisp executables by dumping an image with save-lisp-and-die; the image-based route to standalone executables

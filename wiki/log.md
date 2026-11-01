@@ -463,3 +463,12 @@ so the log stays greppable by the stable `## [` prefix.
 - pages: [[chez-scheme-system-operations]] (`status: provisional`); note added to [[separate-compilation]], backlink to [[chez-scheme]].
 - tags minted: none.
 - images: capture localized two (`img-39.png`, `img-40.png`), screenshots of Chez's HTML profiler output. **Dropped**: they illustrate profiling, not compilation. Nothing promoted; the raw bytes stay in `raw/assets/`.
+
+## [2026-10-31] ingest: Flow-Directed Lightweight Closure Conversion
+
+- run: **unattended** (`ingest-inbox`), entry 9 of 14.
+- source: `https://engineering.purdue.edu/~qobi/papers/fdlcc.pdf` (Siskind, NEC Research Institute; the twin carries no venue line), converter **docling**. About 30,000 words; the benchmark tables extracted with some column misalignment, so the summary reports the paper's stated trends rather than individual table cells.
+- pages: [[flow-directed-lightweight-closure-conversion]] (`status: provisional`); note added to [[separate-compilation]]; backlinks to [[closure-conversion]], [[escape-analysis]], [[scheme]].
+- tags minted: none.
+- **hubs deliberately not minted:** Stalin and Jeffrey Mark Siskind. One source; the paper names four companion papers (Siskind 2000a-d) covering Stalin's other analyses, any of which would justify them.
+- **gap noticed:** those companion papers, and the Scheme->C, Gambit-C and Bigloo compilers it benchmarks against.

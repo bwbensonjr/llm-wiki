@@ -43,6 +43,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[define-sealed-domain|Define Sealed Domain (Dylan Reference Manual)]] — DRM section: Dylan's partial sealing makes slices of a generic function invariant across libraries so the compiler can resolve dispatch, with warnings for violations between independent libraries.
 - [[clhs-semantic-constraints|CLHS 3.2.2.3: Semantic Constraints]] — Common Lisp standard: what a file compiler may assume across compile time and run time; same-file calls bind directly, cross-file redefinitions prevail.
 - [[chez-scheme-system-operations|Chez Scheme User's Guide: System Operations]] — CSUG 9.5 ch. 12: Chez's per-library compilation with cross-library inlining, compile-whole-program with eval-visibility limits, visit-code stripping, and boot files.
+- [[flow-directed-lightweight-closure-conversion|Flow-Directed Lightweight Closure Conversion]] — Siskind (Stalin): a batch whole-program Scheme compiler with no eval uses interprocedural flow analysis to eliminate most closures, beating other Scheme compilers by large factors.
 
 ## Entities
 
