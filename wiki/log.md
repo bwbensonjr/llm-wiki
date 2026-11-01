@@ -480,3 +480,9 @@ so the log stays greppable by the stable `## [` prefix.
 - pages: [[raco-exe-creating-stand-alone-executables]] (`status: provisional`); note added to [[separate-compilation]], backlink to [[racket]].
 - tags minted: none.
 - **gap noticed:** `raco demod`, which the chapter recommends for smaller, faster executables; the Rhombus page queued for it returned a 403 in this run (next entry).
+
+## [2026-10-31] ingest: Rhombus standalone guide (parked)
+
+- run: **unattended** (`ingest-inbox`), entry 11 of 14. **Refused** after capture; no `wiki/` pages.
+- source: `https://docs.racket-lang.org/rhombus/standalone.html`, converter **jina**. Jina reported `Target URL returned error 403: Forbidden`; the twin (`raw/2026-10-31-racket-page-not-found.md`) is a 30-word not-found page and stays in `raw/` as evidence.
+- retry suggestion: the `raco demod` reference page in the main Racket docs covers the same pruning.
