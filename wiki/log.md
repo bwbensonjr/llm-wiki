@@ -486,3 +486,12 @@ so the log stays greppable by the stable `## [` prefix.
 - run: **unattended** (`ingest-inbox`), entry 11 of 14. **Refused** after capture; no `wiki/` pages.
 - source: `https://docs.racket-lang.org/rhombus/standalone.html`, converter **jina**. Jina reported `Target URL returned error 403: Forbidden`; the twin (`raw/2026-10-31-racket-page-not-found.md`) is a 30-word not-found page and stays in `raw/` as evidence.
 - retry suggestion: the `raco demod` reference page in the main Racket docs covers the same pruning.
+
+## [2026-10-31] ingest: Common Lisp Cookbook: Scripting, Command-Line Arguments, Executables
+
+- run: **unattended** (`ingest-inbox`), entry 12 of 14. Queued as the fallback for the SBCL manual's `save-lisp-and-die` entry, whose URL was not confirmed.
+- source: `https://lispcookbook.github.io/cl-cookbook/scripting.html`, converter **jina**. About 5,000 words. No images.
+- pages: [[common-lisp-cookbook-scripting-and-executables]] (`status: provisional`); note added to [[separate-compilation]], backlink to [[lisp]].
+- tags minted: none.
+- left undistilled: the chapter's second half on command-line parsing with the Clingon library and on catching `C-c`, which bears on scripting but not on the separate-compilation question.
+- caution: the size and startup table comes from a Reddit benchmark the Cookbook cites; the summary reports it as the Cookbook presents it.

@@ -45,6 +45,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[chez-scheme-system-operations|Chez Scheme User's Guide: System Operations]] — CSUG 9.5 ch. 12: Chez's per-library compilation with cross-library inlining, compile-whole-program with eval-visibility limits, visit-code stripping, and boot files.
 - [[flow-directed-lightweight-closure-conversion|Flow-Directed Lightweight Closure Conversion]] — Siskind (Stalin): a batch whole-program Scheme compiler with no eval uses interprocedural flow analysis to eliminate most closures, beating other Scheme compilers by large factors.
 - [[raco-exe-creating-stand-alone-executables|raco exe: Creating Stand-Alone Executables]] — Racket docs: raco exe embeds modules in a copy of the runtime; no speedup, and anything reached via eval or dynamic-require must be declared by hand.
+- [[common-lisp-cookbook-scripting-and-executables|Common Lisp Cookbook: Scripting, Command-Line Arguments, Executables]] — Cookbook chapter: Common Lisp executables by dumping the heap (save-lisp-and-die, uiop:dump-image); fast startup, large binaries carrying the compiler, tree shaking and compression to shrink them.
 
 ## Entities
 

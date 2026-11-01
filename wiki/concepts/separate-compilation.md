@@ -22,6 +22,8 @@ Compiling a program's modules or libraries independently, so each can be built o
 
 **Bundling the runtime instead.** [[raco-exe-creating-stand-alone-executables|Racket's `raco exe`]] produces a standalone executable by embedding a program's modules in a copy of the Racket runtime. It keeps the language fully dynamic, gains no speed, and cannot see what a program reaches through `eval` or `dynamic-require`, so those modules must be declared by hand.
 
+**Dumping the image.** Common Lisp's usual route, per the [[common-lisp-cookbook-scripting-and-executables|Cookbook]], skips separate linking: load the program into a running Lisp and write the heap out with `save-lisp-and-die`. Executables start almost instantly but carry the compiler, debugger and symbol names; shrinking them takes compression or a tree shaker that must prove what the program never reaches. ECL's compile-to-C route gives far smaller binaries.
+
 ## Sources
 
 - [[composable-and-compilable-macros|Composable and Compilable Macros: You Want It When?]]
@@ -31,3 +33,4 @@ Compiling a program's modules or libraries independently, so each can be built o
 - [[chez-scheme-system-operations|Chez Scheme User's Guide: System Operations]]
 - [[flow-directed-lightweight-closure-conversion|Flow-Directed Lightweight Closure Conversion]]
 - [[raco-exe-creating-stand-alone-executables|raco exe: Creating Stand-Alone Executables]]
+- [[common-lisp-cookbook-scripting-and-executables|Common Lisp Cookbook: Scripting, Command-Line Arguments, Executables]]
