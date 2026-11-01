@@ -20,6 +20,8 @@ Compiling a program's modules or libraries independently, so each can be built o
 
 **Whole-program compilation and standalone delivery.** [[chez-scheme-system-operations|Chez Scheme]] offers both modes: per-library object files that by default carry inlining information into dependents, and `compile-whole-program`, which folds libraries into one object file, discards unused code, and optimizes across boundaries. The limits are explicit: incorporated libraries stay reachable from `eval` only if requested, initialization that depends on `eval` may not survive linearization, and macro *visit code* can be stripped because it is needed only to compile. At the far end, [[flow-directed-lightweight-closure-conversion|Stalin]] gives up `eval`, the REPL and separate compilation entirely; the closed world lets whole-program flow analysis prove what other compilers are only told by unsafe flags, and the output is a single executable.
 
+**Bundling the runtime instead.** [[raco-exe-creating-stand-alone-executables|Racket's `raco exe`]] produces a standalone executable by embedding a program's modules in a copy of the Racket runtime. It keeps the language fully dynamic, gains no speed, and cannot see what a program reaches through `eval` or `dynamic-require`, so those modules must be declared by hand.
+
 ## Sources
 
 - [[composable-and-compilable-macros|Composable and Compilable Macros: You Want It When?]]
@@ -28,3 +30,4 @@ Compiling a program's modules or libraries independently, so each can be built o
 - [[clhs-semantic-constraints|CLHS 3.2.2.3: Semantic Constraints]]
 - [[chez-scheme-system-operations|Chez Scheme User's Guide: System Operations]]
 - [[flow-directed-lightweight-closure-conversion|Flow-Directed Lightweight Closure Conversion]]
+- [[raco-exe-creating-stand-alone-executables|raco exe: Creating Stand-Alone Executables]]

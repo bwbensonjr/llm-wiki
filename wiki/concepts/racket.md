@@ -55,3 +55,4 @@ maintainability and a stronger functional-language substrate — see
 - [[porting-racket-to-chez-scheme|Porting Racket to Chez Scheme]]
 - [[hygienic-macro-technology|Hygienic Macro Technology]]
 - [[composable-and-compilable-macros|Composable and Compilable Macros: You Want It When?]]
+- [[raco-exe-creating-stand-alone-executables|raco exe: Creating Stand-Alone Executables]]

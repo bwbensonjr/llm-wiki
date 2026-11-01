@@ -472,3 +472,11 @@ so the log stays greppable by the stable `## [` prefix.
 - tags minted: none.
 - **hubs deliberately not minted:** Stalin and Jeffrey Mark Siskind. One source; the paper names four companion papers (Siskind 2000a-d) covering Stalin's other analyses, any of which would justify them.
 - **gap noticed:** those companion papers, and the Scheme->C, Gambit-C and Bigloo compilers it benchmarks against.
+
+## [2026-10-31] ingest: raco exe: Creating Stand-Alone Executables
+
+- run: **unattended** (`ingest-inbox`), entry 10 of 14.
+- source: `https://docs.racket-lang.org/raco/exe.html`, converter **jina**. About 6,900 words (the chapter includes launcher reference material). No images.
+- pages: [[raco-exe-creating-stand-alone-executables]] (`status: provisional`); note added to [[separate-compilation]], backlink to [[racket]].
+- tags minted: none.
+- **gap noticed:** `raco demod`, which the chapter recommends for smaller, faster executables; the Rhombus page queued for it returned a 403 in this run (next entry).
