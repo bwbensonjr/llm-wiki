@@ -23,3 +23,4 @@ Compiling a program's modules or libraries independently, so each can be built o
 - [[composable-and-compilable-macros|Composable and Compilable Macros: You Want It When?]]
 - [[world-age-in-julia|World Age in Julia: Optimizing Method Dispatch in the Presence of Eval]]
 - [[define-sealed-domain|Define Sealed Domain (Dylan Reference Manual)]]
+- [[clhs-semantic-constraints|CLHS 3.2.2.3: Semantic Constraints]]

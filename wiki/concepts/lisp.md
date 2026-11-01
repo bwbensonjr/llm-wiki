@@ -49,3 +49,4 @@ transformations compile the result as well as a conventional compiler would.
 - [[improving-the-clasp-programming-experience|Improving the Clasp Programming Experience]]
 - [[lessons-learned-implementing-common-lisp-with-llvm|Lessons Learned Implementing Common Lisp with LLVM]]
 - [[world-age-in-julia|World Age in Julia: Optimizing Method Dispatch in the Presence of Eval]]
+- [[clhs-semantic-constraints|CLHS 3.2.2.3: Semantic Constraints]]

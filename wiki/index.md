@@ -41,6 +41,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 - [[composable-and-compilable-macros|Composable and Compilable Macros: You Want It When?]] — Flatt (ICFP 2002): MzScheme's phase-separated modules make macro-using code compile separately and let all compile-time code be stripped from the deliverable.
 - [[world-age-in-julia|World Age in Julia: Optimizing Method Dispatch in the Presence of Eval]] — Belyakova et al. (OOPSLA 2020): Julia freezes the visible method table per top-level call, so eval-driven redefinition cannot invalidate inlined code.
 - [[define-sealed-domain|Define Sealed Domain (Dylan Reference Manual)]] — DRM section: Dylan's partial sealing makes slices of a generic function invariant across libraries so the compiler can resolve dispatch, with warnings for violations between independent libraries.
+- [[clhs-semantic-constraints|CLHS 3.2.2.3: Semantic Constraints]] — Common Lisp standard: what a file compiler may assume across compile time and run time; same-file calls bind directly, cross-file redefinitions prevail.
 
 ## Entities
 

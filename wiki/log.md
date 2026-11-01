@@ -447,3 +447,11 @@ so the log stays greppable by the stable `## [` prefix.
 - pages: [[define-sealed-domain]] (`status: provisional`); note on sealing added to [[separate-compilation]].
 - tags minted: none (reused `language-implementation`, `programming-languages`, `type-systems`).
 - **hub deliberately not minted:** Dylan. One reference-manual section is thin ground for a language hub; the parked Sealing chapter entry above would add more if retried.
+
+## [2026-10-31] ingest: CLHS 3.2.2.3: Semantic Constraints
+
+- run: **unattended** (`ingest-inbox`), entry 7 of 14.
+- source: `https://lispworks.com/documentation/HyperSpec/Body/03_bbc.htm` (redirected to `www.lispworks.com`), converter **jina**. About 600 words; navigation GIFs skipped as undersized, no content images.
+- pages: [[clhs-semantic-constraints]] (`status: provisional`); note added to [[separate-compilation]], backlink to [[lisp]].
+- verified while authoring: the official LispWorks text *does* include the same-file call clause ("A call within a file to a named function that is defined in the same file refers to that function, unless that function has been declared notinline"). This had been flagged as unconfirmed when the source was chosen.
+- tags minted: none.
