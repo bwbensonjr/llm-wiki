@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: Flow-Directed Lightweight Closure Conversion
 created: 2026-10-31
 source: https://engineering.purdue.edu/~qobi/papers/fdlcc.pdf

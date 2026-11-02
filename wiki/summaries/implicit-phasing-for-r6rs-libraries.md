@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: Implicit Phasing for R6RS Libraries
 created: 2026-10-31
 source: inbox-files/1291151.1291197.pdf

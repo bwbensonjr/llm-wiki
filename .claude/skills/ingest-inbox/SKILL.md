@@ -1,6 +1,6 @@
 ---
 name: ingest-inbox
-description: Drain the llm-wiki inbox queue unattended. Reads inbox.md, skips already-ingested sources, captures each remaining link into an immutable raw twin, then authors provisional wiki pages with no interview — classifying, tagging, linking hubs, judging figures, and drafting significance on its own — committing per source and pushing once at the end. Use when the user wants to run the batch ingest, drain the inbox, or ingest queued links unattended.
+description: Drain the llm-wiki inbox queue unattended. Reads inbox.md, skips already-ingested sources, captures each remaining link into an immutable raw twin, then authors wiki pages with no interview — classifying, tagging, linking hubs, judging figures, and drafting significance on its own — committing per source and pushing once at the end. Use when the user wants to run the batch ingest, drain the inbox, or ingest queued links unattended.
 metadata:
   author: llm-wiki
   version: "1.0"
@@ -10,7 +10,7 @@ metadata:
 
 Drain `inbox.md` without a curator present. This is the same authoring work the
 `file` command does, with the interview removed and the judgment taken on by you.
-Read the repo `CLAUDE.md` first — page taxonomy, the `status` field, front-matter
+Read the repo `CLAUDE.md` first — page taxonomy, front-matter
 schemas, slug rules, tag conventions, and image handling are binding here.
 
 **This command runs headlessly. It has no interactive branches at all.** Every
@@ -18,9 +18,9 @@ ambiguity resolves to a documented default or parks that entry with a reason.
 Never ask a question: a scheduled run that asks one hangs forever. If you find
 yourself about to prompt, park the entry instead and move on.
 
-Everything this command writes to `wiki/` is `status: provisional`. That is the
-whole safety model: the pages publish immediately, and the curator endorses,
-corrects, or rejects them later via `curate`.
+Pages this command writes are final as committed and publish immediately. The
+curator's voice is the note on the inbox line; any later correction is an
+ordinary edit, so take the same care you would in an interactive `file`.
 
 ---
 
@@ -77,8 +77,8 @@ to the next entry.
 
 Match on the URL/path string. Identity is only recorded there, so the same
 document under two URLs (arXiv `abs` vs `pdf`, a syndicated repost) will not be
-caught here — that is accepted, and `curate` catches it as a near-duplicate
-summary at review. Do **not** try to canonicalize URLs yourself. The only
+caught here — that is accepted; the curator can merge such duplicates by hand.
+Do **not** try to canonicalize URLs yourself. The only
 canonicalization is the mechanical YouTube rule inside `--canonical`.
 
 ### 2b. Capture (mechanical, unchanged)
@@ -191,7 +191,7 @@ there is no interview to review them:
   of truth.
 
 Record both decisions — what you distilled, what you promoted — in the log entry
-(2g), so they are visible at review and reversible via `curate`.
+(2g), so they are visible later.
 
 ### 2f. Draft `## Why this matters`
 
@@ -201,11 +201,9 @@ Record both decisions — what you distilled, what you promoted — in the log e
   rather than quoting it verbatim.
 - **Without one:** infer significance from the source and its relationship to the
   existing corpus — what it extends, corroborates, or contradicts among pages
-  already here. The page is still written and still `provisional`.
+  already here. The page is still written.
 
-Write it as ordinary prose. **No inline authorship disclaimer** — `status:` is the
-sole marker, so endorsement stays a one-field edit and no stale disclaimer can
-survive review.
+Write it as ordinary prose. **No inline authorship disclaimer.**
 
 This section is the likeliest place to break corpus independence, because "why this
 matters" invites reaching for what the corpus lacked until now. Reason about what the
@@ -219,18 +217,14 @@ does not.
 ### 2g. Write the pages
 
 1. **`wiki/summaries/<slug>.md`** — front-matter per `CLAUDE.md`:
-   `type: summary`, **`status: provisional`**, `title`, `created` (today),
+   `type: summary`, `title`, `created` (today),
    `source`, `raw: <raw_path>`, `tags`. Body has exactly `## Summary` and
    `## Why this matters`.
 
 2. **Hub pages** the summary touches:
-   - **Created** by this ingest → write it from the template with
-     **`status: provisional`**.
+   - **Created** by this ingest → write it from the template.
    - **Existing** hub → append the `[[wikilink]]` backlink under its `## Sources`
-     and any warranted note. If that hub is `status: reviewed`, **leave it
-     `reviewed`.** Never revert a settled hub to provisional for a routine
-     backlink — popular hubs would be permanently unreviewed and the queue would
-     never drain.
+     and any warranted note.
 
 3. **`wiki/index.md`** — add each new page under its type grouping, as a
    `[[wikilink]]` plus a one-line summary.
@@ -242,9 +236,8 @@ does not.
    ```
 
    Its body must record: the source URL, the converter used, **that the run was
-   unattended**, **every tag this ingest newly minted** (this is the deferred tag
-   approval `curate` acts on — if it is not logged, the new vocabulary is
-   invisible), any hubs created, and any figure promoted to `wiki/assets/`.
+   unattended**, **every tag this ingest newly minted** (if it is not logged, the new
+   vocabulary is invisible), any hubs created, and any figure promoted to `wiki/assets/`.
 
    **The log is also where a noticed gap goes.** If authoring surfaced something the
    corpus does not yet cover — a work the source leans on that you could not link, a
@@ -252,10 +245,10 @@ does not.
    and **never in a knowledge page**. `wiki/log.md` is exempt from corpus independence
    because its entries are dated records of what was true when written, so "no ingested
    source covers X" is correct here and a defect on a page. This is the whole outlet for
-   that observation; the existing requirements above already accommodate it, since a
-   `curate` reader of this entry is the person who can act on the gap.
+   that observation.
 
-Validate before committing: `type` and `status` are valid values, both body
+Validate before committing: `type` is a valid value, there is no `status`
+field, both body
 sections are non-empty, and every `[[wikilink]]` resolves to a real or
 just-created page filename. Keep each `[[wikilink]]` on one line — Obsidian does
 not resolve a link split across a line break. If validation fails, fix it; if it
@@ -316,8 +309,7 @@ succeeded, was skipped, or aborted on conflict.
 ## Guardrails
 
 - **No interactive branches.** Never ask a question; park the entry instead.
-- **`status: provisional`** on every page this path creates. An existing
-  `reviewed` hub gaining only a backlink stays `reviewed`.
+- **No `status` field** on any page this path writes.
 - **Raw twins are immutable** — never edit or rename anything under `raw/`,
   including the twin of an entry you refused to author from.
 - **No corpus-membership claim in a page.** No presence/absence claim, no
@@ -330,5 +322,5 @@ succeeded, was skipped, or aborted on conflict.
   modified, and nothing is committed or pushed.
 - Refuse to author from an implausible twin rather than publishing a confident
   summary of a paywall.
-- A `type` or `status` outside the allowed set is invalid: park, do not write.
+- A `type` outside the allowed set is invalid: park, do not write.
 - Never `git add -A`; never force-push; never resolve a conflict unattended.

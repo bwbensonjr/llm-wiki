@@ -1,6 +1,5 @@
 ---
 type: summary
-status: reviewed
 title: A Nanopass Framework for Commercial Compiler Development
 created: 2026-08-05
 source: https://doi.org/10.1145/2544174.2500618

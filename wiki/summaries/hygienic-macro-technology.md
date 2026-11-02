@@ -1,6 +1,5 @@
 ---
 type: summary
-status: reviewed
 title: Hygienic Macro Technology
 created: 2026-08-05
 source: https://dl.acm.org/doi/pdf/10.1145/3386330

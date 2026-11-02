@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Agentic Coding
 created: 2026-06-22
 tags: [agentic-coding]

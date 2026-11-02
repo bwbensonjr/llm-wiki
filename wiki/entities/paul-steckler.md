@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: Paul A. Steckler
 created: 2026-08-05
 tags: [programming-languages, language-implementation, program-verification]

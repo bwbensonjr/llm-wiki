@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Closure Conversion
 created: 2026-08-05
 tags: [programming-languages, language-implementation, continuations]

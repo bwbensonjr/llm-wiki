@@ -1,6 +1,5 @@
 ---
 type: summary
-status: reviewed
 title: "RABBIT: A Compiler for Scheme"
 created: 2026-08-05
 source: https://research.scheme.org/lambda-papers/lambda-papers-compiler-optimization.html

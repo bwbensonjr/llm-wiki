@@ -1,6 +1,5 @@
 ---
 type: concept
-status: provisional
 title: Separate Compilation
 created: 2026-10-31
 tags: [language-implementation, lisp, scheme, programming-languages]

@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Attention Mechanism
 created: 2026-06-23
 tags: [transformers, machine-learning]

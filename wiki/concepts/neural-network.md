@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Neural Network
 created: 2026-06-23
 tags: [machine-learning, neural-networks]

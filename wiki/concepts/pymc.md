@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: PyMC
 created: 2026-06-23
 tags: [pymc, bayesian-statistics, python]

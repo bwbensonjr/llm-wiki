@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: "World Age in Julia: Optimizing Method Dispatch in the Presence of Eval"
 created: 2026-10-31
 source: https://arxiv.org/pdf/2010.07516

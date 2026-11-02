@@ -15,7 +15,6 @@ noise, and lazily promotes only must-see figures to `wiki/assets/` for
 publishing.
 
 ## Requirements
-
 ### Requirement: Image localization defaults on for the web/Jina route
 
 The `file` command SHALL localize a web/Jina source's content images by default,
@@ -142,10 +141,10 @@ localized figures carry meaning, distills those into `## Summary` as text, and
 drops the rest. A dropped figure SHALL simply not be surfaced in `wiki/` — it is
 neither distilled into prose nor promoted to `wiki/assets/` — while its localized
 bytes under `raw/assets/<twin-stem>/` remain (immutable); cleanup of unreferenced
-raw assets is deferred to the `lint` command. A page whose figure decisions were
-made unattended carries `status: provisional`, so those decisions are reviewable
-and reversible via `curate`. This extends the dual-voice summary without changing
-its section structure: figure descriptions live within `## Summary`, and
+raw assets is deferred to the `lint` command. Unattended figure decisions SHALL be
+recorded in that ingest's `wiki/log.md` entry. This extends the dual-voice
+summary without changing its section structure: figure descriptions live within
+`## Summary`, and
 `## Why this matters` holds the resource's significance to the curator.
 
 #### Scenario: Localized figures are reviewed in the interview
@@ -191,9 +190,9 @@ images. The `wiki/assets/` directory SHALL be created on first such promotion, n
 speculatively. The promoted copy SHALL be embedded in the summary via an
 Obsidian-compatible image reference; the original under `raw/assets/<twin-stem>/`
 remains the immutable source of truth. An unattended promotion SHALL be recorded in
-the `wiki/log.md` entry for that ingest so it is visible at review, and SHALL be
-reversible: rejecting or revising the page during `curate` removes the promoted
-copy from `wiki/assets/` while leaving the `raw/assets/` original in place.
+the `wiki/log.md` entry for that ingest. Removing a promoted figure from a page
+later SHALL delete its copy from `wiki/assets/` while leaving the `raw/assets/`
+original in place.
 
 #### Scenario: Figure is promoted on demand
 
@@ -210,8 +209,7 @@ copy from `wiki/assets/` while leaving the `raw/assets/` original in place.
 
 #### Scenario: Unattended promotion is reversible
 
-- **WHEN** a provisional page with an unattended figure promotion is rejected or
-  has that figure removed during `curate`
+- **WHEN** a promoted figure is later removed from its summary page
 - **THEN** the promoted copy is deleted from `wiki/assets/` and the
   `raw/assets/` original remains
 

@@ -1,6 +1,5 @@
 ---
 type: summary
-status: reviewed
 title: A Tractable Native-Code Scheme System
 created: 2026-08-05
 source: https://www.deinprogramm.de/sperber/papers/tractable-native-code-scheme-system.pdf

@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: Define Sealed Domain (Dylan Reference Manual)
 created: 2026-10-31
 source: https://opendylan.org/books/drm/Define_Sealed_Domain

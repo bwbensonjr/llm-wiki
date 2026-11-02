@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: Sealing (Dylan Reference Manual)
 created: 2026-11-01
 source: inbox-files/drm-sealing-chapter.md

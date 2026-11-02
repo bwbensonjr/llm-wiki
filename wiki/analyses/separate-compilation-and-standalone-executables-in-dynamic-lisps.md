@@ -1,6 +1,5 @@
 ---
 type: analysis
-status: reviewed
 title: Separate Compilation and Standalone Executables in Dynamic Lisps
 created: 2026-11-01
 question: "Re-do the analysis of why separate compilation and producing small standalone executables is challenging in dynamic, Lisp-family languages and approaches that have been taken to address the issues. I want to use that analysis to do a later write-up of how my Emit Scheme system addresses these issues using LLVM and a decisions that address things like macro-compilation and cross-module naming."

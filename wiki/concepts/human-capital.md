@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Human Capital
 created: 2026-06-23
 tags: [ai-economy, human-capital]

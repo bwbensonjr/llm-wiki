@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: Vikram Adve
 created: 2026-07-08
 tags: [llvm, language-implementation, programming-languages]

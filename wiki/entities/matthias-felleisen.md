@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: Matthias Felleisen
 created: 2026-06-24
 tags: [racket, programming-languages]

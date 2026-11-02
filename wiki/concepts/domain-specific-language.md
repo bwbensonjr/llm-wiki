@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Domain-Specific Language
 created: 2026-06-24
 tags: [domain-specific-languages, programming-languages]

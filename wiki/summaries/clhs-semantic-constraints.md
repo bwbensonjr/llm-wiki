@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: "CLHS 3.2.2.3: Semantic Constraints"
 created: 2026-10-31
 source: https://lispworks.com/documentation/HyperSpec/Body/03_bbc.htm

@@ -1,6 +1,5 @@
 ---
 type: summary
-status: reviewed
 title: Improving the Clasp Programming Experience
 created: 2026-10-31
 source: https://drmeister.wordpress.com/2016/01/29/improving-the-clasp-programming-experience/

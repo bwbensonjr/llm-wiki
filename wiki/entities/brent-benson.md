@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: Brent W. Benson Jr.
 created: 2026-06-29
 tags: [scheme, programming-languages]

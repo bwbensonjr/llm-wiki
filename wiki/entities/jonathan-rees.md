@@ -1,6 +1,5 @@
 ---
 type: entity
-status: provisional
 title: Jonathan Rees
 created: 2026-11-01
 tags: [programming-languages, language-implementation, scheme, lisp]

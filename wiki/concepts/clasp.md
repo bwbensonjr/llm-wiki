@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Clasp
 created: 2026-10-31
 tags: [lisp, llvm, language-implementation, programming-languages]

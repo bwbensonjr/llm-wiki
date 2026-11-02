@@ -1,6 +1,5 @@
 ---
 type: summary
-status: reviewed
 title: Lightweight Closure Conversion
 created: 2026-08-05
 source: https://www.ccs.neu.edu/home/wand/papers/steckler-wand-97.ps

@@ -1,6 +1,5 @@
 ---
 type: summary
-status: reviewed
 title: How LLMs Actually Work
 created: 2026-06-23
 source: https://www.0xkato.xyz/how-llms-actually-work/

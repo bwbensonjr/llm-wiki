@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Language-Oriented Programming
 created: 2026-06-24
 tags: [language-oriented-programming, programming-languages]

@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: "Common Lisp Cookbook: Scripting, Command-Line Arguments, Executables"
 created: 2026-10-31
 source: https://lispcookbook.github.io/cl-cookbook/scripting.html

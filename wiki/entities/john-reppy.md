@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: John Reppy
 created: 2026-07-08
 tags: [standard-ml, language-implementation, programming-languages]

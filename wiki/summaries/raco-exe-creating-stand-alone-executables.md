@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: "raco exe: Creating Stand-Alone Executables"
 created: 2026-10-31
 source: https://docs.racket-lang.org/raco/exe.html

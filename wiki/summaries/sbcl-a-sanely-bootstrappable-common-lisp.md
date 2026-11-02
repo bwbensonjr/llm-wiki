@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: "SBCL: A Sanely-Bootstrappable Common Lisp"
 created: 2026-10-31
 source: https://eprints-gro.gold.ac.uk/2336/1/sbcl.pdf

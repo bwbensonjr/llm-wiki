@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: "Chez Scheme User's Guide: System Operations"
 created: 2026-10-31
 source: https://cisco.github.io/ChezScheme/csug9.5/system.html

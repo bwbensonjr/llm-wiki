@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: Matthew Flatt
 created: 2026-06-29
 tags: [racket, scheme, programming-languages, language-implementation]

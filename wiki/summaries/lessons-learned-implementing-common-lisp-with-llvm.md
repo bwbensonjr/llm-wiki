@@ -1,6 +1,5 @@
 ---
 type: summary
-status: reviewed
 title: Lessons Learned Implementing Common Lisp with LLVM
 created: 2026-10-31
 source: https://www.youtube.com/watch?v=mbdXeRBbgDM

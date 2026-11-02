@@ -3,17 +3,14 @@
 ## Purpose
 TBD - created by archiving change add-resource-ingestion. Update Purpose after archive.
 ## Requirements
-### Requirement: Wiki page taxonomy
+### Requirement: Knowledge page classification
 
 The wiki SHALL classify every knowledge page with a `type` front-matter field
-whose value is one of `summary`, `entity`, `concept`, or `analysis`, following
-Karpathy's content-oriented classification. Every knowledge page SHALL additionally
-carry a `status` front-matter field whose value is one of `provisional` (authored
-without curator review) or `reviewed` (curator-endorsed). The wiki SHALL
-additionally maintain two bookkeeping files: `index.md` (a catalog) and `log.md`
-(an append-only timeline). Knowledge pages SHALL be stored under `wiki/` in a
-folder matching their type (`wiki/summaries/`, `wiki/entities/`, `wiki/concepts/`,
-`wiki/analyses/`).
+whose value is one of `summary`, `entity`, `concept`, or `analysis`. Knowledge
+pages SHALL be stored under `wiki/` in a folder matching their type
+(`wiki/summaries/`, `wiki/entities/`, `wiki/concepts/`, `wiki/analyses/`). The
+wiki SHALL also maintain two bookkeeping files: `index.md` (a catalog) and
+`log.md` (an append-only timeline).
 
 #### Scenario: Summary page is source-anchored
 
@@ -33,17 +30,21 @@ folder matching their type (`wiki/summaries/`, `wiki/entities/`, `wiki/concepts/
 - **THEN** the ingest is halted and the discrepancy is reported to the user
   rather than writing the page
 
-#### Scenario: Interactive ingest writes reviewed pages
+### Requirement: Pages carry no review status
+
+Knowledge pages SHALL NOT carry a `status` front-matter field. A page committed
+by either ingest path, interactive or unattended, is final as committed; later
+changes are ordinary edits.
+
+#### Scenario: Interactive page has no status
 
 - **WHEN** a page is committed through the interactive Phase 2 interview
-- **THEN** it carries `status: reviewed`, because the curator approved it as it was
-  written
+- **THEN** its front-matter contains no `status` field
 
-#### Scenario: Invalid status is rejected
+#### Scenario: Unattended page has no status
 
-- **WHEN** a page would be written with a `status` outside `provisional|reviewed`
-- **THEN** the ingest is halted and the discrepancy is reported rather than writing
-  the page
+- **WHEN** a page is committed by the unattended ingest path
+- **THEN** its front-matter contains no `status` field
 
 ### Requirement: Two-layer storage with immutable raw twin
 
@@ -363,23 +364,14 @@ routed service. No `raw/` twin and no `wiki/` pages are left behind.
 - **THEN** no `raw/` twin or `wiki/` page is written, and the user is told why
   the conversion failed
 
-### Requirement: Dual-voice summary pages
+### Requirement: Two-section summary pages
 
-A `summary` page SHALL carry two distinct sections: a `## Summary` section
-containing the LLM's neutral distillation of the source, and a `## Why this
-matters` section containing the significance of the resource to the curator. The
-`## Why this matters` section is **endorsement-gated rather than
-authorship-gated**: it MAY be drafted by the LLM while the page carries
-`status: provisional`, and it becomes curator-endorsed when the page is moved to
-`status: reviewed`. On the interactive path the curator supplies this commentary in
-their own words during the Phase 2 interview and the page is `reviewed` on commit.
-On the unattended path the LLM drafts it — seeded by the curator's queue note where
-one was given — and the page is `provisional` until reviewed. A page carrying
-`status: reviewed` SHALL mean the curator stands behind its stated significance,
-whoever first drafted the prose. The `status` front-matter field SHALL be the sole
-marker of that distinction; the body SHALL NOT carry an inline authorship
-disclaimer, so that endorsement is a single front-matter change and no stale
-disclaimer can survive review.
+A `summary` page SHALL carry a `## Summary` section with the LLM's neutral
+distillation of the source and a `## Why this matters` section with the
+resource's significance to the curator. On the interactive path the curator
+supplies the significance during the Phase 2 interview; on the unattended path
+the LLM drafts it, seeded by the queue note when one was given. The body SHALL
+NOT carry an inline authorship disclaimer.
 
 #### Scenario: Both sections are present
 
@@ -392,19 +384,13 @@ disclaimer can survive review.
 - **WHEN** the user has not yet provided commentary during an interactive Phase 2
   interview
 - **THEN** the LLM prompts for the user's "why this matters" before committing the
-  summary page, and the committed page carries `status: reviewed`
+  summary page
 
-#### Scenario: Drafted commentary is marked provisional
+#### Scenario: Drafted commentary carries no disclaimer
 
 - **WHEN** a summary's `## Why this matters` is drafted by the LLM on the
   unattended path
-- **THEN** the page carries `status: provisional` and its body contains no inline
-  authorship disclaimer
-
-#### Scenario: Endorsement is a single-field change
-
-- **WHEN** the curator endorses a provisional page's drafted commentary as written
-- **THEN** only its `status` changes to `reviewed`, with no body edit required
+- **THEN** the page body contains no inline authorship disclaimer
 
 ### Requirement: Page prose is independent of corpus membership
 
@@ -430,6 +416,11 @@ to the corpus are permitted, because their truth does not depend on corpus membe
 
 This constraint SHALL NOT apply to `wiki/log.md`, whose entries are dated,
 append-only records of what was true when written.
+
+A violation found after a page is written MAY be corrected by a curator edit. For a
+`summary`, this SHALL be the one permitted exception to writing it once at ingest,
+and it SHALL extend only to removing or rephrasing the offending claim, never to
+revising the distillation.
 
 #### Scenario: Absence claim is refused at authoring
 
@@ -462,18 +453,20 @@ append-only records of what was true when written.
   time the entry was written
 - **THEN** that entry is conformant and is never rewritten
 
-### Requirement: Tag vocabulary consistency at ingest
+#### Scenario: Stale claim in a summary is corrected narrowly
 
-When proposing tags, both the interactive and unattended ingest paths SHALL prefer
-tags already in use elsewhere in the wiki over minting new ones. On the interactive
-path any newly-minted tag SHALL be surfaced explicitly for the user to approve or
-redirect before the page is committed. On the **unattended path there is no
-approver**, so tag approval is deferred rather than skipped: a newly-minted tag MAY
-be committed, but the page carries `status: provisional` and the ingest's
-`wiki/log.md` entry SHALL name every tag the run minted, so new vocabulary is
-visible at review and can be redirected by `curate`. Corpus-wide reconciliation of
-existing near-duplicate or orphan tags remains out of scope for ingest and is
-handled by the `lint` command.
+- **WHEN** the curator corrects a corpus-membership claim found in an existing
+  `summary` page
+- **THEN** only that claim is removed or rephrased and the surrounding distillation
+  is left as written
+
+### Requirement: Tag vocabulary preference at ingest
+
+Both ingest paths SHALL prefer tags already in use over minting new ones. On the
+interactive path a newly-minted tag SHALL be surfaced for the user to approve or
+redirect before commit. On the unattended path a new tag MAY be committed, and
+the run's `wiki/log.md` entry SHALL name every tag it minted. Corpus-wide
+reconciliation of near-duplicate or orphan tags is left to `lint`.
 
 #### Scenario: Existing tags are preferred
 
@@ -488,18 +481,11 @@ handled by the `lint` command.
 - **THEN** it flags the tag as new so the user can approve or redirect it before
   commit
 
-#### Scenario: Unattended new tags are logged for deferred approval
+#### Scenario: Unattended new tags are logged
 
 - **WHEN** the unattended path commits a page carrying a tag not already present
   in the wiki
-- **THEN** the page carries `status: provisional` and that ingest's `wiki/log.md`
-  entry names the newly-minted tag
-
-#### Scenario: Deferred tag approval happens at review
-
-- **WHEN** the curator reviews a provisional page that introduced a new tag
-- **THEN** they can approve it or redirect it to an existing tag via `curate`'s
-  retag verb
+- **THEN** that ingest's `wiki/log.md` entry names the newly-minted tag
 
 ### Requirement: Bookkeeping updates on ingest
 
@@ -531,4 +517,3 @@ SHALL resolve by page filename independent of folder location.
 - **WHEN** a summary page references an entity or concept page
 - **THEN** the reference is written as an Obsidian `[[wikilink]]` that resolves
   by filename
-

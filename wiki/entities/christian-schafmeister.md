@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: Christian Schafmeister
 created: 2026-10-31
 tags: [lisp, language-implementation]

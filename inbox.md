@@ -20,7 +20,7 @@ an optional separator (` — ` or ` - `) followed by a free-text curator note.
 | `- [!]`  | parked after a failure, annotated with the date and reason — not retried |
 
 The note, when present, is the curator's reason for saving the link. It seeds the
-drafted `## Why this matters` on the resulting summary page, so a provisional
+drafted `## Why this matters` on the resulting summary page, so the
 page's significance is anchored to why the link was actually saved rather than
 purely machine-inferred. It costs nothing to leave off.
 

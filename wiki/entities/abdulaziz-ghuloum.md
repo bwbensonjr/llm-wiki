@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: Abdulaziz Ghuloum
 created: 2026-08-05
 tags: [programming-languages, language-implementation, scheme, lisp]

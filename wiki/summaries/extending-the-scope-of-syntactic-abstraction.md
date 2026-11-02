@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: Extending the Scope of Syntactic Abstraction
 created: 2026-10-31
 source: inbox-files/292540.292559.pdf

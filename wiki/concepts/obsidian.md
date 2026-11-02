@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Obsidian
 created: 2026-06-23
 tags: [knowledge-management, obsidian]

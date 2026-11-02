@@ -6,10 +6,9 @@ Drain the root `inbox.md` queue of sources into the wiki with no interview
 present. This is the `ingest-inbox` command: it reuses the same `wiki-capture`
 Phase 1 as the interactive `file` command, then authors Phase 2 pages on its own
 judgment — classification, tags, hub links, figure decisions, and drafted
-`## Why this matters` — committing them as `status: provisional` so a later
-`curate` run can endorse or correct them. Each entry succeeds or is parked
-independently, and already-ingested sources are skipped, so re-runs are
-idempotent.
+`## Why this matters` — committing them as ordinary pages, final as written.
+Each entry succeeds or is parked independently, and already-ingested sources are
+skipped, so re-runs are idempotent.
 
 ## Requirements
 ### Requirement: Inbox source queue
@@ -96,31 +95,6 @@ the constraint, and SHALL NOT write it into the page.
 - **THEN** that observation appears in the ingest's `wiki/log.md` entry and does not
   appear in any knowledge page
 
-### Requirement: Unattended writes are provisional
-
-Every `wiki/` knowledge page written by the unattended path SHALL carry
-`status: provisional`. A hub page that the unattended path creates SHALL be
-written `status: provisional`. A hub page already carrying `status: reviewed` that
-the unattended path merely appends a source backlink to SHALL retain
-`status: reviewed`, so that settled hubs are not returned to the review queue by
-routine linking.
-
-#### Scenario: Unattended summary is provisional
-
-- **WHEN** the unattended path commits a summary page
-- **THEN** the page's front-matter carries `status: provisional`
-
-#### Scenario: Newly created hub is provisional
-
-- **WHEN** the unattended path creates an entity or concept hub that did not exist
-- **THEN** that hub is written with `status: provisional`
-
-#### Scenario: Reviewed hub is not reverted
-
-- **WHEN** the unattended path appends a source backlink to a hub whose status is
-  `reviewed`
-- **THEN** that hub's status remains `reviewed`
-
 ### Requirement: Curator note seeds drafted commentary
 
 When a queue entry carries a curator note, the unattended path SHALL use that note
@@ -138,7 +112,6 @@ SHALL be inferred from the source and its relationship to the existing corpus.
 - **WHEN** a queue entry has no curator note
 - **THEN** the drafted `## Why this matters` is inferred from the source and its
   connections to existing wiki pages, and the page is still written
-  `status: provisional`
 
 ### Requirement: Per-entry failure isolation
 
@@ -217,7 +190,7 @@ that capture already produced SHALL be left in place, immutable.
 For each successfully ingested entry the unattended path SHALL update `index.md`
 and append an entry to `wiki/log.md` identifying the run as unattended, then create
 one git commit for that source. After processing all entries the run SHALL push
-once to the default branch, so that provisional pages publish to the live site
+once to the default branch, so that the new pages publish to the live site
 without human contact. Before pushing, the run SHALL rebase on the remote; on
 conflict it SHALL abort the push, leave the commits local, and report the
 conflict. It SHALL never force-push and SHALL never resolve a content conflict

@@ -60,7 +60,7 @@ wrapping — a `[[wikilink]]` split across a newline does not resolve in Obsidia
 report it as broken.
 
 **Skip `wiki/log.md` in this check**, per `CLAUDE.md`. The log is append-only, so a
-link it contains can be un-made by a later `curate` rejection or merge that no
+link it contains can be un-made by a later rename, merge, or deletion that no
 operation is permitted to go back and repair. Reporting it would be reporting a
 defect nothing can fix. Note in passing if you like; never count it as a defect.
 

@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: Another Module System for Scheme
 created: 2026-11-01
 source: inbox-files/rees-another-module-system-for-scheme.md

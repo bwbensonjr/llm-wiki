@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Type Systems
 created: 2026-06-22
 tags: [type-systems, formal-methods]

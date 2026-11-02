@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: T (Programming Language)
 created: 2026-08-05
 tags: [scheme, lisp, programming-languages, language-implementation]

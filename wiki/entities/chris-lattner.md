@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: Chris Lattner
 created: 2026-07-08
 tags: [llvm, language-implementation, programming-languages]

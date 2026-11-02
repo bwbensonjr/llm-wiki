@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: Chloe Kim
 created: 2026-06-23
 tags: [llm-agents]

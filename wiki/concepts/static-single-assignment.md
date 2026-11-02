@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Static Single Assignment
 created: 2026-07-08
 tags: [language-implementation, programming-languages]

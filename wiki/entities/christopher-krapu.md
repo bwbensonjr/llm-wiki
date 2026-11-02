@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: Christopher Krapu
 created: 2026-06-23
 tags: [bayesian-statistics]

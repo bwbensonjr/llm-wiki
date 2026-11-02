@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Retrieval-Augmented Generation
 created: 2026-06-23
 tags: [llm-agents]

@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: Yaron Minsky
 created: 2026-06-22
 tags: [ocaml]

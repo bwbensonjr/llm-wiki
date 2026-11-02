@@ -1,6 +1,5 @@
 ---
 type: summary
-status: reviewed
 title: "ORBIT: An Optimizing Compiler for Scheme"
 created: 2026-08-05
 source: https://www.ccs.neu.edu/home/shivers/cs6983/papers/kranz-diss-tr632.pdf

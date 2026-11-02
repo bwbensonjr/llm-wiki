@@ -1,6 +1,5 @@
 ---
 type: summary
-status: reviewed
 title: "Clasp: Common Lisp Using LLVM and C++ for Molecular Metaprogramming"
 created: 2026-10-31
 source: https://www.youtube.com/watch?v=8X69_42Mj-g

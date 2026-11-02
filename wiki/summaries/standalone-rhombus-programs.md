@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: Standalone Rhombus Programs
 created: 2026-11-01
 source: https://docs.racket-lang.org/rhombus-guide/standalone.html

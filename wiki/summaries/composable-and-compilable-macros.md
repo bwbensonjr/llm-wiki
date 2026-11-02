@@ -1,6 +1,5 @@
 ---
 type: summary
-status: provisional
 title: "Composable and Compilable Macros: You Want It When?"
 created: 2026-10-31
 source: https://users.cs.utah.edu/plt/publications/macromod.pdf

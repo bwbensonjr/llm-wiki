@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Large Language Model
 created: 2026-06-23
 tags: [llm, machine-learning]

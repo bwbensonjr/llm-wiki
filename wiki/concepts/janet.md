@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Janet
 created: 2026-06-23
 tags: [janet, lisp, programming-languages]

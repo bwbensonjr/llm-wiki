@@ -1,6 +1,5 @@
 ---
 type: concept
-status: reviewed
 title: Perceptron
 created: 2026-06-23
 tags: [machine-learning, neural-networks]

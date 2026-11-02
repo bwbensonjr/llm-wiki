@@ -1,6 +1,5 @@
 ---
 type: entity
-status: reviewed
 title: R. Kent Dybvig
 created: 2026-08-05
 tags: [programming-languages, language-implementation, scheme, lisp, chez-scheme]
