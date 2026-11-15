@@ -2,7 +2,7 @@
 type: summary
 title: Extending the Scope of Syntactic Abstraction
 created: 2026-10-31
-source: inbox-files/292540.292559.pdf
+source: https://legacy.cs.indiana.edu/~dyb/pubs/popl99.ps.gz
 raw: raw/2026-10-31-292540-292559.md
 tags: [macros, scheme, chez-scheme, language-implementation, programming-languages]
 ---

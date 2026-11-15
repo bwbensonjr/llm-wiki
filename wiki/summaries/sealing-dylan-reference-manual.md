@@ -2,7 +2,7 @@
 type: summary
 title: Sealing (Dylan Reference Manual)
 created: 2026-11-01
-source: inbox-files/drm-sealing-chapter.md
+source: https://opendylan.org/books/drm/Sealing
 raw: raw/2026-11-01-9-sealing-the-dylan-reference-manual.md
 tags: [language-implementation, programming-languages, type-systems]
 ---

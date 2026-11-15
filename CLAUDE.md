@@ -24,7 +24,8 @@ operation. All judgment lives in `wiki/`.
 Every knowledge page carries a `type` front-matter field, one of:
 
 - `summary` — **source-anchored.** Exactly one per ingested source, written
-  once at ingest (see *Corpus independence* for the one authorized later edit).
+  once at ingest (two narrow later edits are authorized: see *Corpus independence*
+  and *Correcting a summary's `source:`*).
   The "leaves." Stored in `wiki/summaries/`.
 - `entity` — a person, organization, or place. A "hub." `wiki/entities/`.
 - `concept` — an abstract idea or topic. A "hub." `wiki/concepts/`.
@@ -99,6 +100,20 @@ A summary points both ways: `source:` to the live URL/path, `raw:` to the local
 twin. Its body has exactly two named sections: `## Summary` (LLM's neutral
 distillation) and `## Why this matters` (the resource's significance to the
 curator).
+
+**Correcting a summary's `source:`.** `source:` is the source's identity: the URL the
+curator queued, which the unattended duplicate check compares against. A summary
+filed before `--source-url` existed may instead record a local stand-in, such as a
+hand-fetched copy under `inbox-files/`. That directory is gitignored, so the path
+means nothing on another machine or on the published site, and a re-queue of the real
+URL would slip past the duplicate check. Such a `source:` **may be corrected** to the
+original URL. This is the second authorized exception to write-once, and it is
+narrower than the first: it changes that one front-matter line and nothing else, never
+the body. The raw twin keeps its own `source:` (it is immutable), so the two may
+disagree; `raw:` still ties them together, and the correction is recorded in
+`wiki/log.md` naming the old and new values. A `source:` that is already a working URL
+for the same work (a `doi.org` link where an `epdf` link was queued, say) is not a
+defect and is left alone.
 
 On the interactive path the curator supplies `## Why this matters` in their own
 words. On the unattended path the LLM drafts it, seeded by the `inbox.md` curator
@@ -211,8 +226,9 @@ phrase matcher would fire on exactly the sibling-orientation sentences the rule 
 It binds instead at authoring time on both paths. A violation found later — these
 claims go false after they are written — is corrected by an ordinary curator edit.
 
-Correcting one of these claims is the **one authorized exception** to a `summary` being
-written once at ingest, and it is narrow: it extends to removing or rephrasing the
+Correcting one of these claims is one of **two authorized exceptions** to a `summary`
+being written once at ingest (the other is *Correcting a summary's `source:`*, below the
+summary front-matter), and it is narrow: it extends to removing or rephrasing the
 offending clause and never to revising the distillation. Without the exception, the
 write-once rule would preserve a known-false sentence indefinitely.
 

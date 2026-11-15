@@ -2,7 +2,7 @@
 type: summary
 title: Another Module System for Scheme
 created: 2026-11-01
-source: inbox-files/rees-another-module-system-for-scheme.md
+source: https://mfleck.cs.illinois.edu/envision/scheme48/module/module.html
 raw: raw/2026-11-01-another-module-system-for-scheme.md
 tags: [scheme, macros, language-implementation, programming-languages]
 ---

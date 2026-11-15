@@ -2,7 +2,7 @@
 type: summary
 title: Implicit Phasing for R6RS Libraries
 created: 2026-10-31
-source: inbox-files/1291151.1291197.pdf
+source: https://legacy.cs.indiana.edu/~dyb/pubs/implicit-phasing.pdf
 raw: raw/2026-10-31-1291151-1291197.md
 tags: [macros, scheme, language-implementation, programming-languages]
 ---

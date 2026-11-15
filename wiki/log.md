@@ -581,3 +581,13 @@ so the log stays greppable by the stable `## [` prefix.
 - Figures: none localized (PDF route). Figure 1's three closure representations and the algorithm's tables are distilled into prose.
 - Gaps noticed: the LFP 1994 preliminary version ("Space-Efficient Closure Representations"), Appel & Shao's 1996 companion paper on stack versus heap locality, Shao's dissertation, and Clinger's 1998 formal definition of proper tail recursion and SSC are cited but were not ingested sources at the time of this run. No hub was minted for FLINT.
 
+## [2026-11-15] lint: correct summary sources that recorded local stand-ins
+
+- Run: curator-requested repair. Four summaries filed from hand-fetched copies before `--source-url` existed recorded a gitignored `inbox-files/` path as `source:`. Each is corrected to the URL the curator originally queued, under the newly documented *Correcting a summary's `source:`* exception in `CLAUDE.md`. Front-matter `source:` line only; no body text changed.
+- [[implicit-phasing-for-r6rs-libraries]]: `inbox-files/1291151.1291197.pdf` → https://legacy.cs.indiana.edu/~dyb/pubs/implicit-phasing.pdf
+- [[extending-the-scope-of-syntactic-abstraction]]: `inbox-files/292540.292559.pdf` → https://legacy.cs.indiana.edu/~dyb/pubs/popl99.ps.gz (the ingested copy was the ACM PDF of the same POPL '99 paper).
+- [[sealing-dylan-reference-manual]]: `inbox-files/drm-sealing-chapter.md` → https://opendylan.org/books/drm/Sealing (content was assembled from the chapter's subpages).
+- [[another-module-system-for-scheme]]: `inbox-files/rees-another-module-system-for-scheme.md` → https://mfleck.cs.illinois.edu/envision/scheme48/module/module.html (content was assembled from node1 through node10).
+- Raw twins are immutable and keep their `inbox-files/` sources, so for these four the twin and summary `source:` differ; `raw:` links them.
+- Left alone: [[the-development-of-chez-scheme]], [[a-nanopass-framework-for-commercial-compiler-development]], and [[implementation-strategies-for-first-class-continuations]] record working `doi.org` URLs rather than the queued `epdf` and Springer strings.
+
