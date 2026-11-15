@@ -20,6 +20,9 @@ continuation runtime model and the [[continuation-passing-style]] compilation
 strategy that [[compiling-with-continuations-and-llvm|Farvardin and Reppy]] carry
 to an [[llvm]] backend; their work is implemented in the Parallel ML (PML)
 compiler of the Manticore system and is intended to transfer back to SML/NJ.
+SML/NJ's closure representation is described in
+[[efficient-and-safe-for-space-closure-conversion|Shao and Appel]]: safely linked closures
+and callee-save registers on a stackless runtime, satisfying the safe-for-space rule.
 Other implementations take different backend strategies — MLton uses
 trampolining over LLVM, and SML# also targets LLVM.
 
@@ -28,3 +31,4 @@ trampolining over LLVM, and SML# also targets LLVM.
 - [[compiling-with-continuations-and-llvm|Compiling with Continuations and LLVM]]
 - [[lambda-the-ultimate-label-a-simple-optimizing-compiler-for-scheme|Lambda, the Ultimate Label: A Simple Optimizing Compiler for Scheme]]
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
+- [[efficient-and-safe-for-space-closure-conversion|Efficient and Safe-for-Space Closure Conversion]]

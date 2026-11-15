@@ -37,10 +37,15 @@ same case [[nanopass]] makes later with measurements.
 
 His [[closure-conversion|closure-conversion]] work also raises the space question that
 became the [[safe-for-space|safe-for-space]] rule: linked closures can retain data that flat closures would
-let the collector reclaim.
+let the collector reclaim. With [[zhong-shao|Zhong Shao]] he then gave SML/NJ a closure
+algorithm that shares environments anyway without breaking the rule —
+[[efficient-and-safe-for-space-closure-conversion|safely linked closures]] plus
+continuation closures held in callee-save registers, which carries the stackless position
+into a measured 14% speedup and 32% less heap allocation.
 
 ## Sources
 
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
 - [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]
 - [[closure-conversion-is-safe-for-space|Closure Conversion Is Safe for Space]]
+- [[efficient-and-safe-for-space-closure-conversion|Efficient and Safe-for-Space Closure Conversion]]

@@ -34,6 +34,11 @@ parameters each member needs.
 Lifting is not unconditionally desirable. Each added parameter is a register that
 must be saved across a non-tail-recursive call, so Twobit lifts only until the body
 of a `lambda` already requires a closure — a local, incremental policy.
+[[efficient-and-safe-for-space-closure-conversion|Shao and Appel]] make the same point in
+register terms: putting a known function's whole environment in registers raises register
+pressure in every caller that also has it free, producing repeated save and reload
+traffic. Their closure-strategy analysis caps a known function's register slots by its
+callers' budgets, so lifting is partial and sometimes declined in favor of a heap closure.
 
 **Relationship to [[closure-conversion]].** They are largely the same transformation
 under two names: Clinger and Hansen note that what Twobit calls lambda lifting is
@@ -58,3 +63,4 @@ heap-allocated in a closure regardless.
 - [[lightweight-closure-conversion|Lightweight Closure Conversion]]
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
 - [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]
+- [[efficient-and-safe-for-space-closure-conversion|Efficient and Safe-for-Space Closure Conversion]]

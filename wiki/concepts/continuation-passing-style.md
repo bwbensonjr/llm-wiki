@@ -56,3 +56,4 @@ constant.
 - [[lightweight-closure-conversion|Lightweight Closure Conversion]]
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
 - [[closure-conversion-is-safe-for-space|Closure Conversion Is Safe for Space]]
+- [[efficient-and-safe-for-space-closure-conversion|Efficient and Safe-for-Space Closure Conversion]]

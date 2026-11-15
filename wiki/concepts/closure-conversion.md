@@ -56,6 +56,16 @@ supplies a cheap version of the analysis: *single assignment analysis*, a first-
 closure analysis that identifies parameters assigned once to a `lambda` and called as
 often as referenced, which are therefore known local procedures needing no closure.
 
+The representation question has a space dimension as well as a cost one.
+[[efficient-and-safe-for-space-closure-conversion|Shao and Appel]] show that ORBIT-style
+sharing, like linked closures generally, can retain dead data, and answer with **safely
+linked closures**: each closure holds only its own free variables, but variables with the
+same lifetime are grouped into one record that several closures share, never more than two
+levels deep. Their analysis decides register slots per closure from variable lifetimes and
+loop nesting rather than from the kind of construct, and caps how much of a known
+function's environment goes into registers by the register budget of its callers.
+[[optimizing-closures-in-o-0-time|Chez]] weighs that design and keeps flat closures instead.
+
 ## Sources
 
 - [[rabbit-a-compiler-for-scheme|RABBIT: A Compiler for Scheme]]
@@ -70,3 +80,4 @@ often as referenced, which are therefore known local procedures needing no closu
 - [[closure-conversion-is-safe-for-space|Closure Conversion Is Safe for Space]]
 - [[safe-for-space|Safe for Space]]
 - [[flow-directed-lightweight-closure-conversion|Flow-Directed Lightweight Closure Conversion]]
+- [[efficient-and-safe-for-space-closure-conversion|Efficient and Safe-for-Space Closure Conversion]]

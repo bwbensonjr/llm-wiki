@@ -570,3 +570,14 @@ so the log stays greppable by the stable `## [` prefix.
 - Figures: inspected the localized SVG dependency map by rendering a temporary PNG outside the repository. Distilled its three groups, scale, and dependency depth into summary prose. Promoted none; the immutable SVG remains linked from its raw twin.
 - Gaps noticed: the source's earlier auto-formalisation-of-law discussion and global-law code repository are linked references, not independently ingested sources in this operation. Applicability to other legislative domains was not established by the tax article.
 - Inbox entry checked off; original curator note retained.
+
+## [2026-11-15] ingest: Efficient and Safe-for-Space Closure Conversion
+
+- Run: unattended (`ingest-inbox`), resolving parked inbox line 101 from a curator drop. Source: https://dl.acm.org/doi/epdf/10.1145/345099.345125 (Shao & Appel, TOPLAS 22(1), 2000).
+- Acquisition: the automatic chain failed earlier today (bot check on the `epdf` and rewritten `pdf` URLs, no usable OpenAlex PDF, no arXiv match, direct fetch 403, no Wayback snapshot). The curator downloaded the PDF in a browser and dropped it at `inbox-files/efficient-and-safe-for-space-closure-conversion.pdf`. Captured with `--source-url`; twin `raw/2026-11-15-efficient-and-safe-for-space-closure-conversion.md` records `acquired-via: manual` and `local-copy:`. Converter: docling.
+- Pages: created [[efficient-and-safe-for-space-closure-conversion]] and entity [[zhong-shao]]. Notes added to [[closure-conversion]], [[safe-for-space]], [[andrew-appel]], [[standard-ml]], and [[lambda-lifting]]; source backlink added to [[continuation-passing-style]]. Index updated.
+- Curator note: Shao & Appel's nested, shared closures as the alternative to flat closures that Keep's O(0) paper weighs, and as the algorithm behind the safe-for-space rule. The significance section is built on both points.
+- Tags minted: none. Reused `programming-languages`, `language-implementation`, `continuations`, `standard-ml`.
+- Figures: none localized (PDF route). Figure 1's three closure representations and the algorithm's tables are distilled into prose.
+- Gaps noticed: the LFP 1994 preliminary version ("Space-Efficient Closure Representations"), Appel & Shao's 1996 companion paper on stack versus heap locality, Shao's dissertation, and Clinger's 1998 formal definition of proper tail recursion and SSC are cited but were not ingested sources at the time of this run. No hub was minted for FLINT.
+

@@ -31,12 +31,22 @@ which might otherwise be reclaimed" — and the concern is live rather than hist
 JavaScript's V8 engine shares environments in a way that is not safe for space, per
 [[closure-conversion-is-safe-for-space|Paraskevopoulou and Appel]].
 
+The rule as SML/NJ states it, in
+[[efficient-and-safe-for-space-closure-conversion|Shao and Appel]], is that *any local
+variable binding must be unreachable after its last use within its scope*. They report
+real programs whose live data was 2 to 80 times larger than necessary before SML/NJ obeyed
+it, and argue that stack frames violate it too: a function binding a series of large
+intermediate results keeps all of them live until it returns. Their safely linked closures
+show that sharing and space safety are compatible, as long as shared records group only
+variables with the same lifetime.
+
 Where the property bites is in deciding how far to optimize closures.
 [[optimizing-closures-in-o-0-time|Chez Scheme's]] optimization suite treats it as a hard
 constraint: every transformation must preserve space safety and must never add allocation
 or memory operations relative to naive flat closures, so flat-closure performance is a
-floor a programmer can rely on. That constraint is also part of why Chez declines Shao and
-Appel's nested representation and optimizes the flat model instead — and why
+floor a programmer can rely on. That constraint is also part of why Chez declines
+[[efficient-and-safe-for-space-closure-conversion|Shao and Appel's]] nested representation
+and optimizes the flat model instead — and why
 [[the-development-of-chez-scheme|Chez's]] original choice of flat closures is a space
 decision as much as an access-cost one.
 
@@ -59,3 +69,4 @@ extensional correctness guarantees.
 - [[continuation-passing-closure-passing-style|Continuation-Passing, Closure-Passing Style]]
 - [[optimizing-closures-in-o-0-time|Optimizing Closures in O(0) Time]]
 - [[closure-conversion-is-safe-for-space|Closure Conversion Is Safe for Space]]
+- [[efficient-and-safe-for-space-closure-conversion|Efficient and Safe-for-Space Closure Conversion]]
