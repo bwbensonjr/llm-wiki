@@ -392,3 +392,43 @@ def test_opaque_local_copy_without_h1_named_from_url(tmp_path, monkeypatch):
         tmp_path, str(local), RoutedSession(), source_url="https://example.org/pubs/implicit-phasing.pdf"
     )
     assert result.raw_path.name == "2026-11-15-implicit-phasing.md"
+
+
+def test_openalex_repeat_of_tried_url_is_recorded_as_skipped(tmp_path, docling):
+    # The Shao & Appel case: OpenAlex lists only the ACM PDF that the URL rewrite
+    # already fetched. The step must still appear in the attempt list.
+    session = RoutedSession(
+        types={EPDF: "text/html", ACM_PDF: "text/html"},
+        gets={
+            JINA_ENDPOINT + EPDF: BOT_CHECK,
+            JINA_ENDPOINT + ACM_PDF: BOT_CHECK,
+            acquire.OPENALEX_ENDPOINT + DOI: _openalex([ACM_PDF]),
+        },
+    )
+    with pytest.raises(AcquisitionError) as excinfo:
+        _capture(tmp_path, EPDF, session)
+    openalex = [a for a in excinfo.value.attempts if a["step"] == "openalex"]
+    assert openalex == [
+        {
+            "step": "openalex",
+            "url": ACM_PDF,
+            "outcome": "skipped: same URL already tried by url-rewrite",
+        }
+    ]
+    # The repeat URL was fetched only once (by the rewrite), never re-requested.
+    assert session.urls().count(JINA_ENDPOINT + ACM_PDF) == 1
+
+
+def test_fresh_candidates_still_yielded_after_a_skip(tmp_path, docling):
+    docling[OA_PDF] = PAPER
+    session = RoutedSession(
+        types={EPDF: "text/html", ACM_PDF: "text/html", OA_PDF: "application/pdf"},
+        gets={
+            JINA_ENDPOINT + EPDF: BOT_CHECK,
+            JINA_ENDPOINT + ACM_PDF: BOT_CHECK,
+            acquire.OPENALEX_ENDPOINT + DOI: _openalex([ACM_PDF, OA_PDF]),
+        },
+    )
+    result = _capture(tmp_path, EPDF, session)
+    assert result.acquired_via == "openalex"
+    assert result.fetched_from == OA_PDF

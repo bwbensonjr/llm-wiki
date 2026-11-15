@@ -241,6 +241,28 @@ def _wayback(ctx, url):
     return _lookup(ctx, WAYBACK, lookup, parse)
 
 
+def _fresh(ctx, step, urls, limit=None):
+    """Yield candidates for ``urls`` not tried yet; record each repeat as skipped.
+
+    An index often lists the very URL an earlier step already fetched (OpenAlex
+    commonly offers the publisher PDF the URL rewrite just tried). Recording the
+    skip keeps the attempt list complete, so a park annotation shows that the step
+    ran and why it fetched nothing, rather than omitting it.
+    """
+    yielded = 0
+    for url in urls:
+        earlier = next((a for a in ctx.attempts if a.url == url), None)
+        if earlier is not None:
+            ctx.attempts.append(
+                Attempt(step, url, f"skipped: same URL already tried by {earlier.step}")
+            )
+            continue
+        if limit is not None and yielded >= limit:
+            break
+        yielded += 1
+        yield Candidate(url, step)
+
+
 def candidates(ctx):
     """Yield acquisition candidates for ``ctx.source`` lazily, in chain order."""
     source = ctx.source
@@ -251,26 +273,21 @@ def candidates(ctx):
         return
 
     rewritten = rewrite_url(source)
-    if rewritten and not ctx.tried(rewritten):
-        yield Candidate(rewritten, URL_REWRITE)
+    if rewritten:
+        yield from _fresh(ctx, URL_REWRITE, [rewritten])
 
     doi = extract_doi(source)
     if doi:
-        for url in _openalex(ctx, doi)[:MAX_OA_CANDIDATES]:
-            if not ctx.tried(url):
-                yield Candidate(url, OPENALEX)
+        yield from _fresh(ctx, OPENALEX, _openalex(ctx, doi), MAX_OA_CANDIDATES)
         email = (ctx.env or {}).get("UNPAYWALL_EMAIL")
         if email:
-            for url in _unpaywall(ctx, doi, email)[:MAX_OA_CANDIDATES]:
-                if not ctx.tried(url):
-                    yield Candidate(url, UNPAYWALL)
+            yield from _fresh(
+                ctx, UNPAYWALL, _unpaywall(ctx, doi, email), MAX_OA_CANDIDATES
+            )
         if ctx.title:
-            for url in _arxiv(ctx, ctx.title):
-                if not ctx.tried(url):
-                    yield Candidate(url, ARXIV)
+            yield from _fresh(ctx, ARXIV, _arxiv(ctx, ctx.title))
 
     if ctx.primary_route == detect.JINA:
         yield Candidate(source, DIRECT)
 
-    for url in _wayback(ctx, source):
-        yield Candidate(url, WAYBACK)
+    yield from _fresh(ctx, WAYBACK, _wayback(ctx, source))
