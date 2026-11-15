@@ -5,6 +5,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 
 ## Summaries
 
+- [[formalizing-the-us-tax-code|Formalizing the US tax code]] - Lexifina's Lean-based drafting checks, bounded tax model, and rule searches; translation fidelity limits the guarantees and generalization to other legislation.
 - [[formal-methods-and-the-future-of-programming|Formal methods and the future of programming]] — Jane Street reverses course and embraces formal methods as agentic coding shifts the cost/benefit calculus.
 - [[plotnine-a-grammar-of-graphics-for-python|Plotnine: a grammar of graphics for Python]] — a Python plotting library built on the grammar of graphics, modeled on R's ggplot2.
 - [[karpathys-llm-wiki-pattern|Karpathy's LLM-Wiki pattern]] — the design basis for this project: an LLM incrementally builds and maintains a compounding Markdown wiki.
@@ -55,6 +56,7 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 
 ## Entities
 
+- [[lexifina|Lexifina]] - global-law project applying versioned legislation, AI, and Lean to drafting checks and executable legal models.
 - [[jane-street|Jane Street]] — trading firm known for its OCaml use and language tooling.
 - [[yaron-minsky|Yaron Minsky]] — brought OCaml to Jane Street (2002); author of the formal-methods announcement.
 - [[andrej-karpathy|Andrej Karpathy]] — AI researcher; author of the LLM-Wiki pattern.
@@ -88,6 +90,8 @@ Catalog of every page in the wiki, grouped by type. Each entry is a
 
 ## Concepts
 
+- [[legislation-formalization|Legislation Formalization]] - machine-checkable statutory structures and rules, separating formal consequences from fidelity to legal meaning.
+- [[lean-proof-assistant|Lean Proof Assistant]] - programming language and proof assistant used to check definitions, evidence, and properties over modeled inputs.
 - [[formal-methods|Formal Methods]] — rigorous techniques for proving software properties; historically costly.
 - [[type-systems|Type Systems]] — static checks as a lightweight formal method giving universal guarantees.
 - [[agentic-coding|Agentic Coding]] — using LLM agents to write code; creates a verification bottleneck.

@@ -560,3 +560,13 @@ so the log stays greppable by the stable `## [` prefix.
 - cited: [[composable-and-compilable-macros]], [[implicit-phasing-for-r6rs-libraries]], [[extending-the-scope-of-syntactic-abstraction]], [[another-module-system-for-scheme]], [[clhs-semantic-constraints]], [[world-age-in-julia]], [[dylan]], [[sealing-dylan-reference-manual]], [[define-sealed-domain]], [[chez-scheme-system-operations]], [[porting-racket-to-chez-scheme]], [[flow-directed-lightweight-closure-conversion]], [[raco-exe-creating-stand-alone-executables]], [[standalone-rhombus-programs]], [[common-lisp-cookbook-scripting-and-executables]], [[sbcl-a-sanely-bootstrappable-common-lisp]], [[why-janet]], [[clasp]], [[lessons-learned-implementing-common-lisp-with-llvm]], [[separate-compilation]].
 - coverage gaps noted at query time: no ingested source treats LLVM-specific module linkage or symbol naming for a Lisp, no dedicated tree-shaker paper, and ECL's compile-to-C design appears only via the Cookbook. The answer's LLVM linkage/LTO remarks are marked as not corpus-backed.
 - tags minted: none.
+
+## [2026-11-15] ingest: Formalizing the US tax code
+
+- Run: unattended (`ingest-inbox`). Source: https://lexifina.com/blog/formalizing-the-us-tax-code. Converter: jina. Immutable twin: `raw/2026-11-15-formalizing-the-us-tax-code.md`.
+- Created [[formalizing-the-us-tax-code]], entity [[lexifina]], and concepts [[legislation-formalization]] and [[lean-proof-assistant]]. Added notes and source backlinks to [[formal-methods]] and [[agentic-coding]], and cataloged the new pages in the index.
+- Curator note: interest in applicability beyond tax law. The significance section distinguishes plausible transfer of structural checks and model validation from demonstrated generality; the article's tax findings remain attributed reports, with translation, coverage, and expert-review limits explicit.
+- Tags minted: `legislation-formalization`. Other tags reused: `formal-methods`, `program-verification`, `agentic-coding`.
+- Figures: inspected the localized SVG dependency map by rendering a temporary PNG outside the repository. Distilled its three groups, scale, and dependency depth into summary prose. Promoted none; the immutable SVG remains linked from its raw twin.
+- Gaps noticed: the source's earlier auto-formalisation-of-law discussion and global-law code repository are linked references, not independently ingested sources in this operation. Applicability to other legislative domains was not established by the tax article.
+- Inbox entry checked off; original curator note retained.

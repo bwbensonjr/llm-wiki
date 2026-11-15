@@ -20,8 +20,13 @@ codebase invariants — which shifts effort onto verifying their output.
   powerful feedback signals that improve their results.
 - This dynamic is why [[jane-street|Jane Street]] reconsidered formal methods in
   2026.
+- [[lexifina|Lexifina]] applies agents to translate tax rules into
+  [[lean-proof-assistant|Lean]], with separate-agent review and comparisons
+  against other calculators. Its reported model errors illustrate why feedback
+  must test the translation as well as the resulting code.
 
 ## Sources
 
 - [[formal-methods-and-the-future-of-programming|Formal methods and the future of programming]]
 - [[mcp-is-dead|MCP is dead]]
+- [[formalizing-the-us-tax-code|Formalizing the US tax code]]
