@@ -61,13 +61,34 @@ The web/Jina route is the only one affected; PDFs and other files ignore this.
 
 - **On success** it prints a JSON object to stdout:
   `{"raw_path": ..., "source": ..., "converter": ..., "detected_type": ...,
-  "title": ..., "images": ...}` (`images` — a `kept`/`skipped` report — present
-  whenever localization ran). Parse it and keep `raw_path` and `source`. Use the
-  returned `source`, not the string you were given, as the summary's `source:`.
-  They differ for a YouTube link, which is canonicalized.
-- **On failure** it prints a JSON `{"error": ...}` to stderr and exits non-zero,
-  having written nothing. **Stop here** and report the failure reason to the
-  user. Do not write any `wiki/` files.
+  "title": ..., "acquired_via": ..., "images": ...}` (`images` — a
+  `kept`/`skipped` report — present whenever localization ran; `fetched_from`
+  present when the content came from a fallback URL rather than the source itself).
+  Parse it and keep `raw_path` and `source`. Use the returned `source`, not the
+  string you were given, as the summary's `source:`. They differ for a YouTube
+  link, which is canonicalized. Mention a non-primary `acquired_via` to the user
+  and in the log entry (e.g. "fetched from an open-access copy").
+- **On failure** it prints a JSON `{"error": ..., "attempts": [...], "title":
+  ...}` to stderr and exits non-zero, having written nothing. Capture has already
+  tried the fallback chain (publisher URL rewrite, open-access copies by DOI, a
+  direct fetch, a Wayback snapshot). Report the failure to the user with the
+  attempts summarized, and offer the manual route: name a drop path
+
+  ```bash
+  uv run wiki-capture --drop-path "<uri>" --title "<error title, if any>"
+  ```
+
+  and ask the user to save the source there by any legitimate means (their browser,
+  library access). Never try to get past a bot check, captcha, or paywall yourself.
+  When the user says the file is in place, capture it on behalf of the original
+  URL and continue with Phase 2 as usual:
+
+  ```bash
+  uv run wiki-capture "<dropped file>" --source-url "<uri>"
+  ```
+
+  If the user would rather not fetch it now, stop without writing any `wiki/`
+  files; they can queue it in `inbox.md` instead.
 
 Do **no** `wiki/` writes in this phase. If the user abandons after Phase 1, the
 only artifact is the harmless raw twin — which is correct.

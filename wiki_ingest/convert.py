@@ -43,6 +43,21 @@ class ConversionError(Exception):
     """Raised when the routed converter cannot produce Markdown."""
 
 
+class AcquisitionError(ConversionError):
+    """Raised when every acquisition candidate for a source failed.
+
+    Carries the full attempt list and the best title learned along the way, so
+    the caller can tell the curator what was already tried and name a drop path.
+    The message leads with the primary failure, so an actionable message such as
+    the missing-ghostscript one still reads first.
+    """
+
+    def __init__(self, message, attempts, title=None):
+        super().__init__(message)
+        self.attempts = attempts
+        self.title = title
+
+
 @dataclass
 class CaptureResult:
     raw_path: Path
@@ -51,8 +66,14 @@ class CaptureResult:
     title: str
     images: Optional[dict] = None
     # What the twin records as `source:` - the filed string, except for routes
-    # that canonicalize it (YouTube collapses every share-link form to one URL).
+    # that canonicalize it (YouTube collapses every share-link form to one URL),
+    # or the original URL given with `--source-url` for a hand-fetched copy.
     source: Optional[str] = None
+    # Which acquisition step produced the content, and the URL actually fetched
+    # when it differs from `source`.
+    acquired_via: str = "primary"
+    fetched_from: Optional[str] = None
+    local_copy: Optional[str] = None
 
 
 def _convert_jina(url, session=None):
@@ -107,6 +128,32 @@ def _convert_markitdown(source):
     if not markdown or not markdown.strip():
         raise ConversionError("MarkItDown produced empty Markdown")
     return markdown
+
+
+def _convert_direct_html(url, session=None):
+    """Fetch an HTML page ourselves and convert it locally with MarkItDown.
+
+    The `direct` fallback for a page Jina Reader was refused or stubbed on: the
+    page itself is often reachable when the reader service is not.
+    """
+    import requests
+
+    requester = session or requests
+    try:
+        resp = requester.get(url, timeout=120, headers=detect.PROBE_HEADERS)
+        resp.raise_for_status()
+    except requests.RequestException as exc:
+        raise ConversionError(f"direct fetch failed: {exc}") from exc
+    content_type = (resp.headers.get("content-type") or "").lower()
+    if content_type and "html" not in content_type:
+        raise ConversionError(f"direct fetch returned {content_type}, not HTML")
+    data = resp.content or (resp.text or "").encode("utf-8")
+    if not data.strip():
+        raise ConversionError("direct fetch returned an empty page")
+    with tempfile.TemporaryDirectory() as tmpdir:
+        page = Path(tmpdir) / "page.html"
+        page.write_bytes(data)
+        return _convert_markitdown(str(page))
 
 
 def _read_source_bytes(source, session=None):
@@ -259,11 +306,91 @@ def _unique_path(raw_dir, date, slug):
         n += 1
 
 
-def capture(source, raw_dir="raw", session=None, today=None, localize_images=True):
-    """Run Phase 1: detect, convert, and write the immutable raw twin.
+def _short(text, limit=160):
+    text = " ".join(str(text).split())
+    return text if len(text) <= limit else text[: limit - 3] + "..."
+
+
+def _acquire(source, session=None, env=None):
+    """Try acquisition candidates in order; return the first non-stub conversion.
+
+    Returns (markdown, recorded_source, route, detected_type, candidate). Nothing
+    is written here: every candidate is converted in memory and checked for a stub,
+    so capture stays all-or-nothing.
+    """
+    from . import acquire, stubs
+    from .slug import extract_title
+
+    ctx = acquire.Context(source=source, session=session, env=env or {})
+    remote = detect.is_url(source)
+    first_exc = None
+
+    for candidate in acquire.candidates(ctx):
+        try:
+            if candidate.step == acquire.DIRECT:
+                route, detected = detect.MARKITDOWN, "text/html"
+                markdown = _convert_direct_html(candidate.url, session=session)
+                recorded = source
+            else:
+                route, detected = detect.detect(candidate.url, session=session)
+                if candidate.step == acquire.PRIMARY:
+                    ctx.primary_route = route
+                markdown, recorded = convert_with_source(
+                    candidate.url, route, session=session
+                )
+                if candidate.step != acquire.PRIMARY:
+                    recorded = source
+        except (detect.DetectionError, ConversionError) as exc:
+            first_exc = first_exc or exc
+            ctx.record(candidate, _short(exc))
+            continue
+
+        reason = stubs.classify(markdown, route, remote=remote)
+        if reason:
+            # A reader shell or thin cover page usually still carries the real
+            # title; an interstitial or error page never does.
+            if "bot check" not in reason and "error page" not in reason:
+                ctx.learn_title(extract_title(markdown))
+            first_exc = first_exc or ConversionError(
+                f"capture rejected as a stub: {reason}"
+            )
+            ctx.record(candidate, f"stub: {reason}")
+            continue
+
+        return markdown, recorded, route, detected, candidate
+
+    # A source with a single possible candidate (a local file, a YouTube video)
+    # fails exactly as it did before the chain existed.
+    if len(ctx.attempts) == 1 and first_exc is not None:
+        raise first_exc
+    tried = "; ".join(
+        f"{a.step} {a.outcome}" for a in ctx.attempts[1:]
+    )
+    raise AcquisitionError(
+        f"{_short(first_exc, 300)}; also tried: {tried}",
+        attempts=[a.as_dict() for a in ctx.attempts],
+        title=ctx.title,
+    )
+
+
+def capture(
+    source,
+    raw_dir="raw",
+    session=None,
+    today=None,
+    localize_images=True,
+    source_url=None,
+    env=None,
+):
+    """Run Phase 1: acquire, convert, and write the immutable raw twin.
 
     Returns a CaptureResult. Raises DetectionError or ConversionError before
-    writing anything if the source cannot be reached or converted. When
+    writing anything if the source cannot be reached or converted; when a URL
+    source exhausts the fallback chain the error is an AcquisitionError carrying
+    every attempt. ``source_url`` captures a local file on behalf of its original
+    URL: the twin records the URL as `source:` and the file as `local-copy:`.
+    ``env`` supplies optional configuration (`UNPAYWALL_EMAIL`) and defaults to
+    the process environment. When
     ``localize_images`` is set (the default) and the source took the Jina route,
     that source's content images are downloaded into ``raw/assets/<twin-stem>/``
     and the twin's links are rewritten to the local copies before the twin is
@@ -271,13 +398,43 @@ def capture(source, raw_dir="raw", session=None, today=None, localize_images=Tru
     content images downloads nothing; pass ``localize_images=False`` to suppress
     localization entirely.
     """
-    route, detected_type = detect.detect(source, session=session)
-    markdown, recorded_source = convert_with_source(source, route, session=session)
+    import os
+
+    from . import acquire
+
+    if source_url is not None:
+        if detect.is_url(source):
+            raise ConversionError("--source-url requires a local file as the source")
+        if not detect.is_url(source_url):
+            raise ConversionError(f"--source-url is not an http(s) URL: {source_url}")
+
+    if env is None:
+        env = dict(os.environ)
+    markdown, recorded_source, route, detected_type, candidate = _acquire(
+        source, session=session, env=env
+    )
+
+    acquired_via = candidate.step
+    fetched_from = None
+    local_copy = None
+    if source_url is not None:
+        recorded_source = source_url
+        acquired_via = acquire.MANUAL
+        local_copy = source
+    elif candidate.url != recorded_source and candidate.step != acquire.PRIMARY:
+        fetched_from = candidate.url
 
     from .slug import extract_title
 
-    title = extract_title(markdown) or twin_slug(source, markdown)
-    slug = twin_slug(source, markdown)
+    # Name a hand-fetched copy after its file when that name reads like words:
+    # drop paths are named from the source's title, so the file name is usually a
+    # better fallback than the URL's last path segment. An opaque name such as
+    # `1291151.1291197.pdf` falls back to the URL instead.
+    name_source = source
+    if source_url is not None and not re.search(r"[A-Za-z]{3,}", Path(source).stem):
+        name_source = source_url
+    title = extract_title(markdown) or twin_slug(name_source, markdown)
+    slug = twin_slug(name_source, markdown)
     date = (today or datetime.date.today()).isoformat()
 
     raw_dir = Path(raw_dir)
@@ -304,7 +461,10 @@ def capture(source, raw_dir="raw", session=None, today=None, localize_images=Tru
         f"source: {recorded_source}\n"
         f"fetched-at: {date}\n"
         f"converter: {route}\n"
-        "---\n\n"
+        f"acquired-via: {acquired_via}\n"
+        + (f"fetched-from: {fetched_from}\n" if fetched_from else "")
+        + (f"local-copy: {local_copy}\n" if local_copy else "")
+        + "---\n\n"
     )
     # Write only after a successful in-memory conversion (all-or-nothing).
     path.write_text(front_matter + markdown, encoding="utf-8")
@@ -316,4 +476,7 @@ def capture(source, raw_dir="raw", session=None, today=None, localize_images=Tru
         title=title,
         images=images,
         source=recorded_source,
+        acquired_via=acquired_via,
+        fetched_from=fetched_from,
+        local_copy=local_copy,
     )

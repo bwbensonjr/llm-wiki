@@ -71,8 +71,16 @@ Raw twin — `raw/<date>-<slug>.md`:
 source: <original URL or local path>
 fetched-at: <YYYY-MM-DD>
 converter: jina | docling | markitdown | ghostscript+docling | youtube
+acquired-via: primary | url-rewrite | openalex | unpaywall | arxiv | direct | wayback | manual
+fetched-from: <URL actually fetched>      # only when it differs from source:
+local-copy: <inbox-files/... path>        # only for a hand-fetched copy
 ---
 ```
+
+`source:` is always the original URL the curator queued, whatever produced the
+content; `acquired-via:` and `fetched-from:` say where it really came from (see
+*Fallback acquisition*). Twins written before these fields existed lack them and
+stay as written.
 
 Summary page — `wiki/summaries/<slug>.md`:
 
@@ -213,10 +221,24 @@ write-once rule would preserve a known-false sentence indefinitely.
 `inbox.md` at the **repo root** is the queue of sources awaiting unattended
 ingest. Each entry is one Markdown checklist line — a URL or local path, plus an
 optional separator and free-text curator note. The checkbox carries the state:
-`- [ ]` unprocessed, `- [x]` ingested, `- [!]` parked after a failure with a
-dated reason. The unattended path updates checkboxes in place and **never deletes
-an entry**, which is what makes re-runs idempotent and keeps the file a legible
-record of what was queued.
+`- [ ]` unprocessed, `- [x]` ingested, `- [!]` parked and **needing the curator**,
+`- [-]` dead or rejected (out of scope, not a single document, or demoted by the
+curator; never retried, needs nothing). The unattended path updates checkboxes in
+place and **never deletes an entry**, which is what makes re-runs idempotent and
+keeps the file a legible record of what was queued.
+
+**The manual-fetch loop.** A `- [!]` annotation records the date, the reason, the
+attempts already made, and a drop path:
+`— 2026-11-15: bot check; tried url-rewrite, openalex (no OA PDF), wayback (none)
+→ drop: inbox-files/<title-slug>.pdf`. The curator fetches the source by any
+legitimate means (a browser, library access) and saves it at that path; any
+extension with the same stem counts, so an assembled `.md` can satisfy a `.pdf`
+drop. The next `ingest-inbox` run captures it with `--source-url` and flips **the
+same line** to `- [x]`; no second line is written. `wiki-capture --pending --text`
+lists what is waiting (offline), and with `LIBRARY_PROXY_PREFIX` set (e.g.
+`https://proxy.example.edu/login?url=`, in `mise.local.toml`) it adds a proxied
+link for each. Parked lines written before drop paths existed show as "no drop
+path"; adding a `→ drop:` token by hand opts one into the loop.
 
 The curator note is the only genuine curator voice available at unattended ingest
 time; when present it seeds that page's drafted `## Why this matters`.
@@ -279,6 +301,49 @@ content type takes precedence over extension) and routes:
 - any other file type → MarkItDown
 
 Conversion is all-or-nothing: on any failure, write nothing and report why.
+
+### Fallback acquisition
+
+The route above is the **primary** attempt. When it fails, or its output is a
+**stub**, `wiki-capture` tries further candidates in a fixed order, and each goes
+back through the same router:
+
+1. `url-rewrite` — known publisher forms (ACM `doi/epdf/`, `doi/abs/` →
+   `doi/pdf/`; arXiv `abs/` → `pdf/`).
+2. `openalex` — open-access PDF locations for the DOI extracted from the URL
+   (`doi.org`, ACM, Springer, any `10.NNNN/` path). Keyless.
+3. `unpaywall` — the same lookup, **only** when `UNPAYWALL_EMAIL` is set (Unpaywall
+   requires a contact email; it is never defaulted and never written to a twin or
+   to `inbox.md`).
+4. `arxiv` — a title search, accepted only on an exact normalized title match.
+5. `direct` — after a failed or stubbed Jina primary: fetch the HTML ourselves and
+   convert it locally with MarkItDown (no image localization on this step).
+6. `wayback` — the Wayback Machine's closest `id_` snapshot of the URL.
+
+Steps self-select and run lazily, so a primary success costs nothing extra. Local
+files and YouTube videos have only the primary attempt.
+
+**Stubs are rejected before the twin write**, mechanically: Jina's own
+`Warning: Target URL returned error NNN` / CAPTCHA warnings, bot-check phrases
+("Just a moment...", "Performing security verification"), error-page titles,
+JavaScript reader shells (ACM ePDF), and, for PDF and PostScript from a URL, fewer
+than 150 words. A stub is a failed attempt, so no junk twin reaches `raw/`. The
+unattended path's plausibility judgment remains the second check for subtler cases
+(a bibliography-only extraction, a table-of-contents landing page).
+
+When every candidate fails, the error JSON carries `attempts` (step, URL, outcome)
+and `title` (the best title learned, e.g. from OpenAlex), which the unattended path
+uses for the park annotation and drop path.
+
+**Limits.** Acquisition never tries to defeat a bot check or captcha, never uses
+shadow libraries, and sends no curator data anywhere except the opt-in Unpaywall
+email. A source that only those would unlock goes to the curator as a manual
+fetch (see *The inbox queue*).
+
+**Hand-fetched copies keep their URL.** `wiki-capture <file> --source-url <url>`
+converts a local file but records `source: <url>`, `local-copy: <file>`, and
+`acquired-via: manual`, so the summary's `source:` and the duplicate check use the
+real URL rather than an `inbox-files/` path.
 
 **The PostScript route is two-stage**, because PostScript is a page-description
 language with no extractable structure: `gs` renders it to a temporary PDF and the
@@ -405,6 +470,10 @@ route) belongs in `mise.local.toml`, which is gitignored:
 # mise.local.toml  (do NOT commit)
 [env]
 JINA_API_KEY = "jina_..."
+# Optional: enables the Unpaywall fallback lookup (sent to Unpaywall only).
+UNPAYWALL_EMAIL = "you@example.org"
+# Optional: proxied links in `wiki-capture --pending`.
+LIBRARY_PROXY_PREFIX = "https://proxy.example.edu/login?url="
 ```
 
 mise merges `mise.local.toml` over `mise.toml`, so the key is on your

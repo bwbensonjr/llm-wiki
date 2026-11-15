@@ -17,7 +17,8 @@ an optional separator (` — ` or ` - `) followed by a free-text curator note.
 |----------|---------|
 | `- [ ]`  | unprocessed — the next run will ingest it |
 | `- [x]`  | ingested (or skipped as already ingested) — not retried |
-| `- [!]`  | parked after a failure, annotated with the date and reason — not retried |
+| `- [!]`  | parked, **needs you** — annotated with the date, reason, attempts tried, and a drop path; resolved when the file appears |
+| `- [-]`  | dead or rejected — out of scope, not a single document, or demoted by you; never retried, needs nothing |
 
 The note, when present, is the curator's reason for saving the link. It seeds the
 drafted `## Why this matters` on the resulting summary page, so the
@@ -32,8 +33,28 @@ is a no-op.
 - [ ] https://example.com/paper.pdf — worth it for the CPS angle
 - [ ] https://example.com/post
 - [x] https://example.com/already-ingested
-- [!] https://example.com/broken — 2026-08-05: docling failed, unparseable PDF
+- [!] https://example.com/broken — 2026-08-05: docling failed, unparseable PDF → drop: inbox-files/broken.pdf
+- [-] https://example.com/off-topic — 2026-08-05: outside the wiki's subject matter
 ```
+
+## Fetching parked sources by hand
+
+When capture cannot get a source (bot check, paywall, unreachable host, a page
+whose content is split across subpages), it parks the line with what it already
+tried and a drop path:
+
+    - [!] <url> — <note> — 2026-11-15: bot check; tried url-rewrite, openalex (no OA PDF), wayback (none) → drop: inbox-files/<title-slug>.pdf
+
+To resolve it, fetch the source yourself and save it at the drop path. Any
+extension with the same name counts, so an assembled `.md` can stand in for a
+`.pdf`. The next run ingests it under the original URL and checks off **the same
+line**; there is no need to add a new one. To see what is waiting:
+
+    uv run wiki-capture --pending --text
+
+Lines parked before drop paths existed show as "no drop path"; add
+`→ drop: inbox-files/<name>.<ext>` to one by hand to use this loop, or change its
+box to `[-]` to say it needs nothing.
 
 ## Queue
 

@@ -3,7 +3,7 @@ name: ingest-inbox
 description: Drain the llm-wiki inbox queue unattended. Reads inbox.md, skips already-ingested sources, captures each remaining link into an immutable raw twin, then authors wiki pages with no interview — classifying, tagging, linking hubs, judging figures, and drafting significance on its own — committing per source and pushing once at the end. Use when the user wants to run the batch ingest, drain the inbox, or ingest queued links unattended.
 metadata:
   author: llm-wiki
-  version: "1.0"
+  version: "1.1"
 ---
 
 # The `ingest-inbox` command
@@ -26,9 +26,22 @@ ordinary edit, so take the same care you would in an interactive `file`.
 
 ## Step 1 — parse the inbox
 
-Read `inbox.md` at the repo root. Consider **only** lines matching `- [ ]`.
-Entries marked `- [x]` (ingested) or `- [!]` (parked) are done — skip them
-silently; they are never retried.
+Read `inbox.md` at the repo root. Two kinds of entry are work for this run:
+
+- every `- [ ]` line (unprocessed), and
+- every `- [!]` line (parked, waiting on the curator) **whose drop file has
+  arrived**. Find these mechanically, never by eye:
+
+  ```bash
+  uv run wiki-capture --pending      # offline; prints {"pending": [...], "ready": [...]}
+  ```
+
+  Each `ready` item gives the inbox `line`, the original `source` URL, and the
+  dropped `file`. These are resolved in place (see 2b).
+
+Everything else is done — skip it silently: `- [x]` (ingested), `- [-]` (dead or
+rejected; never retried), and `- [!]` whose drop file has not arrived (or that has
+no drop path at all).
 
 Split each unprocessed line into:
 
@@ -57,7 +70,8 @@ discard or roll back work already committed for earlier entries.
 
 ### 2a. Skip duplicates
 
-Before capturing, resolve the entry to the form it would be recorded under, then
+For a resolved drop, the identity to check is the entry's original URL, not the
+dropped file's path. Before capturing, resolve the entry to the form it would be recorded under, then
 grep existing summary front-matter for that:
 
 ```bash
@@ -81,21 +95,41 @@ caught here — that is accepted; the curator can merge such duplicates by hand.
 Do **not** try to canonicalize URLs yourself. The only
 canonicalization is the mechanical YouTube rule inside `--canonical`.
 
-### 2b. Capture (mechanical, unchanged)
+### 2b. Capture (mechanical)
 
 Run the converter exactly as `file` does — same single-source signature, same
-routing, same automatic image localization:
+routing, same automatic image localization, same fallback chain:
 
 ```bash
 uv run wiki-capture "<source>"
 ```
 
+For a `- [!]` entry whose drop file arrived, capture the **file** on behalf of the
+entry's URL instead, so the twin and the summary record the real source:
+
+```bash
+uv run wiki-capture "<dropped file>" --source-url "<the entry's URL>"
+```
+
+That twin records `source: <url>`, `local-copy: <file>`, `acquired-via: manual`.
+Then continue with 2c onward exactly as for any entry.
+
+When the routed fetch fails or returns a stub (bot check, error page, reader
+shell), capture itself tries the fallback chain — publisher URL rewrite, open-access
+copies by DOI, a direct fetch, a Wayback snapshot — before giving up. Do not retry
+by hand or improvise other fetches; the chain is the whole automatic effort, and
+anything it cannot reach goes to the curator.
+
 - **On success** it prints JSON: `{"raw_path", "source", "converter",
-  "detected_type", "title", "images"}`. Parse it. Keep `raw_path`, `source`, and the
+  "detected_type", "title", "acquired_via", "images"}` (plus `fetched_from` when the
+  content came from another URL). Parse it. Keep `raw_path`, `source`, and the
   `images.kept` list. The summary's `source:` is the returned `source`, not the
-  inbox string. They differ for a YouTube link.
-- **On failure** it prints `{"error": ...}` to stderr, exits non-zero, and has
-  written nothing. Park the entry with the error and go to the next one.
+  inbox string. They differ for a YouTube link. Name a non-primary `acquired_via` /
+  `fetched_from` in the log entry.
+- **On failure** it prints `{"error": ..., "attempts": [...], "title": ...}` to
+  stderr, exits non-zero, and has written nothing (a stub is rejected before any
+  twin is written). Park the entry for the curator (2i) with a short reason, the
+  attempts summarized, and a drop path, and go to the next one.
 
 **PostScript sources** (`.ps`, `.eps`, `.ps.gz`) route through ghostscript to PDF and
 then Docling, and report `converter: ghostscript+docling`. ghostscript is an external
@@ -116,7 +150,9 @@ entity hub from a name that appears only in garbled caption text.
 
 ### 2c. Refuse an implausible capture
 
-Read the twin at `raw_path` and judge whether it is actually the source. Refuse
+Capture already rejects the unmistakable stubs mechanically, before writing; those
+never reach this step and leave no twin. This step is the judgment that catches
+what a pattern cannot. Read the twin at `raw_path` and judge whether it is actually the source. Refuse
 to author when the twin is:
 
 - **implausibly thin** for what the source claims to be — a few lines where an
@@ -126,9 +162,16 @@ to author when the twin is:
 - otherwise boilerplate navigation with no substance.
 
 On refusal: write **no** `wiki/` pages, park the entry `- [!]` with the reason
-(`2026-08-05: paywall stub, no article content`), and continue. **Leave the twin
-in place** under `raw/` — it was already written and is immutable; it is also the
-evidence for why the entry was parked.
+and a drop path (`2026-08-05: paywall stub, no article content → drop:
+inbox-files/<slug>.pdf`), and continue. **Leave the twin in place** under `raw/` —
+it was already written and is immutable; it is also the evidence for why the entry
+was parked.
+
+**Dead, not parked.** When the capture is genuine but the source is not worth
+ingesting at all — outside the wiki's subject matter, or not a single document (a
+site index, a search page) — mark it `- [-]` with the date and reason instead, and
+give no drop path. `[-]` means the curator needs to do nothing. A source you merely
+could not get is never `[-]`: getting it is exactly what the curator can do.
 
 This check is the difference between a bad fetch and a confidently-written
 published summary of nothing. When genuinely uncertain, park it: a parked entry
@@ -274,10 +317,29 @@ Update this entry's checkbox **in place**, never deleting the entry:
 
 - success → `- [x] <source> — <note>`
 - already ingested → `- [x] <source> — already ingested as [[<slug>]]`
-- failure or refusal → `- [!] <source> — <YYYY-MM-DD>: <reason>`
+- failure or refusal → `- [!] <source> — <note> — <YYYY-MM-DD>: <reason>; tried
+  <steps and outcomes, briefly> → drop: <drop path>`
+- dead or rejected → `- [-] <source> — <note> — <YYYY-MM-DD>: <reason>`
+- resolved drop → flip **that same line** from `- [!]` to `- [x]`, keep all its
+  existing text, and append ` — <YYYY-MM-DD>: fetched by hand from <file>`. Never
+  add a second inbox line for it.
+
+**The drop path** is named mechanically, never hand-slugified, from the best title
+the failure reported:
+
+```bash
+uv run wiki-capture --drop-path "<source>" --title "<error title, if any>"   # {"drop": ...}
+```
+
+Pass `--ext md` when what the curator must supply is an assembled page (content
+split across subpages) rather than a paper. Summarize the attempts from the error's
+`attempts` list, one short phrase each (`url-rewrite (bot check)`, `openalex (no OA
+PDF)`, `wayback (none)`), so the curator does not repeat them.
 
 A parked entry stops being retried on every run while staying visible to the
-curator. Include the inbox change in that source's commit.
+curator. Include the inbox change in that source's commit; for a parked or dead
+entry with no pages written, commit the inbox change alone
+(`git add inbox.md && git commit -m "Park: <source>"`).
 
 ---
 
@@ -303,8 +365,17 @@ If no source was committed, push nothing.
 ### Report
 
 Emit a per-entry outcome summary — one line per entry: ingested (with the page
-slug), skipped as duplicate, or parked (with the reason) — plus whether the push
-succeeded, was skipped, or aborted on conflict.
+slug), resolved from a drop, skipped as duplicate, parked (with the reason), or
+marked dead — plus whether the push succeeded, was skipped, or aborted on conflict.
+
+End with the **manual-fetch list**, so the curator sees what needs them:
+
+```bash
+uv run wiki-capture --pending --text
+```
+
+Include its output verbatim (it lists each waiting URL with its drop path, and a
+proxied link when `LIBRARY_PROXY_PREFIX` is configured).
 
 ---
 
@@ -319,7 +390,11 @@ succeeded, was skipped, or aborted on conflict.
   orientation stays.
 - **Failure isolation** — one entry's failure never aborts the run or discards
   another entry's committed work.
-- **Never delete an inbox entry**; the checkbox carries the state.
+- **Never delete an inbox entry**; the checkbox carries the state. A resolved drop
+  flips its own line; it never adds one.
+- **No access workarounds.** Never try to get past a bot check, captcha, or paywall
+  and never use shadow libraries; the fallback chain inside `wiki-capture` is the
+  whole automatic effort, and the rest goes to the curator as a drop.
 - **A drained inbox is a no-op** — no file under `raw/` or `wiki/` is created or
   modified, and nothing is committed or pushed.
 - Refuse to author from an implausible twin rather than publishing a confident
