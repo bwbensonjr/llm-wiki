@@ -52,8 +52,8 @@ The wiki's credibility depends on this — never pass outside knowledge off as
 corpus-backed:
 
 - **If the corpus does not cover the question**, say so plainly rather than
-  fabricating a cited answer. Suggest filing a source with `/file` to close the
-  gap.
+  fabricating a cited answer. Suggest filing a source with the `file` skill to
+  close the gap.
 - **If coverage is only partial**, answer what the corpus supports and name the
   gap. If you supplement with outside knowledge, mark that portion explicitly as
   *not corpus-backed* and give it no `[[wikilink]]` citation.

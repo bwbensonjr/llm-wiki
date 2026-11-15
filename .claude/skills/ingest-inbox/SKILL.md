@@ -179,7 +179,9 @@ immediately and reads as fact.
 If capture localized images (`images.kept` non-empty), that judgment is yours —
 there is no interview to review them:
 
-- `Read` the localized figures under `raw/assets/<twin-stem>/`.
+- Visually inspect the localized figures under `raw/assets/<twin-stem>/` using
+  the available image-viewing tool (for example, Claude Code's `Read` or Codex's
+  `view_image`). A text-only file read does not inspect an image.
 - **Distill** the meaningful ones into `## Summary` as prose — describe or
   transcribe what the figure shows. The wiki layer is a distillation, not a copy.
 - **Drop** the rest. A dropped figure is neither distilled nor promoted; its

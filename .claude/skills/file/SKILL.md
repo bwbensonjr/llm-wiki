@@ -80,8 +80,10 @@ only artifact is the harmless raw twin — which is correct.
 
 Read the raw twin at `raw_path`. **If images were localized** (the twin has
 links into `raw/assets/<twin-stem>/`, and the capture JSON listed them under
-`images.kept`), this is the review-and-consent step for them: `Read` those
-localized figures, then present them to the user and fold the **meaningful** ones
+`images.kept`), this is the review-and-consent step for them: visually inspect those
+localized figures using the available image-viewing tool (for example, Claude Code's
+`Read` or Codex's `view_image`). A text-only file read does not inspect an image.
+Then present them to the user and fold the **meaningful** ones
 into your draft `## Summary` as prose — describe or transcribe what a figure
 shows, since the wiki layer is a distillation, not a copy. Let the user **drop**
 any that are noise; a dropped figure is simply not distilled and not promoted —
